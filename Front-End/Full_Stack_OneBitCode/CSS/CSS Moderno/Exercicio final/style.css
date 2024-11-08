@@ -1,0 +1,137 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+}
+
+.header,
+.footer {
+  color: white;
+  background-color: rgb(36, 35, 35);
+  height: 75px;
+  width: 100%;
+  display: flex;
+  padding: 0px 17px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerBtn {
+  display: flex;
+}
+
+.navbarBtn {
+  color: white;
+  padding: 0px 15px;
+  background-color: transparent;
+  cursor: pointer;
+  
+}
+
+.navbar_btn:hover {
+  border: 10px;
+  border-color: green;
+  /* transition: 0.4s;   */
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
+  
+}
+
+.sectionTitle1 {
+  font-size: 22px;
+}
+
+
+.gridConteiner {
+  min-height: 100vh;
+  flex: 1 0 auto;
+  padding: 10px;
+  display: grid;
+  grid-template-areas: 
+  "title title title title"
+  "img1 img2 img3 sidebarImg"
+  "img4 img5 img6 sidebarImg"
+  "img7 img8 img9 sidebarImg";
+  
+}
+
+.gridContent {
+  
+}
+
+.mainImg {
+  width: 280px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.sidebarContent {
+  background-color: darkgray;
+  
+}
+
+.sidebarImg {
+  width: 180px;
+  height: 120px;
+  border-radius: 10px;
+
+}
+
+.footer_link {
+  color: white;
+
+}
+
+.title {
+  grid-area: title;
+}
+
+.img1 {
+  grid-area: img1;
+}
+
+.img2 {
+  grid-area: img2;
+}
+
+.img3 {
+  grid-area: img3;
+}
+
+.img4 {
+  grid-area: img4;
+}
+
+.img5 {
+  grid-area: img5;
+}
+
+.img6 {
+  grid-area: img6;
+}
+
+.img7 {
+  grid-area: img7;
+}
+
+.img8 {
+  grid-area: img8;
+}
+
+.img9 {
+  grid-area: img9;
+}
+
+.sidebarImg {
+  grid-area: sidebarImg;
+}
+
+

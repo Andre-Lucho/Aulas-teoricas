@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* INLINE: 
+não quebra de linha, largura MÍNIMA (ocupa apenas o espaço necessário p o ELEMENTO, 
+ACEITA APENAS margem e preenchimento(PADDING) HORIZONTAL */
+/* <span> => INLINE padrão */
+
+.inline {
+  display: inline;
+
+  margin-top: 100px;
+  margin-bottom: 100px;
+  /* não aceita AJUSTE vertical */
+
+  margin-left: 20px;
+  margin-right: 20px;
+
+  padding-top: 100px;
+  padding-bottom: 100px;
+  /* não aceita AJUSTE vertical */
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* BLOCK: 
+quebra de linha, largura máxima (ELEMENTO ocupa TODO o espaço HORIZONTAL, 
+ACEITA margem e preenchimento VERTICAL */
+
+/* <h1..h6>,<p>,<div>,<section>,<header>,<main>,<footer>,<nav>... 
+=> Display Block padrao*/
+
+.block {
+  display: block;
+  margin: 10px 20px;
+  padding: 10px 20px;
+}
+
+/* inline-block: não quebra linha, 
+com MARGIN + PADDING VERTIVCAL*/
+.inline-block {
+  display: inline-block;
+  margin-top: 30px;
+  padding-top: 10px;
+}

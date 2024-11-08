@@ -1,0 +1,40 @@
+:root {
+  --cor-principal: #3c59e7;
+  --cor-claro: #cfc9c9;
+  --cor-escuro: #232323;
+  --preenchimento-pq: .25rem 1rem;
+  /* (esq dir = vertical) + (cima baixo = horizaontal)*/
+  --preenchimento-md: 2rem;
+  --preenchimento-gd: 4rem;
+}  
+/* 
+--nome-da-variavel
+sem camel ou snakeCase
+qquer valor CSS */
+
+
+header {
+  background-color: var(--cor-escuro);
+  color: var(--cor-claro);
+  padding: var(--preenchimento-pq);
+}
+
+section {
+  background-color: var(--cor-claro);
+  padding: var(--preenchimento-md);
+} 
+
+div {
+  --preenchimento-pq: 1rem;
+  background-color: var(--cor-principal);
+  color: var(--cor-claro);
+  padding: var(--preenchimento-pq);
+
+  /* aqui, --preenchimento-pq está sendo delarado e tb utilizado nesse escopo! */
+}
+
+.red-box {
+  --cor-principal: #f64348;
+  /* alterou a cor da backgroud-color da Div(onde está incluida o .red-box)
+  ele atribui dinamicamente o novo valor dessa var  */
+} 

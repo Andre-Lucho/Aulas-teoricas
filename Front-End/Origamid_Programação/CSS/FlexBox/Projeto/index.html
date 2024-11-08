@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./CSS/style.css">
+  <title>Projeto CSS FlexBox</title>
+</head>
+
+<body>
+  <div class="superinfo-background">
+    <div class="superinfo-container">
+      <p>Seg/sex - 08h às 19h</p>
+      <!-- href="tel... link p abrir o app de tel no mobile-->
+      <a href="tel:+555199999-9999">+55 51 99999-9999</a>
+      <p>Av. Osvaldo Aranha, 1030 - Porto Alegre</p>
+    </div>
+  </div>
+  <header class="menu-background">
+    <div class="menu-container">
+      <div class="menu-logo">
+        <a href="#">FlexBlog</a>
+      </div>
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#preco">Preco</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <h1 class="introducao">Novos Valores e<br>Propriedades CSS</h1>
+  <section class="sobre" id="sobre"">
+    <div class=" sobre-info">
+    <h1>Sobre</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ipsa eveniet fugiat nobis soluta laboriosam
+      accusantium impedit minima tempore labore!</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione alias, est tenetur in nam corrupti repudiandae
+      odio temporibus architecto hic.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis iusto doloribus necessitatibus delectus eius
+      impedit? Similique, obcaecati nihil. Nisi, deleniti!</p>
+    </div>
+    <div class="sobre-img">
+      <!-- tags do tipo imagem náo funcionam mto bem com flexbox
+      por isso, dentro de div-->
+      <img src="./Img/Sobre/1.jpg" alt="sobre01" class="imgSobre01">
+    </div>
+    <div class="sobre-img">
+      <img src="./Img/Sobre/2.jpg" alt="sobre02" class="imgSobre02">
+    </div>
+  </section>
+  <section class="produtos" id="produtos">
+    <h1>Produtos</h1>
+    <div class="produtos-container">
+      <div class="produtos-item itemPrd01">
+        <h2>Produto 1</h2>
+        <img src="./Img/produtos/foto-nvidia-rtx-3090.webp" class="itemPrdImg01" alt="produto01">
+      </div>
+      <div class="produtos-item itemPrd02">
+        <h2>Produto 2</h2>
+        <img src="./Img/produtos/monitor.webp" class="itemPrdImg02" alt="produto02">
+      </div>
+      <div class="produtos-item itemPrd03">
+        <h2>Produto 3</h2>
+        <img src="./Img/produtos/ssd-m.2-nvme.jpg.webp" class="itemPrdImg03" alt="produto03">
+      </div>
+    </div>
+  </section>
+  <section class="preco" id="preco">
+    <h1>Preços</h1>
+    <div class="preco-container">
+      <div class="preco-item itemPreco01">
+        <h2>Cobre</h2>
+        <span><sup>R$</sup>29</span>
+        <ul>
+          <li>Planos Ilimitados</li>
+          <li>Acesso Restrito</li>
+          <li>Conteúdo Secreto</li>
+          <li>Suporte 24h</li>
+          <a href="#">Comprar</a>
+        </ul>
+      </div>
+      <div class="preco-item itemPreco02">
+        <h2>Prata</h2>
+        <span><sup>R$</sup>46</span>
+        <ul>
+          <li>Planos Ilimitados</li>
+          <li>Acesso Restrito</li>
+          <li>Conteúdo Secreto</li>
+          <li>Suporte 24h</li>
+          <li>Compra Exclusiva</li>
+          <a href="#">Comprar</a>
+        </ul>
+      </div>
+      <div class="preco-item itemPreco03">
+        <h2>Ouro</h2>
+        <span><sup>R$</sup>96</span>
+        <ul>
+          <li>Planos Ilimitados</li>
+          <li>Acesso Restrito</li>
+          <li>Conteúdo Secreto</li>
+          <li>Suporte 24h</li>
+          <li>Compra Exclusiva</li>
+          <li>Download dos itens</li>
+          <a href="#">Comprar</a>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="qualidade" id="qualidade">
+    <div class="qualidade-item qualItem01">
+      <h2>Inteligente</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor, dignissimos deserunt voluptatum nisi
+        aliquid.</p>.
+    </div>
+    <div class="qualidade-item qualItem02">
+      <h2>Compacto</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor, dignissimos deserunt voluptatum nisi
+        aliquid consectetur.</p>
+    </div>
+    <div class="qualidade-item qualItem03">
+      <h2>Econômico</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor, dignissimos deserunt voluptatum nisi
+        aliquid.</p>
+    </div>
+    <div class="qualidade-item qualItem04">
+      <h2>Transparente</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor, dignissimos deserunt voluptatum nisi
+        aliquid.</p>
+    </div>
+    <div class="qualidade-item qualItem05">
+      <h2>Opaco</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor, dignissimos deserunt voluptatum nisi
+        aliquid consectetur.</p>
+    </div>
+    <div class="qualidade-item qualItem06">
+      <h2>Sustentável</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor, dignissimos deserunt voluptatum nisi
+        aliquid.</p>
+    </div>
+  </section>
+  <section class="newsletter" id="contato">
+    <div class="newsletter-info">
+      <h1>Newsletter</h1>
+      <p>Assine e fique por dentro das novidades</p>
+    </div>
+    <form class="newsletter-form">
+      <input type="text" placeholder="Seu e-mail">
+      <button type="submit">Assinar</button>
+    </form>
+  </section>
+  <footer class="footer">
+    <p>FlexBlog© Todos os Direitos Reservados</p>
+  </footer>
+</body>
+
+</html>

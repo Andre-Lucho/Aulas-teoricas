@@ -1,0 +1,213 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+body {
+  background-color: darkgray;
+}
+
+/* ja ha modificacoes aqui - flex */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header, 
+.footer {
+  color: white;
+  background-color: #292929;
+  /* min-height em funcao da quabra dos botoes na responsividade*/
+  min-height: 75px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0px 17px;
+  /* quando quebrar - o logo + botoes vao quebrar, mantendo a distancia gap 8px e 15px */
+  gap: 8px 15px;
+}
+
+.navbarlogo {
+  width: 180px;
+}
+
+.headerBtnGroup {
+  display: flex;
+  gap: 15px;
+}
+.navbarBtn {
+  color: white;
+  font-size: 16px;
+  padding: 8px;
+  background-color: transparent;
+  
+  /* ja definimos aqui o tamanho da borda aqui 
+  para nao modificar qd houver o Hover (se nao, iria "crescer" de tam os botoes)
+  permite efeito de easy-in/easy-out */
+    border: 2px solid transparent;
+  
+    /* o pointer aqui melhora a velocidade da animacao */
+  cursor: pointer;
+}
+.navbarBtn:hover {
+  border-bottom: 2px solid #9e1717;
+  transition: 0.6s;
+}
+
+.sectionTitle {
+  /* qd aumento o tam da letra - ela esta se comportando como um padding ??? 
+  nao esta aumentando -somente com comento o 20px do * 
+  porem, mesmo com os 20px do * os buttons ficaram menores com o 16px do .navbarBtn ?
+  */
+  color: #9e1717;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.sectionDescription {
+  text-align: center;
+  color: #383838;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "mainContent sidebarContent";
+  padding: 20px;
+  flex: 1 0 auto;
+}
+
+.mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  grid-area: mainContent;
+}
+
+.categoryCard {
+  width: 280px;
+  height: 380px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.categoryCard:hover {
+  border: 2px solid #9e1717;
+  transition: 0.5s;
+}
+
+.mainCardImg {
+  /* vai ocupar todo o espaco disponivel - % e responsivo */
+  width: 100%;
+
+  /* pq nao 100%? - pois, iria ccupar toda a area e tapar o texto 
+  - height nao precisa ser responsivo - pode ser fixo */
+  height: 180px;
+
+  border-radius: 10px;
+}
+
+.mainCategoryCardTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 6px;
+}
+
+.mainCategoryCardDescription {
+  padding: 6px;
+}
+
+.sidebarContent {
+  background-color: #383838;
+  color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* aqui nao temos o flex warp - entao, qd diminuirmos o tamanho da tela, as Imgs irao diminuir tb. 
+  Assim, as Imgs do Sidebar permanecem com um tamanho fixo */
+  min-width: 300px;
+  gap: 40px;
+  grid-area: sidebarContent;
+}
+
+.sidebarCategoryCard {
+  width: 75%;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sidebarCategoryCard:hover {
+  border: 2px solid #dcdcdc;
+  transition: 0.5s;
+}
+
+.sidebarCardImg {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sidebarCategoryCardTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding: 6px;
+
+}
+
+.footerAnchor {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+
+/* @media (max-width: 840px)
+  .sidebarContent {
+
+}
+
+*/
+
+/* @media(max-width: 680px) {
+  .sectionDescription {
+    max-width: 85%;
+    padding-left: 75px; 
+}    */
+
+@media(max-width: 645px) {
+  .gridContainer {
+    grid-template-areas: 
+    "mainContent" 
+    "sidebarContent";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* espacamento do ultimo card - em relacao ao .sideContent */
+    gap: 10px;
+  }
+  .sidebarContent {
+    /* pois, tinhamos um min-width de 300px - 
+    abaixo disso, ele mantera os 300, se nao tirarmos - deixamos no auto */
+    min-width: auto;
+  }  
+}
+
+@media(max-width: 470px) {
+  .header, 
+  .footer {
+    justify-content: center;
+    padding: 18px;
+    gap: 10px 15px;
+  }
+}
+

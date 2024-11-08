@@ -1,0 +1,71 @@
+/* 
+1) Seletores de posicionamento 
+
+a) De um filho
+
+** Seletor nth-child()
+nth = number th - numero ordenado (1°, 2°, ...) */
+
+li:nth-child(2) {
+  color: #f00;
+}
+
+/* li:nth-child(2n) {
+  color: #f00;
+} */
+
+
+li:nth-child(odd) {
+  color: #00f;
+}
+/* numeros multiplicados => aqui, por 2 = 2x1 = 2°li  / 2x2 = 4° Li
+(aceita também fórmulas matemáticas)
+** aceita odd, even => ímpares e pares 
+
+
+2) Seletores de um estado do elemento (como o elemento se encontra na página) */
+
+li:hover {
+  background-color: hsl(0, 0%, 0%);
+  color: #ffffff;
+  width: 200px;
+}
+
+input:focus {
+  background-color: #f00;
+}
+
+
+/* 
+3) PSEUDO-ELEMENTOS (::before e ::after )
+Não são elementos propriamente ditos; mas podem ser incluídos e estilizados na página via CSS 
+
+Geralmente usado para add imagens ou símbolos   */
+
+
+li::before {
+  content: "(antes) ";
+  color: hsl(156, 100%, 40%);
+  font-size: 1.5rem;
+}
+
+li::after {
+  content: " (depois)";
+}
+
+li:first-child {
+  color: rgb(255, 174, 0);
+}
+
+li:last-child {
+  color: rgb(230, 60, 179);
+}
+
+/* li:not(:first-child) {
+  color: rgb(55, 0, 255);
+} */
+/* Todos os que NÃO SÃO o 1° Li */
+
+
+/* **** VER HERANÇA E ESPECIFICIDADE AQUI **** 
+   ****ESTÁ BEM DEMOISTRADO  */

@@ -1,0 +1,30 @@
+[
+  {
+    "especie": "Puma",
+    "total":  1778
+  },
+  {
+    "especie": "Tigre",
+    "total":  6000
+  },
+  {
+    "especie": "Serval",
+    "total":  887
+  },
+  {
+    "especie": "Tigre Branco",
+    "total":  1076
+  },
+  {
+    "especie": "Leao",
+    "total":  5833
+  },
+  {
+    "especie": "Gato-do-Mato",
+    "total":  2099
+  },
+  {
+    "especie": "Lince",
+    "total":  1508
+  }
+]

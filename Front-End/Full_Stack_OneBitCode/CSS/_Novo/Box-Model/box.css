@@ -1,0 +1,33 @@
+body {
+  background-color: #2e2b2fc9;
+  color:hsla(0, 0%, 96%, 0.753)
+}
+
+
+/* Os elementos HTML são tratados como caixas */
+/* ver img box-model */
+
+.box {
+	background-color: #f64348;
+	border: 3px solid #000000;
+  
+  /* margem => espaçamento + externo (borda até próx elemento)*/
+  margin-top: 30px;
+  margin-right: 40px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+
+	/* preenchimento => distancia do elemeto até a borda*/
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.box1 {
+  box-sizing: content-box;
+}
+
+.box2 {
+  box-sizing: border-box;
+}

@@ -1,0 +1,350 @@
+/* 
+// FLEX CONTAINER E FLEX ITEM // 
+
+
+1)FLEX CONTAINER => os elementos são trabalhados em colunas
+
+Propriedades:
+
+** display **
+a)flex-direction
+b)flex-wrap
+c)flex-flow
+d)justify-content
+e)align-items
+f)align-content
+
+
+2) FLEX ITEM
+
+Propriedades:
+
+a)flex-grow
+b)flex-basis
+c)flex-shrink
+d)flex
+e)order
+f)align-self
+
+
+---------------------------------------------
+
+// (1) FLEX CONTAINER //
+
+O FLEX CONTAINER é a tag que envolve os itens Flex; ao indicar:
+=> display:flex => a tag passa a ser um Flex Container e os elems DENTRO DELA 
+=> tem comportamento FLEX
+
+*SEM quebra de linha = um ao lado do outro na mesma linha 
+
+
+*) DISPLAY
+Define os elems como um flex container; seus filhos serão considerados Flex-Itens 
+
+**) Comportamento padrão do Flex: 
+
+a) deixam os elems em "caixas", que ocupam exatamente o valor dentro do elemento(tag)
+**no display:block, os valores das tags ocupam todo o espaço horizontal disponível com quebra de linha
+
+b) ocupam o espaço necessário ( MESMO que 'transborde' o Container)
+c) no-wrap
+d) Em Row => em Linha
+
+
+---------------------------------------------
+
+// A) FLEX-DIRECTION => 
+
+Direcionamento dos Flex-Itens
+a) OCUPA TODO O ESPAÇO( semelhante= FLEX-GROW ATIVADO)
+
+**
+*)Row - padrão
+*)Row-reverse => Ordem reversa dos Flex-Itens na linha (os da dir vao p a esquerda)
+*)Column => em coluna => bom p mobile
+*)Column-reverse Ordem reversa dos Flex-Itens na coluna (os de baixa ficam em cima)
+
+
+---------------------------------------------
+
+// B) FLEX-WRAP => 'QUEBRA'
+Inibe o corpotamento-padão (no-wrap) de 'transbordar' o Container
+quebra e passa p a baixo => formando coluna
+o valor da tag também é quebrado(caso de + 1 palavra no elem)
+
+**
+*)no-wrap - padrão
+*)wrap
+*)wrap-reverse
+
+
+---------------------------------------------
+
+// C) FLEX-FLOW = FLEX-DIRECTION + WRAP
+POUCO UTILIZADO
+
+
+---------------------------------------------
+
+// D) JUSTIFY-CONTENT (HORIZONTAL)
+
+Alinha os flex-itens no container de acordo com a direção (row / column)
+a)** O Eixo de justificado é o HORIZONTAL
+
+b)Só funciona se os itens não ocuparem todo o container (deve existir um gap)
+flex-grow também deve ser = 0
+
+*** OBS.: o Container deve ocupar um espaço maior que o restante de seus itens, 
+para que as propriedades justify-content tenham efeito
+
+=> usar para alinhar itens tipo em um nav, um na esquerda e outro direita
+
+**
+*)flex-start - padrão
+Alinha os itens ao início do container.
+
+*)flex-end
+Alinha os itens ao final do container.
+
+*)center
+Alinha os itens ao centro do container.
+
+*)space-between
+Cria um espaçamento igual entre os elementos. Mantendo o primeiro grudado no início 
+e o último no final.
+
+*)space-around
+Cria um espaçamento entre os elementos. Os espaçamentos do meio são duas vezes maiores 
+que o inicial e final.
+
+
+---------------------------------------------
+
+// E) ALIGN-ITENS
+Alinha os flex-itens no container de acordo com o eixo do container (VERTICAL).
+** O Eixo de justificado é o VERTICAL
+
+É *diferente* para row e column
+Em Row => a borda de orientação é a superior/inferior
+Em Column => a borda de orientação é esq/direita
+
+**
+*)stretch = padrão 
+Faz com que os flex itens cresçam IGUALMENTE.
+DE ACORDO com o flex-item de maior height
+
+*)flex-start
+Alinha os itens a borda vertical superior do container
+
+*)flex-end
+Alinha os itens a borda vertical inferior do container
+
+*)center
+Alinha os itens ao centro vertical do container.
+
+*)baseline
+Alinha os itens de acordo com a linha base da tipografia.
+
+OBS>
+PARA ALINHAR UMA DIV EXATAMENTE NO CENTRO DE UM CONTAINER (EIXOS X E Y)
+justify-content: center
+align-itens: center
+
+
+---------------------------------------------
+
+F) ALIGN-CONTENT (conteúdo) => +1 linha de flex-itens
+
+Alinha as linhas do container em relação ao eixo vertical.
+
+a)Ocupa todo o espaço horizontal( semelhante= FLEX-GROW ATIVADO)
+
+*b)A propriedade só funciona se existir +1 linha de flex-itens
+flex-wrap precisa ser = wrap.
+
+*c)O Container deve ter um espaço maior que a soma das linhas dos itens, propriedades align-content tenham efeito.
+Isso significa que se você não definir height para o container, a propriedade não influencia no layout.
+
+* O Eixo de justificado é o VERTICAL
+** A borda de orientação é a superior/inferior
+
+*** Semelhante ao justify-content na vertical => levando em consideração o conteúdo dos elementos
+
+**
+*)stretch = padráo
+Faz com que os flex itens cresçam igualmente na vertical.
+
+*)flex-start;
+Alinha todas as linhas de itens ao início.
+
+*)flex-end;
+Alinha todas as linhas de itens ao final.
+
+*)center;
+Alinha todas as linhas de itens ao centro.
+
+*)space-between;
+Cria um espaçamento igual entre as linhas. Mantendo a primeira grudada no topo e a última no bottom.
+
+*)space-around;
+Cria um espaçamento entre as linhas. Os espaçamentos do meio são duas vezes maiores que o top e bottom.
+
+
+---------------------------------------------
+
+(2) FLEX ITEM => 
+
+a)O FLEX ITEM são os itens-filhos(tag-filhas) dentro do Container.
+
+b)FLEX ITEM também podem se tornar flex Containers, passando então os seus filhos a serem FLEX ITEM
+e assim sucessivamente
+
+
+A) FLEX-GROW (ou Flex) => "crescer" 
+
+Permite que os Itens ocupem todo espaço disponível dentro do container
+
+*)flex-item= 0 => inativo / 1 = ativo
+
+*)valores >1 = o item específico ocupará mais espaço no container que os demais filhos
+** proporcional aos demais valores de flex-grow
+** valores são multiplicados
+
+a) queM cresce é o PADDING na orientação esq/direita
+** Caso tenha width/height, cresce alem(+) do tam definido para ele(s)
+
+b)depende também do tamanho do conteudo => +conteudo, +espaço ocupado
+
+
+---------------------------------------------
+
+B)FLEX-BASIS => Qt o flex-item (elem) terá antes que flex-grow seja aplicado
+
+Indica o tamanho inicial do flex-item antes da distribuição do espaço restante (flex-grow);
+Qd definimos flex-grow:1 e temos flex-basis:auto, o valor restante para ocupar no container 
+é distribuido ao redor (antes e depois) do conteúdo do flex-item;
+
+OBS.: É necessario flex-grow= ativo
+
+**
+*)auto = padrão
+ele faz com que a largura da base seja igual a do item (distribui o mesmo valor de flex-grow de forma uniforme = esq/dir). 
+Se o item não tiver tamanho especificado, o tamanho será de acordo com o conteúdo.
+
+*)flex-basis: 0
+Se o flex-grow for igual ou maior que 1, ele irá tentar manter TODOS os elementos com a MESMA LARGURA total, 
+independente do conteúdo (por isso o 0 é o valor mais comum do flex-basis). 
+Caso contrário o item terá a largura do seu conteúdo.
+
+OBS => flex-basis 0 = bug no Safari = usar => ou (min-width 260px) no lugar do basis
+ou (basis de 260px) 
+
+*** pq 260px?? => menor largura de um mobile = vao estar TODOS os modelos contemplados
+< 260 PX = as telas dos mobiles já estaram "quebradas" em funcao do peq tamanho 
+
+
+*)unidade
+Pode ser em %, em, px e etc.
+
+**números dif 0 => funciona como um max-width => 
+tenta manter o valor definido, mas nunca será maior
+
+**Ele ignora valores para pre-definidos de width (Exceto min-width)
+**posso usar a funcao calc() =>  
+ex. 3 items dentro do container:
+calc(33% - 5px) => tentara manter todos na mesma linha
+
+
+---------------------------------------------
+
+
+C)FLEX-SHRINK => Permite a redução do tamanho do item
+
+OBS.: Pouco influi no tamanho final dos item dentro do container
+somente com flex-shrink = 0 (conteudo grande) ou flex-shrink =número (conteudo peq)
+*** funciona com => flex-basis fixo e/ou wrap = ativo
+
+*)flex-shrink: 1 = Valor padrão, permite que os itens tenham os seus tamanhos 
+(seja esse tamanho definido a partir de width ou flex-basis) reduzidos para caber no container.
+
+*)flex-shrink: 0 = Não permite a diminuição dos itens;
+assim um item com flex-basis: 300px, nunca diminuirá menos do que 300px, mesmo que o conteúdo não ocupe todo esse espaço 
+ou que extrapole o container
+**textos grandes não quebra linha
+
+*)flex-shrink: número  
+Um item com shrink: 3 = diminuirá 3 vezes mais que um item com 1 (* c/ conteudo pequeno).
+
+
+---------------------------------------------
+
+D)FLEX => Atalho para flex-grow + flex-shrink + flex-basis
+(Recomendado utiliz Flex ao invés deles em separado => compatibilidade nos browers - flex-basis = 0% OU 0)
+
+
+*) flex: 0 1 auto; -> Padrão
+Se você não definir nenhum valor de flex ou para as outras propriedades separadas, 
+o normal será flex-grow: 0, flex-shrink: 1 e flex-basis: auto.
+
+*) flex: 1;
+Define = flex-grow: 1; flex-shrink: 1; e flex-basis: 0; 
+(em alguns browsers define como 0%, pois estes ignoram valores sem unidades, porém a função do 0 e 0% é a mesma.)
+
+flex: 2;
+Define exatamente da mesma forma que o flex: 1; porém neste caso o flex-grow será de 2. 
+
+flex: 3 2 300px
+Define = flex-grow: 3; flex-shrink: 2; e flex-basis: 300px; 
+**OBS=> posso usar esse valor do flex-basis como min-width 
+=> melhor no Safari qd basis for 0!
+
+---------------------------------------------
+
+E)ORDER => muda a ordem dos flex- itens 
+
+*) order: número;
+Número para modificar a ordem padrão. Pode ser negativo.
+Menor número => em 1° lugar na disposição (negativo é menor que 0)
+Mesma número de order => ordem HTML
+Sem número => 0
+
+*) order: 0; => valor padrão 
+Significa que a ordem dos itens será a ordem apresentada no HTML. 
+Se você quiser colocar um item do meio da lista no início da mesma, sem modificar os demais, 
+o ideal é utilizar um valor negativo para este item, já que todos os outros são 0.
+
+---------------------------------------------
+
+
+F)ALIGN-SELF => Alinhamento ESPECÍFICO de um ÚNICO flex item dentro do nosso container.
+
+Caso um valor seja atribuído, ele PASSARÁ POR CIMA do que for atribuído no ALIGN-ITEMS do container.
+
+OBS.: Vale lembrar que o alinhamento acontece tanto em linha quanto em colunas. 
+Por exemplo o flex-start quando os itens estão em linhas, alinha o item ao topo da sua linha. 
+Quando em colunas, alinha o item ao início (esquerda) da coluna.
+
+
+*) auto => Padrão
+Vai respeitar o que for definido pelo align-items no flex-container.
+
+*) flex-start;
+Alinha o item ao início.
+
+*) flex-end;
+Alinha o item ao final.
+
+*) center;
+Alinha o item ao centro.
+
+*) baseline;
+Alinha o item a linha de base.
+
+*) stretch;
+Estica o item.
+
+
+
+
+
+*/

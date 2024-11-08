@@ -1,0 +1,574 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  /* reset de margins e paddings....
+  ele fez c/ body, h1, h2, p, ul,li... nao entendi o pq */
+  box-sizing: border-box;
+  /* os valores de paddding e margin se INCORPORAM ao total do width e height definidos
+  = ou seja, NAO AUMENTA o width e height, DIMINUIndo o conteudo interno 
+  p caber nmo tam do width e height definidos
+  */
+}
+
+body {
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  color: #222222;
+  /* preto um pouco + claro */
+}
+
+ul {
+  list-style: none;
+  /* remove o estilo padrao */
+}
+
+a {
+  text-decoration: none;
+  /* remove o estilo dos links (sublihado) */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  /* mantem toda a sua proporcao, qd aumenta a resolucao;
+  nao aumenta + q 100% = não ocupa toda a tela*/
+}
+
+/* Superinfo */
+
+.superinfo-background {
+  background-color: #122ab2;
+  color: #f2f2f2f2;
+}
+
+.superinfo-container a {
+  color: #f2f2f2f2;
+}
+
+.superinfo-container {
+  max-width: 960px;
+  /* denifido pelo card do layout da aula */
+
+  margin: 0 auto;
+  /* alinhado ao centro = 0 cima/ baixo; auto esq/dir */
+
+  padding-top: 10px;
+  /* pq não margin?? pois, margin desloca todo elem => distoa da cor do background */
+
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.superinfo-container p,
+.superinfo-container a {
+  margin: 0px 10px 10px 10px;
+}
+
+/* Menu */
+
+.menu-background {
+  background-color: #2c70ff;
+}
+
+.menu-container {
+  max-width: 960px;
+  padding: 15px, 0px;
+  /* denifino pelo card do layout da aula*/
+
+  margin: 0 auto;
+  font-weight: bold;
+  display: flex;
+  /*Div e Nav como Flex-itens
+  *** ul e lis não são itens flex!!! 
+  */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-container a {
+  color: #f2f2f2f2;
+}
+
+.menu-logo a {
+  font-size: 2.25em;
+  /* denifido pelo card do layout da aula */
+  margin: 0px 10px;
+}
+
+.menu-nav ul {
+  display: flex;
+  /* agora, os lis viram itens flex
+  obs.: tb poderia deixar essa classe direto no ul
+  */
+  flex-wrap: wrap;
+}
+
+.menu-nav a {
+  font-size: 1.25em;
+  /* denifido pelo card do layout da aula */
+  display: block;
+  padding: 10px;
+  /* por padrao, <a> é display: inline => assim, posso influenciar no padding deles 
+  isso é importante em funcao de ter > area p pressionar no mobile!!
+  */
+}
+
+/* pq ele utiliza tam fonte em no menu e nav 
+especificamente ??*/
+
+.superinfo-container a:hover {
+  color: #2c70ff;
+}
+
+.menu-logo a:hover {
+  color: #122ab2;
+}
+
+.menu-nav a:hover {
+  color: #122ab2;
+}
+
+/* Introducao */
+
+.introducao {
+  font-size: bold;
+  font-size: 3em;
+  /* denifido pelo card do layout da aula */
+  line-height: 1.1;
+  /* entre linhas */
+  color: #222222;
+  margin: 0 auto;
+  padding: 60px 10px;
+  max-width: 960px;
+  /* denifido pelo card do layout da aula */
+}
+
+/* Sobre */
+
+.sobre {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 0px;
+  /* denifido pelo card do layout da aula */
+  border-top: 2px solid #2c70ff;
+  border-bottom: 2px solid #2c70ff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sobre-info {
+  flex: 2 1 300px;
+  /* quero que ele cresce 2x+ que os outros, permitindo reduzir ate max de 300px de largura; 
+  apos isso, quebra - wrap ativo na classe 'sobre' */
+  margin: 0 10px;
+}
+
+.sobre-img {
+  flex: 1 0 180px;
+  /* quero que ele cresce 1x+ que os outros, não permitindo que as imgs reduzam além de 180px */
+
+  margin: 10px 10px;
+}
+/* sobre-info + sobre-img acima => 
+dividido em 3 partes, 2x para o texto */
+
+.sobre-info h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  /* denifido pelo card do layout da aula */
+  color: #222222;
+}
+
+.sobre-info p {
+  font-size: 1.25em;
+  /* denifido pelo card do layout da aula */
+  line-height: 1.4;
+  /* tipografia padrao de sites */
+
+  margin-bottom: 1em;
+  color: #7c7c7c;
+}
+
+.imgSobre01,
+.imgSobre02 {
+  border-radius: 12px;
+}
+
+/* **Ver pq nao está renderizando abaixo */
+.imgSobre02 {
+  align-self: flex-end;
+}
+
+/*  Produtos */
+
+.produtos {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 0px;
+  /* denifido pelo card do layout da aula */
+  border-bottom: 2px solid #2c70ff;
+}
+
+.produtos h1 {
+  font-size: 3em;
+  margin: 0px 10px 60px 10px;
+  color: #222222;
+}
+
+.produtos-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.produtos-item {
+  flex: 1 1 300px;
+  margin: 0px 10px;
+}
+
+.produtos-item h2 {
+  font-size: 3em;
+  color: #a4a4a4;
+  background-color: #f7f7f7;
+  /* denifido pelo card do layout da aula */
+  padding: 60px 20px;
+}
+
+.itemPrdImg01,
+.itemPrdImg02,
+.itemPrdImg03 {
+  border-radius: 12px;
+}
+
+.itemPrd01 {
+  border-radius: 12px;
+  border-top: 8px solid black;
+}
+
+.itemPrd02 {
+  border-radius: 12px;
+  border-top: 8px solid #772ddb;
+}
+
+.itemPrd03 {
+  border-radius: 12px;
+  border-top: 8px solid #596276;
+}
+
+/*  Preco */
+
+.preco {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 0px;
+  /* em funcao do backgraound */
+  background-color: #f7f7f7;
+  border-bottom: 2px solid #2c70ff;
+}
+
+.preco-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.preco-item {
+  flex: 1 1 260px;
+  border: 4px solid white;
+  padding: 20px;
+  margin: 10px;
+}
+
+.preco h1 {
+  font-size: 3em;
+  margin: 0px 10px 60px 10px;
+  color: #222222;
+}
+
+.preco-item h2 {
+  font-size: 3em;
+  color: #a4a4a4;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.preco-item span {
+  display: block;
+  /* por padrão, <span> tem display:inline */
+  max-width: 300px;
+  /* fazer um 'containerzinho' aqui */
+  margin: 10px auto;
+  padding: 10px 0 5px 0;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+  color: #222222;
+}
+
+.preco-item sup {
+  font-size: 1.5rem;
+  /* como <sup> esta dentro do span, aqui, em em <sup> seria relativo ao em do <span> 
+  rem => relativo a raiz (16px) */
+}
+
+.preco-item ul {
+  margin: 0px auto;
+  margin-top: 10px;
+  padding: 10px 0px;
+  font-size: 1.25em;
+  font-style: italic;
+  color: #7c7c7c;
+}
+
+/* Será o flex-container */
+.preco-item li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.preco-item li::after {
+  /* pseudo-elemento => será o Flex-item */
+  content: "";
+  display: block;
+  /* o display do pseudo-elemento e inline */
+  height: 6px;
+  width: 6px;
+  background-color: #2c70ff;
+  border-radius: 50%;
+  /* ou 3px (metade).... mas % = responsivo */
+}
+
+.preco-item a {
+  display: block;
+  margin: 0px auto;
+  margin-top: 30px;
+  border: 4px solid;
+  color: #222222;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+@media (max-width: 576px) {
+  /* .itemPreco02 {
+    order: -1;
+  } */
+
+  /* ou  */
+
+  .preco .preco-item:nth-child(2) {
+    order: -1;
+  }
+  /* ou somente .preco-item... */
+}
+
+/* media => implementar regras CSS especificas p telas definidas no media
+max-width => o elem tera no max essa largura = depois dela, entram as regras normais de CSS;
+abaixo => entram as regras media-query!!
+
+aqui, estou deixando a render do plano mais importante p que o consumidor veja (prata) 
+antes do plano cobre, qd a tela ter - 576px => marketing
+*/
+
+/* Qualidade */
+
+.qualidade {
+  max-width: 960px;
+  margin: 0px auto;
+  padding: 60px 0 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #2c70ff;
+}
+
+.qualidade-item {
+  flex: 1 1 300px;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.qualidade-item h2 {
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 2.25em;
+  color: #a4a4a4;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: baseline;
+}
+
+.qualidade-item h2::before {
+  content: "";
+  display: block;
+  height: 30px;
+  width: 8px;
+  background-color: #ae81ff;
+  margin-right: 10px;
+}
+
+/* .qualItem02 h2::before,
+.qualItem05 h2::before {
+  background-color: #f9265e;
+}
+
+.qualItem03 h2::before,
+.qualItem06 h2::before {
+  background-color: #66d9eb;
+} */
+
+/* ou */
+
+.qualidade-item:nth-of-type(3n + 1) h2::before {
+  background-color: #ae81ff;
+}
+
+.qualidade-item:nth-of-type(3n + 2) h2::before {
+  background-color: #f9265e;
+}
+
+.qualidade-item:nth-of-type(3n + 3) h2::before {
+  background-color: #66d9eb;
+}
+
+/* filhos do tipo => 
+3n+1 => 1° e conta +3 = 4°
+3n+2 => 2° e conta +3 = 5°
+3n+3 => 3° e conta +3 = 6°
+
+*/
+
+.qualidade-item p {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  font-size: 1.25em;
+  /* denifido pelo card do layout da aula */
+  line-height: 1.4;
+  /* tipografia padrao de sites */
+  color: #7c7c7c;
+}
+
+/* NewsLetter */
+
+.newsletter {
+  background-color: #f7f7f7;
+  padding: 60px calc((100% - 960px) / 2);
+  display: flex;
+  flex-wrap: wrap;
+  /* pq padding? => cor background 
+  
+  padding da esq e dir => 
+  100% = todo a area da janela
+  -960px => o conteiner (quero as laterais)
+  / 2 => 2 paddings - esq + dir 
+  
+  semelhante ao margin: 0 auto; 
+  calc() = auto
+  padd
+ */
+}
+
+.newsletter-info {
+  flex: 1 1 260px;
+  margin: 0px 10px;
+}
+
+.newsletter-info h1 {
+  font-size: 3em;
+  color: #a4a4a4;
+}
+
+.newsletter-info p {
+  font-size: 1.25em;
+  font-style: italic;
+  color: #7c7c7c;
+  max-width: 260px;
+  /* para quebrar linha - conforme card */
+  margin-bottom: 10px;
+  /* para o input - qd quebrar ter espaço */
+}
+
+.newsletter-form {
+  flex: 2 1 260px;
+  margin: 0 10px;
+  align-self: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  /* para influenciar neles como flex??
+  nao houve alteração de layout na responsividade  */
+}
+
+.newsletter-form input {
+  flex: 3 1 260px;
+  /* basis original = 200px => 260 = Safari - nele, quebra */
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  /* por padrao, o input esta puxando outra font-family */
+  font-size: 1.15em;
+  font-style: italic;
+  color: #7c7c7c;
+  border: 4px solid #2c70ff;
+  background-color: transparent;
+  padding: 10px;
+
+  margin: 0px;
+  border-radius: 0px;
+  /* para forçar S/ margin e S/border-radius =>  **Geralmente Safari força aqui no input no mobile**
+  */
+}
+
+.newsletter-form button {
+  flex: 1 1 260px;
+  /* basis original = 200px => 260 = Safari = nele, quebra */
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-size: 2.15em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #f7f7f7;
+  background-color: #2c70ff;
+  border: 0px;
+  /* vem por padrao <button> */
+  cursor: pointer;
+  padding: 10px;
+
+  margin: 0px;
+  /* para forçar S/ margin*/
+}
+
+@media (max-width: 576px) {
+  .newsletter-form button {
+    font-size: 1.5em;
+  }
+}
+
+/* Footer */
+/* com heigth fixo */
+
+/* poderia ser feito com padding tb*/
+
+.footer {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  /* padding: 60px calc((100% - 960px) / 2); */
+  background-color: #2c70ff;
+}
+
+.footer p {
+  color: #122ab2;
+  font-size: 2.25em;
+  flex: 1;
+  text-align: center;
+  /* crescer e manter o tam fonte 
+    com justify-content ele diminui o tam fonte
+  */
+}

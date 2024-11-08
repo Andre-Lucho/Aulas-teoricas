@@ -1,0 +1,13 @@
+Algoritmo "Zerado"
+
+
+Var
+
+
+
+Inicio
+
+
+
+
+

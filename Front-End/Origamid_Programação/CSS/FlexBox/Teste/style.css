@@ -1,0 +1,52 @@
+body {
+  text-align: center;
+  background-color: hsl(212, 13%, 23%);
+  color: #dcd8d8;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /*qt ocupa da janela no browse */
+}
+
+/* contêiner extra (DIV) ao redor do ‘.container’(Section) e aplicar Flexbox ao contêiner extra 
+aqui, então, todo o conteiner sera centralizado, 
+pois ele [‘.container’(Section)], agora, é o conteudo do .flex-container
+*/
+
+.container {
+  width: 700px;
+  height: 600px;
+  /* outra opção para centralização: 
+  margin-left: auto;
+  margin-right: auto;*/
+  display: flex;
+  border: 2px solid #dcd8d8;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.items {
+  background-color: #ff0000;
+  border: 2px solid #dcd8d8;
+  padding: 30px;
+  margin: 5px;
+  width: 50px;
+  height: 25px;
+  flex-grow: 1;
+}
+
+.item6 {
+  flex: 0;
+  /* padding: 0px; */
+
+  /* flex-grow: 1;
+  flex-basis: 800px;
+  flex-shrink: 1; */
+}

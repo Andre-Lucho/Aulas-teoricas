@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabalhando com Eventos</title>
+  <script src="./eventos_2.js" defer></script>
+  <!--
+  defer => 
+  atributo booleano do <script> que carrega o codigo JS de forma "paralela" 
+  ao carregamento do codigo HTML, permitindo que o script JS seja executado
+  apos o carregamento de toda a pag
+  e preparando para futuros eventos setados por functions.
+  outra opcao seria também colocar o <script> ao final do codigo HTML -->
+
+</head>
+<body>
+  <h1>Trabalhando com Eventos no Javascript</h1>
+  <hr>
+
+  <h2>Registre-se!</h2>
+  <section>
+    <label for="username">Nome de Usuário:</label>
+    <input type="text" name="username" id="username">
+    <br>
+    <label for="password">Senha:</label>
+    <input type="password" name="password" id="password">
+    <br>
+    <label for="passwordConfirmation">Confirme sua senha:</label>
+    <input type="password" name="passwordConfirmation" id="passwordConfirmation">
+    <br>
+    <button id="register-button">Registrar</button>
+    <button id="remove">Remover Event Listener</button>
+  </section>
+</body>
+</html>

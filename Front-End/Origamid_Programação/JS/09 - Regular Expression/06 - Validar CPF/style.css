@@ -1,0 +1,41 @@
+body {
+  color: #fff;
+  background-color: #171f2b;
+  margin: 10px;
+}
+h1 {
+  font-weight: bold;
+}
+label {
+  display: block;
+  font-family: IBM Plex Mono;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+input {
+  box-sizing: border-box;
+  width: auto;
+  padding: 5px;
+  border: 2px solid black;
+  font-size: 1em;
+}
+
+input.erro {
+  border-color: hsl(0, 91%, 58%);
+}
+
+input.valido {
+  border-color: rgb(6, 253, 6);
+}
+.erro-cpf {
+  display: none;
+  font-family: "IBM Plex Mono";
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #f53333;
+}
+
+.erro-cpf.ativar {
+  display: block;
+}

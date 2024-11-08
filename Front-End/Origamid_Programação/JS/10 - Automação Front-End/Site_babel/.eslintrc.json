@@ -1,0 +1,6 @@
+{
+  "extends": "airbnb"
+  // "env": {
+  //   "browser": true
+  // }, regra environment == ambiente de desenvolvimento == já está definida por padrão
+}

@@ -1,0 +1,17 @@
+@import "animacoes.css";
+@import "dropdown-menu.css";
+@import "geral.css";
+@import "media-queryes.css";
+@import "modal.css";
+@import "navegacao-tab-accordion-scroll.css";
+@import "numbers.css";
+@import "shopTime.css"; /* Exercício aula-setTimeout-setInterval */
+@import "tooltips.css";
+
+/* body {
+  background-color: #94bdff;
+}
+
+body.actived {
+  background-color: #ff9494;
+} */

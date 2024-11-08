@@ -1,0 +1,59 @@
+[data-dropdown] {
+  position: relative;
+  /* Agora, em relação a esse */
+}
+
+[data-dropdown] .dropdown-menu {
+  display: none;
+}
+
+/* [data-dropdown]:hover .dropdown-menu, */
+/* Funciona APENAS em desktop */
+[data-dropdown].actived .dropdown-menu {
+  display: block;
+  animation: show-up 0.2s forwards;
+}
+
+.dropdown-menu {
+  position: absolute;
+  /* Aqui, está absoluto em relação ao topo do site (quero em relação a barra de menu) */
+  top: 50px;
+  /* cuidar p não ter um gap mto grande p não perder a conexão com a li anterior(EM HOVER)*/
+  background-color: #e54;
+  border: 2px solid #333;
+  z-index: 2;
+}
+
+@keyframes show-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Estilo em forma de triângulo */
+.dropdown-menu::before {
+  content: "";
+  display: block;
+  /* ::before aqui é acima, pois o display é block; se fosse flex, seria ao lado */
+  position: absolute;
+  top: -10px;
+  width: 0;
+  height: 0;
+  /* 0 e 0 --> para exitir um pseudo-elemento */
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #e54;
+}
+
+.dropdown-menu li a {
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  color: white;
+}

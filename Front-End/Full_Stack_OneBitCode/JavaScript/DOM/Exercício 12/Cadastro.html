@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de DEVs</title>
+  <script src="correcao.js" defer></script>
+</head>
+<body>
+  <br><h1>Página para Cadastramento de DEV's</h1>
+  <hr>
+  <h2>Cadastro de DEV's</h2>
+  <h3>Preencha com os seus dados abaixo:</h3><br>
+  <form id="devBase">
+    <label for="fullName">Nome Completo: </label>
+    <input type="text" name="fullName" id="fullName">
+    <label>Adicionar Tecnologias</label>
+    <!-- type= button e náo "submit" = submit finaliza o form -->
+    <button type="button" id="button-add">Tecnologia</button>
+    <ol id="addTec">
+
+    </ol>
+    <button type="button" id="button-reset">Limpar Todos</button>
+    <button type="submit" id="button-send">Cadastrar</button>
+  </form>
+</body>
+</html>

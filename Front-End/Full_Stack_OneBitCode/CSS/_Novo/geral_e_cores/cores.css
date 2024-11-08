@@ -1,0 +1,34 @@
+/*  
+** CORES **
+
+Color picker => Google ou outro software
+
+Não usar a descrição da cor em inglês => seguirá a definição específica do navegador 
+que está sendo utilizado pelo usuário (perda de padronização)
+
+## CODIGO DAS CORES => PADRONIZAÇÃO
+
+A) RGB 
+
+(Red, green, blue) = até 255
+rgb() - função
+color: rgb(255,0,0); => vermelho puro
+
+
+B) HEXADECIMAIS => usa o RGB
+
+Formato => #RRGGBB 
+Usa valores de 0-15 com letras ( 0-9  +  A-F)
+
+Ex. FF =255, 00=0, 00=0
+color: #FF0000; => vermelho puro
+
+
+C) HSL 
+(Hue, saturation, lightness) = tonalidade, saturação e brilho
+0-360° ; horizontal % ; vertical %
+hsl()
+color: hsl(0°,100%, 50%) => vermelho puro
+
+
+*/

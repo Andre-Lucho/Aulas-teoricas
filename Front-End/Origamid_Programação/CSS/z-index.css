@@ -1,0 +1,15 @@
+/* 
+Z-INDEX
+-----------------------------------
+
+A propriedade z-index em CSS é usada para especificar a ordem de empilhamento dos elementos. Um elemento com um z-index maior está sempre na frente de um elemento com um z-index menor.
+
+O z-index é uma propriedade CSS que controla a ordem vertical dos elementos na página. Ele pode ser usado para garantir que um elemento esteja acima ou abaixo de outro na pilha de renderização.
+
+Como funciona o z-index? 
+O z-index só funciona em elementos posicionados (ou seja, quando position é definido como absolute, relative, fixed, ou sticky). 
+O z-index aceita valores inteiros (positivos, negativos ou zero), e os elementos são empilhados contextualmente com base nesses valores. Se dois elementos estão no mesmo contexto de empilhamento, o elemento com o maior z-index aparecerá na frente.
+
+Exemplos de uso do z-index: 
+O z-index é comumente usado em elementos de navegação, pop-ups, modais, overlays e dropdowns para garantir que eles apareçam acima de outros conteúdos.
+*/

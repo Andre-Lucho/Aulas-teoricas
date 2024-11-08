@@ -1,0 +1,15 @@
+* {
+  background-color: #e6ffff;
+}
+
+table, th, td {
+  border: solid 2px gray;
+}
+
+th {
+  background-color: #80e5ff;
+}
+
+td {
+  background-color: #e6faff;
+}

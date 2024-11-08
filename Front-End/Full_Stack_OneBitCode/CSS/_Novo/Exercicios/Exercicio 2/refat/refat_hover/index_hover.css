@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;}
+
+h1 {
+  margin: 35px;
+  margin-bottom: 45px;}
+
+li {
+  display: inline-block;
+  height: 200px;
+  width: 350px;
+  margin: 20px;
+  padding: 30px;
+  padding-left: 20px;
+  border: 6px solid transparent;
+  /* para manter o tamanho qd do evento de mudar o estilo */
+  border-radius: 4px;
+  background-color: hsl(257, 68%, 6%);
+  /* #1c1a1d*/
+  color: hsla(0, 0%, 90%, 0.874);
+  cursor: pointer;
+  /* tipo de apecto do cursor do mouse */
+}
+
+li:hover{
+  border: 6px solid #0909d13d;
+  border-radius: 4px;
+  background-color: hsl(0, 0%, 23%);
+  visibility: visible;
+}
+
+
+#button {
+  display: block;
+  width: 70px;
+  height: 20px;
+  margin: 20px;
+  border-radius: 4px;
+  cursor: pointer;  
+}

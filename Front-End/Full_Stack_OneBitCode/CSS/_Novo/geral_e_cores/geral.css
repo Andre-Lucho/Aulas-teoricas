@@ -1,0 +1,31 @@
+/* 
+CSS => Cascading Style Sheets = Folha de estilos em cascata
+
+*** Aplicado em cascata: 
+Os estilos se SOBREPÕEM, ou seja, aquilo que é aplicado depois 
+PREVALECE sobre o anterior
+
+Formas de refenciar o CSS ao HTML:
+
+1) DENTRO DAS TAGS
+<H1 style= "..."
+
+2) DENTRO DA <HEAD>
+<head>
+<style></style>
+</head>
+
+3) Apontando para o arquivo CSS
+<link rel="stylesheet" href="nomeDoArquivo.css">
+rel = reletion => relacao com o doc HTML
+href = caminho relativo
+
+
+h1, .class, #id... (seletor) {
+
+(Bloco de declaração)
+
+"propriedade: valor;"
+font-size: 20px;
+}  
+*/

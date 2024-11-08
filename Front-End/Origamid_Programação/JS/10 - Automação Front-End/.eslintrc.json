@@ -1,0 +1,7 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "eslint-disable": "no-unused-vars"
+  }
+}

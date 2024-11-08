@@ -1,0 +1,10 @@
+{
+  "editor.wordWrap": "on",
+  "javascript.format.enable": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.mouseWheelScrollSensitivity": 3,
+  "workbench.list.mouseWheelScrollSensitivity": 3,
+  "editor.mouseWheelZoom": true,
+  "liveServer.settings.port": 5503,
+  "editor.fontFamily": "'Arial'"
+}

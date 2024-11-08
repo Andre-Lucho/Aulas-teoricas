@@ -1,0 +1,85 @@
+/* seletor universal => normatização de estilo sem o padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* seletor de tag */
+header, footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+/* seletor de elementos aninhados => sem virgula 
+
+todos os elementos dentro de outros - ex: todos os <a> dentro de <nav> */
+nav a {
+  color: #27ae60;
+}
+
+/* seletor de filhos
+filhos sao apenas os elementos imediatamente após os elem-pais  */
+
+nav > a {
+  display: block;
+  color: #f5a623;
+  padding: 10px;
+}
+
+/* seletor de classes => mais comum nas bibliotecas e frameworks  */
+.laranja {
+  color: #f5a623;
+}
+.verde {
+  color: #27ae60;
+}
+
+
+/* seletor de id */
+#secao-principal {
+  padding: 20px;
+  text-align: center;
+}
+
+
+/* combinação de seletores 
+nesse exemplo = todos os elem filhos que estão dentro de #secao-principal (em funcao (*))
+ver exemplo [nav > a ] acima */
+
+#secao-principal > * {
+  margin-top: 10px;
+}
+
+
+input {
+  display: block;
+  padding: 5px;
+  margin: 5px;
+}
+
+/* seletor de sequência 
+
+Aqui, se refere ao input imediatamente após (em sequencia) ao 1° input 
+atencao => as margens (top e bottom) de 30px se sobressaem sobre a geral logo acima de 5px
+CSS é aplicado em Cascata! */
+
+input + input {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* fico com => margin left e right = 5px e margin top e bottom = 30px */
+
+}
+h2 + p {
+  padding: 30px;
+}
+
+
+/* seletores de propriedade (atributo) */
+input[name="email"] {
+  background-color: #f5a623;
+}
+
+input[name="password"] {
+  background-color: #27ae60;
+}

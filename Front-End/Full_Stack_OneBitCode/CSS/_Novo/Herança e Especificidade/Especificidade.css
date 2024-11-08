@@ -1,0 +1,47 @@
+/* 
+ESPECIFICIDADE => Determina a ordem de prioridade na aplicação das regras CSS (sobreescrição)
+
+1)
+
+A) As propriedades CSS são aplicados pelo formato de Cascata;
+
+B) Regras definidas INLINE têm MAIOR especificidade;
+
+** Regras em arquivo externo têm MENOR especificidade e são aplicadas por último;
+
+
+
+2) COMBINAÇÃO DE SELETORES
+
+** Quando múltiplos seletores se aplicam a um mesmo elemento, sua especificidade se somam;
+ex.: section > h1 {} ; body a {} ...
+
+** A ORDEM dos seletores (em Cascata) importa no caso de empate na especificidade;
+
+
+
+3) SOMATÓRIO DAS ESPECIFICAÇÕES (0, 0, 0)
+Da DIREITA p a ESQUERDA = Menor especificidade => Maior especificidade
+
+
+
+4) !important => se sobrepõem a todos as regras de especificidade 
+
+EVITAR - Dificuldade na manutenção do código
+USAR = Correção de código - erro em alguma especificidade
+
+escrito após a propriedade
+ex. background-color: #fff !important;
+
+
+
+** RESUMO **
+
+5) ESPECIFICIDADE DE SELETORES (Ordem do MAIOR => MENOR)
+
+1) INLINE  => (1000 pontos)
+2) ID  => (1,0,0 = 100 pontos)
+3) CLASSE, PSEUDO-CLASSES, ATRIBUTOS (ex.: .algumaClasse , :hover, input[type="radio"] )  => (0,1,0 = 10pontos)
+4) COMBINAÇÕES
+5) ELEMENTOS E PSEUDO-ELEMENTOS => (ex.: <TAGS>, ::before ou ::after)  => (0,0,1 = 1 ponto)
+6) (*)Universal  => (0 pontos)

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="jogoVelha.js" defer></script>
+  <title>Jogo da Velha JS</title>
+</head>
+
+<body>
+  <header>
+    <p>Tic-Tac-Toe Game</p>
+  </header>
+  <main class="main">
+    <section class="sectionNamesTitle">
+      <p id="p">Nome dos Jogadores:</p>
+      <div class="playerSection">
+        <form class="playersName">
+          <label for="name01" class="names">Jogador n° 01:</label>
+          <input type="text" id="name01" name="nameInput" placeholder="Nome">
+          <label for="name02" class="names">Jogador n° 02:</label>
+          <input type="text" id="name02" name="nameInput" placeholder="Nome">
+        </form>
+        <button id="nameConfirmBtn" onclick="getNames()">Confirma Nomes?</button>
+      </div>
+      <br>
+      <p id="playersDisplay"></p>
+    </section>
+    <section class="container">
+      <div class="cells"></div>
+      <div class="cells"></div>
+      <div class="cells"></div>
+      <div class="cells"></div>
+      <div class="cells"></div>
+      <div class="cells"></div>
+      <div class="cells"></div>
+      <div class="cells"></div>
+      <div class="cells"></div>
+    </section>
+  </main>
+</body>
+
+</html>

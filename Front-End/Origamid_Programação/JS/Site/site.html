@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.className += " js";
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title class="title">Felinos Fantásticos</title>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <!-- <div data-cor="azul" data-width="500">Uma Div</div> -->
+      <!-- <div data-anima-scroll="left">Div 2</div> -->
+      <nav class="menu" data-menu="smooth">
+        <!-- Menu Mobile -->
+        <button data-menu="button" aria-expanded="false" aria-controls="menu">
+          Menu
+        </button>
+        <!--  aria-expanded="false" => mostra ao leitor de tela que o menu está escondido -->
+          <!-- aria-controls="menu" => o que o botão está controlando ==> passar o id -->
+          <!-- atributos para acessibilidade -->
+        <ul data-menu="list" id="menu">
+        <li><a href="#animals">Animais</a></li>
+        <li><a href="#faq">Faq</a></li>
+        <li><a href="#números">números</a></li>
+        <li><a href="#contact">Contato</a></li>
+
+        <li data-dropdown>
+          <a>Sobre</a>
+          <ul class="dropdown-menu">
+            <!-- Sub-menu -- <ul> dentro de uma <li> -->
+            <li><a href="empresa.html">A Empresa</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+            <li><a href="socios.html">Sócios</a></li>
+            <li><a href="investidores.html">Investidores</a></li>
+          </ul>
+        </li>
+        <li><a href="login.html" data-modal="open">Login</a></li>
+      </ul>
+      </nav>
+
+      <section class="grid_Section animalsImg" data-anime="scroll" id="animals">
+        <h1 class="title">Felinos Fantásticos</h1>
+        <ul class="animalsListImg" data-tab="menu" data-tooltip-animals >
+          <!-- data-tab="menu" -- essa .dataset está relacionada ao JS - deixa a manipulação + independente a outra classe que faz referência ao estilo CSS -->
+          <li>
+            <img
+              class="gridImg img01"
+              src="./img/imagem01.jpg"
+              alt="Main_Imagem01"
+              aria-label="Puma"
+            />
+          </li>
+          <li>
+            <img
+              class="gridImg img02"
+              src="./img/imagem02.jpg"
+              alt="Main_Imagem02"
+              aria-label="Tigre"
+            />
+          </li>
+          <li>
+            <img
+              class="gridImg img03"
+              src="./img/imagem03.jpg"
+              alt="Main_Imagem03"
+              aria-label="Serval"
+            />
+          </li>
+          <li>
+            <img
+              class="gridImg img04"
+              src="./img/imagem04.jpg"
+              alt="Main_Imagem04"
+              aria-label="Tigre Branco"
+            />
+          </li>
+          <li>
+            <img
+              class="gridImg img05"
+              src="./img/imagem05.jpg"
+              alt="Main_Imagem05"
+              aria-label="Leão"
+            />
+          </li>
+          <li>
+            <img
+              class="gridImg img06"
+              src="./img/imagem06.jpg"
+              alt="Main_Imagem06"
+              aria-label="Gato do Mato"
+            />
+          </li>
+          <li>
+            <img
+              class="gridImg img07"
+              src="./img/imagem07.jpg"
+              alt="Main_Imagem07"
+              aria-label="Lince"
+            />
+          </li>
+        </ul>
+
+        <div class="animalsDescription" data-tab="content">
+          <!-- classe js-tabContent -- essa clase está relacionando o jstabmenu a ela -- Navegação por tab -->
+          <section>
+            <!-- por segurança, já deixei ativo aqui (temos no JS via também) -->
+            <h2>Puma</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+          </section>
+
+          <section>
+            <h2>Tigre</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+          </section>
+
+          <section>
+            <h2>Serval</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+          </section>
+
+          <section>
+            <h2>Tigre Branco</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+          </section>
+
+          <section>
+            <h2>Leão</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+          </section>
+
+          <section>
+            <h2>Gato do mato</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+          </section>
+          <section>
+            <h2>Lince</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Perferendis tempore sunt perspiciatis modi consequuntur quibusdam
+              quos odit maiores repellat eos vitae, veritatis harum veniam
+              repudiandae inventore explicabo amet molestias quas rem eaque
+              facilis deserunt unde?
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <section class="grid_Section faq" data-anime="scroll" id="faq">
+        <h1 class="title">FAQ</h1>
+        <dl class="faqList" data-anime="accordion">
+          <!-- lista com definicao -->
+          <dt>Qual a idade dos animais?</dt>
+          <!-- pergunta -->
+          <dd>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
+            minus aliquid animi necessitatibus eius! In!
+          </dd>
+          <!-- resposta -->
+          <dt>Pq eles são Fantásticos?</dt>
+          <dd>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, aut
+            aperiam facilis velit accusantium tempora
+          </dd>
+          <dt>Qual a diferença?</dt>
+          <dd>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, aut
+            aperiam facilis velit accusantium tempora
+          </dd>
+          <dt>Como Proteger?</dt>
+          <dd>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, aut
+            aperiam facilis velit accusantium tempora
+          </dd>
+        </dl>
+      </section>
+      <section class="grid_Section numbers" data-anime="scroll" id="numeros">
+        <h1 class="title">Números</h1>
+        <div class="grid-numbers">
+        </div>
+      </section>
+
+      <section class="grid_Section contact" data-anime="scroll" id="contact">
+        <h1 class="title">Contato</h1>
+        <div
+          class="map"
+          data-tooltip
+          aria-label="Referência: Endereço próximo ao estacionamento"
+        >
+          <!-- aria-label => semelhante ao atributo 'title' -->
+          <img src="./img/map.png" alt="Img Mapa" />
+        </div>
+        <div class="contactData">
+          <ul>
+            <li>contato@email.com</li>
+            <li>+55 (51) 3333-3333</li>
+            <li>Av. Carlos Gomes, 1034 conj 001</li>
+            <li>Porto Alegre - RS</li>
+            <li>Quer nos ajudar? Doe <span class="btc-preco" data-bitcoin>0</span>em Bitcoins</li>
+            <li>Horário de Funcionamento:</li>
+            <li class="date" data-week="1,2,3,4,5" data-time="8,18">Seg a Sex - Das 8h às 18h</li>
+            </ul>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="copyright">
+        <p>2024© Todos os diretos reservados.</p>
+      </footer>
+    </div>
+
+    <section class="modal-container" data-modal="container">
+      <div class="modal">
+        <button data-modal="close" class="close">X</button>
+        <form action="">
+          <label for="email">Email</label>
+          <input type="text" for="email" id="email" />
+          <label for="senha">Senha</label>
+          <input type="password" for="senha" id="senha" />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 
+      exercício cronômetro - aula-setTimeout-setInterval
+      <section>
+      <button class="init">Iniciar</button>
+      <button class="pause">Pausar</button>
+      <span class="time"></span>
+    </section> -->
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>

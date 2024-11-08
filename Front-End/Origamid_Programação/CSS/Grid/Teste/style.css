@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #333a42;
+  color: #dcd8d8;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.h1 {
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 2px solid #dcd8d8;
+  /* display: flex;
+  justify-content: center; */
+  /* height: 60vh; */
+  /* qt ocupa da janela no browser */
+}
+
+.grid-container {
+  display: grid;
+  min-height: 650px;
+
+  /* grid-template-columns: repeat(auto-fit, minmax(100px, auto)); */
+  /* grid-template-columns: repeat(auto-fill, minmax(100px, auto)); */
+  /* grid-template-columns: repeat(auto-fit, 200px); */
+  /* grid-template-rows: 100px 100px 100px 100px; */
+
+  /* grid-template-areas:
+    "logo nav nav nav"
+    "sidenav main main advert"
+    "sidenav main main advert"
+    "sidenav footer footer footer"
+    "sidenav footer footer footer";
+    grid-template-columns: 15% 32.5% 32.5% 20%;*/
+
+  grid-template-columns: repeat(5, 200px);
+  grid-template-rows: 200px;
+
+  /* grid-template:
+    "logo nav nav nav"
+    "sidenav main main advert"
+    "sidenav main main advert"
+    "sidenav footer footer footer"
+    "sidenav footer footer footer"; */
+  /* / 1fr 1fr 1fr 1fr; */
+
+  gap: 10px 10px; /* linha coluna */
+
+  margin: 10px;
+  border: 2px solid #dcd8d8;
+  /* max-width: 800px; */
+  text-align: center;
+
+  grid-auto-rows: 200px;
+  /* grid-auto-flow: dense; */
+  /* grid-auto-columns: auto; */
+  /* align-content: center;
+  justify-content: center;
+  align-items: center; */
+  /* justify-items: center; */
+}
+
+/* .logo {
+  grid-area: logo;
+}
+.nav {
+  grid-area: nav;
+}
+.main {
+  grid-area: main;
+}
+.advert {
+  grid-area: advert;
+}
+.sidenav {
+  grid-area: sidenav;
+}
+.footer {
+  grid-area: footer;
+} */
+/* .item7 {
+  grid-area: footer;
+}
+.item8 {
+  grid-area: hh;
+}
+.item9 {
+  grid-area: ii;
+}
+.item10 {
+  grid-area: jj;
+}
+.item11 {
+  grid-area: kk;
+} */
+
+.grid-container .items {
+  background-color: #ff0000;
+  border: 2px solid #dcd8d8;
+  padding: 60px;
+  /* margin: 10px; */
+}
+
+.grid-container .item7 {
+  grid-column: 4;
+}
+.grid-container .item6 {
+  grid-column: 3;
+}

@@ -1,0 +1,37 @@
+
+/* HERANÇA => OS ELEMENTOS HERDAM AS PROPRIEDADES DOS SEUS PAIS (EM CASCATA);
+QD APLICAMOS PROPRIEDADES ESPECIFICAS, ELAS(SOMENTE ELAS) FICAM SOBREESCRITAS */
+
+header {
+  background-color: #232323;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* <h1> herdou as propriedades CSS do <header>
+geralmente, as prop de texto são sempre herdadas*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: serif;
+}
+
+/* PAI */
+.parent {
+  font-family: serif;
+  font-size: 1.25rem;
+  color: #f64348;
+}
+
+/* Filho */
+.child {
+  font-size: 2rem;
+  color: #00ff9f;
+}
+/* .CHILD está herdando de => .parent + body....
+MAS, apenas suas prop de classe são sobrescritas => cor e tamanho */
+

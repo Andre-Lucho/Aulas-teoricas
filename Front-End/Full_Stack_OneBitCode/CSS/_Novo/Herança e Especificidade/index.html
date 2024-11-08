@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Aula de Herança no CSS</title>
+</head>
+<body>
+  <header>
+    <p>CSS está aplicado em: HEADER, H1, BODY, .PARENT, .CHILLD => BODY + HEADER</p>
+    <h1>HEADER + H1 => HEADER + H1:font-family com serif</h1>
+    <p>Section não tem estilo aplicado => BODY + HEADER</p>
+  </header>
+
+  <section>
+    <p>Section + P: P => BODY </p>
+    <h2>Section+ H2 => BODY + H2</h2>
+    <p>P: Veja como a herança afeta diferentes propriedades de estilo => BODY</p>
+    <div class="parent">
+      <p>DIV + P: Texto com estilo herdado => .PARENT + BODY</p>
+      <span>Span:Span dentro da Div</span>
+      <div class="child">
+        <p>.child: DIV dentro de outra DIV</p>
+        <p>DIV + P: Texto com tamanho e cor específicos => .CHILD + BODY</p>
+        <p>Porem, font-family herdada</p>
+        <span>Span: Span dentro da div</span>
+    </div>
+  </div>
+  </section>
+</body>
+
+</html>

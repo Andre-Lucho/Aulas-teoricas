@@ -1,0 +1,655 @@
+/* // FLEX GRID E GRID ITEM // 
+-----------------------------
+
+(1) GRID CONTAINER => os elementos são trabalhados como LINHAS dentro de colunas
+
+Propriedades:
+
+a)display
+b) Grid-template-columns
+c) Grid-template-rows
+d) Grid-template-areas
+e) *Grid-template --> atalho
+f) Gap
+g) Grid-auto-columns
+h) Grid-auto-rows
+i) Grid-auto-flow
+j) *Grid --> atalho geral
+
+-- Alinhamento --
+
+k) Justify-content
+l) Align-content
+m) Justify-items 
+n) Align-items
+
+-----------------
+
+(2) GRID ITEM
+
+Propriedades:
+
+a) Grid-column
+b) Grid-row
+c) Grid-area --> atalho
+d) Justify-self
+e) Align-self
+
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+
+
+// (1) GRID CONTAINER //
+------------------------
+
+O GRID CONTAINER é a tag que envolve os itens do Grid; ao indicar:
+=> display:grid => a tag passa a ser um GRID CONTAINER e os elems ENVOLVIDOS DIRETAMENTE 
+= Logo após o ele PAI (Grid Container) => tem comportamento GRID
+
+** Não há necessidade de DIV dentro de DIV
+
+
+---------------------------------------------
+
+A) DISPLAY
+Define os elems como um grid container; os Elem diretamente após serão considerados Grid-Itens 
+
+a) display: grid;
+Torna o elemento um grid container; porém, ainda não influencia no layout == display: block
+
+b) display: inline-grid;
+Torna o elemento um grid container porém com comportamento inline.
+
+c) display: subgrid => não existe + ; usar GRID DENTRO GRID
+Para grids dentro de grids (porém você pode normalmente colocar display: grid no grid dentro do grid que funciona).
+Cria um novo grid com suas subdivisões, que ocuparão o espaco de 1 antigo "grid-pai"
+
+
+Comportamento padrão do Grid:
+---------------------------------
+
+a) deixam os elems em linhas, que ocupam exatamente o valor dentro do elemento(tag)
+com um layout == display: block
+Os elementos obedecem o layout de LINHAS dentro de colunas => sempre prioridade as LINHAS
+
+b) ocupam o espaço necessário (MESMO que 'transborde' o Container) ou que haja sopreposição dos items
+
+c) ao influenciar no tamanha do grid => as demais colunas ou linhas sofrerão a mesma alteração
+
+d) NÃO HÁ quebra de linha/colunas == wrap(flex) => ele QUEBRA (cria Scroll)!
+Necessário ADD LINHAS/COLUNAS ou criar um media-query qd for preciso ou
+add automaticamente --> Grid-auto-rows / Grid-auto-columns / Grid-auto-flow
+
+
+---------------------------------------------
+---------------------------------------------
+
+B) GRID-TEMPLATE-COLUMNS => 
+
+Define o número total de colunas que serão criadas no grid
+
+
+**) Aceita como valores: px, fr, % , min-content, minmax, repeat, auto, auto-fit, auto-fill
+
+EXS. de aplicação:
+
+a) grid-template-columns: 100px 100px 100px 100px;
+Quatro colunas de 100px de largura são criadas
+
+** 100px é o valor total da coluna apenas; nesse caso, ignora conteúdo, margens a paddings 
+(que serão diminuidas p marter a coluna).
+Respeita apenas o min-width do item.
+*** contéudo (tipo texto) maior que 100px (acima), "estoura" o container =>
+os valores de -rows e -columns são obedecidos
+
+
+b) grid-template-columns: 1fr 2fr;
+Duas colunas são criadas, sendo a segunda com o dobro do tamanho da primeira. 
+
+** FR é uma unidade fracional (proporcional). 
+*** O TAMANHO do CONTEÚDO é RESPEITADO, ou seja, se o conteúdo na primeira coluna for maior que o da segunda, a primeira será maior. == TEXTOS , IMAGENS
+
+
+c) grid-template-columns: minmax(200px, 1fr) 1fr 1fr;
+Três colunas são criadas, a primeira terá no MÍNIMO 200px de largura e no máximo 1fr ==
+(isso significa RESPEITA ESSE MÍNIMO e que, após 200px, ela se expande da mesma forma que as outras colunas). 
+As outras duas colunas vão ter 1 fr.
+** tam conteúdo respeitado == FR
+
+
+d) grid-template-columns: repeat(3, 1fr);
+Cria 3 colunas com 1fr de tamanho. O repeat seria a mesma coisa que escrever 1fr 1fr 1fr.
+
+
+e) grid-template-columns: repeat(auto-fit, 100px);
+
+**autofit => SEMPRE RESPONSIVO....usando as demais tam de colunas pode haver quebra
+
+
+f) grid-template-columns: repeat(auto-fit, minmax(100px, auto)); => CONTEÚDO MÍNIMO
+
+Cria automaticamente (RESPONSIVO) um total de colunas que se ajustam INTERNAMENTE(CONTEÚDO) no mínimo 100px de largura.
+
+**) repeat(auto-fit, => cria um n° automatico de colunas...
+
+minmax(100px, auto)) => onde os grid itens terão min 100px de tam, 
+mas que tentarão se ajustar ao max automaticamente (como se fosse um flex-grow ativo)
+
+
+g) grid-template-columns: repeat(auto-fill, minmax(100px, auto)); => COLUNAS MÍNIMAS
+
+Agora, ele cria automaticamente colunas de, no mín, 100px, independente do conteúdo
+
+
+---------------------------------------------
+---------------------------------------------
+
+C) GRID-TEMPLATE-ROWS
+
+Define a quantidade de linhas no grid, 
+* De acordo com o tamanho do conteúdo
+
+**) Aceita como valores: px, fr, % , minmax, repeat, auto, auto-fit, auto-fill
+
+
+EXS. de aplicação:
+
+a) grid-template-rows: 50px 100px 50px 150px;
+Cria 4 linhas no grid, sendo a primeira com 50px, segunda 100px, terceira 50px e quarta 150px. 
+Caso o conteúdo necessite de mais linhas, elas são criadas automaticamente de acordo com o conteúdo.
+
+*** contéudo (tipo texto) maior que o definido acima, "estoura" o container =>
+os valores de -rows e -columns são obedecidos
+
+
+b) grid-template-rows: 1fr 2fr;
+Cria duas linhas no grid, sendo a segunda duas vezes ( +/-) o tamanho da primeira.
+
+
+---------------------------------------------
+---------------------------------------------
+
+D) GRID-TEMPLATE-AREAS => layout macro do site
+
+Define áreas específicas no grid. 
+
+grid-template-areas => é um esqueleto do layout (disposição) dos grid-itens
+pode-se usar qquer caractere (exceto numero solto)
+Os Elementos sáo dispostos APENAS em linhas e colunas organizadas, formando retângulos ou quadrados
+NÃO existem outras formas( tipo L)
+
+**) o ponto(.) cria áreas vazias => ÁREAS VAZIAS DEVEM ser descritas!!
+**) o conteúdo ocupa seu espaço necessário, independente do numero de linhas e colunas 
+descritas no grid-template-areas!
+Porém, qd disponibilizo + linhas ou colunas na grid-template-area, as demais aumentam(diminuem) na mesma proporção
+
+***) SEMPRE MANTER A ORDEM CORRETA DE LAYOUT NO CODIGO HTML
+
+
+Dica => posso criar um media-query para especificar o tipo de layout(grid-template-areas) qu quero, 
+qd a tela diminuir para tal tamanho
+
+
+---------------------------------------------
+---------------------------------------------
+
+E) GRID-TEMPLATE --> ATALHO
+
+Atalho para grid-template => columns + rows + areas
+
+Disposição => rows (linhas) / colunas (columns)
+
+1) grid-template: 100px 50px / 2fr 2fr ;
+A primeira linha com 100 px, segunda com 50 px. 
+A primeira e a segunda colunas com 2fr.
+
+
+2) grid-template:
+"logo nav nav" 50px   --> tamanho da linha
+"sidenav content advert" 150px
+"sidenav footer footer" 100px
+/ 100px 1fr 50px --> 3x colunas
+;
+
+3 linhas => 50px, 150px e 100px
+3 colunas => 100px, 1fr e 50px
++ layout do grid-template-areas
+
+
+---------------------------------------------
+---------------------------------------------
+
+F) GAP 
+
+Define o gap(gutter) entre os elementos do grid
+
+*) "margin" dos grids --> tem menor (pois NÃO SOMA com o elemento do lado e de cima/baixo)
+e apenas internamente entre os elementos --> desconsidera a borda externa => container
+
+a) gap: 20px --> 20px entre os elementos do grid (linha e coluna).
+
+b) gap: 10px 20px --> 10px entre linhas e 20px entre colunas
+
+c) column-gap: 20px -->fine 20px de distância entre as colunas.
+
+d) row-gap: 20px --> 20px de distância entre as linhas.
+
+
+***) margin + gap --> o tamanho de margin soma-se ao do gap
+porém, diminiu a célula
+
+
+---------------------------------------------
+---------------------------------------------
+
+// G) GRID-AUTO-COLUMNS -> 1 ou +
+
+Define o tamanho das colunas do grid implicito (forçado)
+(gerado autom, qd algum elemento foi posicionado em 1 coluna que não foi definida)
+* Por padrão, Grid Layout gera linhas automaticamente
+
+grid-template-columns --> colunas fixas definidas antes do posicionamento dos grid-itens
+auto-coluns --> caso haja necessidade, será criada automaticamente, conforme definicao
+
+
+1) grid-auto-columns: 100px;
+As colunas implicitas, geradas automaticamente, terão 100px
+
+
+**OBS.: funciona com o grid-auto-flows: columns ou grid-columns --> em função da prioridade das novas linhas
+
+**Os tamanhos dos grid-itens se sobrepõem, caso necessário, aos do grid-template-columns
+
+---------------------------------------------
+---------------------------------------------
+
+// H) GRID-AUTO-ROWS -> 1 ou +
+
+Define o tamanho das linhas do grid implicito (forçado)
+(gerado autom, qd algum elemento foi posicionado em 1 linha que não foi definida)
+
+**Os tamanhos dos grid-itens se sobrepõem, caso necessário, aos do grid-template-rows
+
+
+---------------------------------------------
+---------------------------------------------
+
+// I) GRID-AUTO-FLOW  
+
+Define o fluxo de criação dos itens do layout, gerando autm novas linhas ou colunas
+
+a) grid-auto-flow: row --> padrão
+Cria automaticamente novas linhas. 
+
+b) grid-auto-flow: column
+Cria Automaticamente novas colunas.
+
+c) grid-auto-flow: dense
+Tenta posicionar o máximo dos elementos que existirem nas primeiras partes do grid (pode desorganizar o conteúdo).
+--> ex.: para lista de fotos, onde nãa exista prioridade de ordem
+
+
+**OBS --> Se sobrepõem as demais, exceto grid-template-rows
+
+---------------------------------------------
+---------------------------------------------
+
+// J) GRID --> ATALHO GERAL
+
+Atalho geral para definir o grid: grid-template-rows, grid-template-columns, grid-template-areas, 
+grid-auto-rows, grid-auto-columns e grid-auto-flow
+
+1) grid: 100px / 1fr 1fr --> igual grid-template
+
+Gera uma linha com 100px de altura e 2 colunas com 1fr.
+
+2) grid: 100px / auto-flow 100px 50px
+Gera uma linha com 100px de altura. O grid-auto-flow é definido como column 
+(pois está no espaço das colunas). Ele também define o grid-auto-columns com 100px 50px
+
+
+---------------------------------------------
+
+
+// ALINHAMENTO DO GRID // --> ver com grid-template-areas ???
+-------------------------
+-------------------------
+
+O espaçamento ocupado pelo container necessita ser MAIOR que os dos ocupados pelos grid-itens  
+
+
+---------------------------------------------
+
+
+ALINHAMENTO DA(S) CÉLULA(S)
+(conjunto dos grid-items dentro do grid-container)
+--------------------------
+
+
+K) JUSTIFY-CONTENT
+
+Justifica os itens do grid em realção ao eixo horizontal
+**) Necessita ter definido espaçamento(tam) das colunas p não quebrar
+
+
+a) justify-content: start
+Justifica os itens ao início.
+
+b) justify-content: end
+Justifica os itens ao final.
+
+c) justify-content: stretch => padrão
+Estica os itens.
+
+d) justify-content: space-around
+Distribui espaço entre os elementos. (O início e final são menores que os espaços internos (2x)).
+
+e) justify-content: space-between
+Cria um espaço entre os elementos, ignorando o início e final.
+
+f) justify-content: space-evenly
+Cria um espaço igual entre as colunas (no início e final também).
+
+g) justify-content: center
+Centraliza o conteúdo.
+
+
+---------------------------------------------
+---------------------------------------------
+
+L) ALIGN-CONTENT
+
+Justifica os itens do grid em realção ao eixo vertical
+**) Necessita ter definido espaçamento(tam) das linhas p não quebrar
+
+
+a) align-content: start
+Alinha os itens ao início.
+
+b) align-content: end
+Alinha os itens ao final.
+
+c) align-content: stretch
+Estica os itens.
+
+d) align-content: space-around
+Distribui espaço entre os elementos. (O início e final são menores que os espaços internos).
+
+e) align-content: space-between
+Cria um espaço entre os elementos, ignorando o início e final.
+
+f) align-content: space-evenly
+Cria um espaço igual entre as colunas (no início e final também).
+
+g) align-content: center
+Centraliza o conteúdo.
+
+
+---------------------------------------------
+---------------------------------------------
+
+
+ALINHAMENTO DO(S) CONTEÚDO(S)
+(conjunto dos conteúdos dos grid-items dentro do grid-container)
+--------------------------
+
+
+M) JUSTIFY-ITEMS
+
+Justifica os itens do grid em realção ao eixo horizontal
+Justifica o conteúdo em relação a célula
+
+**O espaço ocupado pelo conteúdo é o menor possível - alinhado com o inicio da sua coluna
+--> reduz o tamanho  da célula 
+** => usar padding p aumentar tamanho e deixar centralizado
+
+
+a) justify-items: start
+Justifica os itens (conteúdo) ao início da coluna
+
+b) justify-items: end
+Justifica os itens ao final.
+
+c) justify-items: center
+Centraliza o conteúdo.
+
+d) justify-items: stretch => padrão
+Estica os itens.
+
+
+---------------------------------------------
+---------------------------------------------
+
+N) ALIGN-ITEMS
+
+Justifica os itens do grid em realção ao eixo vertical
+Justifica o conteúdo em relação a célula
+
+**O espaço ocupado pelo conteúdo é o menor possível - alinhado com o inicio da sua linha
+--> reduz o tamanho  da célula 
+** => usar padding p aumentar tamanho e deixar centralizado
+
+a) justify-items: start
+Justifica os itens (conteúdo) ao início da linha
+
+b) justify-items: end
+Justifica os itens ao final.
+
+c) justify-items: center
+Centraliza o conteúdo.
+
+d) justify-items: stretch => padrão
+Estica os itens.
+
+
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+
+
+
+// (2) GRID ITEM //
+------------------
+
+Os Grid Itens são os filhos diretos do Grid Container --> filhos de filhos não são influenciados
+Um grid item pode ser explícito ou implícito. 
+Explícito é quanto você define ele explicitamente no container e 
+implícito é quanto ele é criado automaticamente para preencher o conteúdo no grid.
+
+
+---------------------------------------------
+
+A) GRID-COLUMN --> atalho
+
+Defini quais colunas serão ocupadas pelo grid-item. 
+A ordem HTML se mantém! Como, por padrão, grid-auto flow = row, os itens subsequentes ocuparão novas linhas 
+(de acordo c o tam grid-container)
+
+É possível definir uma linha de início e final, assim o item ocupará múltiplas colunas
+
+
+ATALHO:
+--------
+grid-column-start:
+grid-column-end:
+--------
+
+a) grid-column: 1
+O item ocupará a coluna 1.
+
+b) grid-column: 1 / 3
+O item ocupará a coluna 1 e 2 (Sim, isso mesmo, 1 e 2, pois os valores 1 / 3 são referentes as linhas da coluna. 
+Isso significa que começa na linha 1 (início do grid) e vai até a linha 3, que é o começo da terceira coluna.)
+
+**) => numero / -1 --> vai de ponta a ponta (semel. strech)
+
+
+c) grid-column-start: 2
+O item vai começar na linha 2.
+
+d) grid-column-end:4
+O item vai terminar na linha4.
+
+e) grid-column: span2
+O item irá ocupar duas colunas a partir de onde ele estiver.
+**Não é necessário saber onde começa e termina as colunas
+
+
+f) grid-column: 2 / span 3
+inicialmenter, O item ocupará a coluna 2 e se expandirá + 2 colunas.
+(3 colunas A PARTIR de onde ele estiver; já está na 2)
+
+
+*)OBS
+Posso nomear as linhas das colunas também
+
+ex.:
+grid-template-columns: [inicio*] 1fr [meio] 1fr [final]
+*qualquer nome
+
+.grid-container .item2 {
+grid-coluns: meio / span 3
+}
+
+*) OBS2:
+Com o Grid-template-areas, posso usar o nome do grid-area p definir a ocupação das colunas
+
+ex.:
+.grid-container .item2 {
+grid-coluns: sidenav / content
+}
+
+
+---------------------------------------------
+---------------------------------------------
+
+B) GRID-ROW
+
+Define quais linhas serão ocupadas pelo grid item. 
+
+Atenção aqui, pois esse linha é referente a row. Porém as chamadas grid lines são diferentes. 
+Uma row (linha) = 2 grid lines (linhas do grid), uma no início dela e uma no final dela.
+
+
+ATALHO:
+--------
+grid-row-start:
+grid-row-end:
+--------
+
+
+grid-row: 1
+o item ocupará a linha 1.
+
+grid-row: 1 / 3
+o item ocupará a linha 1 e 2 (sim, isso mesmo, 1 e 2, pois os valores referentes às linhas são referentes as linhas do grid). 
+Isso significa que começa na linha 1 (início da terceira linha) até a linha 3 do grid, que é o começo da terceira linha.
+
+grid-row-start: 2
+o item vai começar na linha do grid 2.
+
+grid-row-end: 4
+O item vai terminar na linha do grid 4.
+
+grid-row: span 2
+o item irá ocupar duas linhas a partir de onde ele estiver.
+
+*) OBS:?
+
+Necessário grid-auto-rows ativo
+
+*)OBS
+Posso nomear o nome das linhas também
+
+ex.:
+grid-template-row: [linha1*] 1fr [meio] 1fr [linha3] 1fr;
+*qualquer nome
+
+.grid-container .item2 {
+grid-row: meio / span 3
+}
+
+*) OBS2:
+Com o Grid-template-areas, posso usar o nome do grid-area p definir a ocupação das colunas
+
+ex.:
+.grid-container .item2 {
+grid-row: sidenav / content
+}
+
+
+---------------------------------------------
+---------------------------------------------
+
+C) GRID-AREA --> ATALHO
+
+Define a área do item do grid. É um atalho para grid-row-start, grid-column-start, grid-row-end, grid-column-end.
+
+
+a) grid-area: 1 / 2 / 4 / 3;
+Este é um atalho para:
+grid-row-start: 1;
+grid-column-start: 2;
+grid-row-end: 4;
+grid-column-end: 3;
+
+b) grid-area: header;
+Vai posicionar o item na área definida como header.
+
+
+OBS: Sobre sobreposição de grid-itens -->
+O (z-index:numero)  pode ser utilizado para manipular a posição no eixo Z do item (trazer p frente o grid-item)
+Ou seja, se um item for posicionado em cima de outro, o z-index controla qual vem na frente.
+
+mix-blend-mode: screen --> mistura das cores soprepostas somadas, conforme igual comportamente de uma tela led
+
+---------------------------------------------
+---------------------------------------------
+
+ALINHAMENTO DO CONTEÚDO INDIVIDUAL 
+(somente 1 grid-item específico)
+----------------------------------
+
+D) JUSTIFY-SELF
+
+Justifica o conteúdo do item do grid em relação ao eixo horizontal --> em relação à célula
+
+a) justify-self: start
+Justifica o item ao inicio.
+
+b) justify-self: end
+Justifica o item ao final.
+
+c) justify-self: center
+Centraliza o conteúdo.
+
+d) justify-self: stretch
+Estica o item.
+
+
+---------------------------------------------
+---------------------------------------------
+
+E) ALIGN-SELF
+
+Justifica o conteúdo do item do grid em relação ao eixo vertical --> em relação à célula
+
+a) align-self: start
+Justifica o item ao inicio.
+
+b) align-self: end
+Justifica o item ao final.
+
+c) align-self: center
+Centraliza o conteúdo.
+
+d) align-self: stretch
+Estica o item.
+
+
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+
+*/

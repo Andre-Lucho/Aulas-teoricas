@@ -1,0 +1,236 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: rgba(255, 187, 85, 0.32);
+  color: #222;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+}
+
+/* teste JS DOM */
+
+.background01 {
+  background-color: #000000;
+}
+
+.textoAumentado {
+  font-size: 150%;
+}
+
+/* teste JS DOM - Fim*/
+
+.menu {
+  grid-column: 3 / -1;
+  background-color: #fb5;
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.menu li a {
+  display: block;
+  padding: 15px;
+  margin-right: 10px;
+  color: #e54;
+  font-family: "IBM Plex Mono", "monospace";
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.grid_Section {
+  grid-column: 2 / 4;
+  /* width: 100%; */
+  /* expandir o max que conseguir */
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 90px 300px 1fr;
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: "Playfair Display SC", "georgia";
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  grid-column: 1 / 4;
+}
+
+.animalsListImg {
+  height: 1000px;
+  overflow-y: scroll;
+  grid-column: 2;
+}
+
+.animalsListImg li {
+  cursor: pointer;
+}
+
+/* .img07 {
+  max-height: 100%;
+} */
+
+.animalsDescription {
+  grid-column: 3;
+}
+
+.animalsDescription h2 {
+  font-family: "IBM Plex Mono", "monospace";
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 0.005em;
+  color: #e54;
+}
+
+.animalsDescription h2::before {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 20px;
+  margin-right: 10px;
+  background-color: #fb5;
+}
+
+.animalsDescription p {
+  font-family: "Helvetica", "Arial", "sans-serif";
+  line-height: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.animalsDescription section {
+  margin-bottom: 3rem;
+}
+
+.animalsDescription section:last-child {
+  margin-bottom: 0rem;
+}
+
+.faqList {
+  grid-column: 2 / 4;
+}
+
+.faq dt {
+  font-family: "IBM Plex Mono", "monospace";
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.25rem;
+  color: #e54;
+  cursor: pointer;
+}
+
+.faq dt::before {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 15px;
+  margin-right: 10px;
+  background-color: #fb5;
+}
+
+.faq dd {
+  font-family: "Helvetica", "Arial", "sans-serif";
+  margin-left: 25px;
+  margin-bottom: 0.25rem;
+}
+
+.map {
+  grid-column: 2;
+}
+
+.contactData {
+  grid-column: 3;
+}
+
+.contactData li {
+  margin-bottom: 1rem;
+  font-family: "Helvetica", "Arial", "sans-serif";
+}
+
+.contactData li::before {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 15px;
+  margin-right: 10px;
+  background-color: #fb5;
+}
+
+.contactData li.date {
+  margin-left: 25px;
+}
+
+.contactData li.date::before {
+  display: none;
+}
+
+.contactData .btc-preco {
+  background-color: #2be268;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0px;
+  margin-right: 3px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.copyright {
+  /* grid-row: 5; */
+  grid-column: 3 / -1;
+  margin-bottom: 1.25rem;
+  padding: 10px;
+  justify-self: stretch;
+  background-color: #fb5;
+}
+
+.copyright p {
+  font-family: "IBM Plex Mono", "monospace";
+  font-weight: bold;
+  padding: 10px;
+  line-height: 1.2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/*  */
+/* .animalsListImg::-webkit-scrollbar-thumb, -webkit-scrollbar-width, -webkit-scrollbar-track   {
+  background: #fb5;
+  border-left: 4px solid #faf6ed;
+  border-right: 4px solid #faf6ed;
+} */
+
+/* --> VER MODIFICAÇÕES EM SCROLLBRAS --> webkit nao funcionou aqui */
+
+/* .background01 {
+  background-color: #c9c93a;
+}
+
+html.textoAumentado {
+  font-size: 150%;
+} */

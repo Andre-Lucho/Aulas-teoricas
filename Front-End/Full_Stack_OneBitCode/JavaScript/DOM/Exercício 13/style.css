@@ -1,0 +1,86 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: hsl(210, 3%, 8%);
+  margin-top: 50px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  color: aliceblue;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.main {
+  background-color: hsl(210, 3%, 8%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionNamesTitle {
+  color: aliceblue;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+
+.playerSection {
+  display: flex;
+  /* border: 2px solid white; */
+  height: 40px;
+  width: 800px;
+}
+
+#p {
+  margin-bottom: 10px;
+}
+
+.names {
+  font-size: 18px;
+}
+
+/* .nameInput {
+  padding: 50px;
+} */
+
+.label {
+  font-size: 15px;
+}
+
+.container {
+  background-color: hsl(210, 3%, 6%);
+  display: flex;
+  /* border: 2px solid white; */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 450px;
+  width: 550px;
+}
+
+.cells {
+  margin: 8px;
+  height: 130px;
+  width: 150px;
+  background-color: hsl(208, 42%, 52%);
+}
+
+.cells:hover {
+  background-color: hsl(208, 42%, 25%);
+}
+
+#nameConfirmBtn {
+  font-size: 13px;
+  height: 25px;
+  margin-left: 10px;
+  margin-top: 5px;
+}

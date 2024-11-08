@@ -1,0 +1,28 @@
+.tooltip {
+  position: absolute;
+  /* posicionamento top e right/left via JS */
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 2px #fb5, 0 0 0 6px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  color: white;
+  font-family: "IBM Plex Mono", "monospace";
+  font-weight: bold;
+  font-size: 0.875rem;
+  max-width: 250px;
+  border-radius: 2px;
+}
+
+.tootipAnimals {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  box-shadow: 0 0 0 2px #fb5, 0 0 0 6px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  border-radius: 2px;
+  font-family: "IBM Plex Mono", "monospace";
+  font-weight: bold;
+  font-size: 0.9rem;
+  max-width: 120px;
+}

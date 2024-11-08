@@ -1,0 +1,424 @@
+/* GERAL */
+
+:root {
+  font-size: 18px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Volkhov", "Georgia", serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  /* remove o estilo padrao */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+/*  */
+
+/* GRID */
+
+.structure {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  /* minmax--> tam minimo em que os icones ficam bons; pode explandir ate 1fr
+  3fr --> main vai continuar expandindo 3x mais que sidenav
+  300px --> largura fixa
+  */
+  grid-template-areas:
+    "header header header"
+    "sidenav content adds-grid"
+    "footer footer footer";
+  /* sem tamanho de linhas, pois quero q cresca */
+}
+
+/* */
+
+/* HEADER */
+
+.header {
+  grid-area: header;
+  background: linear-gradient(
+    135deg,
+    rgba(90, 90, 229, 0.871),
+    rgba(38, 38, 108, 0.843)
+  );
+
+  /* referencia sobre gradientes --> 
+  https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient#try_it */
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.logo {
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: "Permanent Marker", cursive;
+  color: #f0f0f0;
+  max-width: 245px;
+  /* temos 2 colunas-grid definidas no header 
+  se eu não limitar um tamanho p a logo , que é um <a>, ele será clicável em todo a extensão em q a 1° coluna ocupa --> 
+  em função do grid layou*/
+
+  /* border: 2px solid white; */
+}
+
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header nav a {
+  font-family: "Permanent Marker", cursive;
+  color: #f0f0f0;
+  display: block;
+  /* pois e in-line */
+  padding: 15px;
+  /* aumentar area de contato */
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.header nav a:hover {
+  background-color: rgba(38, 38, 108, 0.5);
+}
+
+.header li + li {
+  margin-left: 10px;
+  /* estou falando com o 2° e 3° li`s... assim, consigo deixar o primeiro sem margin-left --> 
+  quando diminuir tela, nao fica fora do eixo */
+}
+/*  */
+
+/* SIDENAV */
+
+.sidenav {
+  grid-area: sidenav;
+  background-color: #fafbfc;
+  padding: 30px;
+}
+
+.sidenav li a {
+  display: block;
+  /* pois e in-line */
+  padding: 15px;
+  min-width: 80px;
+  max-width: 100px;
+  margin: 0 auto 10px auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0 rgba(43, 43, 43, 0.6);
+  transition: 0.2s ease-out;
+  /* padding --> em funcão de nossa coluna ter 1fr(proporc) qd aumentamos o padding, diminui a img */
+}
+
+.sidenav li a:hover {
+  background-color: hsla(240, 73%, 63%, 0.771);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0 hsla(240, 73%, 63%, 0.871);
+}
+/*  */
+
+/* MAIN CONTENT */
+
+.content {
+  grid-area: content;
+  max-width: 900px;
+  /* p que o texto não cresce mto em telas maiores */
+  margin: 0 auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.column-wide {
+  grid-column: 1 / -1;
+}
+
+.content-img01 {
+  grid-row: span 2;
+  align-self: stretch;
+}
+
+.content-img02 {
+  align-self: end;
+  /* evitar q desalinhe */
+}
+
+/* CONTENT-STYLES */
+
+p {
+  line-height: 1.6;
+  /* entre-linhas */
+  letter-spacing: -0.005em;
+  /* espaço entre-letras */
+  color: rgba(0, 0, 0, 0.7);
+  /* leve acizentado = facilita a leitura */
+}
+
+.info p + p {
+  /* o p que vem apos o 1° p --> ignora o 1° e aplica a todos os demais apos*/
+  margin-top: 30px;
+}
+
+/* Title */
+
+.title {
+  color: #5a5ae5de;
+}
+
+.title h1 {
+  font-size: 3.33em;
+  line-height: 1;
+  /* padrao e 1.2 -> fica + proximo */
+  font-weight: 700;
+}
+
+.title span {
+  font-size: 0.777em;
+  font-style: italic;
+}
+
+/* Characteristic */
+
+.characteristic {
+  display: flex;
+  align-items: flex-start;
+  /* flex é grow automat, mas estamos em um grid, que se inicia na linha logo junto de "lobo" 
+  entao, estou alinhando a essa linha grid*/
+}
+
+.characteristic > div {
+  width: 80px;
+  text-align: center;
+  background: linear-gradient(90deg, #5a5ae5de, #26266cd7);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(90, 90, 229, 0.6);
+  /* a = dir, b = baixo, c= desvainescer , d= crescer sombra, cor sobra*/
+  /* position: relative; */
+}
+
+.characteristic > div:first-child {
+  margin-right: 30px;
+}
+
+.characteristic span {
+  display: block;
+  color: #26266cd7;
+}
+
+.number {
+  font-size: 2.666em;
+  line-height: 1;
+  margin: 10px auto;
+}
+
+.label {
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  padding: 5px 0;
+  /* position: relative;
+  top: 2px; */
+  /* position: relative --> permite o deslocamento de um item em relação ao outro; 
+  aqui, não há "vazamento" - náo tem sobra da cor roxa sobre o branco do rotulo em relação aos numeros -, 
+  então esta comentado*/
+}
+
+.highlighted {
+  font-size: 0.777em;
+  color: #5a5ae5de;
+  line-height: 1.2;
+  max-width: 14.22em;
+  /* =256px */
+}
+
+.quote,
+.attributes {
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(43, 43, 43, 0.6);
+  background: linear-gradient(135deg, #5a5ae5de, #26266cd7);
+}
+
+.attributes {
+  align-self: start;
+}
+
+.quote p {
+  font-size: 1.333em;
+  font-style: italic;
+  text-align: center;
+  max-width: 500px;
+  /* p não aumentar c tam tela maior = perde formato 3 linhas (pois, esticaria)*/
+  margin: 0px auto;
+  /* ainhado ao centro container */
+  color: white;
+}
+
+.attributes li {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  padding: 15px;
+  margin: 0px auto;
+}
+
+.attributes li + li {
+  border-top: 2px solid #26266cd7;
+}
+
+/*  */
+
+/* ADDS-GRID */
+.adds-grid {
+  grid-area: adds-grid;
+  background-color: #fafbfc;
+  padding: 30px;
+  border-radius: 5px;
+  display: grid;
+  align-content: start;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.adds-item {
+  border-radius: 5px;
+}
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  background: linear-gradient(90deg, #5a5ae5de, rgba(38, 38, 108, 0.843));
+  color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsividade */
+
+@media (max-width: 1200px) {
+  .structure {
+    grid-template-columns: minmax(160px, 1fr) 3fr;
+    grid-template-areas:
+      "header header"
+      "sidenav content"
+      "sidenav adds-grid"
+      "footer footer";
+
+    /* ou */
+
+    /* grid-template-areas:
+      "header header header"
+      "sidenav content content"
+      "sidenav adds-grid adds-grid"
+      "footer footer footer"; 
+      */
+  }
+  .adds-item {
+    align-self: center;
+    padding: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .structure {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "adds-grid"
+      "footer";
+  }
+
+  .header {
+    grid-template-columns: auto;
+    padding-left: 15px;
+  }
+  .header nav a {
+    padding: 15px;
+    font-size: 0.888em;
+  }
+  .header li + li {
+    margin-left: 6px;
+  }
+  .logo {
+    margin: 0px 0px 15px 15px;
+  }
+
+  .sidenav {
+    padding: 15px 15px 5px 15px;
+    overflow-x: auto;
+    /* -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar; */
+  }
+  .sidenav ul {
+    display: flex;
+  }
+  .sidenav ul li {
+    flex: 1 0 80px;
+  }
+  .sidenav ul li a {
+    margin-left: 15px;
+  }
+
+  .adds-item {
+    align-self: center;
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .content-img01,
+  .content-img02,
+  .column-wide,
+  .adds-item {
+    max-width: 400px;
+    justify-self: center;
+  }
+
+  .highlighted {
+    display: block;
+    max-width: 100%;
+    justify-self: stretch;
+    font-size: 0.9em;
+  }
+
+  .attributes-grid {
+    display: grid;
+    grid-template-columns: 400px;
+    justify-self: center;
+  }
+
+  .adds-item {
+    padding: 0;
+  }
+}
+
+/* border: 2px solid black; */

@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* 0 => não necessita unidade de medida */
+
+header {
+  background-color: #232323;
+  color: #fff;
+  padding: 10px;
+}
+
+section {
+  background-color: #ddd;
+  height: 100px;
+}
+
+.box {
+  border: 1px solid #232323;
+  display: inline-block;
+  font-size: 16px;
+  /* tamanho padrao no navegador */
+  width: 75px;
+  vertical-align: top;
+  /* o CSS padrão para a propriedade vertical-align de elementos inline-block 
+  é baseline */
+}
+
+.px {
+  height: 10px;
+}
+/* pixel => unidade absoluta (fixa) = mta diferença de tamanho entre telas diferentes 
+Qt maior a tela, menor o tamanho visual dos pixels  
+
+**bordas => por ser um tamanho mto peq, pode-se utilizar px */
+
+/* root element ->  
+utiliza como padrao p cálculo o tamanho do elemento raiz do site = 16px  */
+.rem {
+  height: 3rem;
+}
+/* 16px * 3 = 48px 
+mais padronizável, pois aqui o padrao não varia, apenas o tamanho da box */
+
+/*
+Obs.: acesso ao root do site:
+:root {
+
+} */
+
+/* utiliza como padrao p cálculo o tamanho atual contido na div: 
+1em = 20px => em funcao do font-size = 20px*/
+.em {
+  height: 2.4em;
+  font-size: 20px;
+}
+/* 20 * 2.4 = 48 px 
+vai variar com o tamanho da fonte
+*/
+
+.prcnt-33 {
+  height: 33%;
+  /* em relação a <section> */
+}
+
+.prcnt-66 {
+  height: 66%;
+}
+
+.prcnt-100 {
+  height: 100%;
+}
+
+/* viewport height 
+viewport => area de visualização da tela do dispositivo (em %) 
+**medida responsiva, porem depende da tela */
+
+.vh {
+  height: 30vh;
+}
+
+/* viewport width */
+.vw {
+  width: 50vw;
+}

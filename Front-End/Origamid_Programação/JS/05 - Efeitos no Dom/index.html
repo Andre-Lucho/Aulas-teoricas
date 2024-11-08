@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>TESTE</h1>
+    <h2>Teste para Formulários no JS</h2>
+    <form name="contato" id="contato">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" id="nome" required />
+      <span></span>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required />
+      <span></span>
+      <label for="mensagem">Mensagem</label>
+      <textarea name="mensagem" id="mensagem"></textarea>
+    </form>
+    <select name="cores" class="cores">
+      <option value="#faf6ed">Modo Claro</option>
+      <option value="#292828e1">Modo Escuro</option>
+    </select>
+    <section>
+      <div>
+        <p class="texto"></p>
+      </div>
+      <div class="inputTypes">
+        <input type="color" />
+        <input type="date" />
+        <input type="number" />
+        <input type="range" />
+        <input type="password" />
+        <label for="identidade" class="idd">Possui identidade?</label>
+        <input type="checkbox" value="identidade" id="identidade" />
+        <label for="casado">Casado?</label>
+        <input type="checkbox" value="casado" id="casado" />
+        <label for="guitarra">Guitarra</label>
+        <input type="radio" id="guitarra" value="guitarra" name="instrumento" />
+        <label for="violao">Violão</label>
+        <input type="radio" id="violao" value="violao" name="instrumento" />
+        <label for="baixo">Baixo</label>
+        <input type="radio" id="baixo" value="baixo" name="instrumento" />
+      </div>
+    </section>
+    <script src="./05 - Forms.js"></script>
+  </body>
+</html>
