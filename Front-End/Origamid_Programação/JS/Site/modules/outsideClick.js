@@ -30,7 +30,7 @@ export default function outsideClick(element, events, callback) {
       });
       element.removeAttribute(dataOutside);
       /* callback aqui é uma função que funciona como parâmetro da função outsideClick
-      qd a função outsideClick é executada pela 1° vez(em handleClick - arq dropdown-menu), ao receber o parâmetro na FASE BUBBLE, ele executará callback (this.classList.remove("actived")); */
+      qd a função outsideClick é executada pela 1° vez(em handleClick - arq dropdown-menu + menu-mobile), ao receber o parâmetro na FASE BUBBLE, ele executará callback (this.classList.remove("actived")); */
     }
   }
 }

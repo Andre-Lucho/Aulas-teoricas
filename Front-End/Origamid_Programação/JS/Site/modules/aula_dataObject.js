@@ -2,27 +2,26 @@ export default function initDataObject() {
   const shopTime = document.querySelector("[data-week]");
 
   const weekDays = shopTime.dataset.week.split(",").map(Number);
-  const weekhours = shopTime.dataset.time.split(",").map(Number);
-  // shopTime.dataset.week e time --> retona uma string
-  // .map(Number) --> retorna uma nova Array já transformada em Number
+  const weekHours = shopTime.dataset.time.split(",").map(Number);
+  // // shopTime.dataset.week e time --> retona uma string
+  // // . slipt(",") --> retorna uma array com os valores de dataset
+  // // .map(Number) --> retorna uma nova Array já transformada em Number
 
   // console.log(weekDays);
-  // console.log(weekhours);
+  // console.log(weekHours);
 
   const timeNow = new Date();
   const dayNow = timeNow.getDay();
   // console.log(dayNow);
   const hourNow = timeNow.getHours();
-  //
 
-  const isAOpenDay = weekDays.includes(dayNow);
+  const isAOpenDay = weekDays.includes(dayNow); // estar entre seg - sex
   // console.log(isAOpenDay);
-  // verifica se o dia da semana corresponde com o dia de funcionamento
+  // verifica se o dia da semana corresponde com o dia de funcionamento e retornando true ou false
 
-  const isAOpenHour = hourNow >= weekhours[0] && hourNow < weekhours[1];
-  // retorna true or false
-  // console.log(isAOpenHour);
-  // verifica se a hora atual corresponde ao horário de funcionamento
+  const isAOpenHour = hourNow >= weekHours[0] && hourNow < weekHours[1]; // estar entre 8 e 18h
+  // // verifica se a hora atual corresponde ao horário de funcionamento, retornando true or false
+  console.log(isAOpenHour);
 
   if (isAOpenDay && isAOpenDay) {
     shopTime.classList.add("open");
