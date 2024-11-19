@@ -66,8 +66,9 @@ function perimetroForma3(lado, totalLados = 2) {
 // console.log(perimetroForma3(10, 5)); // 20
 
 /*
-Parâmetro Rest --> retorna um Array
+Parâmetro Rest ("resto")--> retorna um Array
 ------------------------------------------------------
+
 
 É possível declararmos uma parâmetro utilizando '...' na frente do mesmo. 
 Assim, todos os argumentos que passarmos na ativação da função, ficarão dentro do parâmetro. 
@@ -80,7 +81,7 @@ function ganhador(...arg) {
   return `${retorno[0]}, ${retorno[1]} e ${retorno[2]} ganharam`;
 }
 
-// console.log(ganhador("Pedro", "Marta", "Maria"));
+console.log(ganhador('Pedro', 'Marta', 'Maria'));
 
 /*
 
@@ -95,7 +96,7 @@ function anunciar(premio, ...ganhadores) {
     // console.log(ganhador + " ganhou um " + premio);
   });
 }
-anunciar("Carro", "Pedro", "Marta", "Maria");
+anunciar('Carro', 'Pedro', 'Marta', 'Maria');
 
 // premio = Carro
 // ...ganhadores = ["Pedro", "Marta", "Maria"]
@@ -114,14 +115,14 @@ function anunciarGanhadores(premio, ...ganhadores) {
   // console.log(ganhadores);
 }
 
-anunciarGanhadores("Carro", "Pedro", "Marta", "Maria");
+anunciarGanhadores('Carro', 'Pedro', 'Marta', 'Maria');
 
 // o prêmio será sempre o mesmo
 // os ganhadores, posso continuar passando...
 
 /*
 
-Operador Spread
+Operador Spread("espalhar")
 ------------------------------------------------------
 
 Assim como o Rest, o operador Spread também utiliza os '...' para ser ativado.
@@ -130,9 +131,9 @@ Rest faz referência aos parâmetros passados (ou a se passar ) que serão argum
 
 OBS: Não utilizamos o Spread como parâmetro. */
 
-const frutas = ["Banana", "Uva", "Morango"];
-const legumes = ["Cenoura", "Batata"];
-const comidas = [...frutas, "Pizza", ...legumes];
+const frutas = ['Banana', 'Uva', 'Morango'];
+const legumes = ['Cenoura', 'Batata'];
+const comidas = [...frutas, 'Pizza', ...legumes];
 // console.log(comidas);
 
 /* O que é diferente de:
@@ -143,8 +144,8 @@ const comidas2 = [[frutas, legumes]]; // Array frutas na posição 0 + Array leg
 
 // Abaixo, temos uma concatenação de Arrays utilizando o Spread:
 
-const frutas1 = ["Banana", "Uva", "Morango"];
-const comidas1 = ["Pizza", "Batata"];
+const frutas1 = ['Banana', 'Uva', 'Morango'];
+const comidas1 = ['Pizza', 'Batata'];
 
 comidas1.push(...frutas1);
 // console.log(comidas1);
@@ -165,14 +166,14 @@ function anunciar2(premio, ...ganhadores) {
   // ...ganhadores = Rest --> está recebendo a Array com cada um dos nomes do Spread
 
   ganhadores.forEach((ganhador) => {
-    console.log(ganhador + " ganhou um " + premio);
+    console.log(ganhador + ' ganhou um ' + premio);
   });
 }
 // com Spread:
 
-const ganhadores = ["Pedro", "Marta", "Maria"];
+const ganhadores = ['Pedro', 'Marta', 'Maria'];
 
-anunciar2("Carro", ...ganhadores);
+anunciar2('Carro', ...ganhadores);
 // ...ganhadores = Spread --> está distribuindo os nomes
 
 /*
@@ -182,36 +183,36 @@ OBS:
 1. 
 Se utilizar (sem Spred) e (sem Rest) --> a função receberá a Array inteira e o argumento simples 'ganhadores' será a Array  ["Pedro", "Marta", "Maria"], que , então será distribuida pelo forEach --> resultado igual com Rest e Spread */
 
-const nomes = ["Pedro", "Marta", "Maria"];
+const nomes = ['Pedro', 'Marta', 'Maria'];
 
 function anunciar3(premio, ganhadores) {
   // ganhadores.forEach((nome) => console.log(nome + " ganhou um " + premio));
 }
-anunciar3("Carro", nomes);
+anunciar3('Carro', nomes);
 
 /*
 2.
 se deixar o Rest apenas como parâmetro (sem Spread), a função receberá como argumento um único elemento como argumento na posição 0 (ou seja, a Array inteira na posição 0) --> teremos: // Pedro, Marta, Maria ganhou um Carro */
 
-const nomes2 = ["Pedro", "Marta", "Maria"];
+const nomes2 = ['Pedro', 'Marta', 'Maria'];
 
 function anunciar4(premio, ...ganhadores) {
   // ganhadores.forEach((nome) => console.log(nome + " ganhou um " + premio));
 }
 
-anunciar4("Carro", nomes2);
+anunciar4('Carro', nomes2);
 
 /*
 3. 
 se deixar o Spread apenas como parâmetro (sem Rest), a função receberá como argumento um único elemento de cada vez (SPREAD DISTRIBUI OS ITENS, UM A UM), e não poderá fazer a iteração, dando Erro!!
 Como só tenho 'ganhadores' (sem '...' ), isso significa também que a função está esperando 1 único argumento! */
 
-const nomes3 = ["Pedro", "Marta", "Maria"];
+const nomes3 = ['Pedro', 'Marta', 'Maria'];
 
 function anunciar5(premio, ganhadores) {
   // ganhadores.forEach((nome) => console.log(nome + " ganhou um " + premio));
 }
-anunciar5("Carro", ...nomes3);
+anunciar5('Carro', ...nomes3);
 
 /*
 Transformar em Array
@@ -219,13 +220,38 @@ Transformar em Array
 
 É possível transformar itens iteráveis em uma array real com o spread. */
 
-const btns = document.querySelectorAll("button");
+const btns = document.querySelectorAll('button');
 const btnsArray = [...btns]; // ou const btnsArray = Array.from(btns)
 // console.log(btnsArray);
 
-const frase = "Isso é JavaScript";
+// ainda:
+// const btns = [...document.querySelectorAll('button')];
+
+[...btns].map((tag) => console.log(tag));
+
+const frase = 'Isso é JavaScript';
 const fraseArray = [...frase];
 // console.log(fraseArray);
+
+/*
+Clonando um objeto com Spread
+------------------------------------------------------
+
+É possível clonar um objeto-pai com o spread, mantendo o original inalterável. */
+
+const carro = {
+  marca: 'Fiat',
+  modelo: 'Punto',
+  ano: 2000,
+  portas: 5,
+};
+
+const cloneCarro = { ...carro, turbo: true };
+
+console.log(cloneCarro);
+
+// Diferente de:
+const cloneCarro2 = carro; //qquer alteração em carro ou cloneCarro2 afetará um e outro!!
 
 /*
 
@@ -248,21 +274,21 @@ Exercícios
 // }
 // const redButton = createButton();
 
-function createButton(background = "blue", color = "red") {
-  const buttonElement = document.createElement("button");
+function createButton(background = 'blue', color = 'red') {
+  const buttonElement = document.createElement('button');
   buttonElement.style.background = background;
   buttonElement.style.color = color;
 
   return buttonElement;
 }
 
-const redButton = createButton("white");
+const redButton = createButton('white');
 // console.log(redButton);
 
 // Utilize o método push para inserir as frutas ao final de comidas.
 
-const frutas2 = ["Banana", "Uva", "Morango"];
-const comidas3 = ["Pizza", "Batata"];
+const frutas2 = ['Banana', 'Uva', 'Morango'];
+const comidas3 = ['Pizza', 'Batata'];
 
 comidas1.push(...frutas2);
 // console.log(comidas1);

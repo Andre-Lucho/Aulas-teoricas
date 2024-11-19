@@ -7,7 +7,7 @@ Permite a desestruturação de Arrays e Objetos.
 Atribuindo suas propriedades à novas variáveis. */
 
 const carro = {
-  marca: "Fiat",
+  marca: 'Fiat',
   ano: 2018,
   portas: 4,
 };
@@ -21,7 +21,7 @@ const { marca, ano, portas } = carro;
 
 /* Evita a repetição de invocar o nome da constante a todo o momento, como abaixo:
 carro.marca
-carro.ano ()
+carro.ano 
 carro.portas
 
 Agora, quando precisar puxar uma das propriedades da const 'carro', apenas faço referência ao nome da prop direto!
@@ -38,14 +38,14 @@ A desestruturação irá facilitar a manipulação de dados.
 Principalmente quando temos uma grande profundidade de objetos. */
 
 const cliente = {
-  nome: "Andre",
+  nome: 'Andre',
   compras: {
     digitais: {
-      livros: ["Livro 1", "Livro 2"],
-      videos: ["Video JS", "Video HTML"],
+      livros: ['Livro 1', 'Livro 2'],
+      videos: ['Video JS', 'Video HTML'],
     },
     fisicas: {
-      cadernos: ["Caderno 1"],
+      cadernos: ['Caderno 1'],
     },
   },
 };
@@ -69,14 +69,14 @@ Nesting
 */
 
 const cliente01 = {
-  nome_1: "Andre",
+  nome_1: 'Andre',
   compras_1: {
     digitais_1: {
-      livros_1: ["Livro 10", "Livro 22"],
-      videos_1: ["Video CSS", "Video React"],
+      livros_1: ['Livro 10', 'Livro 22'],
+      videos_1: ['Video CSS', 'Video React'],
     },
     fisicas_1: {
-      cadernos_1: ["Caderno abc"],
+      cadernos_1: ['Caderno abc'],
     },
   },
 };
@@ -109,7 +109,7 @@ Nome das Variáveis
 */
 
 const cliente3 = {
-  nome: "Andre",
+  nome: 'Andre',
   compras: 10,
 };
 
@@ -128,12 +128,12 @@ Caso a propriedade não exista o valor padrão dela será undefined .
 É possível modificar este valor no momento da desestruturação. */
 
 const cliente4 = {
-  nome: "Andre",
+  nome: 'Andre',
   compras: 10,
-  email: "andre@gmail.com",
+  email: 'andre@gmail.com',
   // prioridade
 };
-const { nome, compras, email = "email@gmail.com", cpf = 10000 } = cliente4;
+const { nome, compras, email = 'email@gmail.com', cpf = 10000 } = cliente4;
 // console.log(email); // andre@gmail.com; caso não haja a propriedade email declarada n obj --> email@gmail.com
 // console.log(cpf); // 10000
 
@@ -145,7 +145,7 @@ Destructuring Arrays
 
 Para desestruturar array's você deve colocar as variáveis entre [] colchetes. */
 
-const frutas = ["Banana", "Uva", "Morango"];
+const frutas = ['Banana', 'Uva', 'Morango'];
 const primeiraFruta = frutas[0];
 const segundaFruta = frutas[1];
 const terceiraFruta = frutas[2];
@@ -168,9 +168,9 @@ Declaração de Variáveis
 
 A desestruturação pode servir para declararmos uma sequência de variáveis através de uma array */
 
-const primeiro = "Cachorro";
-const segundo = "Gato";
-const terceiro = "Cavalo";
+const primeiro = 'Cachorro';
+const segundo = 'Gato';
+const terceiro = 'Cavalo';
 
 // ou
 
@@ -191,20 +191,15 @@ Se uma função espera receber como argumento um objeto, podemos desestruturar e
 
 // Lembrando: event é um objeto!!
 function handleClick({ type, target, target: { lastChild }, x, y }) {
-  //{ key }
-
-  // REFERENCIA --> event.key --> event é de hierarquia imediatamente anterior a .key
-  // ==> const {key} = event.key
+  // REFERENCIA --> event
   console.log(type);
   console.log(target);
   console.log(lastChild);
   console.log(x);
   console.log(y);
-
-  // posso chamar apenas key = event.key
 }
 
-document.addEventListener("click", handleClick);
+document.addEventListener('click', handleClick);
 
 // function abc(event) {
 //   console.log(event);
@@ -219,7 +214,7 @@ Exercícios
 
 1 - Extraia o 'background-color', 'color' e 'margin-left' do btn utilizando desestruturação*/
 
-const btn = document.querySelectorAll(".button");
+const btn = document.querySelectorAll('.button');
 
 // Método do window == getComputedStyle() -> pega todos os estilos CSS atuais setados para  o elemento
 
@@ -240,8 +235,8 @@ const btn = document.querySelectorAll(".button");
 // Não consigo pegar valores atuais (a menos que eles estejam declarados inline no HTML ou via JS!)
 
 /*2 - Troque os valores das variáveis abaixo utilizando desestruturação*/
-let cursoAtivo = "JavaScript";
-let cursoInativo = "HTML";
+let cursoAtivo = 'JavaScript';
+let cursoInativo = 'HTML';
 
 // cursoAtivo = cursoInativo; // HTML
 // cursoInativo = cursoAtivo[ // HTML = HTML
@@ -256,9 +251,9 @@ let cursoInativo = "HTML";
 /*3 - Corrija o erro abaixo */
 
 const cachorro = {
-  nome: "Bob",
-  raca: "Labrador",
-  cor: "Amarelo",
+  nome: 'Bob',
+  raca: 'Labrador',
+  cor: 'Amarelo',
 };
 const { cor: bobCor } = cachorro;
 

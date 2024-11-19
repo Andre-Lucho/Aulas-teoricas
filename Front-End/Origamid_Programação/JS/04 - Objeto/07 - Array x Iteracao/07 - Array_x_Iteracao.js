@@ -10,7 +10,7 @@ A função de callback é executada para cada item da array. Ela possui três ar
 
 */
 
-const carros = ["Ford", "Fiat", "Honda"];
+const carros = ['Ford', 'Fiat', 'Honda'];
 carros.forEach(function (item, index, array) {
   // console.log(item.toUpperCase());
 });
@@ -66,7 +66,7 @@ const cars = carros.forEach(function (item, i, array) {
 // c)
 const a = carros.forEach((item, i, array) => {
   // array[i] = item.includes("teste");
-  array.push("teste");
+  array.push('teste');
   // console.log(array);
 });
 
@@ -96,7 +96,7 @@ Funciona da mesma forma que o forEach(), porém ao invés de retornar undefined,
 retorna uma NOVA ARRAY com VALORES ATUALIZADOS de acordo com o RETURN de cada iteração. 
 */
 
-const carros3 = ["Ford", "Fiat", "Honda"];
+const carros3 = ['Ford', 'Fiat', 'Honda'];
 
 const newCarros = carros3.map((item) => {
   return item.toUpperCase();
@@ -130,9 +130,9 @@ Valor Retornado
 
 Se não retornarmos nenhum valor durante a iteração utilizando map, o valor retornado como de qualquer função que não possui o return, será undefined. */
 
-const carros4 = ["Ford", "Fiat", "Honda"];
+const carros4 = ['Ford', 'Fiat', 'Honda'];
 const newCarros2 = carros4.map((item) => {
-  const novoValor = "Carro " + item;
+  const novoValor = 'Carro ' + item;
 });
 // console.log(newCarros2); // [undefined, undefined, undefined];
 
@@ -159,7 +159,7 @@ const numeros3 = [2, 4, 6, 8, 10, 12, 14];
 const numerosX3 = numeros3.map((n) => n * 3).pop();
 // aqui, a forma reduzida da Arrow função não precisa passar return
 
-console.log(numerosX3); // retorna 42
+// console.log(numerosX3); // retorna 42
 
 /*
 
@@ -169,10 +169,10 @@ console.log(numerosX3); // retorna 42
 Map pode ser muito útil para interagirmos com uma array de objetos, onde desejamos isolar um valor único de cada objeto. */
 
 const aulas = [
-  { nome: "HTML 1", min: 15 },
-  { nome: "HTML 2", min: 10 },
-  { nome: "CSS 1", min: 20 },
-  { nome: "JS 1", min: 25 },
+  { nome: 'HTML 1', min: 15 },
+  { nome: 'HTML 2', min: 10 },
+  { nome: 'CSS 1', min: 20 },
+  { nome: 'JS 1', min: 25 },
 ];
 const tempoAulas = aulas.map((aula) => aula.min);
 // console.log(tempoAulas); // ;
@@ -264,7 +264,7 @@ Maior Valor com [].reduce()
 const numeros2 = [10, 25, 60, 5, 35, 10];
 const maiorValor = numeros2.reduce(
   (anterior, atual) => (anterior > atual ? anterior : atual),
-  0
+  0,
 );
 
 // console.log(maiorValor); // 60
@@ -277,19 +277,19 @@ Podemos retornar outros valores
 
 const aulas4 = [
   {
-    nome: "HTML 1",
+    nome: 'HTML 1',
     min: 15,
   },
   {
-    nome: "HTML 2",
+    nome: 'HTML 2',
     min: 10,
   },
   {
-    nome: "CSS 1",
+    nome: 'CSS 1',
     min: 20,
   },
   {
-    nome: "JS 1",
+    nome: 'JS 1',
     min: 25,
   },
 ];
@@ -345,9 +345,9 @@ aulas.reduce(({0: 'HTML 1', 1: 'HTML 2', 2: 'CSS 1'}, {nome:
 
 Existe também o método [].reduceRight() , a diferença é que este começa a iterar da direita para a esquerda, enquanto o reduce itera da esquerda para a direita. */
 
-const frutas = ["Banana", "Pêra", "Uva"];
-const frutasRight = frutas.reduceRight((acc, fruta) => acc + " " + fruta);
-const frutasLeft = frutas.reduce((acc, fruta) => acc + " " + fruta);
+const frutas = ['Banana', 'Pêra', 'Uva'];
+const frutasRight = frutas.reduceRight((acc, fruta) => acc + ' ' + fruta);
+const frutasLeft = frutas.reduce((acc, fruta) => acc + ' ' + fruta);
 
 frutasRight; // Uva Pêra Banana
 frutasLeft; // Banana Pêra Uva
@@ -365,9 +365,9 @@ Métodos de Iteração para alguma Verificação
 
 [].some() , se pelo menos um return da iteração for truthy, ele retorna true. */
 
-const frutas2 = ["Banana", "Pêra", "Uva"];
+const frutas2 = ['Banana', 'Pêra', 'Uva'];
 const temUva = frutas2.some((fruta) => {
-  return fruta === "Uva";
+  return fruta === 'Uva';
 }); // true
 
 function maiorQue100(numero) {
@@ -384,7 +384,7 @@ const temMaior = numbers.some(maiorQue100); // true
 
 [].every() , se todos os returns das iterações forem truthy, o método irá retornar true. Se pelo menos um for falsy, ele irá retornar false. */
 
-const fruits = ["Banana", "", "Pêra", "Uva"];
+const fruits = ['Banana', '', 'Pêra', 'Uva'];
 // False pois pelo menos uma fruta está vazia '', o que é um valor false
 
 const arraysCheias = fruits.every((fruta) => {
@@ -407,9 +407,9 @@ Já o [].findIndex() , ao invés de retornar o valor, retorna o index deste valo
 const numbers3 = [6, 43, 22, 88, 101, 29];
 const buscaMaior_45 = numbers3.find((x) => x > 45); // 88
 
-const fruits2 = ["Banana", "Pêra", "Uva", "Maçã"];
+const fruits2 = ['Banana', 'Pêra', 'Uva', 'Maçã'];
 const buscaUva = fruits2.findIndex((fruta) => {
-  return fruta === "Uva";
+  return fruta === 'Uva';
 }); // 2
 
 /*
@@ -421,7 +421,7 @@ const buscaUva = fruits2.findIndex((fruta) => {
 [].filter() retorna uma ARRAY (lista) com a todos os valores 
 que durante a sua iteração retornaram um valor = TRUE. */
 
-const fruits3 = ["Banana", undefined, null, "", "Uva", 0, "Maçã"];
+const fruits3 = ['Banana', undefined, null, '', 'Uva', 0, 'Maçã'];
 const arrayLimpa = fruits3.filter((fruta) => {
   // console.log(fruta); // lista todas
   // return true; // retorna toda a array original
@@ -440,19 +440,19 @@ Filter em Objetos
 
 const classes = [
   {
-    nome: "HTML 1",
+    nome: 'HTML 1',
     min: 15,
   },
   {
-    nome: "HTML 2",
+    nome: 'HTML 2',
     min: 10,
   },
   {
-    nome: "CSS 1",
+    nome: 'CSS 1',
     min: 20,
   },
   {
-    nome: "JS 1",
+    nome: 'JS 1',
     min: 25,
   },
 ];
@@ -496,16 +496,16 @@ Arquivo HTML
 
 */
 
-const cursosHTML = document.querySelectorAll(".curso");
+const cursosHTML = document.querySelectorAll('.curso');
 const newCursos = Array.from(cursosHTML);
-console.log(newCursos);
+// console.log(newCursos);
 
 const cursosListaObjetos = newCursos.map((aula, index) => {
   // console.log(aula);
-  const titulo = aula.querySelector("h1").innerText;
-  const descricao = aula.querySelector("p").innerText;
-  const numeroAulas = aula.querySelector(".aulas").innerText;
-  const totalHoras = aula.querySelector(".horas").innerText;
+  const titulo = aula.querySelector('h1').innerText;
+  const descricao = aula.querySelector('p').innerText;
+  const numeroAulas = aula.querySelector('.aulas').innerText;
+  const totalHoras = aula.querySelector('.horas').innerText;
   return {
     // Titulo: titulo,
     // Descricao: descricao,
@@ -519,8 +519,8 @@ const cursosListaObjetos = newCursos.map((aula, index) => {
   };
 });
 
-console.log(cursosListaObjetos);
-console.log(newCursos);
+// console.log(cursosListaObjetos);
+// console.log(newCursos);
 
 // .map, pois quero retonar uma array
 // return {} --> retorna um objeto
@@ -531,47 +531,80 @@ console.log(newCursos);
 const numbers4 = [3, 44, 333, 23, 122, 322, 33];
 
 const newList = numbers4.filter((n) => n > 100);
-console.log(newList);
+// console.log(newList);
 
 /* 3. Verifique se Baixo faz parte da lista de instrumentos e retorne true */
 
-const instrumentos = ["Guitarra", "Baixo", "Bateria", "Teclado"];
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado'];
 
-const verify = instrumentos.some((instr) => instr === "Baixo");
-console.log(verify);
+const verify = instrumentos.some((instr) => instr === 'Baixo');
+// console.log(verify);
 
 // .find --> retorna o 1°
 
 // Retorne o valor total das compras
 const compras = [
   {
-    item: "Banana",
-    preco: "R$ 4,99",
+    item: 'Banana',
+    preco: 'R$ 4,99',
   },
   {
-    item: "Ovo",
-    preco: "R$ 2,99",
+    item: 'Ovo',
+    preco: 'R$ 2,99',
   },
   {
-    item: "Carne",
-    preco: "R$ 25,49",
+    item: 'Carne',
+    preco: 'R$ 25,49',
   },
   {
-    item: "Refrigerante",
-    preco: "R$ 5,35",
+    item: 'Refrigerante',
+    preco: 'R$ 5,35',
   },
   {
-    item: "Quejo",
-    preco: "R$ 10,60",
+    item: 'Quejo',
+    preco: 'R$ 10,60',
   },
 ];
 
 const valorTotal = compras.reduce((acc, item) => {
   // const valor = +item.preco.replace("R$ ", "").replace(",", ".");
   //ou
-  const valor = parseFloat(item.preco.replace("R$ ", "").replace(",", "."));
+  const valor = parseFloat(item.preco.replace('R$ ', '').replace(',', '.'));
   // console.log(valor);
   return acc + valor;
 }, 0);
 
-console.log(valorTotal);
+// console.log(valorTotal);
+
+/* 
+Aula YouTube - Revisão Map, Filter e Reduce
+----------------------------------------------------------------------
+
+Esses métodos de Array retornam um novo array, exceto reduce(), que tem como retorno um VALOR ÚNICO final */
+
+const precos = [
+  'Crédito',
+  'R$ 200',
+  'R$ 400',
+  'Contas Pagar',
+  'R$ 300',
+  'R$ 400',
+  'Meus dados',
+];
+
+const precoFiltro = precos.filter((preco) => preco.includes('R$')); // + abreviado --> Arrow function c/ APENAS 1 LINHA  já possui return!!
+
+/* outras formas:
+a) return preco.includes('R$');
+b) if (preco.includes('R$')) return true;
+*) includes -> método de string
+**) posso usar Regular expression */
+
+const precoNumeros = precoFiltro.map((preco) => +preco.replace('R$', '')); //substituindo e retornando em Number
+
+/*
+a) Number(preco.replace('R$', '')) --> mesma coisa == usando os métodos de Number */
+
+const total = precoNumeros.reduce((acc, itemAtual) => acc + itemAtual);
+
+console.log(total);
