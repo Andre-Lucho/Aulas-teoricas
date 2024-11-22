@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Básico</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      color: #fff;
+      background-color: #171f2b;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    function Button() {
+      const [total, setTotal] = React.useState(0);
+      return <button onClick={() => setTotal(total + 1)}>Adicionar {total}</button>
+    }
+
+    function App() {
+      return <div>
+        <p>Retornando aqui a DIV</p>
+        <Button />
+      </div>;
+    }
+
+    /* Montando a function exemplo() dentro do elemento Div via React:
+    ----------------------------------- */
+
+    const container = document.getElementById("root");
+
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />)
+
+  </script>
+</body>
+
+</html>
+
+<!-- 
+Adicionar (sem NPM) 
+-----------------------------------
+Recomendado apenas para rápidos testes e prototipagem, você pode iniciar a desenvolver com React colocando no head do HTML os links abaixo (script).
+
+1) Carrega o React, React Dom e Babel:
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+2) e no <body>:
+<script type="text/babel"></script> == script tipo Babel
+
+OBS:
+-----------------------------------
+Babel aqui (além de tranformar o script em formatos antigos) também transpila códigos JSX (React) que não são lidos pelo browser em código JS !!!
+
+
+https://react.dev/learn/installation 
+
+<div id="root"></div> 
+*Apenas criando um elemento p montar o app React 
+
+<script type="text/babel">
+*indicando que o tipo de documento HTML é babel e será tranf em JS
+
+
+Montando a function exemplo() dentro do elemento Div via React:
+-----------------------------------------------------------------------------------------------
+
+function App() {
+  return <div>Retornando aqui a DIV</div>;
+}
+
+const container = document.getElementById("root");
+
+## ) 
+const root = ReactDOM.createRoot(container);
+Criando o objeto Raiz do React
+-----------------------------------
+*) ReactDOM = função principal
+*) .createroot = método
+
+##)
+root.render(<App />)
+// renderizando no browser:
+
+-->

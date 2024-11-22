@@ -1,0 +1,97 @@
+Bundler
+-----------------------------------
+Agrupa (bundle) o código do seu aplicativo == modules
+
+Permite definirmos os componentes em diferentes arquivos para melhor organização
+Facilita a importação de código externo instalado via NPM ou Yarm
+
+Bundlers: ESBuild, Rollup, Parcel, Turbopack, Webpack(+ lento)
+
+
+
+Transpiler
+-----------------------------------
+Transforma JSX return <div></div> em funções de React React.createElement()
+Transforma JavaScript novo const em JavaScript antigo var
+
+Exs: Babel, SWC, ESBuild
+
+
+
+ESBuild Mínimo - https://esbuild.github.io/
+---------------------------------------------------------
+
+1) Iniciar um pacote npm na pasta do seu aplicativo.
+#) npm init -y
+
+em  index.html:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="./main.js"></script>
+  </body>
+</html>
+
+2) Instalar o ESBuild:
+#) npm install esbuild
+
+3) Adicionar os scripts de desenvolvimento e build ao package.json:
+
+"scripts": {
+  "start": "esbuild --bundle src/main.jsx --outfile=main.js --servedir=./ --watch",
+  "build": "esbuild --bundle src/main.jsx --outfile=main.js"
+},
+
+
+React
+-----------------------------------
+1) Instalar os pacotes do React 
+#) npm install react react-dom
+
+2) ./src/main.jsx
+
+import ReactDOM from 'react-dom/client'; 
+import React from 'react';
+--> não temos no escopo global; importando dos pacotes instalados
+a partir daqui, tenho a biblioteca React disponíveis para o desenvovimento em 'main.jsx', com a transpilação para JS em 'main.js'
+
+import App from './App';
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+
+App.jsx
+-----------------------------------
+
+import React from 'react';
+
+const App = () => {
+  return <a href="https://www.origamid.com">Origamid</a>;
+};
+
+export default App;
+
+3) Inicie o desenvolvimento com:
+#)npm start
+
+4) Crie a build final com:
+#) npm run build
+
+Live Reload
+-----------------------------------
+Para atualizar o render automaticamente , adicione o script no final do HTML:
+
+<script>
+  new EventSource('/esbuild').addEventListener('change', () =>
+    location.reload(),
+  );
+</script>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Automação</title>
+  <style>
+    body {
+      background-color: #171d22;
+      color: aliceblue;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="./main.js"></script>
+  <script>
+    new EventSource('/esbuild').addEventListener('change', () =>
+      location.reload(),
+    );
+  </script>
+
+</body>
+
+</html>

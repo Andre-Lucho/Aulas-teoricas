@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Básico</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      color: #fff;
+      background-color: #171f2b;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- JavaScript -->
+
+  <div id="app-javascript">
+    <span><u>JavaScript</u></span>
+    <p>Total: <span id="total"></span></p>
+    <p>Preço: R$ <span id="preco"></span></p>
+    <button id="button">Comprar</button>
+  </div><br><br>
+
+  <script type="application/javascript">
+    const button = document.getElementById('button');
+    const total = document.getElementById('total');
+    const preco = document.getElementById('preco');
+
+    let contador = 1;
+
+    function atualizarValores(contador) {
+      total.innerText = contador;
+      preco.innerText = contador * 250;
+    }
+
+    atualizarValores(contador);
+
+    function handleClick() {
+      contador++;
+      atualizarValores(contador);
+    }
+
+    button.addEventListener('click', handleClick);
+  </script>
+
+  <!-- React -->
+
+  <span><u>React</u></span>
+  <div id="app-react"></div>
+  <script type="text/babel">
+
+    const Comprar = () => {
+      const [contador, setContador] = React.useState(1);
+      return <div>
+        <p>Total:{contador}</p>
+        <p>Preço: R$ {contador * 250}</p>
+        <button onClick={() => setContador(contador + 1)}>Comprar</button>
+      </div>
+
+    }
+
+
+    ReactDOM.createRoot(document.getElementById('app-react')).render(<Comprar />);
+  </script>
+</body>
+
+</html>

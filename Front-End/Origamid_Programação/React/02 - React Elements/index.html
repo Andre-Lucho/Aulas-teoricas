@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Básico</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      color: #fff;
+      background-color: #171f2b;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    const Button = () => <button>Comprar</button>
+
+    const Produtos = () => {
+      const produto1 = 'Camisa';
+      const produto2 = 'Bermuda';
+
+      function handleClick(event) {
+        console.log(event)
+        console.log('teste')
+      }
+
+      return (
+        <div>
+          <button onClick={handleClick}>
+            Comprar: {produto1} - R$ {Math.floor(Math.random() * 100)}
+          </button>
+          <button onClick={handleClick}>
+            Comprar: {produto2} - R$ {Math.floor(Math.random() * 100)}
+          </button>
+        </div>
+      );
+    };
+
+    const MainNav = () => {
+      return <nav>
+        <a href="#">Link 1</a>
+        <Button />
+      </nav>
+    }
+
+    const Compras = () => {
+      const [count, setCount] = React.useState(0);
+
+      function handleClick() {
+        setCount(count + 1);
+      }
+
+      return (
+        <div>
+          <button onClick={handleClick}>React useState</button>
+          <p>Total de ítens:  {count}</p>
+          <p>Preço: R$ {count * 200}</p>
+        </div>
+      );
+    };
+
+
+    const App = () => {
+      return <div>
+        <p>Retornando aqui a DIV</p>
+        <MainNav />
+        <Produtos />
+        <Compras />
+      </div>;
+    }
+
+    const container = document.getElementById("root");
+
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />)
+
+  </script>
+</body>
+
+</html>
