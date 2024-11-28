@@ -91,7 +91,12 @@ const App10 = () => {
 /*
 JSX Expressões
 -----------------------------------
-Você pode executar qualquer expressão dentro das chaves {}. Se o resultado da expressão for um número, string ou array de números/strings o resultado irá aparecer na tela. Booleanos (true/false), undefined e null não irão resultar em nada na tela. Objetos irão retornar um erro. */
+Você pode executar qualquer expressão dentro das chaves {}. 
+Se o resultado da expressão for um número, string ou array de números/strings o resultado irá aparecer na tela. 
+Booleanos (true/false), undefined e null não irão resultar em nada na tela. 
+Funções não ativadas irão retornar um erro -->  Devemos passar o resultado da função(ativá-la) 
+Objetos irão retornar um erro --> Devemos passar a propriedade e/ou o método correspondente aquele objeto/classe
+*/
 
 const App11 = () => {
   function meuNome() {
@@ -140,19 +145,18 @@ const App12 = () => {
   };
 
   return (
-    <div>
+    <>
       <h1 style={estiloH1}>Empresa</h1>
       <p style={{ color: 'green' }}>Sempre aberta</p>
-    </div>
+    </>
   );
 };
 
 /* Exercício
 -----------------------------------
-Mostre os dados da aplicação, como aprensetado no vídeo. 
-Não utilize CSS externo, use o style para mudar as cores. 
-Se a situação estiver ativa pinte de verde, inativa vermelho 
-Se o gasto for maior que 10000 mostre uma mensagem */
+Mostre os dados da aplicação, como aprensetado no vídeo. Não utilize CSS externo, use o style para mudar as cores. 
+Se a situação estiver: ativa, pinte de verde; inativa, de vermelho. 
+Se o gasto for maior que 10000, mostre uma mensagem */
 
 const luana = {
   cliente: 'Luana',

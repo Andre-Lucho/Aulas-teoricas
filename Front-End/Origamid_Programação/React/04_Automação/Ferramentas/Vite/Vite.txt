@@ -29,9 +29,11 @@ Abaixo os arquivos essenciais.
 - package-lock.json
 - vite.config.js
 
+
 IMPORTANTE!!
 -----------------------------------
 todos os arquivos que tem o caminho './' são add na pasta PUBLIC!
+
 
 
 Código mínimo para o index.html
@@ -71,11 +73,13 @@ const App = () => {
 export default App;
 
 
+
 Comandos
 -----------------------------------
 
 Inicia o desenvolvimento --> npm run dev;
 Cria a build final --> npm run build;
+
 
 
 ESLint
@@ -114,6 +118,7 @@ module.exports = {
     'react/jsx-key': 'off',
   },
 };
+
 
 CSS
 -----------------------------------

@@ -17,7 +17,8 @@ html {
 
 body {
   margin: 1.5rem;
-  background-color: rgb(100, 109, 176);
+  background-color: #171f2b;
+  color: #eee;
 }
 
 body,
