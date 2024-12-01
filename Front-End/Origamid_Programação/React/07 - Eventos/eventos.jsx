@@ -1,10 +1,11 @@
 /*
 Eventos
 --------------------------------------
-Podemos atribuir eventos diretamente aos elementos JSX como um atributo. Os eventos são sintáticos, ou seja, são criados pelo próprio React porém seguindo as especificações da W3C (e funcionam igualmente nos diversos browsers que o React suporta). 
-https://reactjs.org/docs/events.html */
+Podemos atribuir eventos diretamente aos elementos JSX como um atributo. Os eventos são sintáticos, ou seja, são criados pelo próprio React (e não mais pelo Browser), porém seguindo as especificações da W3C (e funcionam igualmente nos diversos browsers que o React suporta). 
+https://react.dev/reference/react-dom/components/common#react-event-object
+*/
 
-const App = () => {
+const App1 = () => {
   function handleClick(event) {
     alert('Comprou: ' + event.target.innerText);
   }
@@ -22,7 +23,7 @@ Função Anônima
 --------------------------------------
 É possível executar uma função anônima no evento. */
 
-const App = () => {
+const App2 = () => {
   return (
     <button onClick={({ target }) => target.classList.toggle('ativa')}>
       Ativar
@@ -38,11 +39,12 @@ window/document
 --------------------------------------
 Eventos no window/document ou qualquer elemento fora do React, devem ser adicionados com JavaScript normalmente, usando o addEventListener. */
 
-const App = () => {
+const App3 = () => {
   function handleScroll(event) {
     console.log(event);
+    // event = Object Event JS
   }
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll); //OBS --> Evento normal de JS
 
   return <div style={{ height: '200vw' }}>Div</div>;
 };
