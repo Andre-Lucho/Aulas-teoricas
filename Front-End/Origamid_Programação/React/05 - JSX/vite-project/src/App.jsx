@@ -75,6 +75,6 @@ const App = () => {
   );
 };
 
-// Varias formas aqui: com e sem função; com e se condicional
+// Varias formas aqui: com e sem função; com e sem condicional
 
 export default App;
