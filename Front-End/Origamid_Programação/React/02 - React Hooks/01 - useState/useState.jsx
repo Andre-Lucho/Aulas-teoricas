@@ -19,6 +19,7 @@ const App = () => {
 
 /*
 Hooks
+------------------------------------
 
 Os Hooks são funções especiais do React que permitem controlarmos o estado e o ciclo de vida de componentes funcionais. 
 Isso antes só era possível com classes. */
@@ -35,8 +36,9 @@ const App1 = () => {
 
 /*
 React.useState
+------------------------------------
 
-O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como strings, arrays, números, boolean, null, undefined e objetos. O segundo valor é uma função que pode ser utilizada para modificarmos o estado do primeiro valor.
+O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como: strings, arrays, números, boolean, null, undefined e objetos. O segundo valor é uma função que pode ser utilizada para modificarmos o estado do primeiro valor.
 
 Quando a função de modificação do estado é ativada, todos os componentes que dependerem do estado, serão RENDERIZADOS NOVAMENTE e os seus filhos também. 
 É isso que garante a reatividade de componentes funcionais no React.*/
@@ -55,12 +57,13 @@ const App2 = () => {
   );
 };
 
-// O uso de setNome é uma convenção do React para a função de modificação do estado
+// O uso de 'setNome' é uma convenção do React para a função de modificação do estado
 
 /*
 Múltiplos Estados
+------------------------------------
 
-Não existem limites para o uso do useState, podemos definir diversos no mesmo componente. */
+Não existem limites para o uso do useState, podemos definir diversos no mesmo componente e com diversos dados que o Estado irá verificar. */
 
 const App3 = () => {
   const [contar, setContar] = React.useState(0);
@@ -70,9 +73,17 @@ const App3 = () => {
   return <div></div>;
 };
 
-/*
-Props
+/* IMPORTANTE 
+------------------------------------
 
+Quando usar +1 useStade, qd tenho multiplos elementos em um Objeto ou uma Array, por exemplo que quero controlar seu estado??
+--> qd esses elementos não forem ser atualizados ao mesmo tempo!!
+Qd quiser que isso aconteça, faço outro useState em separado */
+
+/*
+
+Props
+------------------------------------
 Podemos passar o estado e a função de modificação como propriedades para outros elementos. */
 
 import React from 'react';
@@ -90,11 +101,11 @@ const App4 = () => {
   );
 };
 
-export default App;
+export default App4;
 
 // ButtonModal.jsx
 
-const ButtonModal = ({ setModal }) => {
+const ButtonModal1 = ({ setModal }) => {
   return <button onClick={() => setModal(true)}>Abrir Modal</button>;
 };
 
@@ -102,7 +113,7 @@ const ButtonModal = ({ setModal }) => {
 
 // Modal.jsx
 
-const Modal = ({ modal, setModal }) => {
+const Modal1 = ({ modal, setModal }) => {
   if (modal === true)
     return (
       <div>
@@ -115,21 +126,24 @@ const Modal = ({ modal, setModal }) => {
 // export default Modal;
 
 /*
-Reatividade
+Reatividade - IMPORTANTE
+-----------------------------------------
 
-Não modifique o estado diretamente. Utilize sempre a função de atualização do estado, pois ela que garante a reatividade dos componentes.*/
+Não modifique o estado diretamente. 
+Utilize sempre a função de atualização do estado, pois ela que garante a reatividade dos componentes.*/
 
-const App = () => {
+const App5 = () => {
   const [items, setItems] = React.useState(['Item 1', 'Item 2']);
 
   function handleClick() {
-    // Errado. Modifique o estado apenas com a função de atualização (setItems)
     items.push('Novo Item');
+    // Errado. od valores de 'items' serão att, porém NÃO SERÃO renderizados
+    // Modifique o estado apenas com a função de atualização (setItems)
   }
 
   function handleClickReativo() {
-    // Correto. Eu desestruturo a array atual, criando uma nova e adiciono um novo elemento
     setItems([...items, 'Novo Item']);
+    // Correto. Eu desestruturo a array atual, criando uma nova e adiciono um novo elemento
   }
 
   return (
@@ -145,15 +159,18 @@ const App = () => {
 
 /*
 Callback
+------------------------------------
 
 Podemos passar uma função de callback para atualizar o estado. A função de callback recebe um parâmetro que representa o valor anterior e irá modificar o estado para o valor que for retonado na função.*/
 
-const App = () => {
+const App6 = () => {
   const [ativo, setAtivo] = React.useState(true);
 
   function handleClick() {
     // usando um callback
     setAtivo((anterior) => !anterior);
+    // o valor 'anterior' é o mesmo valor de ativo, porém está sendo recebido indiretamente.
+    // o retorno da função de callback será o novo valor de setAtivo
   }
 
   return (
@@ -168,12 +185,12 @@ Callback Valor Inicial
 
 A definição do estado inicial também pode ser feita com um callback.*/
 
-const App = () => {
-  // Callback no estado inicial, só será executado na criação do componente
+const App7 = () => {
   const [ativo, setAtivo] = React.useState(() => {
     const ativoLocal = window.localStorage.getItem('ativo');
     return ativoLocal;
   });
+  // Callback no estado inicial, só será executado na criação do componente, buscando as informações do localStorage gravadas no browser do usuário
 
   function handleClick() {
     setAtivo((anterior) => !anterior);
@@ -203,6 +220,14 @@ const Contador = () => {
       setItems((items) => [...items, 'Item ' + (contar + 1)]);
       return contar + 1;
     });
+  }
+
+  function handleClick2() {
+    setContar((contar) => {
+      // setContar possui um efeito colateral.
+      return contar + 1;
+    });
+    setItems((items) => [...items, 'Item ' + (contar + 1)]);
     // Tirar o efeito de dentro do setContar irá concertar o erro
     // setItems((items) => [...items, 'Item ' + (contar + 1)]);
   }
@@ -216,13 +241,3 @@ const Contador = () => {
     </>
   );
 };
-
-/*
-
-
-*/
-
-/*
-
-
-*/
