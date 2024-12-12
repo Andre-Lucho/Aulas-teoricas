@@ -21,7 +21,7 @@ const App = () => {
 Hooks
 ------------------------------------
 
-Os Hooks são funções especiais do React que permitem controlarmos o estado e o ciclo de vida de componentes funcionais. 
+Os Hooks são funções especiais do React que permitem CONTROLARMOS O ESTADO e o ciclo de vida de componentes funcionais. 
 Isso antes só era possível com classes. */
 
 const App1 = () => {
