@@ -1,5 +1,6 @@
 /*
-React Hooks - useState
+React Hooks 
+useState
 --------------------------------------------------------
 
 Estado
@@ -38,7 +39,8 @@ const App1 = () => {
 React.useState
 ------------------------------------
 
-O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como: strings, arrays, números, boolean, null, undefined e objetos. O segundo valor é uma função que pode ser utilizada para modificarmos o estado do primeiro valor.
+O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como: strings, arrays, números, boolean, null, undefined e objetos. 
+O segundo valor é uma função que pode ser utilizada para modificarmos o estado do primeiro valor.
 
 Quando a função de modificação do estado é ativada, todos os componentes que dependerem do estado, serão RENDERIZADOS NOVAMENTE e os seus filhos também. 
 É isso que garante a reatividade de componentes funcionais no React.*/
@@ -77,7 +79,7 @@ const App3 = () => {
 ------------------------------------
 
 Quando usar +1 useStade, qd tenho multiplos elementos em um Objeto ou uma Array, por exemplo que quero controlar seu estado??
---> qd esses elementos não forem ser atualizados ao mesmo tempo!!
+--> qd esses elementos não forem ser atualizados ao mesmo tempo == forem independentes!!
 Qd quiser que isso aconteça, faço outro useState em separado */
 
 /*
