@@ -1,16 +1,32 @@
 import React from 'react';
+import Produto from './Produto';
+
+// const App = () => {
+//   const [contar, setContar] = React.useState(0);
+
+//   // const titulo = 'Clicou ';
+
+//   React.useEffect(() => console.log('teste'), []);
+
+//   React.useEffect(() => {
+//     document.title = 'Clicou ' + contar;
+//   }, [contar]);
+
+//   return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
+// };
+
+// export default App;
 
 const App = () => {
-  const [contar, setContar] = React.useState(0);
+  const [ativo, setAtivo] = React.useState(false);
 
-  const titulo = 'Clicou ';
-
-  React.useEffect(() => {
-    document.title = titulo + contar;
-    // O ESLint irá indicar que você possui uma dependência não declarada (contar)
-  }, []);
-
-  return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
+  return (
+    <div>
+      <p>Meu App</p>
+      <button onClick={() => setAtivo(!ativo)}>Abrir</button>
+      {ativo && <Produto />}
+    </div>
+  );
 };
 
 export default App;

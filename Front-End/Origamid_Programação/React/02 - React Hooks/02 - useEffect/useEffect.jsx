@@ -21,7 +21,8 @@ const App = () => {
 /*
 Array de Dependências
 -----------------------------------------------
-No useEffect podemos definir dois argumentos, o primeiro é a função de callback que será executada, o segundo é uma array com uma lista de dependências. A lista de dependências serve para informarmos quando o efeito deve ocorrer. 
+No useEffect podemos definir dois argumentos, o primeiro é a função de callback que será executada, o segundo é uma array com uma lista de dependências. 
+A lista de dependências serve para informarmos quando o efeito deve ocorrer. 
 
 */
 const App1 = () => {
@@ -30,9 +31,13 @@ const App1 = () => {
     console.log('Apenas quando renderiza');
   }, []);
   /* 
+  aqui => array com as dependências --> indica o que o useEffect observa --> se houver alteração na dependência*, ele executa a callback novamente; se não, não executa.
+  *mesmo que por um valor igual ao anteior
   
-  Uma Array VAZIA indica que o efeito NÃO POSSUI NENHUMA dependência,
-  assim o mesmo só irá ocorrer quando o componente é renderizado inicialmente (montado).   O efeito ocorre logo após a renderização do mesmo
+   
+    Uma Array VAZIA indica que o efeito NÃO POSSUI NENHUMA dependência,
+  assim o mesmo só irá ocorrer quando o componente é renderizado inicialmente (montado). 
+  O efeito ocorre logo após a renderização do mesmo
   Ex. ** Busca de dados em um servidor - necessito APENAS 1X fazer essa busca!
   */
 
@@ -56,7 +61,7 @@ Se utilizarmos o valor de um hook ou propriedade dentro de um efeito, ele irá i
 const App2 = () => {
   const [contar, setContar] = React.useState(0);
 
-  const titulo = 'Clicou '; // não é um estado reativo == estado estático
+  const titulo = 'Clicou '; // não é um estado reativo == estado estático - está do lado de fora
 
   React.useEffect(() => {
     document.title = titulo + contar;
@@ -87,7 +92,7 @@ const App3 = () => {
 
   return (
     <div>
-      {dados && (
+      {dados && ( // verificando o valor de 'dados'; caso não tivesse, <h1> e <p> seriam null
         <div>
           <h1>{dados.nome}</h1>
           <p>R$ {dados.preco * contar}</p>
@@ -101,7 +106,8 @@ const App3 = () => {
 /*
 Múltiplos Efeitos
 -----------------------------------------------
-Podemos ter diversos useEffect no nosso código. O ideal é separarmos efeitos diferentes em useEffect diferentes.
+Podemos ter diversos useEffect no nosso código. 
+O ideal é separarmos efeitos diferentes em useEffect diferentes.
 
 */
 const App4 = () => {
@@ -129,21 +135,23 @@ const App4 = () => {
 /*
 Antes de Desmontar
 -----------------------------------------------
-As vezes precisamos executar um efeito sempre que um componente for desmontado. Para isso utilizamos um callback no retorno do callback do efeito.
+As vezes, precisamos executar um efeito sempre que um componente for desmontado --> Ex. Modal, remover os 'eventListeners'
+Para isso utilizamos um callback no retorno do callback do efeito.
 
 */
 const Produto = () => {
-  // Utilizamos o useEffect para adicionarmos eventos direto ao DOM
   React.useEffect(() => {
     function handleScroll(event) {
       console.log(event);
     }
     window.addEventListener('scroll', handleScroll);
-    // Limpa o evento quando o elemento é removido do DOM.
+    // Utilizamos o useEffect para adicionarmos eventos direto ao DOM
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  // Limpa o evento ms antes de o elemento ser removido do DOM (tela).
 
   return <p style={{ height: '200vh' }}>Produto</p>;
 };
