@@ -7,7 +7,7 @@ Estado
 ------------------------------------
 O estado de uma aplicação representa as características dela naquele momento. 
 Por exemplo: os dados do usuário foram carregados, o botão está ativo, o usuário está na página de contato:
-Os dados do usuário foram carregados --> faca tal coisa... se não,outra;
+Os dados do usuário foram carregados --> faça tal coisa... se não,outra;
 Se o botão está ativo, acontece tal coisa; se estiver inativo, outra e etc. */
 
 const App = () => {
@@ -49,8 +49,8 @@ const App2 = () => {
   const [ativo, setAtivo] = React.useState(true);
   // É a mesma coisa que:
   // const ativoArray = React.useState(true);
-  // const ativo = ativoArray[0];
-  // const setAtivo = ativoArray[1];
+  // const ativo = ativoArray[0]; // = true
+  // const setAtivo = ativoArray[1]; // vou passar
 
   return (
     <button onClick={() => setAtivo(!ativo)}>
@@ -119,7 +119,8 @@ const Modal1 = ({ modal, setModal }) => {
   if (modal === true)
     return (
       <div>
-        Esse é um modal. <button onClick={() => setModal(false)}>Fechar</button>
+        Esse é um modal.
+        <button onClick={() => setModal(false)}>Fechar</button>
       </div>
     );
   return null;
@@ -154,7 +155,7 @@ const App5 = () => {
         <li key={i}>{item}</li>
       ))}
       <button onClick={handleClick}>Adicionar Item</button>
-      <button onClick={handleClickReativo}>Adicionar Reativo</button>
+      <button onClick={handleClickReativo}>Adicionar Item Reativo</button>
     </>
   );
 };
@@ -171,8 +172,13 @@ const App6 = () => {
   function handleClick() {
     // usando um callback
     setAtivo((anterior) => !anterior);
-    // o valor 'anterior' é o mesmo valor de ativo, porém está sendo recebido indiretamente.
-    // o retorno da função de callback será o novo valor de setAtivo
+    /* o valor 'anterior' é o mesmo valor de 'ativo', porém não estou mais dependendo de 'ativo' diretamente --> está sendo recebido indiretamente.
+    o retorno da função de callback será o NOVO valor de setAtivo
+    
+    OBS:
+    -------------------
+    A callback é especial útil qd eu não estou recebendo o valor 'ativo' na minha props... como é um callback, ele vai ativar o que tivar na função setAtivo!!
+    */
   }
 
   return (
@@ -184,7 +190,7 @@ const App6 = () => {
 
 /*
 Callback Valor Inicial
-
+-----------------------------------------------
 A definição do estado inicial também pode ser feita com um callback.*/
 
 const App7 = () => {
@@ -192,8 +198,13 @@ const App7 = () => {
     const ativoLocal = window.localStorage.getItem('ativo');
     return ativoLocal;
   });
-  // Callback no estado inicial, só será executado na criação do componente, buscando as informações do localStorage gravadas no browser do usuário
+  /* Callback no estado inicial, só será executado na criação do componente, buscando as informações do localStorage gravadas no browser do usuário ou outra qquer info externa qquer da aplicação
+  
+  OBS:
 
+  Dessa forma, meu valor inicial de "ativo" vai depender de um fator externo... no caso aqui, de um valor alocado no localStorage do usuário!
+
+  */
   function handleClick() {
     setAtivo((anterior) => !anterior);
   }
@@ -225,10 +236,7 @@ const Contador = () => {
   }
 
   function handleClick2() {
-    setContar((contar) => {
-      // setContar possui um efeito colateral.
-      return contar + 1;
-    });
+    setContar((contar) => contar + 1);
     setItems((items) => [...items, 'Item ' + (contar + 1)]);
     // Tirar o efeito de dentro do setContar irá concertar o erro
     // setItems((items) => [...items, 'Item ' + (contar + 1)]);

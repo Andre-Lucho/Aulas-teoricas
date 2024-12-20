@@ -29,9 +29,9 @@ const App = () => {
       </button>
       {load && <p>Carregando...</p>}
       {!load && data && <Produto data={data} />}
-      {/* dados && --> verifica se 'dados' é true:
-      inicialmente o valor de dados é NULL == Não existe nenhuma props para um valor null!! Então, não renderiza 
-      Devo executar <Produtos /> apenas se dados for algo diferente de null, por isso a condição
+      {/* data && --> verifica se 'data' é true:
+      inicialmente o valor de data é NULL == Não existe nenhuma props para um valor null!! Então, não renderiza  <Produto>
+      Devo executar <Produtos /> apenas se data for algo diferente de null, por isso a condição
       */}
     </>
   );
