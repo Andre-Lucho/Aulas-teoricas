@@ -4,7 +4,8 @@ React Hooks
 useEffect
 -----------------------------------------------
 
-Todo componente possui um ciclo de vida. Os principais momentos acontecem quando o componente é renderizado, atualizado ou destruído. 
+Todo componente possui um ciclo de vida. 
+Os principais momentos acontecem quando o componente é renderizado, atualizado ou destruído. 
 Com o React.useEffect() podemos definir um callback que irá ser executado durante certos momentos do ciclo de vida do componente.
 
 */
@@ -32,10 +33,9 @@ const App1 = () => {
   }, []);
   /* 
   aqui => array com as dependências --> indica o que o useEffect observa --> se houver alteração na dependência*, ele executa a callback novamente; se não, não executa.
-  *mesmo que por um valor igual ao anteior
+  *mesmo que for um valor igual ao anteior
   
-   
-    Uma Array VAZIA indica que o efeito NÃO POSSUI NENHUMA dependência,
+  Uma Array VAZIA indica que o efeito NÃO POSSUI NENHUMA dependência,
   assim o mesmo só irá ocorrer quando o componente é renderizado inicialmente (montado). 
   O efeito ocorre logo após a renderização do mesmo
   Ex. ** Busca de dados em um servidor - necessito APENAS 1X fazer essa busca!
