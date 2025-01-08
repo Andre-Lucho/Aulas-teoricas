@@ -145,7 +145,11 @@ const App4 = () => {
 Antes de Desmontar
 -----------------------------------------------
 As vezes, precisamos executar um efeito sempre que um componente for desmontado --> Ex. Modal, remover os 'eventListeners'
-Para isso utilizamos um callback no retorno do callback do efeito.
+Para isso utilizamos => 
+  ** uma callback no RETORNO da 'callback pai' do efeito de hook useEffect **
+
+OBS.--> No caso abaixo, notar que a condição p/ renderização do componente 'Produto' está atrelada ao estado 'ativo' (atualizaçao da const 'ativo') do botão....
+Cada vez que clico no botão, esse hook useState é atualizado. Então, preciso limpar o evento Dom, para que ele não fique repetido na página, consumindo recursos desnecessários.
 
 */
 const Produto = () => {
@@ -157,12 +161,13 @@ const Produto = () => {
     // Utilizamos o useEffect para adicionarmos eventos direto ao DOM
 
     return () => {
+      // ** return da callback de useEffect
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  // Limpa o evento ms antes de o elemento ser removido do DOM (tela).
+  // Limpa o evento ms antes de o elemento ser desmontado (removido do DOM (tela)).
 
-  return <p style={{ height: '200vh' }}>Produto</p>;
+  return <p style={{ height: '200vh' }}>Produto</p>; // ** return do componente 'Produto'
 };
 
 const App5 = () => {
