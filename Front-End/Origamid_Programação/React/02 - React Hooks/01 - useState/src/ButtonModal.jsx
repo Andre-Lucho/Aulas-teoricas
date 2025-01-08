@@ -10,11 +10,7 @@ import React from 'react';
 // Callback
 
 const ButtonModal = ({ setModal }) => {
-  function handleClick() {
-    setModal((ativo) => !ativo);
-  }
-
-  return <button onClick={handleClick}>Abrir</button>;
+  return <button onClick={() => setModal((ativo) => !ativo)}>Abrir</button>;
 };
 
 // Agora, o button abrir também fecha o modal

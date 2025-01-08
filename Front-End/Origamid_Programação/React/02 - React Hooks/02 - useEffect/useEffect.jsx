@@ -5,10 +5,17 @@ useEffect
 -----------------------------------------------
 
 Todo componente possui um ciclo de vida. 
-Os principais momentos acontecem quando o componente é renderizado, atualizado ou destruído. 
+Os principais momentos acontecem quando o componente é renderizado, atualizado(renderizado novamente) ou destruído. 
 Com o React.useEffect() podemos definir um callback que irá ser executado durante certos momentos do ciclo de vida do componente.
 
-*/
+/* IMPORTANTE:
+  ----------------------------------------------- 
+  Entender que a Reatividade do React só tem efeito após a renderização de seus componentes (alteração de estado)
+  Então:
+  -----------------------------------------------
+  no Hook useState--> após setAlgo ser atualizado com NOVO VALOR de 'algo' e se ser renderizado novamente e;
+  no Hook useEffect --> vai depender da dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! */
+
 const App = () => {
   const [contar, setContar] = React.useState(0);
 
@@ -47,7 +54,7 @@ const App1 = () => {
   React.useEffect(() => {
     console.log('Toda vez que atualiza o contar');
   }, [contar]);
-  // Agora a dependência está no estado contar, assim sempre que contar for atualizar este efeito será ativado -- essa função callback irá ocorrer tatas vezes qtas eu atualizar o useState
+  // Agora a dependência está no estado 'contar', assim sempre que contar for atualizar este efeito será ativado -- essa função callback irá ocorrer tatas vezes qtas eu ATUALIZAR o useState
 
   return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
 };
@@ -65,7 +72,7 @@ const App2 = () => {
 
   React.useEffect(() => {
     document.title = titulo + contar;
-    // O ESLint irá indicar que você possui uma dependência não declarada (contar)
+    // O ESLint irá indicar que você possui uma dependência não declarada (contar) na dependência do useEffect
   }, []);
 
   return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
@@ -108,6 +115,8 @@ Múltiplos Efeitos
 -----------------------------------------------
 Podemos ter diversos useEffect no nosso código. 
 O ideal é separarmos efeitos diferentes em useEffect diferentes.
+
+Obs. Podemos ter +1 dependências no array do useEffect
 
 */
 const App4 = () => {

@@ -1,17 +1,24 @@
+import React from 'react';
 /*
-React Hooks 
+React Hooks
 useState
 --------------------------------------------------------
 
 Estado
 ------------------------------------
-O estado de uma aplicação representa as características dela naquele momento. 
-Por exemplo: os dados do usuário foram carregados, o botão está ativo, o usuário está na página de contato:
+O estado de uma aplicação representa as características dela naquele momento.
+Por exemplo: os dados do usuário foram carregados, o botão está ativo, o usuário está na página de contato;
 Os dados do usuário foram carregados --> faça tal coisa... se não,outra;
-Se o botão está ativo, acontece tal coisa; se estiver inativo, outra e etc. */
+Se o botão está ativo, acontece tal coisa; se estiver inativo, outra e etc.;
+O usuário está na <section> Footer....
+*/
 
 const App = () => {
-  const ativo = true;
+  const ativo = true; // variável 'ativo' está no estado ativo
+  // esse estado está determinando: 1) se o botão está habilitado ou não 2) qual deve ser o texto do botão
+
+  // anteriormente, para controlar o estado de um componente, era necessário utilizar classes!
+  // no módulo JS, utilizavamos a classe do HTML para controlar o estado de um componente!
 
   return (
     <button disabled={!ativo}>{ativo ? 'Botão Ativo' : 'Botão Inativo'}</button>
@@ -22,8 +29,11 @@ const App = () => {
 Hooks
 ------------------------------------
 
-Os Hooks são funções especiais do React que permitem CONTROLARMOS O ESTADO e o ciclo de vida de componentes funcionais. 
-Isso antes só era possível com classes. */
+Os Hooks são funções especiais do React que permitem CONTROLARMOS O ESTADO e o ciclo de vida de componentes funcionais.
+Isso antes só era possível com classes.
+
+Os Hooks permitem que o app renderize novamente apenas aquele estado específico de um componente 'X' , e não de toda a aplicação!
+*/
 
 const App1 = () => {
   const [ativo, setAtivo] = React.useState(true);
@@ -39,10 +49,10 @@ const App1 = () => {
 React.useState
 ------------------------------------
 
-O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como: strings, arrays, números, boolean, null, undefined e objetos. 
+O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como: strings, arrays, números, boolean, null, undefined e objetos.
 O segundo valor é uma função que pode ser utilizada para modificarmos o estado do primeiro valor.
 
-Quando a função de modificação do estado é ativada, todos os componentes que dependerem do estado, serão RENDERIZADOS NOVAMENTE e os seus filhos também. 
+Quando a função de modificação do estado é ativada, todos os componentes que dependerem do estado, serão RENDERIZADOS NOVAMENTE e os seus filhos também.
 É isso que garante a reatividade de componentes funcionais no React.*/
 
 const App2 = () => {
@@ -61,6 +71,10 @@ const App2 = () => {
 
 // O uso de 'setNome' é uma convenção do React para a função de modificação do estado
 
+// Obs.:
+// import { useState } from 'react';
+// desestruturando o metodo useState do React --> posso evoca-lo diretamente
+
 /*
 Múltiplos Estados
 ------------------------------------
@@ -70,12 +84,18 @@ Não existem limites para o uso do useState, podemos definir diversos no mesmo c
 const App3 = () => {
   const [contar, setContar] = React.useState(0);
   const [ativo, setAtivo] = React.useState(false);
-  const [dados, setDados] = React.useState({ nome: '', idade: '' });
+  const [dados, setDados] = React.useState({ nome: 'André', idade: '43' });
 
-  return <div></div>;
+  const { nome, idade } = dados;
+  return (
+    <div>
+      <p>{nome}</p>
+      <p>{idade}</p>
+    </div>
+  );
 };
 
-/* IMPORTANTE 
+/* IMPORTANTE
 ------------------------------------
 
 Quando usar +1 useStade, qd tenho multiplos elementos em um Objeto ou uma Array, por exemplo que quero controlar seu estado??
@@ -88,7 +108,7 @@ Props
 ------------------------------------
 Podemos passar o estado e a função de modificação como propriedades para outros elementos. */
 
-import React from 'react';
+// import React from 'react';
 import Modal from './Modal';
 import ButtonModal from './ButtonModal';
 
@@ -132,8 +152,9 @@ const Modal1 = ({ modal, setModal }) => {
 Reatividade - IMPORTANTE
 -----------------------------------------
 
-Não modifique o estado diretamente. 
-Utilize sempre a função de atualização do estado, pois ela que garante a reatividade dos componentes.*/
+Não modifique o estado diretamente.
+Utilize sempre a função de atualização do estado, pois ela que garante a reatividade dos componentes 
+(Nova Renderização - impacto na interface).*/
 
 const App5 = () => {
   const [items, setItems] = React.useState(['Item 1', 'Item 2']);
@@ -160,6 +181,8 @@ const App5 = () => {
   );
 };
 
+// OBS.= Cuidado especial a objetos e arrays
+
 /*
 Callback
 ------------------------------------
@@ -174,10 +197,10 @@ const App6 = () => {
     setAtivo((anterior) => !anterior);
     /* o valor 'anterior' é o mesmo valor de 'ativo', porém não estou mais dependendo de 'ativo' diretamente --> está sendo recebido indiretamente.
     o retorno da função de callback será o NOVO valor de setAtivo
-    
+
     OBS:
     -------------------
-    A callback é especial útil qd eu não estou recebendo o valor 'ativo' na minha props... como é um callback, ele vai ativar o que tivar na função setAtivo!!
+    A callback é especialmente útil qd eu NÃO estou recebendo o valor 'ativo' na minha props... como é um callback, ele vai ativar o que tivar na função setAtivo!!
     */
   }
 
@@ -195,14 +218,14 @@ A definição do estado inicial também pode ser feita com um callback.*/
 
 const App7 = () => {
   const [ativo, setAtivo] = React.useState(() => {
-    const ativoLocal = window.localStorage.getItem('ativo');
+    const ativoLocal = localStorage.getItem('ativo');
     return ativoLocal;
   });
-  /* Callback no estado inicial, só será executado na criação do componente, buscando as informações do localStorage gravadas no browser do usuário ou outra qquer info externa qquer da aplicação
-  
+  /* Callback no estado inicial, SOMENTE será executado na criação do componente (1x), buscando as informações do localStorage gravadas no browser do usuário ou outra qquer info externa de qquer da aplicação
+
   OBS:
 
-  Dessa forma, meu valor inicial de "ativo" vai depender de um fator externo... no caso aqui, de um valor alocado no localStorage do usuário!
+  Dessa forma, meu valor inicial de "ativo" vai DEPENDER de um fator externo... no caso aqui, de um valor alocado no localStorage do usuário!
 
   */
   function handleClick() {
@@ -218,10 +241,11 @@ const App7 = () => {
 
 /*
 React.StrictMode
+------------------------------------
+O modo estrito invoca duas vezes a renderização do componente, quando o estado é atualizado. 
+Assim é possível identificarmos funções com efeitos colaterais (side effects) e eliminarmos as mesmas. => efeitos que modifiquem algo que esteja fora dela
 
-O modo estrito invoca duas vezes a renderização do componente, quando o estado é atualizado. Assim é possível identificarmos funções com efeitos coláterais (side effects) e eliminarmos as mesmas.
-
-Funções com efeitos coláterais são aquelas que modificam estados que estão fora das mesmas. */
+Funções com efeitos colaterais são aquelas que modificam estados que estão fora das mesmas. */
 
 const Contador = () => {
   const [contar, setContar] = React.useState(1);
@@ -235,11 +259,17 @@ const Contador = () => {
     });
   }
 
+  // function handleClick2() {
+  //   setContar((contar) => contar + 1);
+  //   setItems((items) => [...items, 'Item ' + (contar + 1)]);
+  //   // Tirar o efeito de dentro do setContar irá consertar o erro
+  // }
+
+  // ou
+
   function handleClick2() {
-    setContar((contar) => contar + 1);
-    setItems((items) => [...items, 'Item ' + (contar + 1)]);
-    // Tirar o efeito de dentro do setContar irá concertar o erro
-    // setItems((items) => [...items, 'Item ' + (contar + 1)]);
+    setContar(contar + 1);
+    setItems([...items, 'Item ' + (contar + 1)]);
   }
 
   return (

@@ -1,20 +1,35 @@
-/* const App = () => {
-  let ativo = true;
+import React from 'react';
 
-  function handleClick() {
-    ativo = !ativo;
-    console.log(ativo);
-  }
-return (
-    <>
-      <button onClick={handleClick}>
-        {ativo ? 'Botão Ativo' : 'Botão Inativo'}
-      </button>
-    </>
-  ); 
-}
+// const App = () => {
+//   const [ativo, setAtivo] = React.useState(false);
+//   const [dados, setDados] = React.useState({
+//     nome: 'André',
+//     idade: '43',
+//     faculdade: false,
+//   });
+//   const [contar, setContar] = React.useState(0);
 
-ACIMA:
+//   const { nome, idade, faculdade } = dados;
+
+//   function handleClick() {
+//     setAtivo(!ativo);
+//     setDados({ ...dados, faculdade: !dados.faculdade });
+//     setContar((contar) => contar + 1);
+//   }
+//   return (
+//     <>
+//       <p>{nome}</p>
+//       <p>{idade}</p>
+//       <p>{faculdade ? 'Possui faculdade' : 'Não Possui'}</p>
+//       <p>{contar}</p>
+//       <button onClick={handleClick}>
+//         {ativo ? 'Botão Ativo' : 'Botão Inativo'}
+//       </button>
+//     </>
+//   );
+// };
+
+/*ACIMA:
 --------------
 Estou mudando o estado do componente; porém, o render não irá ser atualizado !!!
 Por isso, utilizamos os Hooks! */
@@ -61,34 +76,48 @@ Por isso, utilizamos os Hooks! */
 
 // export default App;
 
-/* 
-Props
------------------------------------- */
+// Props
+// ------------------------------------
 // import ButtonModal from './ButtonModal';
 // import Modal from './Modal';
 
-// const App1 = () => {
+// const App = () => {
 //   const [modal, setModal] = React.useState(false);
 
 //   return (
 //     <>
-//       <div>{modal ? 'Modal OK' : 'Modal OFF'}</div>
+//       <div>{modal ? 'Modal ON' : 'Modal OFF'}</div>
 //       <Modal modal={modal} setModal={setModal} />
 //       <ButtonModal setModal={setModal} />{' '}
 //       {/* setModal = é qquer nome (propriedade em ButtonModal.jsx)... o que está entre {} é a função de att do useState*/}
-//     </>
-//   );
-// };
-
-// export default App1;
-
-// Obs.:
-import react, { useState } from 'react';
-// desestruturando o metodo useState do React --> posso evoca-lo diretamente
+//       </>
+//     );
+//   };
 
 const App = () => {
-  const [teste, setTeste] = useState(1);
-  return <>App</>;
+  const [contar, setContar] = React.useState(1);
+  const [items, setItems] = React.useState(['Item 1']);
+
+  function handleClick() {
+    setContar((contar) => contar + 1);
+    setItems((items) => [...items, 'Item ' + (contar + 1)]);
+  }
+
+  // ou
+
+  // function handleClick() {
+  //   setContar(contar + 1);
+  //   setItems([...items, 'Item ' + (contar + 1)]);
+  // }
+
+  return (
+    <>
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+      <button onClick={handleClick}>{contar}</button>
+    </>
+  );
 };
 
 export default App;

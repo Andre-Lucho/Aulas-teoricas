@@ -1,0 +1,103 @@
+/*
+useRef (mto utilizado para formulários)
+-----------------------------------------------
+Retorna um objeto com a propriedade current. 
+Esse objeto pode ser utilizado para guardarmos valores que irão PERSISTIR durante TODO O CICLO de vida do elemento (NÃO É REATIVO!)
+Geralmente usamos o mesmo para nos referirmos a um elemento do DOM, sem precisarmos utilizar o querySelector ou similar.*/
+
+// 1.
+import React from 'react';
+
+const App = () => {
+  const div = React.useRef();
+
+  console.log(div.current); // retorna undefined ==> como qquer hook, só é ativado após nova renderização
+  React.useEffect(() => {
+    console.log(div.current); // retorna 'nova-classe'
+    // div = nome da variável escolhida
+    // current = prorpiedade acessível de useRef
+  }, []);
+
+  // utilizar o Hook useRef após uma callback ou dentro de um useEffect, pois ele precisa receber novo valor p ser ativado
+
+  return <div ref={div} className="nova-classe"></div>;
+  // ref = atributo especial que faz referência ou useRef
+};
+
+// 2. posso também dar novo valor a div.current:
+
+const App2 = () => {
+  const div = React.useRef();
+
+  React.useEffect(() => {
+    div.current = 'Teste';
+    console.log(div.current); // Teste
+  }, []);
+
+  return <div ref={div} className="nova-classe"></div>;
+};
+
+/*
+focus()
+-----------------------------------------------
+É comum utilizarmos em formulários, quando precisamos de uma referência do elemento para colocarmos o mesmo em foco. */
+
+const App3 = () => {
+  const [comentarios, setComentarios] = React.useState([]);
+  const [input, setInput] = React.useState('');
+  const inputElement = React.useRef();
+
+  function handleClick() {
+    setComentarios((comentarios) => [...comentarios, input]);
+    setInput('');
+    inputElement.current.focus();
+  }
+
+  return (
+    <div>
+      <ul>
+        {comentarios.map((comentario) => (
+          <li key={comentario}>{comentario}</li>
+        ))}
+      </ul>
+      <input
+        type="text"
+        value={input}
+        ref={inputElement}
+        onChange={({ target }) => setInput(target.value)}
+      />
+      <br />
+      <button onClick={handleClick}>Enviar</button>
+    </div>
+  );
+};
+
+/*
+Referência
+-----------------------------------------------
+O seu uso não é restrito a elementos do dom.
+Podemos utilizar também para guardarmos a referência de qualquer valor**, como de um setTimeout por exemplo. 
+** useRef NÃO é um hook reativo --> persiste durante todo o ciclo de vida do componente
+*/
+
+const App4 = () => {
+  const [contar, setContar] = React.useState(0);
+  const [notificacao, setNotificacao] = React.useState(null);
+  const timeoutRef = React.useRef();
+
+  function handleClick() {
+    setNotificacao('Obrigado por comprar');
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setNotificacao(null);
+    }, 1000);
+    setContar(contar + 1);
+  }
+
+  return (
+    <div>
+      <p>{notificacao}</p>
+      <button onClick={handleClick}>{contar}</button>
+    </div>
+  );
+};

@@ -1,14 +1,17 @@
 import React from 'react';
 import Button from './Button';
 import fetchProduto from './fetchProduto.js';
+import Produto from './Produto';
 
 const App = () => {
   const [dados, setDados] = React.useState(null);
+  const [load, setLoad] = React.useState(null);
 
   async function handleClick(event) {
+    setLoad(true);
     const evento = event.target.innerText;
     const produto = await fetchProduto(evento);
-    console.log(produto); // retonando a Promise e não o Objeto da fetch ? agora, ok
+    setLoad(false);
     setDados(produto);
     // console.log(dados); // retornando null == não atualizou, pq ?
     // O hook irá atualizar dados e renderizar novamente o componente.
@@ -18,7 +21,11 @@ const App = () => {
 
   return (
     <>
-      <Button handleFunction={handleClick} />
+      <Button handleFunction={handleClick} label="Tablet" />
+      <Button handleFunction={handleClick} label="Smartphone" />
+      <Button handleFunction={handleClick} label="Notebook" />
+      {load && <p>Carregando...</p>}
+      {!load && dados && <Produto data={dados} />}
     </>
   );
 };

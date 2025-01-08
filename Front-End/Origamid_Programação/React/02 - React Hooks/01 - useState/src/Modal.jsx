@@ -4,7 +4,8 @@ const Modal = ({ modal, setModal }) => {
   if (modal) {
     return (
       <>
-        Esse é o modal. <button onClick={() => setModal(false)}>Fechar</button>
+        <p>Esse é o modal.</p>
+        <button onClick={() => setModal(false)}>Fechar</button>
       </>
     );
   }

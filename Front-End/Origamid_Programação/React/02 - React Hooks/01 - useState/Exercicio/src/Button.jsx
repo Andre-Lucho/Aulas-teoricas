@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Button = ({ handleFunction }) => {
+const Button = ({ handleFunction, label }) => {
   return (
     <>
       <button style={{ margin: '.3rem' }} onClick={handleFunction}>
-        Tablet
+        {label}
       </button>
     </>
   );
