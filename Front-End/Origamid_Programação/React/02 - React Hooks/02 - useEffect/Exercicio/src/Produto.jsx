@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Produto = ({ produto }) => {
-  const [dados, setDados] = React.useState(null);
+  const [dados, setDados] = React.useState(null); // {dados} é reativo à alteração de {produto}
 
   // Efeito p fetch de dados
 

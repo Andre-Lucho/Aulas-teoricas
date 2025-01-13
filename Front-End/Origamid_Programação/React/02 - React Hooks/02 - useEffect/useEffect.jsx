@@ -5,8 +5,9 @@ useEffect
 -----------------------------------------------
 
 Todo componente possui um ciclo de vida. 
-Os principais momentos acontecem quando o componente é renderizado, atualizado(renderizado novamente) ou destruído. 
+Os principais momentos acontecem quando o componente é renderizado*, atualizado(renderizado novamente) ou destruído. 
 Com o React.useEffect() podemos definir um callback que irá ser executado durante certos momentos do ciclo de vida do componente.
+
 
 /* IMPORTANTE:
   ----------------------------------------------- 
@@ -14,7 +15,10 @@ Com o React.useEffect() podemos definir um callback que irá ser executado duran
   Então:
   -----------------------------------------------
   no Hook useState--> após setAlgo ser atualizado com NOVO VALOR de 'algo' e se ser renderizado novamente e;
-  no Hook useEffect --> vai depender da dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! */
+  no Hook useEffect --> é ativado somente após a execução de todo o código (incluindo o Return de App) ou após a renderização de um componente, qd ele tiver uma dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! 
+  
+  De maneira geral, o useEffect 
+  */
 
 const App = () => {
   const [contar, setContar] = React.useState(0);

@@ -6,7 +6,7 @@ const App = () => {
 
   // Efeitos para o localStorage
   React.useEffect(() => {
-    const produtoLocal = localStorage.getItem('produto'); //inicialmente = null
+    const produtoLocal = localStorage.getItem('produto'); //inicialmente = null; não dá erro, pois null é válido (diferente de undefined == erro)
     if (produtoLocal !== null) setProduto(produtoLocal);
   }, []);
   // efeito 2 --> qd  localStorage não está vazio
@@ -21,7 +21,7 @@ const App = () => {
   function handleClick({ target }) {
     setProduto(target.innerText);
     // aqui, alterando o estado de 'produto' com useState
-    // podemos setar aqui as alterações no localStorage, porém podemos utilizar o useEffect, alterando o localStorage a partir da alteração do estado de 'produto' também
+    // podemos setar aqui as alterações no localStorage, porém podemos utilizar o useEffect, alterando o localStorage a partir da alteração do estado de 'produto' também, deixando o useState apenas para alterar o estado de 'produto'
   }
   // -----------------------------------------------
 

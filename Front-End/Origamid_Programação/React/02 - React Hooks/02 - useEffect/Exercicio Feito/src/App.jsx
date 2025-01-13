@@ -18,6 +18,7 @@ const App = () => {
 
   return (
     <>
+      <h1>Preferência: {produto}</h1>
       <button onClick={handleClick} style={{ margin: '.3rem' }}>
         Notebook
       </button>

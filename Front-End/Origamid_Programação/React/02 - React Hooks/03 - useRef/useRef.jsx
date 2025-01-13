@@ -13,14 +13,20 @@ const App = () => {
 
   console.log(div.current); // retorna undefined ==> como qquer hook, só é ativado após nova renderização
   React.useEffect(() => {
-    console.log(div.current); // retorna 'nova-classe'
+    console.log(div.current); // está apontando para a tag <div>
+    console.log(div.current.className); //está apontando para a tag <div> e retornando sua classe
+    console.log(div.current.innerText); // está apontando para a tag <div> e retornando seu texto
     // div = nome da variável escolhida
     // current = prorpiedade acessível de useRef
   }, []);
 
   // utilizar o Hook useRef após uma callback ou dentro de um useEffect, pois ele precisa receber novo valor p ser ativado
 
-  return <div ref={div} className="nova-classe"></div>;
+  return (
+    <div ref={div} className="nova-classe">
+      Texto da Div
+    </div>
+  );
   // ref = atributo especial que faz referência ou useRef
 };
 
@@ -75,7 +81,7 @@ const App3 = () => {
 /*
 Referência
 -----------------------------------------------
-O seu uso não é restrito a elementos do dom.
+O seu uso não é restrito a elementos do Dom.
 Podemos utilizar também para guardarmos a referência de qualquer valor**, como de um setTimeout por exemplo. 
 ** useRef NÃO é um hook reativo --> persiste durante todo o ciclo de vida do componente
 */
