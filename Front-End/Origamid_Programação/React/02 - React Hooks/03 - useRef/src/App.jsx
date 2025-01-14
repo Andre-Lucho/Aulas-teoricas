@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
-// 1.
+
+// # 1.
 // const App = () => {
 //   const div = React.useRef();
 
@@ -16,7 +17,7 @@ import { useRef } from 'react';
 //   );
 // };
 
-// 2.
+//  # 2.
 // const App = () => {
 //   const [comentarios, setComentarios] = React.useState([]);
 //   const [input, setInput] = React.useState('');
@@ -68,24 +69,47 @@ import { useRef } from 'react';
       tenho um value {input} e comentarios sendo att por setComentarios([...comentarios],INPUT), então, a cada att de comentarios, o valor de input tb atualiza!
       */
 
-// 3.
+// # 3.
 
+// const App = () => {
+//   const [carrinho, setCarrinho] = React.useState(0);
+//   const [notificacao, setNotificacao] = React.useState(null);
+
+//   let referencia = 0;
+
+//   function handleClick() {
+//     setCarrinho(carrinho + 1);
+//     setNotificacao('Novo item add ao carrinho com sucesso!'); // 1.
+
+//     console.log(referencia); // 3.
+
+//     clearTimeout(referencia);
+//     referencia = setTimeout(() => {
+//       setNotificacao(null);
+//     }, 2000);
+
+//     // 2.
+//     console.log(referencia);
+
+//     return (
+//       <div>
+//         <p>{notificacao}</p>
+//         <button onClick={handleClick}>Adicionar ao carrinho {carrinho}</button>
+//       </div>
+//     );
+//   }
+
+// 3.1
 const App = () => {
   const [carrinho, setCarrinho] = React.useState(0);
   const [notificacao, setNotificacao] = React.useState(null);
   const timeoutRef = React.useRef();
 
-  // let referencia = 0;
-
   function handleClick() {
     setCarrinho(carrinho + 1);
     setNotificacao('Novo item add ao carrinho com sucesso!'); // 1.
 
-    // console.log(referencia); // 3.
     console.log(timeoutRef.current); //4
-
-    // clearTimeout(referencia);
-    // referencia = setTimeout(()=> {})...
 
     // 4
     clearTimeout(timeoutRef.current);
@@ -93,22 +117,8 @@ const App = () => {
       setNotificacao(null);
       // console.log('teste');
     }, 2000);
-    // 2.
-    // console.log(referencia);
     console.log(timeoutRef.current); //4
   }
-
-  /*
-  1. porem, devo limpar apos um certo tempo...então utilizo 'setTimeout':
-  
-  2. problema: depois de alguns cliques, MTAS 'setTimeouts' ficam agendadas, dando um bug na renderização da mensagem, qd uma 'setTimeout' agendada anteriormente é efetivada
-  devo utiliza o 'clearTimeout()' - com uma referência de qd devo limpar o 'setTimeout' anterior... 
-
-  3. o valor de 'referencia' não serve como uma referência boa ao 'clearTimeout' para apagar o 'setTimeout', pois ele sempre ZERA a cada nova renderização == devo utilizar o useRef, pois ele é estático e não zera a cada nova renderização e de um novo 'setTimeout' sendo agendado
-
-  4. Agora, timeoutRef.current terá como referência sempre seu numero anterior, pois o hook não zera a cada nova renderização, já que é estático!
-  clearTimeout sempre limpa todos os setTimeouts anteriores, deixando apenas o última ativo
-  */
 
   return (
     <div>
@@ -117,5 +127,17 @@ const App = () => {
     </div>
   );
 };
+
+/*
+  1. porem, devo limpar apos um certo tempo...então utilizo 'setTimeout':
+  
+  2. problema: depois de alguns cliques, MTAS 'setTimeouts' ficam agendadas, dando um bug na renderização da mensagem, qd uma 'setTimeout' agendada anteriormente é efetivada
+  devo utiliza o 'clearTimeout()' - com uma referência de qd devo limpar o 'setTimeout' anterior... 
+
+  3. o valor de 'referencia' não serve como uma referência boa ao 'clearTimeout' para apagar o 'setTimeout', pois ele sempre ZERA a cada nova renderização == devo utilizar o useRef, pois ele é estático e não zera a cada nova renderização e de um novo 'setTimeout' sendo agendado
+
+  4. Agora, timeoutRef.current terá como referência sempre seu numero anterior, pois o hook não zera a cada nova = não há nova renderização, já que ele (useRef) é estático!
+  clearTimeout sempre limpa o setTimeout anterior, não ficando outros agendados (pois agora só tenho 1!), deixando apenas o último ativo
+  */
 
 export default App;
