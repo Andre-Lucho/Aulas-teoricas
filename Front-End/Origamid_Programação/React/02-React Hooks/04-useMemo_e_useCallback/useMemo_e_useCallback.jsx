@@ -1,14 +1,19 @@
+import React from 'react';
 /*
 useMemo;
 -----------------------------------------------
-Memoriza um valor, evitando a recriação do mesmo todas as vezes em que um componente for atualizado. Recebe um callback e uma array de dependências. */
+Memoriza um valor, evitando a recriação do mesmo todas as vezes em que um componente for atualizado. 
+Recebe um callback e uma array de dependências. 
+Serve SOMENTE para casos em que você faz uma operação lenta da linguegem JavaScript* para retornar um valor.
+* Ex. Operações matemáticas mto complexas e longas */
 
 const App = () => {
   const [contar, setContar] = React.useState(0);
   const valor = React.useMemo(() => {
-    const localStorageItem = window.localStorage.getItem('produto');
+    // operação que retorna um valor
+    const localStorageItem = localStorage.getItem('produto');
     // só será executado uma vez
-    console.log('teste');
+    console.log('useMemo foi executado');
     return localStorageItem;
   }, []);
   console.log(valor);
@@ -16,7 +21,15 @@ const App = () => {
   return <button onClick={() => setContar(contar + 1)}>{valor}</button>;
 };
 
-// Serve para casos em que você faz uma operação lenta para retornar um valor.
+/* Verificação de uma operação lenta em JavaScript:
+-----------------------------------------------------------------------
+
+# método do Objeto performance-> performance.now():
+
+const tempo1 = performance.now()
+**operação teste
+performance.now() - tempo1 --> 
+testei a performance antes da operação e novamente após ela e fiz uma subtração para ver o tempo que ela consome
 
 /*useMemo Teste*/
 function operacaoLenta() {
@@ -41,7 +54,11 @@ const App2 = () => {
 /*
 useCallback
 -----------------------------------------------
-Permite definirmos um callback e uma lista de dependências do callback. Esse callback só será recriado se essa lista de dependências for modificada, caso contrário ele não irá recriar o callback. */
+Permite definirmos um callback e uma lista de dependências do callback. 
+Esse callback só será recriado se essa lista de dependências for modificada, caso contrário ele não irá recriar o callback. 
+Dificilmente você irá encontrar um cenário em que essa função seja útil, pois seu uso não modifica a performance do código.
+
+*/
 
 const App3 = () => {
   const [contar, setContar] = React.useState(0);
@@ -52,12 +69,16 @@ const App3 = () => {
 
   return <button onClick={handleClick}>{contar}</button>;
 };
-// Dificilmente você irá encontrar um cenário em que essa função seja útil
 
 /*
 useCallback Teste
 -----------------------------------------------
-Uma prova de que o useCallback não irá criar uma nova função. Isso não significa que ele é mais ou menos otimizado. O Set() é utilizado pois ele permite apenas valores únicos dentro do mesmo. */
+Uma prova de que o useCallback não irá criar uma nova função. 
+Isso não significa que ele é mais ou menos otimizado. 
+O JavaScript possui o chamado 'garbageCollector' --> limpa a memória para funções que não serão utilizadas;
+Assim, a utilização do useCallback não melhora a performance do código
+
+O Set() é utilizado pois ele permite apenas valores únicos dentro do mesmo. */
 
 const set1 = new Set();
 const set2 = new Set();
