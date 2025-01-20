@@ -1,0 +1,128 @@
+import React from 'react';
+
+useContext
+------------------------------------------
+
+createContext
+------------------------------------
+
+O contexto irá permitir passarmos dados/estado a todos os componentes, sem a necessidade de utilizar propriedades (props). 
+Serve principalmente para dodos/estados globais como por exemplo dados do usuário logado. 
+Deve ser importado na parte mais global do app ou onde queremos o acesso ao contexto global da aplicação.
+ 
+ #UserContext.jsx
+
+const UserContext = React.createContext(); 
+*Estamos criando o aspecto de contexto global
+
+export default UserContext;
+
+
+Provider
+------------------------------------
+
+O método Provider deve ser utilizado para envolver todos os elementos que terão acesso aos dados do Context. Provider recebe uma propriedade chamada value, dentro dela que devemos informar os dados do contexto.
+
+#App.jsx
+
+import Produto from './Produto';
+import userContext from './UserContext';
+
+const App2 = () => {
+  return (
+    <UserContext.Provider value={{ nome: 'André' }}>
+      <Produto />
+    </UserContext.Provider>
+  );
+};
+
+** Acima, o componente <Produto> tem acesso ao contexto global (aqui ao objeto anônimo contendo nome: 'André')
+
+
+
+
+export default App2;
+
+
+useContext
+------------------------------------
+
+
+O useContext é o hook que deve ser utilizado para consumirmos o contexto e termos assim acesso aos dados de value. Devemos passar o contexto criado como seu agumento.*/
+
+#Produto.jsx
+
+import UserContext from './UserContext';
+
+const Produto2 = () => {
+   const user = React.useContext(UserContext);
+   return <p>Produto de: {user.nome}</p>;
+};
+
+export default Produto;
+
+
+GlobalStorage
+------------------------------------
+
+Exemplo de uso real do context. Podemos passar qualquer coisa no value do context, até estados e funções atualizadoras do useState.
+
+ #App.jsx
+
+ import Produto from './Produto';
+ import { GlobalStorage } from './GlobalContext';
+
+const App = () => {
+   return 
+   <GlobalStorage>
+   {<Produto />}
+   </GlobalStorage>;
+};
+
+ export default App;
+
+ #GlobalContext.js
+
+export const GlobalContext = React.createContext();
+
+ export const GlobalStorage = ({ children }) => {
+   const [carrinho, setCarrinho] = React.useState(0);
+
+   return (
+     <GlobalContext.Provider value={{ carrinho, setCarrinho }}>
+       {children}
+     </GlobalContext.Provider>
+   );
+ };
+
+
+IMPORTANTE!!
+------------------------------------
+------------------------------------
+
+Agora, o meu GlobalContext está funcionando a semelhança de um Objeto Global JS, onde tenho aceso a diversos métodos e prorpriedades (e também Hooks React) que eu setar, e que posso invocar em todo o meu projeto.
+Todos esses métodos e propriedades vão estar listados e organizados apenas nesse arquivo onde eu crio o 'React.createContext();'
+
+Depois, invoco com o React.useContext em qualquer componente!
+
+ --------------------------------------------------------------------------------------------
+
+#Produto.jsx
+
+ import { GlobalContext } from './GlobalContext';
+
+const Produto3 = () => {
+  const global = React.useContext(GlobalContext);
+
+  function handleClick() {
+    global.setCarrinho((carrinho) => carrinho + 1);
+  }
+
+  return (
+    <p>
+      Total: {global.carrinho}: <button onClick={handleClick}>Adicionar</button>
+    </p>
+  );
+};
+
+ export default Produto;
