@@ -1,5 +1,7 @@
 import React from 'react';
 import Produto from './Produto';
+
+// 1.
 // import UserContext from './UserContext';
 
 // const App = () => {
@@ -10,6 +12,7 @@ import Produto from './Produto';
 //   );
 // };
 
+// 2.
 import { GlobalStorage } from './GlobalContext';
 
 const App = () => {

@@ -1,8 +1,9 @@
 import React from 'react';
 
-export const GlobalContext = React.createContext();
+export const GlobalContext = React.createContext(); // escopo do contexto
 
 export const GlobalStorage = ({ children }) => {
+  // que elementos dentro do escopo estou exportando p todo projeto
   const [comprar, setComprar] = React.useState(0);
 
   function comprarUm() {
@@ -16,6 +17,7 @@ export const GlobalStorage = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{ nome: 'André', comprar, setComprar, comprarUm, comprarDois }}
+      // passando o Provider aqui
     >
       {children}
     </GlobalContext.Provider>
