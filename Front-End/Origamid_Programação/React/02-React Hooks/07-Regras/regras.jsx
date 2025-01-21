@@ -1,3 +1,4 @@
+import React from 'react';
 /*
 Regras
 ------------------------------------
@@ -13,16 +14,16 @@ const App = () => {
     document.title = 'Título novo';
   }, []);
 
+  // Errado
   let condicao = true;
   if (condicao) {
-    // Errado
     React.useEffect(() => {
       document.title = 'Título novo';
     }, []);
   }
 
+  // Errado
   function mudarTitulo() {
-    // Errado
     React.useEffect(() => {
       document.title = 'Título novo';
     }, []);
@@ -44,9 +45,8 @@ Componentes e Custom Hooks
 
 Utilize hooks apenas em componentes e em custom hooks. */
 
-import React from 'react';
+/* Errado, mas pode se transformar em um custom hook se começar com useNumeroAleatorio
 
-// Errado, mas pode se transformar em um custom hook se começar com useNumeroAleatorio
 function numeroAleatorio() {
   const numero = Math.random();
   React.useEffect(() => {
@@ -55,7 +55,21 @@ function numeroAleatorio() {
   return numero;
 }
 
-const App = () => {
+ou: 
+const useNumeroAleatorio = () => {} ...
+  
+  */
+
+function useNumeroAleatorio() {
+  const numero = Math.random();
+  React.useEffect(() => {
+    document.title = numero;
+  }, []);
+  return numero;
+}
+
+const App2 = () => {
+  useNumeroAleatorio();
   return <div></div>;
 };
 

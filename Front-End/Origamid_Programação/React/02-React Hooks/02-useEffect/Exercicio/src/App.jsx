@@ -7,7 +7,7 @@ const App = () => {
   // Efeitos para o localStorage
   React.useEffect(() => {
     const produtoLocal = localStorage.getItem('produto'); //inicialmente = null; não dá erro, pois null é válido (diferente de undefined == erro)
-    if (produtoLocal !== null) setProduto(produtoLocal);
+    if (produtoLocal !== null) setProduto(produtoLocal); // seta o mesmo valor da function handleClick -ok
   }, []);
   // efeito 2 --> qd  localStorage não está vazio
 
