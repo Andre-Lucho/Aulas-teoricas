@@ -1,0 +1,59 @@
+OBSs
+------------------------------------
+
+1.
+se counter <=10, 10 ainda é true --> então ele renderiza novamente, ativando a função e counter será = 11!
+se counter < 10 , a função é true até 9 e não mais até 10!
+
+2.
+Também poderia utilizar o atributo 'disable' no lugar da condicional IF nas funções:
+<button onClick={handleIncrement} disabled={counter >= 10}>Aumentar</button>
+<button onClick={handleDecrement} disabled={counter <= 0}>Diminuir</button> 
+
+3.
+[{[...history]. + (',')}] ====>  [{history.join(', ')}] 
+
+a) Sem o Spread --> history já uma uma Array, não há a necessidade de transformar em Array novamente.
+
+b) Utilização de join() para Remover Última Vírgula
+A melhor solução para evitar a vírgula extra na renderização da array é usar o método join(), que permite concatenar os elementos de uma array em uma string com um separador específico(vírgula + espaço, sem vírgula no final).
+
+
+Sugestões Copilot ==> 
+------------------------------------
+
+1) Uso do 'useCallback':
+------------------------------------
+
+A) Uso de useCallback: Encapsule as funções de manipulação de eventos (handleIncrement, handleDecrement, handleReset, handleUserInput, handleUserNegInput) com useCallback para evitar recriações desnecessárias de funções em cada renderização.
+
+a. Clareza e Manutenibilidade: O uso de useCallback torna o código mais claro, pois evita funções inline diretamente dentro dos componentes, melhorando a legibilidade e a manutenibilidade.
+
+b. Melhor Performance: useCallback evita recriações desnecessárias de funções em cada renderização, o que pode melhorar a performance, especialmente em componentes mais complexos ou com estados intensamente mutáveis.
+
+const handleIncrement = useCallback(() => {
+    setCounter((prev) => (prev < 10 ? prev + 1 : prev));
+  }, []);
+
+  const handleDecrement = useCallback(() => {
+    setCounter((prev) => (prev > 0 ? prev - 1 : prev));
+  }, []);
+
+  const handleReset = useCallback(() => {
+    setCounter(0);
+  }, []);
+
+  const handleUserInput = useCallback(({ target }) => {
+    setUserInput(target.value);
+  }, []);
+
+  const handleUserNegInput = useCallback(({ target }) => {
+    setUserNegInput(target.value);
+  }, []);
+
+
+2) Condicionais no useEffect:
+------------------------------------
+
+Adicione verificações condicionais nos useEffect para garantir que setCounter seja chamado apenas quando os inputs forem diferentes de vazio.
+Evitar chamadas desnecessárias de setCounter: Adicionando verificações condicionais, você evita chamadas desnecessárias de setCounter, melhorando a performance do componente.

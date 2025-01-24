@@ -1,0 +1,9 @@
+Create a React application that displays a simple counter. The counter should initially display 0 and have two buttons to increment or decrement the count. The count should update accordingly when a button is clicked. 
+
+Extra:
+------------------------------------
+
+1. Implement a limit to the count (e.g., prevent it from going below 0 or above a certain number). | OK
+2. Allow users to input a custom increment or decrement value. | OK
+3. Display the count history or a list of previous counts. | OK
+4. Add a reset button to set the count back to 0. | OK
