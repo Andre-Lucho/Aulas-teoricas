@@ -7,19 +7,18 @@ const useFetch = () => {
 
   const request = React.useCallback(async (url, options) => {
     let response;
-    let json;
     try {
       setError(null);
       setLoad(true);
       response = await fetch(url, options);
-      // json = await response.json();
+      console.log(response);
     } catch (erro) {
-      json = null;
+      response = null;
       setError('Erro no fetch');
     } finally {
-      setData(json);
+      setData(response);
       setLoad(false);
-      return { response, json };
+      return { response };
     }
   }, []);
 
@@ -27,3 +26,5 @@ const useFetch = () => {
 };
 
 export default useFetch;
+
+// Sem o a const json e sua tranf em Json, pois já tenho isso nas options do fetch para a API Ranekapi

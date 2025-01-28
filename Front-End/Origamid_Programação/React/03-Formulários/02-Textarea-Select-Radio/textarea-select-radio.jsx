@@ -72,7 +72,14 @@ Radio
 ------------------------------------
 ------------------------------------
 
-No radio comparamos o valor selecionado com o valor do input, dentro do atributo checked. O que retornar true irá marcar o botão. */
+No radio, comparamos o valor selecionado com o valor do input, dentro do atributo checked. O que retornar true irá marcar o botão. 
+Aqui, value não é reativo. 
+1. O que é reativo é o atributo 'checked' --> então devemos fazer uma checagem se radio === ao valor que tenho em 'value'
+2. 
+Também posso utilizar o atributo 'name' aqui, com o mesmo valor em todos os inputs de tipo 'radio' --> como ele definirá que somente 1 radio poderá estar selecionado, já temos a nossa verificação feita
+
+
+*/
 
 const App = () => {
   const [radio, setRadio] = React.useState('');
@@ -88,6 +95,7 @@ const App = () => {
           type="radio"
           value="notebook"
           checked={radio === 'notebook'}
+          // name="algo"
           onChange={handleChange}
         />
         Notebook
@@ -97,6 +105,7 @@ const App = () => {
           type="radio"
           value="smartphone"
           checked={radio === 'smartphone'}
+          // name="algo"
           onChange={handleChange}
         />
         Smartphone
@@ -106,6 +115,7 @@ const App = () => {
           type="radio"
           value="tablet"
           checked={radio === 'tablet'}
+          // name="algo"
           onChange={handleChange}
         />
         Tablet
