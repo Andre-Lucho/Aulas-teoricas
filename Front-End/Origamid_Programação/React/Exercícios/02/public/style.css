@@ -43,6 +43,10 @@ h1 {
   line-height: 1.1;
 }
 
+/* form { */
+display: flex;
+/* } */
+
 button {
   margin: var(--buttom-magin);
   padding: 0.6em 0.8rem;

@@ -15,9 +15,10 @@ Com o React.useEffect() podemos definir um callback que irá ser executado duran
   Então:
   -----------------------------------------------
   no Hook useState--> após setAlgo ser atualizado com NOVO VALOR de 'algo' e se ser renderizado novamente e;
-  no Hook useEffect --> é ativado somente após a execução de todo o código (incluindo o Return de App) ou após a renderização de um componente, qd ele tiver uma dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! 
+  no Hook useEffect --> é ativado somente após a execução de todo o código (incluindo o Return de App) ou após a renderização de um componente e qd ele tiver uma dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! 
   
-  De maneira geral, o useEffect 
+  *** Em todos os casos, o useEffect SEMPRE é montado no PRIMEIRO carregamento do código e, caso tenha alguma dependência, SOMENTE será renderizado (tela) após contemplar a mudança da dependência!
+  CUIDADO ESPECIAL A CASOS DE ASSINCRONICIDADE!! ==> INICIALMENTE teremos null, pois o fetch não terá terminado
   */
 
 const App = () => {

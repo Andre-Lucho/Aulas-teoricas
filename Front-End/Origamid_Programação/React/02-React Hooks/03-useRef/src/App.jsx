@@ -88,16 +88,17 @@ import { useRef } from 'react';
 //       setNotificacao(null);
 //     }, 2000);
 
-//     // 2.
-//     console.log(referencia);
-
-//     return (
-//       <div>
-//         <p>{notificacao}</p>
-//         <button onClick={handleClick}>Adicionar ao carrinho {carrinho}</button>
-//       </div>
-//     );
+//     //     // 2.
+//     //     console.log(referencia);
 //   }
+
+//   return (
+//     <div>
+//       <p>{notificacao}</p>
+//       <button onClick={handleClick}>Adicionar ao carrinho {carrinho}</button>
+//     </div>
+//   );
+// };
 
 // 3.1
 const App = () => {
@@ -136,7 +137,7 @@ const App = () => {
 
   3. o valor de 'referencia' não serve como uma referência boa ao 'clearTimeout' para apagar o 'setTimeout', pois ele sempre ZERA a cada nova renderização == devo utilizar o useRef, pois ele é estático e não zera a cada nova renderização e de um novo 'setTimeout' sendo agendado
 
-  4. Agora, timeoutRef.current terá como referência sempre seu numero anterior, pois o hook não zera a cada nova = não há nova renderização, já que ele (useRef) é estático!
+  4. Agora, timeoutRef.current terá como referência sempre seu numero anterior, pois o hook não zera a cada nova renderização, já que ele (useRef) é estático!
   clearTimeout sempre limpa o setTimeout anterior, não ficando outros agendados (pois agora só tenho 1!), deixando apenas o último ativo
   */
 

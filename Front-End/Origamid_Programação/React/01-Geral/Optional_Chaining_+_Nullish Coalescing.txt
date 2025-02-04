@@ -1,0 +1,115 @@
+Optional Chaining (?.)
+O Optional Chaining permite acessar propriedades de um objeto de forma segura, mesmo que o objeto ou a propriedade sejam nulos (null) ou indefinidos (undefined). Ele evita erros do tipo "Cannot read properties of null (reading 'propriedade')" que podem ocorrer quando tentamos acessar uma propriedade de um objeto que não existe.
+
+Como funciona
+O operador ?. verifica se o valor à sua esquerda é null ou undefined. Se for, a expressão inteira retorna undefined sem gerar um erro. Caso contrário, a propriedade é acessada normalmente.
+
+Exemplo
+JavaScript
+
+const usuario = {
+  nome: 'João',
+  endereco: {
+    rua: 'Rua das Flores',
+    numero: 123,
+  },
+};
+
+// Acesso seguro à propriedade 'cidade'
+const cidade = usuario?.endereco?.cidade; // cidade será undefined, sem erro
+
+// Tentativa de acessar uma propriedade inexistente
+const propriedadeInexistente = usuario?.propriedade?.inexistente; // propriedadeInexistente será undefined
+
+// Chamando uma função que pode não existir
+const resultado = usuario?.metodo?.(); // resultado será undefined
+
+// Acesso a um array
+const primeiroElemento = usuario?.telefones?.[0]; // primeiroElemento será undefined se telefones for null ou undefined
+
+
+Nullish Coalescing (??)
+O Nullish Coalescing permite definir um valor padrão para uma expressão caso ela seja null ou undefined. Ele é semelhante ao operador || (OR lógico), mas com uma diferença importante: o operador || considera valores como 0 ou uma string vazia ('') como falsos, enquanto o Nullish Coalescing considera apenas null e undefined.
+
+Como funciona
+O operador ?? retorna o valor à sua esquerda se ele não for null nem undefined. Caso contrário, ele retorna o valor à sua direita.
+
+Exemplo
+JavaScript
+
+const nome = null;
+const nomeUsuario = nome ?? 'Visitante'; // nomeUsuario será 'Visitante'
+
+const idade = 0;
+const idadeUsuario = idade ?? 25; // idadeUsuario será 0 (diferente do operador ||, que retornaria 25)
+
+const endereco = {
+  rua: 'Rua Principal',
+};
+const numeroCasa = endereco.numero ?? 'S/N'; // numeroCasa será 'S/N'
+
+let valor; // valor é undefined
+const valorPadrao = valor ?? 10; // valorPadrao será 10
+Combinando Optional Chaining e Nullish Coalescing
+Podemos combinar os dois operadores para acessar propriedades de objetos de forma segura e definir valores padrão de forma concisa:
+
+JavaScript
+
+const usuario = {
+  nome: 'Maria',
+};
+
+const cidade = usuario?.endereco?.cidade ?? 'Cidade Desconhecida'; // cidade será 'Cidade Desconhecida'
+
+const primeiroTelefone = usuario?.telefones?.[0] ?? 'Sem telefone cadastrado'; // primeiroTelefone será 'Sem telefone cadastrado'
+Correção do Exemplo Anterior
+No exemplo anterior que você mencionou, a linha com Optional Chaining e Nullish Coalescing não estava totalmente correta:
+
+JavaScript
+
+setSell(data?.vendido === true ? 'Vendido' : data?.vendido === false ? 'Não vendido' : 'Não encontrado');
+Essa linha pode ser simplificada e corrigida da seguinte forma:
+
+JavaScript
+
+setSell(data?.vendido ?? 'Não encontrado');
+Essa linha faz o seguinte:
+
+data?.vendido: Tenta acessar a propriedade vendido de data de forma segura. Se data ou data.vendido forem null ou undefined, o resultado será undefined.
+?? 'Não encontrado': Se o resultado anterior for null ou undefined, define "Não encontrado" como valor padrão para sell.
+Com essa correção, o código fica mais conciso e eficiente, tratando os casos em que data.vendido é true, false, null ou undefined de forma adequada.
+
+Outros Exemplos
+Acesso a propriedades aninhadas
+JavaScript
+
+const produto = {
+  nome: 'Camiseta',
+  detalhes: {
+    tamanho: 'M',
+    cor: 'Azul',
+  },
+};
+
+const tamanhoProduto = produto?.detalhes?.tamanho ?? 'Tamanho não especificado'; // tamanhoProduto será 'M'
+
+const materialProduto = produto?.detalhes?.material ?? 'Material não informado'; // materialProduto será 'Material não informado'
+Lidando com arrays
+JavaScript
+
+const listaDeCompras = ['Arroz', 'Feijão', 'Macarrão'];
+
+const primeiroItem = listaDeCompras?.[0] ?? 'Lista vazia'; // primeiroItem será 'Arroz'
+
+const ultimoItem = listaDeCompras?.[listaDeCompras.length - 1] ?? 'Lista vazia'; // ultimoItem será 'Macarrão'
+Chamando funções
+JavaScript
+
+const calculadora = {
+  somar: (a, b) => a + b,
+};
+
+const resultadoSoma = calculadora?.somar?.(5, 3) ?? 0; // resultadoSoma será 8
+
+const resultadoMultiplicacao = calculadora?.multiplicar?.(2, 4) ?? 0; // resultadoMultiplicacao será 0
+Espero que esses exemplos detalhados tenham ajudado você a entender melhor como usar o Optional Chaining e o Nullish Coalescing no seu código. Se tiver mais dúvidas ou precisar de exemplos específicos para o seu caso de uso, pode me perguntar!

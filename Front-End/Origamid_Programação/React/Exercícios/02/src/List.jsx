@@ -1,13 +1,12 @@
 import React from 'react';
-import InputTag from './InputTag';
 
-const List = () => {
+const List = (task) => {
   return (
     <div className="list">
       <ul>
-        {variavel.map((item, i) => {
-          return <li key={i}>{item}</li>;
-        })}
+        {task.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
       </ul>
     </div>
   );
