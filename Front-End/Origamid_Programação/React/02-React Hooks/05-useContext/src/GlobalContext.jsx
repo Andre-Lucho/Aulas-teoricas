@@ -3,7 +3,7 @@ import React from 'react';
 export const GlobalContext = React.createContext(); // escopo do contexto
 
 export const GlobalStorage = ({ children }) => {
-  // que elementos dentro do escopo estou exportando p todo projeto
+  // quais elementos dentro do escopo estou exportando p todo projeto
   const [comprar, setComprar] = React.useState(0);
 
   function comprarUm() {

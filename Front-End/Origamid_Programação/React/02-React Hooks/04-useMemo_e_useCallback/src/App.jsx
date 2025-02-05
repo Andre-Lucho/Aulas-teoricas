@@ -5,17 +5,17 @@ import React from 'react';
 // const App = () => {
 //   const [contar, setContar] = React.useState(0);
 
-// React.useEffect(() => {
-//   const local = localStorage.setItem('produto', 'produto1');
-// }, []);
-// const valor = React.useMemo(() => {
-// const localStorageItem = window.localStorage.getItem('produto');
-// console.log('useMemo foi executado');
-// return localStorageItem;
-// }, []);
-// console.log(valor);
+//   React.useEffect(() => {
+//     const local = localStorage.setItem('produto', 'produto1');
+//   }, []);
+//   const valor = React.useMemo(() => {
+//     const localStorageItem = localStorage.getItem('produto');
+//     console.log('useMemo foi executado');
+//     return localStorageItem;
+//   }, []);
+//   console.log(valor);
 
-//   return <button onClick={() => setContar(contar + 1)}></button>;
+//   return <button onClick={() => setContar(contar + 1)}>Botão = {contar}</button>;
 // };
 
 // 2.
@@ -34,9 +34,12 @@ const App = () => {
   console.log(tempo1);
   const operação = React.useMemo(() => operacaoLenta(), []);
   console.log(operação);
-  console.log(performance.now() - tempo1);
+  const tempo2 = performance.now();
+  console.log(tempo2 - tempo1);
 
   return <button onClick={() => setContar(contar + 1)}></button>;
 };
 
 export default App;
+
+//  Na primeira renderização, levou +100ms ; com o resultado da operação ARMAZENADO, levou -1 ms para trazer o resultado!

@@ -25,7 +25,8 @@ const Produto = () => {
     <div>
       <p>Cliente: {contextoGlobal.nome}</p>
       <p>Ítens comprados: {contextoGlobal.comprar}</p>
-      <button onClick={() => contextoGlobal.comprarDois()}>Comprar</button>
+      <button onClick={() => contextoGlobal.comprarDois()}>Comprar +2</button>
+      <button onClick={() => contextoGlobal.comprarUm()}>Comprar +1</button>
     </div>
   );
 };

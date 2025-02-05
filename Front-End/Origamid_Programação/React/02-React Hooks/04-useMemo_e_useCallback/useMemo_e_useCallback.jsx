@@ -3,7 +3,8 @@ import React from 'react';
 useMemo;
 -----------------------------------------------
 Memoriza um valor, evitando a recriação do mesmo todas as vezes em que um componente for atualizado. 
-Recebe um callback e uma array de dependências. 
+Recebe um callback e uma array de dependências 
+( dependência --> para casos especiais q necessite que ele renderize novamente a cada atualização da dependência). 
 Serve SOMENTE para casos em que você faz uma operação lenta da linguegem JavaScript* para retornar um valor.
 * Ex. Operações matemáticas mto complexas e longas */
 
@@ -12,8 +13,7 @@ const App = () => {
   const valor = React.useMemo(() => {
     // operação que retorna um valor
     const localStorageItem = localStorage.getItem('produto');
-    // só será executado uma vez
-    console.log('useMemo foi executado');
+    console.log('useMemo foi executado'); // só será executado uma vez
     return localStorageItem;
   }, []);
   console.log(valor);
@@ -24,7 +24,9 @@ const App = () => {
 /* Verificação de uma operação lenta em JavaScript:
 -----------------------------------------------------------------------
 
-# método do Objeto performance-> performance.now():
+# método do Objeto performance-> performance.now(): == tempo(em ms) que o o browser leva até uma próxima operação
+
+Abaixo == até próxima renderização
 
 const tempo1 = performance.now()
 **operação teste
@@ -43,7 +45,7 @@ function operacaoLenta() {
 const App2 = () => {
   const [contar, setContar] = React.useState(0);
   const t1 = performance.now();
-  const valor = React.useMemo(() => operacaoLenta(), []);
+  const valor = React.useMemo(() => operacaoLenta(), []); // armazenou o resultado da operação na memória
   // é mais rápido que
   // const valor = operacaoLenta();
   console.log(performance.now() - t1);
