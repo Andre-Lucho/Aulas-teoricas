@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Historical = ({ historical }) => {
+const Historical = ({ dataList }) => {
+  // if (dataList == null) return null;
   return (
-    <>
+    <div>
+      <h2>Histórico:</h2>
       <ul>
-        {historical &&
-          historical.map((number, i) => {
-            return <li key={i}>{number}</li>;
-          })}
+        {dataList && dataList.map((numero, i) => <li key={i}>{numero}</li>)}
       </ul>
-      <p>[{historical.join(',')}]</p>
-    </>
+    </div>
   );
 };
 
@@ -20,15 +18,3 @@ Historical.propTypes = {
 };
 
 export default Historical;
-
-/*
-o ESLint espera que você defina quais tipos de dados são esperados para as props que o componente Historical recebe. Isso é uma prática comum para garantir a integridade e a robustez do seu código React. 
-Para isso, você pode utilizar o PropTypes, que é uma biblioteca que permite definir os tipos de dados esperados para as props de um componente.
-
-Após a instalação da biblioteca:
-
-import PropTypes from 'prop-types';
-
-final do código:
-Historical.propTypes = {
-  historical: PropTypes.arrayOf(PropTypes.number).isRequired, */

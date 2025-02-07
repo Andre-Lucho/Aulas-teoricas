@@ -1,0 +1,60 @@
+Hook Corrigido
+------------------------------------
+
+useEffect(() => {
+  if (inputData) {
+    setCounter((prev) => prev + Number(inputData));
+    setInputData('');
+  }
+}, [inputData]);
+
+Hook Antigo
+------------------------------------
+
+useEffect(() => {
+  if (inputData) {
+    setCounter(counter + Number(inputData));
+    setInputData('');
+  }
+}, [inputData]);
+
+Diferenças e Implicações
+------------------------------------
+
+Hook Corrigido:
+------------------------------------
+
+
+Uso de Função de Atualização: setCounter((prev) => prev + Number(inputData))
+
+Aqui, a função de atualização setCounter utiliza o valor anterior prev para calcular o novo valor de counter. Isso é importante, pois garante que estamos trabalhando com o valor mais recente de counter, mesmo que múltiplas atualizações estejam acontecendo simultaneamente.
+
+Hook Antigo:
+------------------------------------
+
+
+Uso de Estado Atual: setCounter(counter + Number(inputData))
+
+Neste caso, counter refere-se ao valor atual do estado no momento em que o hook é definido. 
+Porém, devido à natureza assíncrona da atualização do estado no React, counter pode não refletir imediatamente o valor mais recente, especialmente quando múltiplas atualizações estão ocorrendo.
+
+Problema do Hook Antigo
+------------------------------------
+
+O problema com o Hook Antigo está na maneira como o estado counter é atualizado. 
+O valor de counter dentro do hook pode não ser o valor mais atualizado no momento em que a função é chamada. 
+Isso pode levar a inconsistências, especialmente em casos de atualizações rápidas e consecutivas.
+
+Por que o Hook Corrigido é Mais Seguro
+A abordagem do hook corrigido:
+
+setCounter((prev) => prev + Number(inputData));
+Garante que estamos sempre utilizando o valor mais recente de counter ao calcular o novo valor, independentemente de quantas atualizações de estado estejam ocorrendo. 
+Este é um padrão recomendado para atualizar estados que dependem de valores anteriores no React.
+
+Resumindo
+Hook Corrigido: Usa uma função de atualização que garante a obtenção do valor mais recente de counter e evita problemas de sincronização.
+
+Novo Hook: Depende do valor atual de counter, que pode não estar atualizado devido à natureza assíncrona das atualizações de estado no React, levando a resultados inconsistentes.
+
+Portanto, a utilização do novo hook proposto não é correta quando queremos garantir a precisão e a consistência do valor de counter. A abordagem corrigida com a função de atualização é a mais segura e recomendada.

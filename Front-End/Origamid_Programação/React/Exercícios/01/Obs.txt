@@ -57,3 +57,86 @@ const handleIncrement = useCallback(() => {
 
 Adicione verificações condicionais nos useEffect para garantir que setCounter seja chamado apenas quando os inputs forem diferentes de vazio.
 Evitar chamadas desnecessárias de setCounter: Adicionando verificações condicionais, você evita chamadas desnecessárias de setCounter, melhorando a performance do componente.
+
+
+
+
+
+Gemini - 05/02:
+
+Explique melhor seu retorno nesse ponto:
+
+'Lógica do useEffect: A condição anterior != 0 não faz sentido, pois anterior é um array. O objetivo é adicionar o valor de counter ao array dataList sempre que counter for alterado.'
+
+Considerando que não quero renderizar o número 0 com o método .map
+
+
+Olá! Vamos detalhar a explicação sobre a lógica do useEffect e como lidar com a não renderização do número 0 no seu array dataList.
+
+Entendendo o problema
+Você tem dois objetivos principais:
+
+Adicionar o valor de counter ao array dataList: O useEffect deve ser executado sempre que o valor de counter for alterado, e o novo valor de counter deve ser adicionado ao final do array dataList.
+
+Não renderizar o número 0: Você não quer que o número 0 seja exibido na lista de números, mesmo que ele esteja presente no array dataList.
+
+Por que a condição anterior != 0 não funciona
+A condição anterior != 0 dentro do seu useEffect não funciona porque anterior se refere ao estado anterior do array dataList, e não ao valor de counter. Portanto, essa condição sempre será verdadeira (já que anterior é um array e não um número), e o valor de counter será adicionado ao array mesmo quando for 0.
+
+Solução
+A solução para o seu problema envolve duas partes:
+
+useEffect correto: O useEffect deve adicionar o valor de counter ao array dataList sem nenhuma condição. A condição de não adicionar o 0 será tratada na hora de renderizar a lista.
+
+Filtragem na renderização: Utilize o método filter para criar um novo array contendo apenas os números diferentes de 0 e renderize esse novo array.
+
+Código corrigido
+App.jsx:
+
+JavaScript
+
+import { useState, useEffect } from 'react';
+import Historical from './Historical';
+
+const App = () => {
+  // ...
+
+  useEffect(() => {
+    setDataList((anterior) => [...anterior, counter]);
+  }, [counter]);
+
+  // ...
+};
+Historical.jsx:
+
+JavaScript
+
+import React from 'react';
+
+const Historical = ({ dataList }) => {
+  const dataListFiltrado = dataList.filter((numero) => numero !== 0);
+
+  if (dataListFiltrado.length === 0) {
+    return <p>Nenhum histórico encontrado.</p>;
+  }
+
+  return (
+    <ul>
+      {dataListFiltrado.map((numero, i) => (
+        <li key={i}>{numero}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default Historical;
+Explicação do código
+App.jsx: O useEffect agora simplesmente adiciona o valor atual de counter ao array dataList toda vez que counter é alterado.
+
+Historical.jsx:
+
+dataList.filter((numero) => numero !== 0): Essa linha cria um novo array chamado dataListFiltrado contendo apenas os números do array dataList que são diferentes de 0.
+O componente Historical agora renderiza a lista de números usando o array dataListFiltrado, garantindo que o número 0 não seja exibido.
+Com essa correção, você terá o comportamento desejado: o valor de counter será adicionado ao histórico, mas o número 0 não será exibido na lista.
+
+Lembre-se de que a chave key no map deve ser única e estável. Se você precisar de ajuda para gerar IDs únicos, posso te dar algumas sugestões.

@@ -1,0 +1,92 @@
+Computed Property Names em JavaScript
+------------------------------------------------------------------------
+
+Os "Computed Property Names" foram introduzidos no ECMAScript 6 (ES6). 
+Eles permitem que você defina nomes de propriedades de objetos dinamicamente, usando expressões que são avaliadas no momento da criação do objeto.
+
+Sintaxe Básica
+------------------------------------
+Aqui está um exemplo básico de como utilizar "Computed Property Names":
+
+const propName = 'nome';
+const user = {
+  [propName]: 'João',
+  idade: 30,
+};
+
+console.log(user.nome); // Saída: João
+console.log(user.idade); // Saída: 30
+
+
+Neste exemplo, a propriedade nome do objeto user é definida dinamicamente usando o valor da variável propName. A expressão [propName] é avaliada e se torna o nome da propriedade no objeto.
+
+Vantagens
+------------------------------------
+Flexibilidade: Permite criar propriedades dinamicamente com base em variáveis ou expressões, o que pode ser muito útil em casos onde os nomes das propriedades são conhecidos apenas em tempo de execução.
+
+Redução de Código: Evita a necessidade de criar objetos adicionais ou funções intermediárias para configurar propriedades dinamicamente.
+
+
+Utilização em React
+------------------------------------
+------------------------------------
+
+Em React, "Computed Property Names" são especialmente úteis ao lidar com estados e formulários. 
+Vamos relembrar o exemplo da função handleChange que você forneceu:
+
+javascript
+function handleChange({ target }) {
+  const { id, value } = target;
+  setForm({ ...form, [id]: value });
+}
+
+Passo a Passo
+------------------------------------
+Captura do Evento: Quando um campo de formulário é alterado, o evento change é disparado e a função handleChange é chamada.
+
+Atualização do Estado: A função setForm atualiza o estado do formulário. 
+O spread operator (...form) copia todas as propriedades do estado atual do formulário, 
+
+## [id]: value ##
+
+Adiciona ou atualiza a propriedade correspondente ao 'id' do campo de entrada com o novo valor em 'value';
+estamos criando dinamicamente uma nova propriedade no objeto com o nome igual ao valor de 'id'. 
+Em outras palavras, se o 'id' do campo de entrada for "nome", esta linha se tornará { nome: value }. Se o id for "email", será { email: value }.
+
+Isso permite que a função handleChange seja genérica e capaz de lidar com múltiplos campos de entrada no formulário sem precisar criar funções separadas para cada campo.
+
+Exemplo Completo
+Vamos ver um exemplo completo de um componente React que utiliza "Computed Property Names":
+
+import React, { useState } from 'react';
+
+const Formulario = () => {
+  const [form, setForm] = useState({
+    nome: '',
+    email: '',
+  });
+
+  function handleChange({ target }) {
+    const { id, value } = target;
+    setForm({ ...form, [id]: value });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(form); // Verificando o que foi submetido
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="nome">Nome</label>
+      <input type="text" id="nome" value={form.nome} onChange={handleChange} />
+
+      <label htmlFor="email">Email</label>
+      <input type="email" id="email" value={form.email} onChange={handleChange} />
+
+      <button type="submit">Enviar</button>
+    </form>
+  );
+};
+
+export default Formulario;

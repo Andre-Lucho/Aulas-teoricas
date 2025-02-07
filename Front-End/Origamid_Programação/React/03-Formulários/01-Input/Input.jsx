@@ -20,7 +20,7 @@ const App = () => {
         value={nome}
         // Sempre atribuir o estado designado ao componente input, através do atrib 'value' = valor do Input
         onChange={(event) => setNome(event.target.value)}
-        //devo passar um evento de 'change' para ATT o 'value' --> qd tirar o foco do input, meu estado será atualizado!
+        //devo passar um evento de 'change' para ATT o 'value' --> qquer alteração ocorrida no input, meu estado será atualizado!
       />
       <p>{nome}</p>
     </form>
@@ -34,7 +34,7 @@ Form
 No form, controlamos o que acontece ao enviar o mesmo. 
 Por isso, definimos uma função para lidar com o onSubmit. 
 O preventDefault() irá prevenir o comportamento padrão, que seria de atualizar a página, enviando uma requisição para o que estiver em action="". 
-Iremos utilizar um fetch para lidar com as requisições do onSubimit, por isso o preventDefault() é importante.*/
+Geralmente, utilizamos um fetch para lidar com as requisições do onSubimit, por isso o preventDefault() é importante (ele impede a att da página).*/
 
 const App = () => {
   const [nome, setNome] = React.useState('');
@@ -50,7 +50,7 @@ const App = () => {
       <label htmlFor="nome">Nome</label>
       <input
         type="text"
-        name="nome" // // add name a url do site (porém estou impedindo pois não queremos a att da página)
+        name="nome" // add name a url do site (porém estou impedindo pois não queremos a att da página)
         id="nome"
         value={nome}
         onChange={(event) => setNome(event.target.value)}
@@ -60,7 +60,7 @@ const App = () => {
   );
 };
 
-// OBS. Não é necessário passar um event em <button>, pois o evento pertence ao Form que engloba <button>
+// OBS. Quando usamos o <button> inserido dentro de um <form> NÃO é necessário passar um event em <button>, pois, agora, o evento pertence ao Form que está englobando <button>.
 
 /*
 Múltiplos Campos
@@ -112,23 +112,24 @@ const App = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(form); // verificnado o que foi submetido
+    console.log(form); // verificando o que foi submetido
   }
 
   function handleChange({ target }) {
     const { id, value } = target;
+    // (target) é desestruturado para obter as propriedades 'id' e 'value'.
     setForm({ ...form, [id]: value });
+    // "Crie uma cópia do estado atual do formulário e adicione/atualize a propriedade cujo novo nome será o novo valor de 'id'(key) e 'value' o novo valor(value) da propriedade."
   }
   // Atenção : Estou usando a mesma função p/ att 'form' em todos os campos
 
   /* 
   IMPORTANTE:
-  ------------------------------------
+  -----------------------
+  Olhar arquivo Computed Property Names em 01-Geral
 
-[id] --> não se refere a POSIÇÃO 'nome', 'email'... estamos faLando com um objeto SEM POSIÇÕES (observar que o estado form é um objeto simples, sem posições!!)
+[id] --> não se refere a POSIÇÃO 'nome', 'email'... estamos falando com um objeto -> SEM POSIÇÕES (observar que o estado form é um objeto simples, sem posições!!)
 
-O que ele faz é TRANSFORMAR o ATRIBUTO 'id' do INPUT em uma STRING!
-Então: id='email' no setForm ficará ===> 'email': 'algo@gmail.com', ambos como uma string
 */
 
   return (

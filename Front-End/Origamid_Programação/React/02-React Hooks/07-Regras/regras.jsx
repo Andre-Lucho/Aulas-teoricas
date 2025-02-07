@@ -60,16 +60,16 @@ const useNumeroAleatorio = () => {} ...
   
   */
 
-function useNumeroAleatorio() {
+const useNumeroAleatorio = () => {
   const numero = Math.random();
   React.useEffect(() => {
     document.title = numero;
   }, []);
   return numero;
-}
+};
 
 const App2 = () => {
-  useNumeroAleatorio();
+  const a = useNumeroAleatorio();
   return <div></div>;
 };
 

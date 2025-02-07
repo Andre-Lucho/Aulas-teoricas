@@ -1,30 +1,5 @@
 import React from 'react';
 
-// 1.
-// const App = () => {
-//   const [nome, setNome] = React.useState('');
-
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//     console.log(nome);
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <label htmlFor="nome">Nome</label>
-//       <input
-//         type="text"
-//         id="nome"
-//         name="nome" // add name a url
-//         value={nome}
-//         onChange={({ target }) => setNome(target.value)}
-//       />
-//       <button>Enviar</button>
-//       <p>{nome}</p>
-//     </form>
-//   );
-// };
-
 // 2.
 
 const App = () => {
@@ -57,7 +32,7 @@ const App = () => {
       />
       <label htmlFor="password">Password</label>
       <input
-        type="text"
+        type="password"
         id="password"
         value={form.password}
         onChange={handleChange}
@@ -67,7 +42,6 @@ const App = () => {
       <p>{form.nome}</p>
       <p>{form.email}</p>
       <p>{form.password}</p>
-      {/* Estou verificando a reatividade */}
     </form>
   );
 };

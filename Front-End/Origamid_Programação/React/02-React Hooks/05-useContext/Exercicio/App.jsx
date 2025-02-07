@@ -6,9 +6,9 @@ import NovoDados from './NovoDados';
 const App = () => {
   return (
     <GlobalStorage>
-      <Limpar />
-      <br />
       <NovoDados />
+      <br />
+      <Limpar />
       <br />
       <Produto />
     </GlobalStorage>
