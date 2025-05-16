@@ -19,6 +19,7 @@ const App = () => {
         id="nome"
         value={nome}
         // Sempre atribuir o estado designado ao componente input, através do atrib 'value' = valor do Input
+        // IMPORTANTE: value sempre deve ser um 'number' ou uma 'string'
         onChange={(event) => setNome(event.target.value)}
         //devo passar um evento de 'change' para ATT o 'value' --> qquer alteração ocorrida no input, meu estado será atualizado!
       />

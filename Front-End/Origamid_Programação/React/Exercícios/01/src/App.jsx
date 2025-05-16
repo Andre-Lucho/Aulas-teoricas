@@ -13,25 +13,20 @@ const App = () => {
   // pq usar a callback com o valor anterior?
   // counter de fora =0 --> não está em uma array! na primeira renderização anterior = null
 
-  useEffect(() => {
-    if (inputData) {
-      setCounter(counter + Number(inputData));
-      // setCounter((prev) => prev + Number(inputData));
-      setInputData('');
-    }
-  }, [inputData]);
-  // (prev ? prev : 0) sugestão ?? analizar
-
   function handleIncrement() {
-    setCounter((prev) => (prev < 10 ? prev + 1 : prev));
+    inputData != 0
+      ? setCounter((prev) => prev + Number(inputData))
+      : setCounter((prev) => (prev < 10 ? prev + 1 : prev));
   }
 
   function handleDecrement() {
-    setCounter((prev) => (prev > 0 ? prev - 1 : prev));
+    inputData != 0
+      ? setCounter((prev) => prev - Number(inputData))
+      : setCounter((prev) => (prev > 0 ? prev - 1 : prev));
   }
-  // setCounter((anterior) => (anterior < 10 ? counter + 1 : anterior)); errado
-  // setCounter((anterior) => (anterior > 0 ? counter  - 1 : anterior)); errado
-  // 2x acima: Isso usa prev para garantir que o valor atualizado de 'counter' seja considerado.
+  // setCounter((anterior) => (anterior < 10 ? counter + 1 : anterior)); '...counter' ==> errado
+  // setCounter((anterior) => (anterior > 0 ? counter  - 1 : anterior)); '...counter'   ==> errado
+  // 2x acima: Usamos 'prev' para garantir que o valor atualizado em 'counter' seja considerado.
 
   function handleReset() {
     setCounter(0);
@@ -43,8 +38,6 @@ const App = () => {
     setInputData(Number(target.value));
   }
   // setInputData((prev) => Number(prev || '') + counter) = sugestão ?? analizar
-
-  console.log(inputData);
 
   return (
     <>
@@ -71,3 +64,13 @@ const App = () => {
 };
 
 export default App;
+
+// Efeito de atualizar counter( somar ) automaticamente, sem clicar no botão:
+// useEffect(() => {
+//   if (inputData) {
+// //setCounter(counter + inputData);
+//     setCounter((prev) => prev + Number(inputData));
+//     setInputData('');
+//   }
+// }, [inputData]);
+// (prev ? prev : 0) sugestão ?? analizar

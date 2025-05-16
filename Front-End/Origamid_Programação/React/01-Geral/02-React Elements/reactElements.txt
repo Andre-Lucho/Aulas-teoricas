@@ -16,6 +16,8 @@ function App() {
   { } --> objeto que recebe propriedades e métodos
   acima: recebendo atributos html
 
+  Meu App --> conteúdo da tag em si
+
 2)
 Mesmo acima:
 
@@ -43,6 +45,8 @@ Componentes
 -----------------------------------
 Permitem você dividir a sua interface em pequenos elementos. 
 São criados através de funções que retornam elementos React.
+Componentes são nomeados com letra maiúscula!
+Elementos html começam com letra minúscula
 
 // Function Component
 const Button = () => {
@@ -51,7 +55,7 @@ const Button = () => {
 
 Composição
 -----------------------------------
-O principal motivo de criarmos componentes é para podermos compor a interface com diversos componentes que podem ser reutilizados.
+O principal motivo de criarmos componentes é para podermos compor a interface com diversos componentes que podem ser reutilizados (Componentes funcionais React).
 
 const Button = () => {
   return <button>Comprar</button>;
@@ -146,3 +150,4 @@ const Compras = () => {
   );
 };
 
+Vídeo : 10:00

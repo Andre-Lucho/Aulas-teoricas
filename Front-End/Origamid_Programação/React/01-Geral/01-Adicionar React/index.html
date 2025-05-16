@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Básico</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {
+        color: #fff;
+        background-color: #171f2b;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>React Básico</title>
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <style>
-    body {
-      color: #fff;
-      background-color: #171f2b;
-      font-size: 2rem;
-    }
-  </style>
-</head>
+  <body>
+    <div id="root"></div>
 
-<body>
-  <div id="root"></div>
+    <script type="text/babel">
+      // Indicando que o script é do tipo Babel --> Transforma .jsx -> .js
+      function Button() {
+        const [total, setTotal] = React.useState(0);
+        return (
+          <button onClick={() => setTotal(total + 1)}>Adicionar {total}</button>
+        );
+      }
 
-  <script type="text/babel">
+      function TagP() {
+        return <p>Retornando aqui a DIV 01</p>;
+      }
 
-    function Button() {
-      const [total, setTotal] = React.useState(0);
-      return <button onClick={() => setTotal(total + 1)}>Adicionar {total}</button>
-    }
+      function App() {
+        return (
+          <div>
+            <TagP />
+            <p>Retornando aqui a DIV 02</p>
+            <Button />
+          </div>
+        );
+      }
 
-    function App() {
-      return <div>
-        <p>Retornando aqui a DIV</p>
-        <Button />
-      </div>;
-    }
+      /* Montando a function App() dentro do elemento Div via React:
+      ----------------------------------- */
 
-    /* Montando a function exemplo() dentro do elemento Div via React:
-    ----------------------------------- */
+      const container = document.getElementById('root');
 
-    const container = document.getElementById("root");
-
-    const root = ReactDOM.createRoot(container);
-    root.render(<App />)
-
-  </script>
-</body>
-
+      const root = ReactDOM.createRoot(container);
+      // ReactDom disponível via script react-dom@18
+      root.render(<App />);
+      // passando o componente funcional de React <App />
+    </script>
+  </body>
 </html>
 
 <!-- 
