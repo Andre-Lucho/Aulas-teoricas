@@ -15,9 +15,9 @@ Filas
 Arvores (de decisão, binária e de busca)
 Hash
 Mapa
-Grafo */
+Grafo 
 
-/*
+
 LISTAS 
 -------------------------
 Aloca um espaço na memória, indicando um espaço para a alocação de um próximo dado não que não necessita ser contíguo (continuado/ Linear)--> Alocação de memória Dinânica
