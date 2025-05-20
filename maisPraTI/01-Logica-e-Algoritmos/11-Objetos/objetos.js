@@ -4,7 +4,10 @@ Objetos
 Permitem uma maior abstração da realidade:
 Posso elencar diversas características da algo, fazendo com que a descrição de seus aspectos descrevam a realidade e que a descrevam de forma mais genérica, para poder elencar mais elementos da mesma realidade, porém com alguns aspectos diferentes, dependendo da necessidade.
 Podem representar estados abstratos. 
-Devem possuir: Características, estados e funções(ações) */
+Devem possuir: Características(o que ele tem), estados(como ele está) e funções(ações) 
+
+São uma instância (derivados) de classes --> Classes são os protótipos de um Objeto
+*/
 
 let livro = {
   nome: 'Marley e Eu', // Notação do objeto
@@ -326,3 +329,5 @@ O for...of itera sobre os valores de objetos iteráveis. Objetos literais não s
 Para obter um resultado semelhante ao for...in com for...of em um objeto literal, você precisa usar métodos como Object.keys() ou Object.entries() para criar um objeto iterável (um array) a partir das chaves ou das entradas do objeto. 
 A escolha entre Object.keys() e Object.entries() dependerá se você precisa apenas das chaves ou de pares chave-valor durante a iteração.
 */
+
+// Object.values --> transforma um Objeto em um Array
