@@ -20,9 +20,11 @@ Grafo
 
 LISTAS 
 -------------------------
-Aloca um espaço na memória, indicando um espaço para a alocação de um próximo dado não que não necessita ser contíguo (continuado/ Linear)--> Alocação de memória Dinânica
+Tipo Abstrato de Dado (TAD) do tipo Linear.
+
+Aloca um espaço na memória, indicando um espaço para a alocação(aponta) de um próximo dado que não necessita ser contíguo (continuado/ Linear)--> Alocação de memória Dinânica
 Tenho acesso apenas ao 1 elemento
-qd deleto, deixo o SO poder sobreescrever nesse espaço
+Qd deleto, deixo o SO poder sobreescrever nesse espaço
 Inserção e deleção é mais rápida
 
 
@@ -38,6 +40,7 @@ A) Lista encadeada --> aponta p o próximo valor
 B) Lista duplamente encadeada --> aponta p o próximo valor e para o anterior
 
 */
+// Objeto - descreve um elemento da natureza
 
 let car = {
   nome: 'Fiat',
@@ -51,31 +54,39 @@ class Car {
   }
 }
 
-const car2 = new Car('andre', 'azul');
+const car2 = new Car('Fiat', 'Vermelho');
 console.log(car2);
 
-/* Criação e Funcionamento de uma Lista demostrada em JS
-------------------------------------------------------------------------------------*/
+// Classes são protótipos de Objetos
+
+/* 
+
+Criação e Funcionamento de Listas demostrada em JS
+------------------------------------------------------------------------------------
+
+Lista Encadeada
+------------------------
+
+*/
 
 class Node {
   constructor(valor) {
-    this.valor = valor;
-    this.proximo = null; // apontado para um próximo elemento, porém ele é vazio
+    this.valor = valor; // dado
+    this.next = null; // apontado para um próximo dado, porém ele é vazio
   }
 }
-// representa cada posição de uma Lista encadeada
+// representa cada valor e posição de uma Lista encadeada
 
 class SimplyLinkedList {
   constructor() {
-    this.head = null; // onde ela começa (cabeçalheo)
+    this.head = null; // onde ela começa = referencia do inicio da lista (cabeçalheo)
   }
 
   inserirInicio(valor) {
     let novo = new Node(valor); // adicionando um novo node
-    novo.proximo = this.head; // proximo - null
+    novo.next = this.head; // next = null
     this.head = novo; // o que eu passei(valor) na criação
   }
-
   // cada novo elemento da lista
 
   imprimir() {
@@ -83,7 +94,7 @@ class SimplyLinkedList {
     let str = '';
     while (atual) {
       str += atual.valor + '--> ';
-      atual = atual.proximo;
+      atual = atual.next;
     }
     str += 'null';
     console.log(str);
@@ -98,11 +109,15 @@ lista.imprimir();
 
 // Em um Array eu tenho que percorrer o array p localizar os elementos
 
+/*
+
+Lista Duplamente Encadeada
+----------------------------------------   */
 class Node2 {
   constructor(valor) {
     this.valor = valor;
     this.anterior = null;
-    this.proximo = null;
+    this.next = null;
   }
 }
 
@@ -115,7 +130,7 @@ class doublyLinkedList {
     let novo = new Node(valor); // adicionando um novo node
     novo.next = this.head;
     if (this.head) {
-      this.head.anteior = novo;
+      this.head.anterior = novo;
     }
     this.head = novo; // o que eu passei(valor) na criação
   }

@@ -7,6 +7,10 @@ Podem representar estados abstratos.
 Devem possuir: Características(o que ele tem), estados(como ele está) e funções(ações) 
 
 São uma instância (derivados) de classes --> Classes são os protótipos de um Objeto
+
+OBS - objeto literal é aquele que não definido por uma classe
+Ex. Factory function
+
 */
 
 let livro = {
