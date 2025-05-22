@@ -1,8 +1,10 @@
 /*
 
 Lista Duplamente Encadeada
-----------------------------------------   */
-class Node2 {
+----------------------------------------   
+Sabemos o começo (head) e o final dela (tail)
+*/
+class Node {
   constructor(valor) {
     this.valor = valor;
     this.anterior = null;
@@ -10,37 +12,37 @@ class Node2 {
   }
 }
 
-class doublyLinkedList {
+class DoublyLinkedList {
   constructor() {
-    this.head = null; // onde ela começa (cabeçalheo)
+    this.head = null; // cabeçalheo
     this.tail = null; // último elemento
     this.length = 0;
   }
 
   inserirInicio(valor) {
-    let novo = new Node(valor); // estanciando o obj --> adicionando um novo node
-    novo.next = this.head;
+    let novo = new Node(valor);
     if (!this.head) {
       this.head = this.tail = novo;
     } else {
-      novo.proximo = this.head;
+      novo.next = this.head;
       this.head.anterior = novo;
       this.head = novo;
     }
     this.length++;
   }
-  // cada novo elemento da lista
 
-  inserirFim() {
+  inserirFim(valor) {
     let novo = new Node(valor);
+    // a lista está vazia?
     if (!this.head) {
-      // a lista está vazia?
-      this.head = this.tail = novo; // a lista está vazia e só tenho 1 element
+      this.head = this.tail = novo;
+      //A lista está vazia e só tenho 1 element --> Tenho que dizer que seu inicio e seu final são iguais:
     } else {
-      this.tail.next = novo;
-      novo.anterior = this.tail;
+      this.tail.next = novo; // tail de Node 1 aponta para  Node 2
+      novo.anterior = this.tail; // Node2 anteior aponta para Node 1
       this.tail = novo; // é igual ao último elemento
     }
+
     this.length++;
   }
 
@@ -102,4 +104,29 @@ class doublyLinkedList {
     }
     this.length--;
   }
+  imprimir() {
+    let atual = this.head;
+    console.log(atual);
+
+    let str = '';
+    while (atual) {
+      str += atual.valor + ' --> ';
+      atual = atual.next;
+      console.log(atual);
+    }
+    str += 'null';
+    console.log(str);
+  }
 }
+
+let list = new DoublyLinkedList();
+
+// list.inserirFim(10);
+// list.inserirFim(20);
+
+list.inserirInicio(10);
+list.inserirInicio(20);
+
+list.imprimir();
+
+// video = 51:27 - InserirEm() | removerEm()
