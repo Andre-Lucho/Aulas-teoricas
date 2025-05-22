@@ -1,0 +1,105 @@
+/*
+
+Lista Duplamente Encadeada
+----------------------------------------   */
+class Node2 {
+  constructor(valor) {
+    this.valor = valor;
+    this.anterior = null;
+    this.next = null;
+  }
+}
+
+class doublyLinkedList {
+  constructor() {
+    this.head = null; // onde ela começa (cabeçalheo)
+    this.tail = null; // último elemento
+    this.length = 0;
+  }
+
+  inserirInicio(valor) {
+    let novo = new Node(valor); // estanciando o obj --> adicionando um novo node
+    novo.next = this.head;
+    if (!this.head) {
+      this.head = this.tail = novo;
+    } else {
+      novo.proximo = this.head;
+      this.head.anterior = novo;
+      this.head = novo;
+    }
+    this.length++;
+  }
+  // cada novo elemento da lista
+
+  inserirFim() {
+    let novo = new Node(valor);
+    if (!this.head) {
+      // a lista está vazia?
+      this.head = this.tail = novo; // a lista está vazia e só tenho 1 element
+    } else {
+      this.tail.next = novo;
+      novo.anterior = this.tail;
+      this.tail = novo; // é igual ao último elemento
+    }
+    this.length++;
+  }
+
+  imprimirFrente() {}
+
+  imprimirTras() {}
+
+  inserirEm(indice, valor) {
+    if (indice < 0 || indice > this.length)
+      throw RangeError('Indice está fora dos limites'); //flag == saiu do escopo
+    if (indice == 0) return this.inserirInicio(valor);
+    if (indice === this.length) return this.inserirFim(valor);
+
+    let atual = this.head;
+
+    for (let i = 0; i < indice; i++) {
+      atual = atual.proximo;
+    }
+
+    let novo = new Node(valor);
+    let noAnterior = atual.anterior;
+
+    noAnterior.proximo = novo;
+    novo.anterior = noAnterior;
+    novo.proximo = atual;
+    atual.anterior = novo;
+
+    this.length++;
+  }
+
+  removerEm(indice) {
+    if (indice < 0 || indice > this.length)
+      throw RangeError('Índice está fora dos limites!');
+
+    let removido;
+
+    if (this.length === 1) {
+      removido = this.head;
+      this.head = this.tail = null;
+    } else if (indice === 0) {
+      removido = this.head;
+      this.head = this.head.proximo;
+      this.head.anterior = null;
+    } else if (indice === this.length - 1) {
+      removido = this.tail;
+      this.tail = this.tail.anterior;
+      this.tail.proximo = null;
+    } else {
+      let atual = this.head;
+
+      for (let i = 0; i < indice; i++) {
+        atual = atual.proximo;
+      }
+
+      removido = atual;
+      const { proximo, anterior } = atual;
+      anterior.proximo = proximo;
+      proximo.anterior = anterior;
+    }
+    this.length--;
+  }
+}
