@@ -10,7 +10,8 @@ Cada elemento é constituído de um nó que armazena o valor propriamente dito, 
 Não é necessário deslocar os elementos quando eles são adicionados ou removidos como nos Arrays.
 
 Em um array, podemos acessar diretamente qualquer elemento em qualquer posição; 
-em uma lista ligada, temos acesso apenas ao 1 elemento. Se quisermos acessar um elemento no meio, será necessário partir do início (cabeça ou head) e iterar pela lista até encontrarmos o elemento desejado.
+em uma lista ligada, temos acesso apenas ao 1 elemento. 
+Se quisermos acessar um elemento no meio, será necessário partir do início (cabeça ou head) e iterar pela lista até encontrarmos o elemento desejado.
 
 
 Exemplos do mundo real
@@ -18,7 +19,8 @@ Exemplos do mundo real
 
 Caça ao tesouro: 
 Você tem uma pista, e esta será o ponteiro para o lugar em que a próxima pista poderá ser encontrada.
-Com essa ligação, você irá para o próximo local e obterá outra pista que levará para a próxima. A única maneira de obter uma pista que está no meio da lista é seguir a lista desde o início (partindo da primeira).
+Com essa ligação, você irá para o próximo local e obterá outra pista que levará para a próxima. 
+A única maneira de obter uma pista que está no meio da lista é seguir a lista desde o início (partindo da primeira).
 
 Trem:
 Um trem é constituído de uma série de carros (também conhecidos como vagões). Cada um dos carros ou vagões está ligado a outro. Você pode facilmente desconectar um vagão, mudá-lo de lugar, ou ainda adicionar ou remover um vagão.
@@ -49,7 +51,7 @@ Lista Encadeada
 /* 
 Obs.: Referências e Objetos
 
-Em JavaScript, quando você trabalha com objetos (e instâncias de classes como Node são objetos), as variáveis não armazenam o objeto em si, mas sim uma REFERÊNCIA para o local onde esse objeto está armazenado na memória. 
+Em JavaScript, quando você trabalha com objetos (e instâncias de classes como Node - são objetos), as variáveis não armazenam o objeto em si, mas sim uma REFERÊNCIA para o local onde esse objeto está armazenado na memória. 
 Pense em uma referência como um endereço. */
 
 class Node {
@@ -97,7 +99,7 @@ HEAD
 (demais)
 this.head = {valor: (valor do argumento do antigo Node) next: (Todo o novo Node com o argumento atual)}
 
-*/
+HEAD sempre tem os valores do 1 elemento e NEXT armazena e aponta para os valores novos*/
 
   push(valor) {
     let node = new Node(valor);

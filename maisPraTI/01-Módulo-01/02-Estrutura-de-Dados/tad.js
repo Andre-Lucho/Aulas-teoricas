@@ -26,6 +26,7 @@ Aloca um espaço na memória, indicando um espaço para a alocação(aponta) de 
 Tenho acesso apenas ao 1 elemento
 Qd deleto, deixo o SO poder sobreescrever nesse espaço
 Inserção e deleção é mais rápida
+Ocupa um pouco mais de memória que um Array
 
 
 Listas x Arrays

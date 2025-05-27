@@ -3,6 +3,8 @@
 Lista Duplamente Encadeada
 ----------------------------------------   
 Sabemos o começo (head) e o final dela (tail)
+
+
 */
 class Node {
   constructor(valor) {
@@ -20,6 +22,11 @@ class DoublyLinkedList {
   }
 
   inserirInicio(valor) {
+    // HEAD aponta para um novo Node
+    // TAIL sempre aponta para o 1 elemento (Node 1)
+    // NEXT aponta para o Node anterior
+    // ANTERIOR aponta para o novo Node (+ recente)
+
     let novo = new Node(valor);
     if (!this.head) {
       this.head = this.tail = novo;
@@ -32,13 +39,18 @@ class DoublyLinkedList {
   }
 
   inserirFim(valor) {
+    // HEAD aponta para o 1 Node
+    // TAIL sempre aponta para o novo Node (+ recente)
+    // NEXT sempre aponta para o novo Node (+ recente), exceto o último = null
+    // ANTERIOR aponta para o Node anterior
+
     let novo = new Node(valor);
     // a lista está vazia?
     if (!this.head) {
       this.head = this.tail = novo;
       //A lista está vazia e só tenho 1 element --> Tenho que dizer que seu inicio e seu final são iguais:
     } else {
-      this.tail.next = novo; // tail de Node 1 aponta para  Node 2
+      this.tail.next = novo; // Falando com Node 1 == Tail de Node 1 aponta para  Node 2
       novo.anterior = this.tail; // Node2 anteior aponta para Node 1
       this.tail = novo; // é igual ao último elemento
     }
@@ -106,16 +118,16 @@ class DoublyLinkedList {
   }
   imprimir() {
     let atual = this.head;
-    console.log(atual);
+    // console.log(atual);
 
     let str = '';
     while (atual) {
       str += atual.valor + ' --> ';
       atual = atual.next;
-      console.log(atual);
+      // console.log(atual);
     }
     str += 'null';
-    console.log(str);
+    // console.log(str);
   }
 }
 
@@ -124,9 +136,10 @@ let list = new DoublyLinkedList();
 // list.inserirFim(10);
 // list.inserirFim(20);
 
-list.inserirInicio(10);
-list.inserirInicio(20);
+// list.inserirInicio(10);
+// list.inserirInicio(20);
+// list.inserirInicio(30);
 
-list.imprimir();
+// list.imprimir();
 
 // video = 51:27 - InserirEm() | removerEm()
