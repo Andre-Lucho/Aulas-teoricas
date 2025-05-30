@@ -9,8 +9,8 @@
       "request": "launch",
       "name": "Launch Program",
       // "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/12-Recursividade/recursividade.js",
-      "cwd": "${workspaceFolder}/12-Recursividade", // <-- Certifique-se que aponta para o arquivo correto
+      "program": "${workspaceFolder}/01-Logica-e-Algoritmos/12-Recursividade/recursividade.js",
+      "cwd": "${workspaceFolder}/01-Logica-e-Algoritmos/12-Recursividade", // <-- Certifique-se que aponta para o arquivo correto
       "console": "integratedTerminal" // <-- Útil para ver prompts e logs no terminal integrado
     }
   ]

@@ -20,20 +20,24 @@ Dogs
 GitBucket
 
 
-Pastas do Git
+Aula 3
 --------------------------------------------------------
+
+Pastas do Git
+------------------------
 Objects
 --------------------
 
-Tipos de objetos armazenados pelo Git--> Blobs, Commits,  Trees e Annotated tags:
+Tipos de objetos armazenados pelo Git --> Blobs, Commits,  Trees e Annotated tags:
 
-Blob --> qquer tipo de arquivo que é armezenado como Blob.
-Trees --> diretórios
+Blob --> qquer tipo de arquivo que é armazenado fica guardado como um Blob.
+Trees --> diretórios/pastas
 Commits --> Apontamentos para diferentes versões dos arquivos
-Annotated tags --> tags específicas dentro do projeto
+Annotated tags --> tags (pontos específicos) dentro do projeto
 
 
-Hash = valor gerado para cada arquivo salvo pelo git. É calculado através sa soma de alguns elementos (ver figura na pasta)
+Hash = valor gerado para cada arquivo salvo pelo git. 
+É calculado através sa soma de alguns elementos (ver figura na pasta)
 
 
 
@@ -46,5 +50,5 @@ c) Git Repository --> Área de Armazenamento
 
 
 
-Parei --> Aula 4 - início
+
 */

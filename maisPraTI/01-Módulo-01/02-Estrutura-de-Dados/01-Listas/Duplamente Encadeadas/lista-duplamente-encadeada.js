@@ -62,60 +62,69 @@ class DoublyLinkedList {
 
   imprimirTras() {}
 
-  inserirEm(indice, valor) {
-    if (indice < 0 || indice > this.length)
-      throw RangeError('Indice está fora dos limites'); //flag == saiu do escopo
-    if (indice == 0) return this.inserirInicio(valor);
-    if (indice === this.length) return this.inserirFim(valor);
+  inserirEm(index, valor) {
+    if (index < 0 || index > this.length)
+      throw RangeError('index está fora dos limites'); //flag == saiu do escopo --> trava
+    if (index === 0) return this.inserirInicio(valor);
+    if (index === this.length) return this.inserirFim(valor);
 
     let atual = this.head;
 
-    for (let i = 0; i < indice; i++) {
-      atual = atual.proximo;
+    for (let i = 0; i < index; i++) {
+      atual = atual.next;
+      console.log(atual);
     }
+    // itera até o último elemento atual vai recebendo o valor de next
 
     let novo = new Node(valor);
-    let noAnterior = atual.anterior;
+    let noAnterior = atual.anterior; //estava no último Node --> aponta para o anterior do último
 
-    noAnterior.proximo = novo;
+    // reordenando os ponteiros e 'inserindo':
+    noAnterior.next = novo; // recebe o novo no next
     novo.anterior = noAnterior;
-    novo.proximo = atual;
+    novo.next = atual;
     atual.anterior = novo;
 
     this.length++;
   }
 
-  removerEm(indice) {
-    if (indice < 0 || indice > this.length)
+  removerEm(index) {
+    if (index < 0 || index > this.length)
       throw RangeError('Índice está fora dos limites!');
 
     let removido;
 
     if (this.length === 1) {
-      removido = this.head;
+      removido = this.head; // manter a referência do primeiro elemento
       this.head = this.tail = null;
-    } else if (indice === 0) {
+    } else if (index === 0) {
+      // se quiser remover o primeiro elem:
       removido = this.head;
-      this.head = this.head.proximo;
+      this.head = this.head.next;
       this.head.anterior = null;
-    } else if (indice === this.length - 1) {
-      removido = this.tail;
+    } else if (index === this.length - 1) {
+      // se quiser remover o último elem:
+      removido = this.tail; // manter a referência do último elemento
       this.tail = this.tail.anterior;
-      this.tail.proximo = null;
+      this.tail.next = null;
     } else {
+      // outro indice que não os acima:
       let atual = this.head;
 
-      for (let i = 0; i < indice; i++) {
-        atual = atual.proximo;
+      for (let i = 0; i < index; i++) {
+        atual = atual.next;
       }
 
+      // removendo:
       removido = atual;
-      const { proximo, anterior } = atual;
-      anterior.proximo = proximo;
-      proximo.anterior = anterior;
+      const { next, anterior } = atual;
+      anterior.next = next;
+      next.anterior = anterior;
     }
+
     this.length--;
   }
+
   imprimir() {
     let atual = this.head;
     // console.log(atual);
@@ -127,7 +136,7 @@ class DoublyLinkedList {
       // console.log(atual);
     }
     str += 'null';
-    // console.log(str);
+    console.log(str);
   }
 }
 
@@ -135,11 +144,15 @@ let list = new DoublyLinkedList();
 
 // list.inserirFim(10);
 // list.inserirFim(20);
+// list.inserirFim(30);
 
-// list.inserirInicio(10);
-// list.inserirInicio(20);
 // list.inserirInicio(30);
+// list.inserirInicio(20);
+// list.inserirInicio(10);
 
 // list.imprimir();
+// list.inserirEm(2, 25);
+// list.removerEm(1);
+// list.imprimir();
 
-// video = 51:27 - InserirEm() | removerEm()
+// video 1:20 - Final do método removerEm()
