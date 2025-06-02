@@ -1,4 +1,46 @@
 /*
+
+Tic em Trilhas (PUC-RS) - Versionamento de Código
+----------------------------------------------------------------------------------
+
+
+Resumo dos Comando do Módulo 1:
+-------------------------------------------------------
+-------------------------------------------------------
+
+a) git status
+b) git add  | .  |  -A
+c) git rm --cache  <nome-do-arquivo>
+d) git commit -m  ' '
+(m == mensagem)
+e) git log --> mostra um histórico das informações dos últimos commits da branch atual
+
+f) git checkout 
+f.1) <nome da branch> --> troca entre banchs
+f.2) <hash do commit> --> permite transitar entre os commits feitos, trazendo a working area para aquele momento do commit específico
+
+g) git cat-file -p <hash do commit> --> informações do commit
+h)git clone <endereço do repositório>
+
+
+Branches
+---------------------------------------
+a) git branch <nome da brach> --> crio a nova branch e nomeio
+b) git branch -m '<renomear brach>' --> renomear branch
+c) git checkout <nome da branch> --> muda par a branch
+d) git checkout -b <nome da branch> cria uma nova branch e mudo para ela
+e) git branch -d <nome da brach> --> deleta a branch
+
+
+Merge
+---------------------------------------
+git merge <nome da brach de ORIGEM>
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
 Aula 1 e 2 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -70,24 +112,6 @@ C) Modified (modificado)
 D) Staged (preparado) -- > arquivo que foi preparado (monitorado) e está pronto p ser commitado; após isso ele pode ser enviado ao repositório
 
 
-Comandos básicos:
----------------------------------------
----------------------------------------
-
-a) git status
-b) git add  | .  |  -A# 
-c) git rm --cache  <nome-do-arquivo>
-d) git commit -m  ' '
-(m == mensagem)
-e) git log --> mostra um histórico das informações dos últimos commits da branch atual
-
-f) git checkout 
-f.1) <nome da branch> --> troca entre banchs
-f.2) <hash do commit> --> permite transitar entre os commits feitos, trazendo a working area para aquele momento do commit específico
-
-g) git cat-file -p <hash do commit>
-
-
 Aula 5
 --------------------------------------------------------------------------------------------------------------------------------------
 Branches e Head
@@ -114,23 +138,20 @@ Demais ponteiros Branch => apontam para a sua linha do tempo(versionamentos secu
 
 
 
-Comandos:
----------------------------------------
-
-a) git branch <nome da brach> --> crio a nova branch e nomeio
-b) git branch -m '<renomear brach>' --> renomear branch
-c) git checkout <nome da branch> --> muda par a branch
-d) git checkout -b <nome da branch> cria uma nova branch e mudo para ela
-e) git branch -d <nome da brach> --> deleta a branch
-
-
-
 HEAD
 
 arquivos em => /.git/refs/heads/main + outras braches 
 --> referência dos últimos commits de cada branch
 
 arquivo 'Head' em => /.git --> onde a 'Head' está apontando no momento atual
+
+
+Caso de 'Head detached':
+---------------------------------------
+Quando o ponteiro de minha HEAD está apontando para um commit ou uma branch não trakeada no meu Repo Local
+Ex.:
+Qd faço um git fetch do Repo Remoto --> esse commit do Remoto não estará apontando para nenhum commit local!
+
 
 
 
@@ -168,5 +189,19 @@ Conflito de merge
 utilizar o VSCode p resolver --> visualmente + fácil
 
 
+
+Aula 7
+--------------------------------------------------------------------------------------------------------------------------------------
+Repositórios Remotos
+------------------------
+
+git push --> envia o commit do Repo Local para o repo Remoto
+git pull --> puxa o commit do Repo Remoto para o repo Local (Comandos --> git fetch + git merge)
+git fetch --> puxa o commit do Repo Remoto para o repo Local, porém NÃO faz merge com o Local
+
+git remote --> repositórios linkados ao Repo Local
+
+git push --set-upstream origin <name da branch local>
+# Dando um push de um branch que não está presente no repositório remoto e linkando ele com a Repo Local
 
 */
