@@ -1,5 +1,3 @@
-/*
-
 Tic em Trilhas (PUC-RS) - Versionamento de Código
 ----------------------------------------------------------------------------------
 
@@ -9,18 +7,31 @@ Resumo dos Comando do Módulo 1:
 -------------------------------------------------------
 
 a) git status
-b) git add  | .  |  -A
+b) git add . ou  -A
+git restore <arquivo> --staged --> retira os arquivos da área de preparação para a área de trabalho
+
 c) git rm --cache  <nome-do-arquivo>
 d) git commit -m  ' '
 (m == mensagem)
+
 e) git log --> mostra um histórico das informações dos últimos commits da branch atual
+e.1) git log --graph --> histórico em modo gráfico
+git --no-pager log --graph --oneline
 
 f) git checkout 
 f.1) <nome da branch> --> troca entre banchs
 f.2) <hash do commit> --> permite transitar entre os commits feitos, trazendo a working area para aquele momento do commit específico
 
 g) git cat-file -p <hash do commit> --> informações do commit
-h)git clone <endereço do repositório>
+h) git clone <endereço do repositório>
+
+
+git revert --> reverte para antes do último commit
+git reset --soft --> retorna o ultimo commit para a area de preparo
+git reset --mixed --> 
+git reset --hard --> exclui o arquivo que foi alterado
+
+
 
 
 Branches
@@ -199,9 +210,33 @@ git push --> envia o commit do Repo Local para o repo Remoto
 git pull --> puxa o commit do Repo Remoto para o repo Local (Comandos --> git fetch + git merge)
 git fetch --> puxa o commit do Repo Remoto para o repo Local, porém NÃO faz merge com o Local
 
-git remote --> repositórios linkados ao Repo Local
+*) git remote --> repositórios linkados ao Repo Local
+
+a) git remote -v
+b) git remote get-url --all <repositório: origin, upstream>
+c) git remote add <nome_do_remoto> <url_do_repositorio>
 
 git push --set-upstream origin <name da branch local>
 # Dando um push de um branch que não está presente no repositório remoto e linkando ele com a Repo Local
 
-*/
+
+
+
+
+
+Codifica
+--------------
+
+Git Flow (Exemplo)
+--------------
+(Main) Produtivo --> cliente
+Homologação --> último antes da produção
+Desenvolvimento --> desenvolvimento e teste --> sempre fica igual a main
+
+
+Aprender Git visualmente:
+https://learngitbranching.js.org/?locale=pt_BR
+
+
+
+

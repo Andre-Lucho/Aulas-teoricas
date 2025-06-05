@@ -144,3 +144,11 @@ class doublyLinkedList {
 
   imprimirTras() {}
 }
+
+/* Pq as linguagens JavaScript e Pyton implementam seus Arrays como se fossem uma lista?
+Listas --> Add elementos mto + rápido que array, porém pesquisam mais devagar
+
+Arrays --> pesquisam mais rápido, em função dos índices - e Add + devagar
+Fazemos mtos pesquisas em servidores --> informações em 'Json' que estão organizadas em Arrays
+
+*/
