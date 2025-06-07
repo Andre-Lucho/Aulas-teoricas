@@ -8,19 +8,22 @@ Resumo dos Comando do Módulo 1:
 
 a) git status
 b) git add . ou  -A
+
 git restore <arquivo> --staged --> retira os arquivos da área de preparação para a área de trabalho
 
 c) git rm --cache  <nome-do-arquivo>
-d) git commit -m  ' '
-(m == mensagem)
+d) git commit -m  ' ' (m == mensagem)
 
 e) git log --> mostra um histórico das informações dos últimos commits da branch atual
+---------------------------------------
 e.1) git log --graph --> histórico em modo gráfico
-git --no-pager log --graph --oneline
+e.2) git --no-pager log --graph --oneline
 
-f) git checkout 
+f) git checkout
+---------------------------------------
 f.1) <nome da branch> --> troca entre banchs
 f.2) <hash do commit> --> permite transitar entre os commits feitos, trazendo a working area para aquele momento do commit específico
+f.3)checkout . --> desfaz alterações
 
 g) git cat-file -p <hash do commit> --> informações do commit
 h) git clone <endereço do repositório>
@@ -41,6 +44,8 @@ b) git branch -m '<renomear brach>' --> renomear branch
 c) git checkout <nome da branch> --> muda par a branch
 d) git checkout -b <nome da branch> cria uma nova branch e mudo para ela
 e) git branch -d <nome da brach> --> deleta a branch
+f) git branch -r --> lista as branchs remotas
+g) git branch -a --> lista completa de todas as branches
 
 
 Merge
@@ -207,8 +212,8 @@ Repositórios Remotos
 ------------------------
 
 git push --> envia o commit do Repo Local para o repo Remoto
+git fetch --> puxa o commit do Repo Remoto (atualizações) para o repo Local, porém NÃO faz merge com o Local
 git pull --> puxa o commit do Repo Remoto para o repo Local (Comandos --> git fetch + git merge)
-git fetch --> puxa o commit do Repo Remoto para o repo Local, porém NÃO faz merge com o Local
 
 *) git remote --> repositórios linkados ao Repo Local
 
@@ -238,5 +243,10 @@ Aprender Git visualmente:
 https://learngitbranching.js.org/?locale=pt_BR
 
 
+git stach
+---------------------------------------
+git stash --> deixa as alterações em stand-by e posso alterar entre branches
+git stash pop --> traz as alterações em stadbay para a working area
+git stash list --> listas as alterações que estão em stash
 
 
