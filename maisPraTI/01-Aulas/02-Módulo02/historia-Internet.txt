@@ -1,4 +1,3 @@
-/* 
 História da Internet
 ------------------------------------------------------------------------------
 
@@ -35,4 +34,4 @@ HTML - Hyper Text Markup Language
 ---------------------------------------
 Organizações que regem o HTML:
 ** W3C(Padrões oficiais) e WHATWG(Evolui o html)
-*/
+
