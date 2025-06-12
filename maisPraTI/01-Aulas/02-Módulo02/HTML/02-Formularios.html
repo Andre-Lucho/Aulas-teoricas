@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 02 - Formulário</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center; /*necessita de height para definir o tamanha que o elem está contino no meu body ; */
+        /* height: 60vh; */
+      }
+      #form-container {
+        margin: 10px 0 20px 0;
+        background-color: aliceblue;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px 0px rgb(0, 0, 0, 0.2);
+        padding: 0 60px 10px 60px;
+      }
+
+      h2 {
+        margin: 30px 0 40px 0;
+        text-align: center;
+        font-size: 40px;
+        color: #444;
+      }
+
+      label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #555;
+      }
+
+      input {
+        padding: 10px;
+        padding-right: 100px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border: 1px;
+        border-radius: 5px;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      .input-group label {
+        margin-bottom: 15px;
+      }
+      .input-group {
+        display: flex;
+        gap: 20px;
+      }
+
+      .input-group .radio-group,
+      .input.group .checkbox-group {
+        display: flex;
+        gap: 10px;
+      }
+      /* dentro do 'input-group' o 'radio-group'
+        dentro do 'input-group' o 'checkbox-group'
+      */
+
+      button {
+        background-color: #54c158;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 12px;
+        font-size: 18px;
+      }
+
+      button:hover {
+        background-color: #189d1f;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="form-container" style="border: 1px solid">
+      <h2>Formulário</h2>
+      <form>
+        <div class="input-group">
+          <label for="nome" class="label">Nome Completo</label>
+          <input id="nome" type="text" />
+        </div>
+        <div class="input-group">
+          <label for="email" class="label">Email</label>
+          <input id="email" type="email" />
+        </div>
+
+        <div class="input-group">
+          <label for="senha" class="label">Senha</label>
+          <input id="senha" type="password" />
+        </div>
+
+        <div class="input-group">
+          <label for="tel" class="label">Telefone</label>
+          <input id="tel" type="tel" placeholder="Digite seu telefone" />
+        </div>
+
+        <div class="input-group">
+          <label for="">Website</label>
+          <input type="url" />
+        </div>
+
+        <div class="input-group">
+          <label>Data de Nascimento </label>
+          <input type="date" />
+        </div>
+
+        <div class="input-group">
+          <label>Hora </label>
+          <input type="time" />
+        </div>
+
+        <div class="input-group">
+          <label>Pesquisa </label>
+          <input type="search" />
+        </div>
+
+        <div class="input-group">
+          <label>Gênero</label>
+          <div class="radio-group">
+            <label for="male">
+              <input type="radio" value="male" name="gender" /> Masculino
+              <!-- value - para trataamento JS
+              name -> para deixá-los no mesmo grupo HTML -->
+            </label>
+
+            <label for="female">
+              <input type="radio" value="female" name="gender" /> Feminino
+            </label>
+
+            <label for="other">
+              <input type="radio" value="other" name="gender" /> Outro
+            </label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Preferências</label>
+          <div class="checkbox-group">
+            <label for="newslatter">
+              <input type="checkbox" value="newslatter" name="newslatter" />
+              Newsletter
+            </label>
+            <label for="update">
+              <input type="checkbox" value="update" name="update" /> Update
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="resume">Carregar Currículo</label>
+          <input type="file" name="resume" />
+        </div>
+
+        <div class="input-group">
+          <label for="city">Cidade</label>
+          <select name="city">
+            <option value="rs">POA</option>
+            <option value="sp">São Paulo</option>
+            <option value="rj">Rio</option>
+            <option value="pr">Curitiba</option>
+            <option value="pb">João Pessoa</option>
+            <option value="ba">Xique-Xique</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="message">Mensagem</label>
+          <textarea
+            name="message"
+            placeholder="Deixe a sua mensagem"
+          ></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </body>
+</html>

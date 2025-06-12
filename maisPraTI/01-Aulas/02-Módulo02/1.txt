@@ -1,5 +1,0 @@
-https://github.com/jhyago/maisPraTI-2025-02/tree/main/1-AED
-
-Cada tag = nó no navegador
-
-tag head - meta-informações: dados que o documento 
