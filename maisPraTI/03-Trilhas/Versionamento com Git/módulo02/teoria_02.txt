@@ -1,0 +1,150 @@
+Módulo 2
+---------------------------------------
+---------------------------------------
+
+
+
+Aula 1 - Desev. Colaborativo
+--------------------------------------------------------------------------------
+
+Pull Request - Solicitação para subir as mudanças do cídigo feitas na repositório local para o repositório remoto
+
+1) Através da adição direta de colaboradores no repositório remoto
+Repositório Remoto --> settings --> collaborators --> add people
+
+2) Por Fork feito pelo colaborador
+
+
+** Ver Img pasta
+
+
+
+
+Aula 2 - Tópicos Avançados de Git
+--------------------------------------------------------------------------------
+
+Rebasing
+---------------------------------------
+Re-linearização do histórico dos commits para apenas 1 branch
+
+É feito quando tenho 2 ou mais ramos de branches que estão mais a frete (em commits) da branch principal, deixando os históricos desalinhados;
+Acontece quando fazemos um merge do tipo 3-way-merge.
+
+Obs -> Pode acontecer de se perder alguns commits no processo
+
+
+** Ver Imagem aula
+
+
+Passos
+---------------------------------------
+
+1) Fazer o checkout para a Branch 'Fonte' - que estamos trabalhando
+2) fazer o rebasing --> git rebasing <branch destino>
+
+
+** OBS: Na realidade, o rebase faz uma iteração por todos os commits da branch fonte e os copia para a branch destino, com novos hash's
+Os commits originais são mandados para o garbage collector, porém não são deletados --> podem ser recuperados
+
+Rebase Interativo
+pode ser usado o comando --> git rebasing -i <branch destino>
+escolhendo qual dos commits serão feitos rebase
+
+
+
+
+
+
+
+
+
+
+
+
+Aula 3 - Resolução de problemas e recuperação
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aula 04 - SHA 1 hash
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aula 05 - .gitignore
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aula 06 - Tags no Git
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aula 07 - Stashing
+------------------------------------------------------------------------------

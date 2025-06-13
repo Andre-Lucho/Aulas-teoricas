@@ -18,6 +18,9 @@ e) git log --> mostra um histórico das informações dos últimos commits da br
 ---------------------------------------
 e.1) git log --graph --> histórico em modo gráfico
 e.2) git --no-pager log --graph --oneline
+--no-pager  => sem quebra de página
+--oneline ==> modo conciso
+
 
 f) git checkout
 ---------------------------------------
@@ -26,7 +29,8 @@ f.2) <hash do commit> --> permite transitar entre os commits feitos, trazendo a 
 f.3)checkout . --> desfaz alterações
 
 g) git cat-file -p <hash do commit> --> informações do commit
-h) git clone <endereço do repositório>
+
+h) git clone <endereço do repositório> --> clonar repositório
 
 
 git revert --> reverte para antes do último commit
@@ -121,7 +125,7 @@ Ciclos de vida de um arquivo no git (Estados de um arquivo) :
 
 A) Untracked (não-monitorado) --> arquivos que recém foram add ou removidos;
 
-B) Unmodified (não- monitorado) --> arquivo que já estava no repositório e foi atualizado
+B) Unmodified (não- modificado) --> arquivo que já estava no repositório e foi atualizado
 
 C) Modified (modificado)
 
@@ -136,7 +140,7 @@ Branches e Head
 
 Figura 01 (observar):
 ------------------------------------------------------------------------------------
-1) os commits Filhos sempre apontam p o Pai (através do valor hash do Pai armazenado - Cada commit em o seu hash + has do Pai)
+1) os commits Filhos sempre apontam p o Pai (através do valor hash do Pai armazenado - Cada commit tem o seu hash + hash do Pai)
 2) A branch Main sempre aponta para o último commit 
 3) Até darmos um novo commit na nova branch, HEAD continua apontando para a working directory atual
 
@@ -194,7 +198,7 @@ Só funciona se a branch 'main' não estiver desemparelhada* com as outras brenc
 
 2) 3-way-merge(ort strategy):
 
-Nessa abordagem, o Git cria um novo commit que aponta aponta, tanto para o último commit de 'main', como para o último commit de outra branch
+Nessa abordagem, o Git cria um novo commit que aponta, tanto para o último commit de 'main', como para o último commit de outra branch
 OBS: 
 1. Observar o número dos Hash descritos no commit na mensagem merge --> são os 2 últimos hash's de main e outra branch
 
@@ -203,6 +207,12 @@ OBS:
 Conflito de merge
 ---------------------------------------
 utilizar o VSCode p resolver --> visualmente + fácil
+
+
+OBS
+-------------------------- 
+Nesse caso de Merge é feito também um Rebase ( ver aula 2 - Módulo 2)
+
 
 
 
