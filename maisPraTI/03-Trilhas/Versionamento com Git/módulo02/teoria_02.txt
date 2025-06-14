@@ -3,7 +3,6 @@ Módulo 2
 ---------------------------------------
 
 
-
 Aula 1 - Desev. Colaborativo
 --------------------------------------------------------------------------------
 
@@ -46,17 +45,29 @@ Passos
 ** OBS: Na realidade, o rebase faz uma iteração por todos os commits da branch fonte e os copia para a branch destino, com novos hash's
 Os commits originais são mandados para o garbage collector, porém não são deletados --> podem ser recuperados
 
-Rebase Interativo
-pode ser usado o comando --> git rebasing -i <branch destino>
+
+A) Rebase Interativo
+---------------------------------------
+Pode ser usado o comando --> git rebasing -i <branch destino>
 escolhendo qual dos commits serão feitos rebase
 
 
+A.1) Squashing
+------------------------------------------
+ Técnica que pode ser aplicada juntamente com o Rebasing Interativo--> Comprimi todos os commits em 1 único
 
+1) Fazer o checkout para a Branch 'Fonte' - que estamos trabalhando
+2) fazer o rebasing --> git rebasing - i HEAD~(quantidade de commits PARA TRÁS (anteriores à última) que irei comprimir)
 
+opções:
+------------
+pick --> manter o commit inalterado
+squash --> comprimir
+....
 
-
-
-
+3) fazer um Rebase simples
+4) fazer um Checkout para a branch principal
+5) fazer um Merge na branch principal ( da branch que acabo de aplicar o rebase simples)
 
 
 
@@ -64,6 +75,28 @@ escolhendo qual dos commits serão feitos rebase
 Aula 3 - Resolução de problemas e recuperação
 --------------------------------------------------------------------------------
 
+Git Revert / Git Reset
+---------------------------------------
+Devem ser aplicadas APENAS no repositório local - para não causar conflitos com o repositório remoto == com os outros colaboradores
+
+
+1) Git Reset
+-----------------
+
+git reset --opção <hash> ou HEAD~:
+-------------------------------------------------------
+
+a) hard --> retorna ao commit apontado deletando todas as alterações contidas nos commits(arquivos, branches, etc)
+
+b) mixed --> retorna ao commit apontado, mantendo as alterações contidas nos commits e deixando elas na Working directory -- necessita dar git add + git commit
+
+c) soft --> retorna ao commit apontado, mantendo as alterações contidas nos commits e deixando elas na Staging area -- necessita dar apenas git commit
+
+
+2) Git Revert
+-----------------
+Criado um novo Commit com novo hash porém, com a CÓPIA de todas as info do commit onde quero fazer o Revert:
+Estratégia de Reset, porém que podem ser aplicadas quando meu Repositório Público está a frente do local, sem perder a linearidade
 
 
 
