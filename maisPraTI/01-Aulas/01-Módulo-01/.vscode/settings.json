@@ -19,7 +19,7 @@
   "editor.fontFamily": "'Arial', Liberation Mono, DejaVu Sans Mono, monospace",
   "editor.inlayHints.fontFamily": "'Arial'",
   "editor.linkedEditing": true,
-  "editor.minimap.enabled": true,
+  "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.mouseWheelZoom": true,
   "editor.mouseWheelScrollSensitivity": 2,

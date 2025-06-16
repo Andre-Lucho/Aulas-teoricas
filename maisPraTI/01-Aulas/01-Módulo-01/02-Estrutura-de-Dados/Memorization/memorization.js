@@ -30,5 +30,5 @@ const fastFib = memorize(function fibonacci(n) {
   return fastFib(n - 1) + fastFib(n - 2);
 });
 
-console.log(fastFib(44));
-console.log(fibonacci(44));
+console.log(fastFib(45));
+console.log(fibonacci(45));

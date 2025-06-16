@@ -5,44 +5,44 @@ A) É uma função que tem por objetivo 'segurar' a execução de uma outra fun�
 
 "Espere um pouco. Se algo acontecer de novo antes desse tempo de espera, ignore o que estava para acontecer e comece a esperar novamente, zerando o tempo inicial(começando a contar novamente)"
 
-B) Economia de recursos -> restringe a frequência com que uma se faz requisições ao servidor de funções mto pesadas. Localmente, funções que executam mto rápido e teriam mtas re-chamadas (scroll, click, nova renderização, esperar pelo termo de pesquisa completo(caso aqui))
+B) Economia de recursos -> restringe a frequência de  requisições ao servidor de funções mto pesadas. Localmente, funções que executam mto rápido e teriam mtas re-chamadas (redimensionamento de janelas, scroll, click, nova renderização, esperar pelo termo de pesquisa completo(caso aqui))
 
 No caso abaixo, se não tivessemos o debounce, o servidor faria uma nova pesquisa a cada letra digitada == sobrecarga no servidor!! */
 
-
 // <input id="busca" placeholder="Digite Algo..." />
 
-  function debounce(fn, delay) {
-    let timer = null;
-    //1. Variável para armazenar o ID do timer
+function debounce(fn, delay) {
+  let timer = null;
+  //1. Variável para armazenar o ID do timer
 
-    return function (...args) {
-      // 2. A função 'debounce' retorna uma nova função
-      clearTimeout(timer); 
-      // 3. Limpa o timer existente
+  return function (...args) {
+    // 2. A função 'debounce' retorna uma nova função
+    clearTimeout(timer);
+    // 3. Limpa o timer existente
 
-      timer = setTimeout(() => {
-        // 4. Cria um novo timer
-        fn.apply(this, args); 
-        // 5. Executa a função original (fn)
-      }, delay); 
-      // 6. Define o tempo de espera (delay)
-    };
-  }
+    timer = setTimeout(() => {
+      // 4. Cria um novo timer
+      fn.apply(this, args);
+      // 5. Executa a função original (fn)
+    }, delay);
+    // 6. Define o tempo de espera (delay)
+  };
+}
 
-  function pesquisar(texto) {
-    console.log('Buscando por: ', texto);
-  }
+function pesquisar(texto) {
+  console.log('Buscando por: ', texto);
+}
+// Função principal --> aquela que quero que tenha seu tempo de execução e re-execução controlado
 
-  let pesquisaDebounced = debounce(pesquisar, 1000); \
-  // 7. Cria a versão "debounced" de 'pesquisar'
+let pesquisaDebounced = debounce(pesquisar, 1000);
+// 7. Cria a versão "debounced" de 'pesquisar'
 
-  document.getElementById('busca').addEventListener('input', (event) => {
-    pesquisaDebounced(event.target.value); 
-    // 8. Chama a função "debounced" no evento 'input'
-  });
+document.getElementById('busca').addEventListener('input', (event) => {
+  pesquisaDebounced(event.target.value);
+  // 8. Chama a função "debounce" no evento 'input'
+});
 
-  /*
+/*
   Passo a Passo da Explicação:
   ------------------------------------------------------------------------------
 
@@ -55,8 +55,11 @@ function debounce(fn, delay) {
   ...
   }
 
-* fn (Função a ser "debounced"): É a função que você quer que seja executada de forma controlada. No nosso exemplo, é a função pesquisar.
+* fn (Função a ser "debounced"): É a função que você quer que seja executada de forma controlada. 
+No nosso exemplo, é a função pesquisar.
+
 * delay (Atraso): É o tempo, em milissegundos, que o debounce vai esperar antes de executar a função fn. Se, durante esse delay, a função for chamada novamente, o timer é resetado. No nosso caso, é 1000 ms (1 segundo).
+
 * let timer = null;: Esta é uma variável crucial. Ela será usada para armazenar o ID do timer retornado pelo setTimeout. É inicializada como null porque, no início, não há nenhum timer ativo.
 
 
@@ -65,16 +68,23 @@ function debounce(fn, delay) {
 
     return function (...args) {
       }
-  // function wrapper (embrulhada) --> devolve uma nova função
-  // ..args === argumentos da func princial (texto) == Ele captura todos os argumentos passados para a função embrulhada e os coloca em um array. Isso garante que qualquer argumento que você passar para a função pesquisaDebounced (como o event.target.value) será repassado para a função original 'pesquisar'.
+  function wrapper (embrulhada) --> devolve uma nova função
+  ..args === argumentos da func princial (texto)
 
 
 * A função debounce não executa fn diretamente. 
 Em vez disso, ela retorna uma nova função. Esta nova função é o que chamamos de "função embrulhada" ou "wrapper function".
 
-* (...args): Este é o "rest parameter". Ele captura todos os argumentos passados para a função embrulhada e os coloca em um array. Isso garante que qualquer argumento que você passar para a função pesquisaDebounced (como o event.target.value) será repassado para a função original pesquisar.
+* (...args): Este é o "rest parameter". Ele captura todos os argumentos passados para a função embrulhada e os coloca em um array. Isso garante que qualquer argumento que você passar para a função pesquisaDebounced (como o event.target.value) será repassado para a função original 'pesquisar'.
 
-* Closure: A parte mais mágica aqui é a closure. A função interna que é retornada tem acesso à variável timer (que foi declarada no escopo da função debounce externa), mesmo depois que debounce já terminou de executar. Isso é fundamental para que o timer persista entre as chamadas da função embrulhada.
+* Closure: A parte mais mágica aqui é a closure. 
+A função interna que é retornada tem acesso à variável timer (que foi declarada no escopo da função debounce externa), mesmo depois que debounce já terminou de executar. 
+Isso é fundamental para que o timer persista entre as chamadas da função embrulhada. ** ver mais sobre Closure --> arq closure
+
+Como a função interna tem acesso a 'timer'? 
+Pois a 'function debounce' está armazenada na variável 'let pesquisaDebounced' e, qd a função interna de debounce retorna, ela fica armazenada dentro de 'pesquisaDebounced':
+
+ou seja --> o valor de 'timer' = setTimeOut(()=>{ ... }) está armazenado em 'pesquisaDebounced'!!
 
 
 3. Limpando o Timer Existente (clearTimeout):
@@ -188,8 +198,4 @@ Benefícios do debounce:
 
 * Melhora da Experiência do Usuário: Evita que a interface fique "travada" ou lenta devido a muitas operações sendo disparadas rapidamente.
 
-* Controle de Fluxo: Permite controlar a frequência de eventos que disparam callbacks com alta frequência (redimensionamento de janela, scroll, digitação, etc.).
-Espero que esta explicação detalhada, passo a passo, tenha tornado a função debounce cristalina para vocês! É um conceito poderoso que todo desenvolvedor JavaScript deve dominar. Continuem praticando e experimentando!
-
-
-  */
+* Controle de Fluxo: Permite controlar a frequência de eventos que disparam callbacks com alta frequência (redimensionamento de janela, scroll, digitação, etc.). */

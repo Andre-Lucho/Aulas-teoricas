@@ -1,41 +1,29 @@
-<!-- 
-Função Debounce - 
-A) É uma função que tem por objetivo 'segurar' a execução de uma outra função(função principal) por um certo tempo, para que não haja novas chamadas da fn principal por esse tempo determinado. Podemos pensar assim:
-
-"Espere um pouco. Se algo acontecer de novo antes desse tempo de espera, ignore o que estava para acontecer e comece a esperar novamente, zerando o tempo inicial(começando a contar novamente)"
-
-B) Economia de recursos -> restringe a frequência com que uma se faz requisições ao servidor de funções mto pesadas. Localmente, funções que executam mto rápido e teriam mtas re-chamadas (scroll, click, nova renderização, esperar pelo termo de pesquisa completo(caso aqui))
-
-
-No caso abaixo, se não tivessemos o debounce, o servidor faria uma nova pesquisa a cada letra digitada == sobrecarga no servidor!!
-
--->
+<!-- Função Debounce -->
 
 <input id="busca" placeholder="Digite Algo..." />
 <script>
   function debounce(fn, delay) {
     let timer = null;
     // tempo p a execuição da função == inicialmente nulo
+
     return function (...args) {
       clearTimeout(timer);
       // limpa qquer timer ativo
 
       // novo timer --> começa a contar novamente do inicio
-      //Closure: A parte mais mágica aqui é a closure. A função interna que é retornada tem acesso à variável timer (que foi declarada no escopo da função debounce externa), mesmo depois que debounce já terminou de executar.
-      // Isso é fundamental para que o timer persista entre as chamadas da função embrulhada.
       timer = setTimeout(() => {
         fn.apply(this, args);
-        // execução (ou re-execução) da função principal em um determinado tempo
+        // execução (ou re-execução) da função principal
         // ..args === argumentos da func princial (texto)
       }, delay);
       // delay--> tempo de espera(segurar) p execução de uma nova fn principal
     };
   }
 
-  function pesquisar(texto) {
-    console.log('Buscando por: ', texto);
-  }
   // Função principal --> aquela que quero que tenha seu tempo de execução e re-execução controlado
+  function pesquisar(inputUsuario) {
+    console.log('Buscando por: ', inputUsuario);
+  }
 
   let pesquisaDebounced = debounce(pesquisar, 1000);
 
