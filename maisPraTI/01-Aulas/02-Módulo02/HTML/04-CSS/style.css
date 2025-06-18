@@ -1,0 +1,60 @@
+body {
+}
+
+h1 {
+  color: #c22020;
+}
+/* Seletor simples */
+
+.destaque {
+  color: #c22020;
+  font-weight: bold;
+}
+
+#cabecalho {
+  color: bisque;
+}
+
+ul li {
+  /* todas as li dentro das ulś */
+}
+
+ul li.importante {
+  /* todas as li's de classe importante dentro das ul's */
+}
+
+a: hover {
+  /* pseudoclasse */
+}
+
+h1,
+h2,
+h3 {
+  /* par todos os seletores acima */
+}
+
+/* Seletor Inline tem Especificidade > Seletor de ID > Seletor de Classe
+100 / 10 / 1 
+! important --> maior especificidade == não usar
+*/
+
+/* Seletores de mesma especificidade quando escritos um depois do outro (ordem no código) --> o último
+tem > Especificidade */
+
+/* 
+Ver propriedade herdadas - herança para elementos internos
+
+inherit --> forçar herança
+*/
+
+h1 + p {
+  /* O elemento 'p' imediatamente após h1 */
+}
+
+h1 ~ p {
+  /* Todos os elem 'p' após h1 */
+}
+
+h2 > a {
+  /* a dentro do h2 --> filho direto */
+}
