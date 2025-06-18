@@ -95,24 +95,20 @@ c) soft --> retorna ao commit apontado, mantendo as alterações contidas nos co
 
 2) Git Revert
 -----------------
-Criado um novo Commit com novo hash porém, com a CÓPIA de todas as info do commit onde quero fazer o Revert:
-Estratégia de Reset, porém que podem ser aplicadas quando meu Repositório Público está a frente do local, sem perder a linearidade
+Criado um novo Commit com nova hash porém, com a CÓPIA de todas as info do commit do ponto onde será aplicado o Revert:
+Estratégia de Reset, porém que PODE ser aplicadas quando meu Repositório Público está a frente do local, sem perder a linearidade
+
+** OBS: 
+1) Aplicar o Revert no commit onde quero aplicar o Revert --> git revert <hash do commit em que quero voltar>
+2)Em caso de conflito da versão atual com a versão onde quero aplicar o Revert, posso usar:  --continue
+
+3) Comando --> git commit --amend -m' ' --> altera a mensagem do último commit (através de um Revert)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+3) Git Reflog
+--------------------
+Comando que posso ver todo historico de comandos que fiz no git com as suas Hash ---> caso o garbage collector não tenha apagado, posso voltar a qquer um deles com:
+git checkout <hash>
 
 
 
@@ -120,23 +116,10 @@ Estratégia de Reset, porém que podem ser aplicadas quando meu Repositório Pú
 Aula 04 - SHA 1 hash
 ------------------------------------------------------------------------------
 
+Função hash --> Cálculo matemático que transforma um entrada de qquer (vários arquivos de vários tipos e tamanhos) em um arquivo de tamanho fixo 
+SHA 1 --> criptografia
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+SHA 1 hash --> código usado pelo Git para versionamento e criptografia
 
 
 
@@ -144,18 +127,9 @@ Aula 04 - SHA 1 hash
 Aula 05 - .gitignore
 ------------------------------------------------------------------------------
 
+Exclui arquivos ao se criar um commit quando eles não são necessários para o envio ao repositório remoto
 
-
-
-
-
-
-
-
-
-
-
-
+topal.com/developers/itignore --> site gerador automático de arquivos .gitignore
 
 
 
@@ -163,19 +137,25 @@ Aula 05 - .gitignore
 Aula 06 - Tags no Git
 ------------------------------------------------------------------------------
 
+Tags demarcam commits que são mais importantes que outros:
+--> são como um atalho para um commit importante, apenas utilizando um nome que dou a tag
+
+Ex. Atualizações de releases
+
+Tags são ponteiros textuais estáticos --> apontam p um commit específico + importante
+São diferente dos ponteiros Branchs --> são ponteiros textuais dinâmicos --> a cada commit, o ponteiro da branch aponta para o commit + novo
 
 
+Comandos:
+----------------
+git tag <nome da tag> --> cria a Tag
+git tag --> verifica todas as tags criadas
 
 
-
-
-
-
-
-
-
-
-
+Importante:
+---------------------------------------
+Caso queria criar uma tag em um commit anterior ao atual --> fazer um git checkout para o commit desejado e fazer o git tag
+Depois, voltar para a main, com o git checkout main
 
 
 

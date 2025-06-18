@@ -6,56 +6,72 @@ Resumo dos Comando do Módulo 1:
 -------------------------------------------------------
 -------------------------------------------------------
 
-a) git status
-b) git add . ou  -A
-
+Básicos
+---------------------------------------
+git status
+git add . ou  -A
 git restore <arquivo> --staged --> retira os arquivos da área de preparação para a área de trabalho
 
-c) git rm --cache  <nome-do-arquivo>
-d) git commit -m  ' ' (m == mensagem)
+git commit -m '<mensagem do commit>'
 
-e) git log --> mostra um histórico das informações dos últimos commits da branch atual
+git rm --cache  <nome-do-arquivo> --> 
+
+
+Git Commit
 ---------------------------------------
-e.1) git log --graph --> histórico em modo gráfico
-e.2) git --no-pager log --graph --oneline
+git commit -m  ' ' (m == mensagem)
+git commit --amend -m '<nova mensagem>' --> a;terar a mensagem do último commit
+
+
+Git Log
+---------------------------------------
+git log --> mostra um histórico das informações dos últimos commits da branch atual
+git log --graph --> histórico em modo gráfico
+git --no-pager log --graph --oneline
 --no-pager  => sem quebra de página
 --oneline ==> modo conciso
 
+#git cat-file -p <hash do commit> --> informações do commit
 
-f) git checkout
+
+Git Checkout
 ---------------------------------------
-f.1) <nome da branch> --> troca entre banchs
-f.2) <hash do commit> --> permite transitar entre os commits feitos, trazendo a working area para aquele momento do commit específico
-f.3)checkout . --> desfaz alterações
-
-g) git cat-file -p <hash do commit> --> informações do commit
-
-h) git clone <endereço do repositório> --> clonar repositório
+git checkout <nome da branch> --> troca entre banchs
+git checkout <hash do commit> --> permite transitar entre os commits feitos, trazendo a working area para aquele momento do commit específico
+checkout . --> desfaz alterações
 
 
-git revert --> reverte para antes do último commit
+Git Revert/ Git Reset
+---------------------------------------
+git revert <hash do commit em que quero voltar> --> reverte para o commit especificado
+
 git reset --soft --> retorna o ultimo commit para a area de preparo
 git reset --mixed --> 
 git reset --hard --> exclui o arquivo que foi alterado
 
 
-
-
 Branches
 ---------------------------------------
-a) git branch <nome da brach> --> crio a nova branch e nomeio
-b) git branch -m '<renomear brach>' --> renomear branch
-c) git checkout <nome da branch> --> muda par a branch
-d) git checkout -b <nome da branch> cria uma nova branch e mudo para ela
-e) git branch -d <nome da brach> --> deleta a branch
-f) git branch -r --> lista as branchs remotas
-g) git branch -a --> lista completa de todas as branches
+git branch <nome da brach> --> crio a nova branch e nomeio
+git branch -m '<renomear brach>' --> renomear branch
+git branch -d <nome da brach> --> deleta a branch
+git branch -a --> lista completa de todas as branches
+
+git checkout <nome da branch> --> muda par a branch
+git checkout -b <nome da branch> cria uma nova branch e mudo para ela
 
 
 Merge
 ---------------------------------------
 git merge <nome da brach de ORIGEM>
 
+
+Repositório Remoto
+---------------------------------------
+git clone <endereço do repositório> --> clonar repositório
+git pull
+git push
+git branch -r --> lista as branchs remotas
 
 
 
