@@ -38,7 +38,7 @@ Git Checkout
 ---------------------------------------
 git checkout <nome da branch> --> troca entre banchs
 git checkout <hash do commit> --> permite transitar entre os commits feitos, trazendo a working area para aquele momento do commit específico
-checkout . --> desfaz alterações
+git checkout . --> desfaz alterações
 
 
 Git Revert/ Git Reset
@@ -67,11 +67,29 @@ git merge <nome da brach de ORIGEM>
 
 
 Repositório Remoto
----------------------------------------
+------------------------------------------------------------------------------
+
 git clone <endereço do repositório> --> clonar repositório
 git pull
 git push
 git branch -r --> lista as branchs remotas
+
+Git remote
+---------------
+git remote --> lista os repositórios remotos linkados
+git remote -v --> mostra quais  as ações dos repositórios remotos estão sendo linkados -- Fetch(recebendo updates) e Push(enviando updates) 
+git remote add <nome que quero dar ao repositório original*> <link do repositório original> --> linka outro fetch (original) ao nosso repositório local
+* geralmente = 'upstream'
+
+Git Pull
+---------------
+git pull <nome do repositório*> <branch que quero puxar**> --> puxa as modificações + recentes
+* origin = repo remoto da nossa conta = Forked
+* upstream = repo original
+** geralmente = 'main'
+
+
+------------------------------------------------------------------------------
 
 
 

@@ -1,0 +1,110 @@
+Módulo 3
+---------------------------------------
+
+--------------------------------------------------------------------------------
+Aula 1 - Fork no Git
+--------------------------------------------------------------------------------
+
+Utilidades e Benefícios do Fork: 
+
+1) Desenvolvimento independente: consegue criar uma cópia do projeto de outra pessoa e trabalhar nele de forma independente, 
+então ela não vai ser afetada;
+
+2) Contribuição para projetos de código aberto: projetos de código aberto prosperam com contribuições da comunidade;
+
+3) Aprendizado e experimentação: para aprendizes e desenvolvedores que desejam pegar o repositório e 
+experimentar coisas novas em cima dele de forma livre;
+
+4) Backup da base de código: caso o repositório original seja deletado ou corrompido, 
+o código ainda existe nos forks feitos por outros usuários;
+
+5) Construção de comunidade: o forking incentiva um senso de propriedade comunitária e desenvolvimento colaborativo.
+
+Pull Request --> É uma requisição de 'push' do Repositório Forkado (da minha conta) para o Repositório Original
+
+
+
+--------------------------------------------------------------------------------
+Aula 2 - Automação e CI/CD
+--------------------------------------------------------------------------------
+
+CI/CD --> Continuous Integration / Continuous Delivery
+---------------------------------------------------------------------------
+Automação de Teste e Versões de Software diretamente para o mercado.
+
+Ferramentas de CI/CD do GitHub:
+-----------------------------------------------
+
+GitHub Actions --> automações através de Eventos (modificações no git)
+GitHub Packages --> gerenciamento e hospedagem de pacotes do próprio projeto
+GitHUB API's --> integração com APIs externas
+WebHooks --> avisa apps externos das modificações
+Secrets Management
+
+
+
+Passos para configurar CI com GitHub Actions:
+----------------------------------------------------------------
+
+1. Criar um Workflow de GitHub Actions;
+2. Configurar o arquivo de Workflow;
+3. Commit e push do arquivo de Workflow para o Repositório
+4. Verificar a execução do Workflow;
+5. Ajustar e melhorar (caso necessário).
+
+
+
+--------------------------------------------------------------------------------
+Aula 3 - Sumário de Funcionalidades do GitHub
+--------------------------------------------------------------------------------
+Segurança:
+----------------
+Repositórios Privados
+Autenticação de 2 fatores
+Code Scanning
+Secretg Scanning
+
+Pull Requests
+--------------------
+Required Reviews
+
+
+Grafo de dependências
+
+
+Gerência de projetos:
+--------------------------------
+
+Projects
+Labels
+Milestones
+Issues
+Gráfico unificado de contribuições
+Gráfico de atividade da organização
+Visões gerais de dependências da organização
+Visões gerais do repositório
+Wikis
+GitHub Insights.
+
+
+Administração de equipe e organizações:
+---------------------------------------------------------
+
+Organizations;
+Invitations;
+Team sync;
+Custom roles;
+Verificação de domínio;
+API do registro de auditoria;
+Restrições de criação de repositório;
+Restrição de notificações.
+
+
+
+Negócios
+--------------
+GitHub MarketPlace
+GitHub Sponsors
+
+
+GitHub Skills - Cursos
