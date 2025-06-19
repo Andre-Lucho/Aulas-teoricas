@@ -2,7 +2,7 @@ Módulo 2
 ---------------------------------------
 ---------------------------------------
 
-
+--------------------------------------------------------------------------------
 Aula 1 - Desev. Colaborativo
 --------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ Repositório Remoto --> settings --> collaborators --> add people
 
 
 
-
+--------------------------------------------------------------------------------
 Aula 2 - Tópicos Avançados de Git
 --------------------------------------------------------------------------------
 
@@ -31,6 +31,9 @@ Acontece quando fazemos um merge do tipo 3-way-merge.
 
 Obs -> Pode acontecer de se perder alguns commits no processo
 
+IMPORTANTE:
+---------------------------------------
+*** Evitar executar o rebasing em branches públicas para não reescrever o histórico e causar incompatibilidade com outros colaboradores ***
 
 ** Ver Imagem aula
 
@@ -71,7 +74,7 @@ squash --> comprimir
 
 
 
-
+--------------------------------------------------------------------------------
 Aula 3 - Resolução de problemas e recuperação
 --------------------------------------------------------------------------------
 
@@ -107,14 +110,14 @@ Estratégia de Reset, porém que PODE ser aplicadas quando meu Repositório Púb
 
 3) Git Reflog
 --------------------
-Comando que posso ver todo historico de comandos que fiz no git com as suas Hash ---> caso o garbage collector não tenha apagado, posso voltar a qquer um deles com:
+Comando para listar todas as alterações feitas na HEAD (historico de comandos que fiz no git) com as suas Hash ---> caso o garbage collector não tenha apagado, posso voltar a qquer um deles com:
 git checkout <hash>
 
 
 
-
+--------------------------------------------------------------------------------
 Aula 04 - SHA 1 hash
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Função hash --> Cálculo matemático que transforma um entrada de qquer (vários arquivos de vários tipos e tamanhos) em um arquivo de tamanho fixo 
 SHA 1 --> criptografia
@@ -124,8 +127,9 @@ SHA 1 hash --> código usado pelo Git para versionamento e criptografia
 
 
 
+--------------------------------------------------------------------------------
 Aula 05 - .gitignore
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Exclui arquivos ao se criar um commit quando eles não são necessários para o envio ao repositório remoto
 
@@ -133,31 +137,71 @@ topal.com/developers/itignore --> site gerador automático de arquivos .gitignor
 
 
 
-
+--------------------------------------------------------------------------------
 Aula 06 - Tags no Git
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Tags demarcam commits que são mais importantes que outros:
---> são como um atalho para um commit importante, apenas utilizando um nome que dou a tag
-
+São como um atalho para um commit importante, apenas utilizando um nome que dou a tag
 Ex. Atualizações de releases
 
 Tags são ponteiros textuais estáticos --> apontam p um commit específico + importante
 São diferente dos ponteiros Branchs --> são ponteiros textuais dinâmicos --> a cada commit, o ponteiro da branch aponta para o commit + novo
+
+São de 2 tipos:
+A) Light Tag --> O hash fica armazenado na pasta refs/tags
+B) Annotaded tag --> mais informações --> o hash fica na pasta objects + refs/tags
 
 
 Comandos:
 ----------------
 git tag <nome da tag> --> cria a Tag
 git tag --> verifica todas as tags criadas
+git tag -d <nome da tag> --> deleta a tag
+git show <nome da tag> --> mostra as informações detalhadas da tag e do commit dela
+
+git tag -a <nome da tag> -m'<Mensagem que quero deixar para a Tag> --> cria uma Annotaded Tag 
+
+
+-------------------------------------------
+Tags em Repositórios Remotos
+-------------------------------------------
+git push --tags --> Dá um push com as tags criadas
+git push --delete origin(ou nome do repositório remoto) <nome da tag> --> Deleta a tag do repositório remoto
 
 
 Importante:
 ---------------------------------------
-Caso queria criar uma tag em um commit anterior ao atual --> fazer um git checkout para o commit desejado e fazer o git tag
+Caso queria criar uma tag em um commit anterior ao atual:
+1)fazer um git checkout para o commit desejado;
+2) criar uma Branch nova e 
+3) fazer o git tag
+
 Depois, voltar para a main, com o git checkout main
 
 
 
+------------------------------------------------------------------------------
 Aula 07 - Stashing
 ------------------------------------------------------------------------------
+
+É como uma working directory temporária(a parte da principal) para se fazer testes, experimentações, etc 
+que poderão ou não ser incorporadas em minha working directory principal.
+
+**Obs.:
+-------------
+O(s) arquivo(s) precisão estar sendo monitorados p se fazer o Stashing (estar na área de preparação ou modificados)
+
+As stashes ficam salvas como commits(hash's) temporários em --> .git/refs/stash
+
+
+Comandos:
+-----------------
+git stash --> coloca na área de stash (através de nova hash-commit)
+git stash pop --> retorna o(s) arquivos que estavam na área de stash, mas deleta a área de stash e suas informações
+git stash list --> lista as stash
+git stash apply --> retorna o(s) arquivos que estavam na área de stash, mas Mantém a área de stash e suas informações
+
+git stash drop --> deleta a área de stash e suas informações, sem retornar seus arquivos e informações.
+git stash drop <hash da área de stash> --> deleta uma área de stash específica
+git stash clear --> deleta todas os commits feitos na áreas de stash
