@@ -26,10 +26,27 @@ git commit --amend -m '<nova mensagem>' --> a;terar a mensagem do último commit
 Git Log
 ---------------------------------------
 git log --> mostra um histórico das informações dos últimos commits da branch atual
-git log --graph --> histórico em modo gráfico
-git --no-pager log --graph --oneline
+git log :
+--graph => histórico em modo gráfico
 --no-pager  => sem quebra de página
---oneline ==> modo conciso
+--oneline => modo conciso
+--stat => mostra as alterações realizadas em cada commit
+--grep='<letra ou palavra>' => procura pela letra ou palavra contida na mensagem commit
+--pretty='format:<comando>' --> costumização do tipo de retorno do git log
+
+git shortlog --> mensagens de commits por conta
+
+sites com padrões de formato 'pretty':
+https://git-scm.com/docs/pretty-formats
+https://git-scm.com/docs/git-logs
+https://devhints.io/git-log
+
+
+Log temporal
+---------------------
+git log --after
+git log --before 
+
 
 #git cat-file -p <hash do commit> --> informações do commit
 

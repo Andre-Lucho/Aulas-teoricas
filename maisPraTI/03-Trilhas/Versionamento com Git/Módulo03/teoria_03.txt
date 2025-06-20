@@ -108,3 +108,58 @@ GitHub Sponsors
 
 
 GitHub Skills - Cursos
+
+
+
+--------------------------------------------------------------------------------
+Aula 4 - Git Hooks 
+--------------------------------------------------------------------------------
+
+Por que utilizar hooks no Git?
+------------------------------------------
+Validação de código --> Respeito de regras
+Execução de Testes automatizados
+Notificações
+Deploy automatizados
+
+O que são Hooks?
+---------------------------
+Automazação via Eventos
+Ex. Roda um script qd faço um commit
+
+Ex. - Hook pre-commit -- antes de finalizar a ação do commit, realizo outra ação ( como uma mensagem...)
+
+Na pasta /.git/hooks --> Tenho alguns padrões que vêm com o Git -- Porém, posso criar outros:
+Arquivos padrões do git termiam por '.sample' == Não Funcional--> para funcionar, precisa tirar essa extensão
+
+Tipos de Hooks:
+---------------------
+a) Client-side Hooks:
+pre-commit,
+pos-commit,
+pre-push,
+....
+
+b) Server-side Hooks:
+pre-receive, 
+update,
+post-receive,
+....
+
+Obs:
+----------
+1. Por padrão, os Hooks NÃO são enviados para o Repositório remoto
+Para serem enviados --> via bibliotecas; ou via arquivos nativos passando 'manualmente' para os demais colaboradores (não via Git)
+
+Nativos
+-------------
+a) Personalização e gerenciamento dos hooks;
+b) Facilidade para projetos menores;
+c) Conhecimento da equipe.
+
+Via bibliotecas
+-------------------
+a) Ferramentas de gerenciamento;
+b) Padronização e Facilidade;
+c) Integração com outras ferramentas de automação.
+
