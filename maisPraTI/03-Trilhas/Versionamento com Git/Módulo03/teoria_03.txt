@@ -1,6 +1,7 @@
 Módulo 3
 ---------------------------------------
 
+
 --------------------------------------------------------------------------------
 Aula 1 - Fork no Git
 --------------------------------------------------------------------------------
@@ -163,3 +164,36 @@ a) Ferramentas de gerenciamento;
 b) Padronização e Facilidade;
 c) Integração com outras ferramentas de automação.
 
+
+
+--------------------------------------------------------------------------------
+Aula 6 - Garbage Collection 
+--------------------------------------------------------------------------------
+
+Mecanismo de Lixeira:
+Remoção permanente de blobs, trees, commits e Light e Annotated tags e objetos inalcansáveis (sem referência - Hash) através de deleção, renomeação, reversão, ..., 
+que foram descartados, mas permanecem alocados temporariamente no Git.
+
+Objetivo: Otimização (e compactação) do repositório.
+Prazo padrão de ativação: 30 dias ou após várias ações que geram 'resíduos' inalcansáveis em nosso repositório.
+
+Comando: Git gc
+
+
+
+--------------------------------------------------------------------------------
+Aula 7 - Masterizando heads 
+--------------------------------------------------------------------------------
+
+Head --> aponta e permite a edição para o commit onde tenho o conteúdo atual da minha working directory:
+Pode ser branches ou commits antigos (estado de detached head*)
+
+Merge-Head
+Fetch-Head
+Origin-Head
+Rebase-Head
+
+Quando estou realizando as operações acima, tenho as respectivas 'heads' apontando para os comnits
+
+* Detached head --> quando a head não está apontando para o último commit de uma branch, ele está em estado de detached head
+Para sair --> estratégia mais usada --> criar uma nova branch a partir daquele commit
