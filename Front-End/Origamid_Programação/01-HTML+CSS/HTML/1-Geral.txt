@@ -1,0 +1,12 @@
+Semântica
+---------------------------------------
+Dar sentido ao conteúdo, a escrita de um documento semântico beneficia principalmente leitores de tela (acessibilidade) e leitores de códigos (robôs como o do Google).
+
+
+Espaços e Quebras de Linha
+---------------------------------------
+Geralmente são ignorados quando adicionados mais de um.
+
+
+Atalhos VScode
+Keyboard shortcuts
