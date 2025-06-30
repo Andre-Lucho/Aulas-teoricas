@@ -111,6 +111,5 @@
     "fetch:command",
     "stash-push:command",
     "fetch:menu"
-  ],
-  "liveServer.settings.port": 5501
+  ]
 }

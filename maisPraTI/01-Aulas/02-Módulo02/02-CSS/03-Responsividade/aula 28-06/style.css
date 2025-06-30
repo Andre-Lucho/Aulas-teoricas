@@ -1,0 +1,19 @@
+/* 
+rem --> é relativo ao root
+em é relativo ao elem-pai == conteiner
+
+50vmin --> ocupar 50% vp mínimo (menor tamanho de tela)
+50vmax --> ocupar 50% vp maximo (maior tamanho de tela)
+
+@media (min-width 320) and (max-width 480){}
+@media (min-width 760) and (max-width 1024){}
+@media (min-width 1024) and (max-width 1280){}
+@media 1280 - 1440
+
+** cobre o intervalo das telas
+
+
+padrao de cobertura de media queries
+Não botar mtas
+
+*/

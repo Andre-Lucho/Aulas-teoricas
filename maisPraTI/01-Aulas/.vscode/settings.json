@@ -19,7 +19,7 @@
   "editor.fontFamily": "'Arial', Liberation Mono, DejaVu Sans Mono, monospace",
   "editor.inlayHints.fontFamily": "'Arial'",
   "editor.linkedEditing": true,
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
   "editor.mouseWheelZoom": true,
   "editor.mouseWheelScrollSensitivity": 2,
@@ -28,7 +28,7 @@
   "editor.tabSize": 2,
   "editor.tabCompletion": "on",
   // "editor.wordWrap": "on",
-  "editor.wordWrapColumn": 130,
+  "editor.wordWrapColumn": 200,
 
   "eslint.quiet": true,
 
@@ -111,7 +111,5 @@
     "fetch:command",
     "stash-push:command",
     "fetch:menu"
-  ],
-  "chat.editor.wordWrap": "on",
-  "editor.wordWrap": "wordWrapColumn"
+  ]
 }

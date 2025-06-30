@@ -1,3 +1,115 @@
 {
-  "liveServer.settings.port": 5502
+  "breadcrumbs.enabled": false,
+
+  "color-highlight.languages": ["*"],
+  "color-highlight.markerType": "dot-before",
+  "console-ninja.featureSet": "Community",
+
+  "diffEditor.maxComputationTime": 0,
+  "diffEditor.renderSideBySide": true,
+
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  // "editor.colorDecorators": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontSize": 18,
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.fontLigatures": false,
+  "editor.fontFamily": "'Arial', Liberation Mono, DejaVu Sans Mono, monospace",
+  "editor.inlayHints.fontFamily": "'Arial'",
+  "editor.linkedEditing": true,
+  // "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.mouseWheelZoom": true,
+  "editor.mouseWheelScrollSensitivity": 2,
+  "editor.renderWhitespace": "selection",
+
+  "editor.tabSize": 2,
+  "editor.tabCompletion": "on",
+  // "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 200,
+
+  "eslint.quiet": true,
+
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.sortOrder": "default",
+
+  "git.confirmSync": true,
+  "git.openRepositoryInParentFolders": "never",
+  "git.suggestSmartCommit": true,
+
+  "html.format.wrapAttributes": "auto",
+  "html.format.wrapLineLength": 0,
+  "html.autoClosingTags": false,
+
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+
+  "security.workspace.trust.untrustedFiles": "open",
+  "settingsSync.ignoredSettings": ["-window.zoomLevel"],
+
+  "telemetry.telemetryLevel": "off",
+
+  "terminal.integrated.env.linux": {},
+  "terminal.integrated.mouseWheelZoom": true,
+  "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.automationProfile.linux": null,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorWidth": 3,
+  "terminal.integrated.customGlyphs": false,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.letterSpacing": 0.1,
+  "terminal.integrated.fastScrollSensitivity": 3,
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.env.windows": {},
+
+  "window.menuBarVisibility": "toggle",
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "window.newWindowDimensions": "inherit",
+  "window.zoomLevel": 0.8,
+
+  "workbench.startupEditor": "none",
+  "workbench.list.mouseWheelScrollSensitivity": 3,
+  "workbench.iconTheme": "bearded-icons",
+  "workbench.settings.applyToAllProfiles": ["window.zoomLevel"],
+  "workbench.colorTheme": "Monospace Dark",
+  "workbench.statusBar.visible": true,
+
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "fetch:menu"
+  ]
 }
