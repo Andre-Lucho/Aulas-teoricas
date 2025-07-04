@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DOM - Document Object Model e BOM - Browser Object Model</title>
+  </head>
+
+  <style>
+    .focado {
+      background-color: lightblue;
+      font-size: 32px;
+    }
+  </style>
+  <body>
+    <h1 id="titulo">Título Original</h1>
+    <button onclick="alterarTitulo()">Alterar Título</button>
+    <button onclick="adicionarItem()">Adicionar Item</button>
+    <ul id="lista"></ul>
+
+    <p id="paragrafo">Mundial de Clubes</p>
+
+    <button onclick="mostrarDialogos()">Diálogo</button>
+
+    <button onclick="exibirInfo()">Ver Info</button>
+    <pre id="saida"></pre>
+
+    <script>
+      const titulo = document.getElementById('titulo');
+
+      const lista = document.getElementById('lista');
+
+      let contador = 1;
+
+      function adicionarItem() {
+        const item = document.createElement('li');
+        item.textContent = `Item ${contador++}`;
+
+        lista.appendChild(item);
+      }
+
+      function alterarTitulo() {
+        titulo.classList.toggle('novo-titulo');
+
+        if (titulo.classList.contains('novo-titulo')) {
+          titulo.textContent = 'Título Alterado';
+        } else {
+          titulo.textContent = 'Título Original';
+        }
+
+        // ou poderia colocar uma class .ativo e estilizar para: ver .css
+      }
+      const p = document.getElementById('paragrafo');
+
+      p.addEventListener('mouseover', () => {
+        p.classList.add('focado');
+      });
+
+      p.addEventListener('mouseout', () => {
+        p.classList.remove('focado');
+      });
+
+      function mostrarDialogos() {
+        alert('Bem-vindo');
+        const nome = prompt('Qual seu nome?');
+
+        if (confirm(`Confirmar nome: ${nome}`)) {
+          alert(`Olá, ${nome}`);
+        } else {
+          alert('Você cancelou a confirmação.');
+        }
+      }
+
+      function exibirInfo() {
+        const info = {
+          userAgent: navigator.userAgent,
+          plataforma: navigator.platform,
+          idioma: navigator.language,
+          larguraTela: screen.width,
+          alturaTela: screen.height,
+        };
+
+        document.getElementById('saida').textContent = JSON.stringify(
+          info,
+          null,
+          2,
+        );
+      }
+
+      console.log(window);
+    </script>
+  </body>
+</html>
+
+<!-- 
+DOM - manipula os elementos da árvore do HTML
+
+BOM - Manipula os elementos do Browser
+Exs.:console.log
+alert
+localStorage
+
+
+
+
+
+Lista Eventos
+------------------
+https://developer.mozilla.org/en-US/docs/Web/Events 
+-->

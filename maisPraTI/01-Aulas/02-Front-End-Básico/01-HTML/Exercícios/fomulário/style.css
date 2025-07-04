@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #faf6ed;
+  color: #222222;
+  display: flex;
+  flex-direction: column;
+}
+
+/* input {
+} */
+.form h1 {
+  margin-bottom: 1.1em;
+}
+.label {
+  display: block;
+  font-weight: bold;
+}
+.dados {
+  font-family: Playfair;
+}
+
+.login h3 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}

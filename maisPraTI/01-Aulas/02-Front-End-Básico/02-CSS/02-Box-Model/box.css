@@ -1,0 +1,91 @@
+html {
+  font-size: 30px;
+}
+
+div {
+  border: 2px solid black;
+}
+
+/* 
+largura total =  width + padding + border (ver se tem 2 lados ==* 2)
+altura total =  heigth + padding + border
+*/
+
+h2 {
+  /* herda do pai */
+  border: inherit;
+  width: 200px;
+  /* largura total = 100 + 10 *2 + 1*2  = 122px*/
+  height: 100px;
+  /* altura total = 100 +  10*2 + 1*2 = 122px*/
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box; /*com isso, padding e border se incorporam no width e height total */
+  font-size: 20px;
+}
+
+div.dimensions {
+  font-size: 16px;
+}
+
+div.dimensions h2 {
+  border: inherit;
+  height: 20pc;
+  font-size: 2em;
+  /*  2*12px herdada de 'div.dimensions' */
+  /* font-size: 2rem; */
+  /*  2*20px herdada de 'html' */
+  width: 50%;
+  /* width: 50vw; */
+  min-width: 200px;
+  max-width: 400px;
+  /* limitando o tamanho da largura */
+  height: 50vh;
+}
+
+/* 
+
+Dimensões 
+----------------------------------
+----------------------------------
+
+Unidades Absolutas 
+----------------------------------
+px --> menor unidade do monitor
+
+mm, cm e in( polegadas = 2,4cm) --> para impressão
+pt (ponto = 1/72 in), pc (pica = 12pt) --> para impressão
+
+
+Unidades Relativas
+----------------------------------
+
+Para Tipografia
+----------------------
+em --> relativo ao tamanho da fonte do elemento-pai
+* mais usado para estruturas aninhadas --> 
+qt maior/menor em relação ao que ele tinha anteriormente (pai) --> proporcionalmente
+
+rem --> igual ao em, porém, pega o elemento-raiz; caso não tenha pai--> pega o raiz
+*pouco usado
+
+
+Para width e height
+---------------------------
+a) 
+width / heigth--> % == qt cresce ou diminui em relação ao elemento-pai
+
+b)
+width --> vw (viewport width )
+heigth --> vh (viewport heigth)
+
+viewport --> janela visível disponível 
+(percentual de tamanho em relação à janela do navegador)
+** sempre considerar se minha div já não tem um tamanho definido!
+(considerar também paddings e bordas)
+
+c) 
+vmin
+vmax --> percentual do vw ou vh (min ou max) disponível na janela do navegador
+
+*/

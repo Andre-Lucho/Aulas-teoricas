@@ -12,26 +12,29 @@ body {
   max-width: 400px;
   display: flex;
   /* flex-direction: column; */
-  /* justify-content: flex-end; */
-  /* align-items: flex-start; */
+  justify-content: flex-start;
+  align-items: flex-start;
   /* align-content: flex-start; */
   background-color: #323232;
   margin: 0 auto;
   border: 1px solid;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .item {
-  /* flex: 1; */
+  align-content: center;
+  flex: 0;
   /* max-width: 50px; */
-  max-height: 50px;
+  min-height: 50px;
   background-color: tomato;
   border: 1px solid;
   text-align: center;
   margin: 5px;
   padding: 10px;
-  /* flex-grow: 1; */
-  flex-basis: 70px;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
+  /* flex-basis: 100px; */
+  /* align-self: center; */
 }
 
 /* .item1 {

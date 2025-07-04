@@ -1,0 +1,10 @@
+/* Ex. alterarTitulo( )
+-----------------------------
+.novo-titulo{
+  estilo do elemento - CSS
+  display: none;
+}
+
+.novo-titulo.ativo{
+display: flex / block
+} */
