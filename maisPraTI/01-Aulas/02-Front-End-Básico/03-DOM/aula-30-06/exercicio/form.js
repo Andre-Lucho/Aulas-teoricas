@@ -140,4 +140,6 @@ btnLimpar.addEventListener('click', () => {
 
 // Funcionalidades:
 
-// Permita ordenar alfabeticamente ou por status
+// 1) Voltar a deixar selecionado a opção 'Todos' qd limpo a Lista
+// 2) Permita ordenar alfabeticamente
+// 3) Modificar para mostrar o número de ítens totais, pendentes e comprados
