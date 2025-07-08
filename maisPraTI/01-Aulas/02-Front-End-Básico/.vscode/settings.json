@@ -15,7 +15,7 @@
   "editor.fontSize": 18,
   "eslint.format.enable": true,
   "editor.formatOnSave": true,
-  "editor.fontLigatures": false,
+  "editor.fontLigatures": true,
   "editor.fontFamily": "'Arial', Liberation Mono, DejaVu Sans Mono, monospace",
   "editor.inlayHints.fontFamily": "'Arial'",
   "editor.linkedEditing": true,

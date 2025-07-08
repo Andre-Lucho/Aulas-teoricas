@@ -58,26 +58,14 @@ button:hover {
   background-color: #4296e0;
 }
 
+.controles {
+  margin-top: 0.4rem;
+}
+
 ul {
   list-style: none;
   margin: 1rem 0;
   padding: 0;
-}
-
-.filtros {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
-
-.filtro-btn {
-  flex-grow: 1;
-  background-color: #444;
-}
-
-.filtro-btn.active {
-  background-color: #0278ff;
-  font-weight: bold;
 }
 
 li {

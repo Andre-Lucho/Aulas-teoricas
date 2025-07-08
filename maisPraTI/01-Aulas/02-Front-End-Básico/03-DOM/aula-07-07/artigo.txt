@@ -1,0 +1,5 @@
+https://blog.codeminer42.com/async-code-demystified-promises-fetch-and-reacts-useeffect/
+
+firacode
+
+"editor.fontLigatures": true,

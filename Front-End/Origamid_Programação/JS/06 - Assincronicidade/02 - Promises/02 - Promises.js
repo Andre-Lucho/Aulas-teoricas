@@ -27,9 +27,9 @@ Com condição (If)
 const promessa1 = new Promise((resolve, reject) => {
   let condição = true;
   if (condição) {
-    resolve("Promessa resolvida");
+    resolve('Promessa resolvida');
   } else {
-    reject(Error("outro erro ocorreu"));
+    reject(Error('outro erro ocorreu'));
   }
 });
 
@@ -86,7 +86,7 @@ then()
 ---------------------
 
 O poder das Promises está no método then() do seu protótipo.
-O Callback deste método SÓ SERA ATIVADO QD a promise for RESOLVIDA, ou seja:
+O Callback deste método SÓ SERA  ATIVADO QD a promise for RESOLVIDA, ou seja:
 1° --> resolve a Promise-pai;
 2° --> resolve o método then() --> por isso a palavra then...sacou?
 
@@ -99,9 +99,9 @@ O 1° argumento do callback de 'then()' será o valor passado na função 'resol
 const promessa03 = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
-    resolve("Estou pronto!");
+    resolve('Estou pronto!');
   } else {
-    reject(Error("Um erro ocorreu."));
+    reject(Error('Um erro ocorreu.'));
   }
 });
 
@@ -120,10 +120,10 @@ const promessa04 = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
     setTimeout(() => {
-      resolve({ nome: "André", idade: 43 });
+      resolve({ nome: 'André', idade: 43 });
     }, 2000);
   } else {
-    reject(Error("Um erro ocorreu na Promise."));
+    reject(Error('Um erro ocorreu na Promise.'));
   }
 });
 
@@ -141,27 +141,27 @@ const promessa05 = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
     setTimeout(() => {
-      resolve({ nome: "André", idade: 42 });
+      resolve({ nome: 'André', idade: 42 });
     }, 2000);
   } else {
-    reject(Error("Um erro ocorreu na Promise."));
+    reject(Error('Um erro ocorreu na Promise.'));
   }
 });
 
 const retornoPromessa05 = promessa05
-  .then((response) => "teste") // substitui o {...} por 'teste'; como só tenho 1 retorno, posso ignorar a palavra 'return'
+  .then((response) => 'teste') // substitui o {...} por 'teste'; como só tenho 1 retorno, posso ignorar a palavra 'return'
   .then((response) => response);
 
 // console.log(retornoPromessa05); // Promise... em PromiseResult, temos = 'teste'
 
 const retornoFinal01 = promessa05
   .then((response) => {
-    r.profissao = "Programador";
+    r.profissao = 'Programador';
     // console.log(r); // { nome: "André", idade: 42,  profissao: "Programador"} por causa do console.log
     return r;
   })
   .then((response) => {
-    r.profissao02 = "Designer Digital";
+    r.profissao02 = 'Designer Digital';
     // return console.log(r); //  { nome: "André", idade: 42,  profissao: "Programador", profissao02 = "Designer Digital"}
     return response;
   });
@@ -184,15 +184,15 @@ const promessa06 = new Promise((resolve, reject) => {
   let condicao = false;
   if (condicao) {
     setTimeout(() => {
-      resolve({ nome: "André", idade: 42 });
+      resolve({ nome: 'André', idade: 42 });
     }, 1000);
   } else {
-    reject("Um erro ocorreu na Promise.");
+    reject('Um erro ocorreu na Promise.');
   }
 });
 
 const retornoPromessa06 = promessa06
-  .then((r) => "teste")
+  .then((r) => 'teste')
   .then((r) => r)
   // .catch((rejeitada) => console.log(rejeitada)) // "Um erro ocorreu na Promise."
   .catch((rejeitada) => rejeitada);
@@ -210,9 +210,9 @@ const promessa07 = new Promise((resolve, reject) => {
   let condicao = true;
   let condicao1 = false;
   if (condicao) {
-    resolve("Estou pronto!");
+    resolve('Estou pronto!');
   } else {
-    reject("Um erro ocorreu.");
+    reject('Um erro ocorreu.');
   }
 });
 // promessa07.then(
@@ -227,7 +227,7 @@ const retornoPromessa07 = promessa07.then(
   },
   (reject) => {
     console.log(reject);
-  }
+  },
 );
 
 // escrita completa
@@ -258,13 +258,13 @@ promessa07.finally(() => {
 
 const login = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("Login Efetuado");
+    resolve('Login Efetuado');
   }, 1000);
 });
 
 const dados = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("Dados Carregados");
+    resolve('Dados Carregados');
   }, 1500);
 });
 
@@ -291,12 +291,12 @@ Trará a resposta da primeira resolvida. */
 
 const login01 = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("Login Efetuado");
+    resolve('Login Efetuado');
   }, 1000);
 });
 const dados01 = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("Dados Carregados");
+    resolve('Dados Carregados');
   }, 1500);
 });
 

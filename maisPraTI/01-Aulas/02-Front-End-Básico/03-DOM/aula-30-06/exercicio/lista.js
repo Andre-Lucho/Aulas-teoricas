@@ -4,36 +4,49 @@ const itensUl = document.getElementById('lista-itens');
 const btnLimpar = document.getElementById('btn-limpar');
 const contadorDiv = document.querySelector('.contador-div');
 const contadorTotal = document.querySelector('.contador-total');
+const contadorPendente = document.querySelector('.contador-pendentes');
+const contadorComprado = document.querySelector('.contador-comprados');
 const filtroStatus = document.getElementById('filtro-status');
 const ordenar = document.getElementById('ordenar');
 
 let listaItens = [];
-let filtroAtual = 'todos';
+// let filtroAtual = 'todos';
 
 function salvarDados() {
   localStorage.setItem('listaCompras', JSON.stringify(listaItens));
 }
 
-function togglePurchased(index) {
-  listaItens[index].comprado = !listaItens[index].comprado;
-}
-
-function atualizarFiltro(status) {
-  filtroAtual = status;
-  renderizarLista();
-  // re-renderizo com o filtro atualizado para renderizar os itens da opção escolhida no filtro
-}
+// function atualizarFiltro(status) {
+//   filtroAtual = status;
+//   renderizarLista();
+//   // re-renderizo com o filtro atualizado para renderizar os itens da opção escolhida no filtro
+// }
 
 function renderizarLista() {
   itensUl.innerHTML = '';
-  let itensFiltrados = [];
+  let itensFiltrados = [...listaItens];
+  const status = filtroStatus.value;
 
-  if (filtroAtual === 'pendentes') {
-    itensFiltrados = listaItens.filter((item) => !item.comprado);
-  } else if (filtroAtual === 'comprados') {
-    itensFiltrados = listaItens.filter((item) => item.comprado);
-  } else {
-    itensFiltrados = listaItens;
+  if (status === 'pending')
+    itensFiltrados = listaItens.filter((item) => !item.purchased);
+  if (status === 'purchased')
+    itensFiltrados = listaItens.filter((item) => item.purchased);
+
+  // let itensFiltrados = [];
+
+  // if (filtroAtual === 'pending') {
+  //   itensFiltrados = listaItens.filter((item) => !item.purchased);
+  // } else if (filtroAtual === 'purchased') {
+  //   itensFiltrados = listaItens.filter((item) => item.purchased);
+  // } else {
+  //   itensFiltrados = listaItens;
+  // }
+
+  const order = ordenar.value;
+  if (order === 'alphabetical') {
+    itensFiltrados.sort((a, b) => a.text.localeCompare(b.text));
+  } else if (order === 'status') {
+    itensFiltrados.sort((a, b) => a.purchased - b.purchased);
   }
 
   itensFiltrados.forEach((item, index) => {
@@ -43,18 +56,20 @@ function renderizarLista() {
     checkbox.type = 'checkbox';
     checkbox.name = 'confirmar';
 
-    if (!item.comprado) {
-      checkbox.classList.add('pendente');
-    } else {
-      checkbox.classList.add('comprado');
-    }
+    // if (!item.comprado) {
+    //   checkbox.classList.add('pending');
+    // } else {
+    //   checkbox.classList.add('purchased');
+    // }
 
-    checkbox.checked = item.comprado;
+    checkbox.checked = item.purchased;
     checkbox.title = 'Confirmar?';
     checkbox.addEventListener('click', () => {
-      togglePurchased(index);
+      listaItens[index].purchased = !listaItens[index].purchased;
       salvarDados();
-      atualizarFiltro(filtroAtual);
+      // atualizarFiltro(filtroAtual);
+      contarItens();
+      renderizarLista();
     });
 
     const span = document.createElement('span');
@@ -67,9 +82,6 @@ function renderizarLista() {
 
     btnRemover.addEventListener('click', () => {
       removerItem(index);
-      salvarDados();
-      atualizarFiltro(filtroAtual);
-      contarItens();
     });
 
     // aplicando os elem na tela
@@ -82,15 +94,19 @@ function renderizarLista() {
 
 function removerItem(index) {
   listaItens.splice(index, 1);
+  salvarDados();
+  atualizarFiltro(filtroAtual);
+  contarItens();
 }
 
 function contarItens() {
-  //   // itens.forEach((item) => {
-  //   //   counter++;
-  //   // });
-  const totalItens = listaItens.length;
-  contadorTotal.textContent = `${totalItens} `;
-  //   // counter = 0;
+  contadorTotal.textContent = `Total: ${listaItens.length}`;
+  contadorPendente.textContent = `Pendentes: ${
+    listaItens.filter((item) => !item.purchased).length
+  }`;
+  contadorComprado.textContent = `Comprados: ${
+    listaItens.filter((item) => item.purchased).length
+  }`;
 }
 
 // EVENTOS
@@ -106,13 +122,18 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // Eventos de Filtro
-filtroStatus.addEventListener('change', () => {
-  const status = filtroStatus.value;
-  atualizarFiltro(status);
-});
+filtroStatus.addEventListener('change', renderizarLista);
+
+// filtroStatus.addEventListener('change', () => {
+//   const status = filtroStatus.value;
+//   atualizarFiltro(status);
+// });
 /* change --> quando a opção muda
 não iteramos, pois a classe seria colocada e tirada de todas rapidamente, 
 restanto apenas o resultado da última iteração*/
+
+// Evento de Ordenação
+ordenar.addEventListener('change', renderizarLista);
 
 // Evento Principal
 formAdicionar.addEventListener('submit', (event) => {
@@ -120,7 +141,7 @@ formAdicionar.addEventListener('submit', (event) => {
   const novoItem = inputItem.value.trim(); // pega valor sem espaços em branco
   if (!novoItem) return;
 
-  listaItens.push({ input: novoItem, comprado: false });
+  listaItens.push({ input: novoItem, purchased: false });
   salvarDados();
   renderizarLista();
   contarItens();
@@ -133,13 +154,12 @@ btnLimpar.addEventListener('click', () => {
   if (confirm('Deseja limpar toda a lista?')) {
     listaItens = [];
     salvarDados();
-    atualizarFiltro(filtroAtual);
+    renderizarLista();
+    // atualizarFiltro(filtroAtual);
     contarItens();
   }
 });
 
 // Funcionalidades:
-
 // 1) Voltar a deixar selecionado a opção 'Todos' qd limpo a Lista
 // 2) Permita ordenar alfabeticamente
-// 3) Modificar para mostrar o número de ítens totais, pendentes e comprados

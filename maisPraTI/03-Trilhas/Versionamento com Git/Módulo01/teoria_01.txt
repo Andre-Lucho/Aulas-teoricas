@@ -20,7 +20,8 @@ git rm --cache  <nome-do-arquivo> -->
 Git Commit
 ---------------------------------------
 git commit -m  ' ' (m == mensagem)
-git commit --amend -m '<nova mensagem>' --> a;terar a mensagem do último commit
+git commit --amend -m '<nova mensagem>' --> alterar a mensagem do último commit
+git commit -a -->
 
 
 Git Log
