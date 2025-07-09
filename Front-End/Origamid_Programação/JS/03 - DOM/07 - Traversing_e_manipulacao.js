@@ -20,7 +20,8 @@ lista.querySelector('li:last-child'); // último filho
 
 */
 
-const teste = document.querySelector(".animalsListImg");
+parent.insertBefore();
+const teste = document.querySelector('.animalsListImg');
 // console.log(teste.nextElementSibling);
 
 const a = teste.parentElement;
@@ -64,12 +65,12 @@ Geralmente estamos atrás de um elemento, não de qualquer node em si.
 
 // É possivel mover/aplicar/substituir e remover elementos no DOM com os métodos de NODE
 
-const animalsListImg = document.querySelector(".animalsListImg");
-const contact = document.querySelector(".contact");
-const map = contact.querySelector(".map");
+const animalsListImg = document.querySelector('.animalsListImg');
+const contact = document.querySelector('.contact');
+const map = contact.querySelector('.map');
 // console.log(map);
 
-const title = contact.querySelector(".title");
+const title = contact.querySelector('.title');
 // const title = contact.querySelector("h1");
 // const title = document.querySelector(".contact h1");
 
@@ -138,13 +139,13 @@ const title = contact.querySelector(".title");
 // OBS --> (true) = sinaliza para incluir os filhos, atributos, texto
 // (false) --> somenta a tag pai é clonada
 
-const titulo = document.querySelector(".grid-section h1");
+const titulo = document.querySelector('.grid-section h1');
 console.log(titulo);
 // const titulo2 = document.querySelector("h1");
 // const novoTitulo = titulo;
 // titulo, titulo2 e novoTitulo são iguais
 
-const faq = document.querySelector(".faq");
+const faq = document.querySelector('.faq');
 
 // const cloneTitulo = titulo.cloneNode(false);
 // const cloneTitulo02 = titulo.cloneNode(true);
@@ -159,9 +160,9 @@ const faq = document.querySelector(".faq");
 
 // Duplique o menu e adicione ele em copyright
 
-const menu = document.querySelector(".menu");
-const footer = document.querySelector(".copyright");
-const footer_P = document.querySelector(".copyright p");
+const menu = document.querySelector('.menu');
+const footer = document.querySelector('.copyright');
+const footer_P = document.querySelector('.copyright p');
 
 const menuClone = menu.cloneNode(true);
 
@@ -169,7 +170,7 @@ footer.insertBefore(menuClone, footer_P);
 
 // Selecione o primeiro DT da dl de Faq
 
-const firtsDt = document.querySelector(".faqList dt");
+const firtsDt = document.querySelector('.faqList dt');
 console.log(firtsDt);
 
 // Selecione o DD REFERENTE ao primeiro DT
@@ -181,8 +182,8 @@ console.log(firtsDd);
 
 // replace
 
-const faq2 = document.querySelector(".faq");
-const animalsGrid = document.querySelector(".animalsImg");
+const faq2 = document.querySelector('.faq');
+const animalsGrid = document.querySelector('.animalsImg');
 console.log(faq2);
 console.log(animalsGrid);
 // faq2.replace("animalsGrid", "faqHTML");

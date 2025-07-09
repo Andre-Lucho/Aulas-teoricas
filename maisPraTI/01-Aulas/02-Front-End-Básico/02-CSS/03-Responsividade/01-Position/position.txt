@@ -9,7 +9,8 @@ C) Absolute --> Não faz parte do fluxo natural da página. Ele se sobrepõem ao
 Comportamento Flutuante
 
 D) Fixed -->  Também não faz parte do fluxo natural da página. Se sobrepõem ao demais elementos, ficando em uma posição fixa!
+Fica relativo em relcação ao Sticky
 
-E) Sticky --> comportamento "de Cola" --> definido por 'position:sticky'. O meu topo(top) corresponde a distância de onde eu quero q ele começe a 'grudar' em relação ao Elem-pai.
-Ao Scrollar a página, ele gruda onde eu defino(top) e desgruda no ponto da página(na distância) de tamanho IGUAL ao tamanho do Elem-pai 
+E) Sticky --> comportamento "de Cola" --> definido por 'position:sticky'. O topo(top) corresponde a distância de onde eu quero q ele começe a 'grudar' em relação ao Elem-pai, quando ambos ficam na mesma altura, ao scrollar a página. 
+O elem. então gruda onde eu defino(top - mesma altura do elem.-pai) e desgruda no ponto da página(na distância) de tamanho IGUAL ao tamanho do Elem-pai 
 

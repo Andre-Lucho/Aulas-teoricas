@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(36, 36, 36);
+  color: rgb(236, 231, 227);
+  border: 2px solid white;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.dados-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
