@@ -46,14 +46,22 @@ a) Deixam os elems em "caixas";
 b) Em Row --> em Linha
 c) Os flex-items ocupam:
 
-c.1) o máximo de espaço vertical possível (comportamento grow) --> Obs. Para ajustar utilizar Align-items
-c.2) Ítens Internos == o máximo de espaço possível ( MESMO que 'transborde' o Container)
+c.1) o máximo de espaço** vertical possível (comportamento grow) --> Obs. Para ajustar utilizar Align-items
+c.2) Ítens Internos == o máximo de espaço** possível ( MESMO que 'transborde' o Container)
+
+MPORTANTE:
+-------------------------
+** Ocupam o máximo de espaço --> desde que se defina esse espaço!!
+SEMPRE definir um tamanho (normal, mínimo ou máx) para que os Flex-items possam CRESCER dentro do container!
+Ou add --> Flex = 1
+
 
 d) no-wrap
 
 OBS.:
 -----------
-Display:block(padrão) --> os valores das tags ocupam todo o espaço horizontal disponível com quebra de linha
+Display: block(padrão) --> os valores das tags ocupam todo o espaço horizontal disponível com quebra de linha
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -175,11 +183,11 @@ align-itens: center
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------
-F) ALIGN-CONTENT (conteúdo) => +1 linha de flex-itens
+F) ALIGN-CONTENT (conteúdo) => +1 linha interna nos flex-itens
 -----------------------------------------------------------------------------
 
 Alinha as linhas do container em relação ao eixo VERTICAL para quando o WRAP OCORREU:
-Semelhante ao justify-content na vertical => levando em consideração o CONTEÚDO interno dos elementos
+Semelhante ao justify-content na vertical => levando em consideração o CONTEÚDO INTERNO dos elementos
 
 IMPORTANTE:
 ---------------------
@@ -187,9 +195,9 @@ Anula o efeito do height dos flex-items
 
 a) A propriedade só funciona se existir +1 linha de flex-itens
 b) Ocupa todo o espaço horizontal( semelhante= FLEX-GROW ATIVADO)
-c) Flex-wrap precisa ser == wrap.
+c) Flex-wrap precisa ser == wrap ( + 1 LINHA ITENS EXTERNOS)
 d) O Container deve ter um espaço maior que a soma das linhas dos itens, propriedades align-content tenham efeito.
-Isso significa que se você não definir height para o container, a propriedade não influencia no layout.
+Isso significa que se você não definir HEIGHT para o CONTAINER, a propriedade não influencia no layout.
 
 ** A borda de orientação é a superior/inferior
 
@@ -387,6 +395,10 @@ Menor número => em 1° lugar na disposição (negativo é menor que 0)
 Mesma número de order => ordem HTML
 Sem número => 0
 
+Obs.:
+Número elementos superior ao números de classes com order definido --> os de classe com order maior, vão sendo agrupados ao final do container
+Como segunda prioridade, respeita a ordem HTML
+
 b) order: 0; => valor padrão 
 Significa que a ordem dos itens será a ordem apresentada no HTML. 
 Se você quiser colocar um item do meio da lista no início da mesma, sem modificar os demais, 
@@ -394,9 +406,9 @@ o ideal é utilizar um valor negativo para este item, já que todos os outros s�
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-----------------------
-F) ALIGN-SELF
-----------------------
+-----------------------------------------------
+F) ALIGN-SELF --> Ítem específico
+-----------------------------------------------
 
 Alinhamento ESPECÍFICO de um ÚNICO flex item dentro do nosso container.
 
@@ -422,7 +434,7 @@ d) center;
 Alinha o item ao centro.
 
 e) baseline;
-Alinha o item a linha de base.
+Alinha o item a linha de base da tipografia.
 
 f) stretch;
 Estica o item.

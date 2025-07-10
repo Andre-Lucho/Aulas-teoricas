@@ -18,7 +18,7 @@ body {
   background-color: #323232;
   margin: 0 auto;
   border: 1px solid;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 }
 
 .item {
@@ -40,3 +40,23 @@ body {
 /* .item1 {
   padding-top: 10px;
 } */
+
+.align-item {
+  align-self: stretch;
+}
+
+.order1 {
+  order: 1;
+}
+
+.order2 {
+  order: 2;
+}
+
+.order3 {
+  order: 3;
+}
+
+.orderNeg {
+  order: -1;
+}

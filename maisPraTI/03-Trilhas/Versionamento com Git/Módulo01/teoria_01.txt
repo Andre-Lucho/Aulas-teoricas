@@ -2,7 +2,7 @@ Tic em Trilhas (PUC-RS) - Versionamento de Código
 ----------------------------------------------------------------------------------
 
 
-Resumo dos Comando do Módulo 1:
+Resumo dos Comando Git:
 -------------------------------------------------------
 -------------------------------------------------------
 
@@ -78,10 +78,18 @@ git branch -a --> lista completa de todas as branches
 git checkout <nome da branch> --> muda par a branch
 git checkout -b <nome da branch> cria uma nova branch e mudo para ela
 
+git push <origin> --delete <nome da branch>--> deleta uma branch remota
+
 
 Merge
 ---------------------------------------
 git merge <nome da brach de ORIGEM>
+(estar na pasta onde quero mergar - pasta destino = geralmente main)
+
+git cat-file -p <último hash> --> ver os últimos hash que estão linkados aquele commit
+(origem da merge)
+-p --> conteúdo do arquivo hash
+-t --> tipo
 
 
 Repositório Remoto
@@ -98,6 +106,9 @@ git remote --> lista os repositórios remotos linkados
 git remote -v --> mostra quais  as ações dos repositórios remotos estão sendo linkados -- Fetch(recebendo updates) e Push(enviando updates) 
 git remote add <nome que quero dar ao repositório original*> <link do repositório original> --> linka outro fetch (original) ao nosso repositório local
 * geralmente = 'upstream'
+
+git remote set-url origin <url do repositório que quero likar> --> Link ou troca o repositório remoto para onde quero fazer os uploads 
+
 
 Git Pull
 ---------------
