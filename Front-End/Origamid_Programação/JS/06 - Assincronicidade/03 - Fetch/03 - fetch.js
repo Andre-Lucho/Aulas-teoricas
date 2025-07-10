@@ -15,13 +15,12 @@ Fecth é um tipo de Promise  --> então, retorna a resolução de uma Promise.
 
 * O resultado da Promise Fetch é um OBJETO tipo 'Response' */
 
-const doc = fetch("./dados/doc.txt");
+const doc = fetch('./dados/doc.txt');
 console.log(doc); // Fecth é uma Promise --> PormiseResult= Response
-// // doc.txt será carregado (de fortma assíncrona) enquanto o restante do script é executado
+// // doc.txt será carregado (de forma assíncrona) enquanto o restante do script é executado
 
-// doc.then((response) => console.log(response));
-// Response é o valor de retorno de fetch
-// response é um OBJETO--> Possui métodos e propriedades -- aqui, RESPONSE JÁ NÃO É + uma Promisse!!
+doc.then((response) => console.log(response));
+// response é um OBJETO--> Possui métodos e propriedades --> aqui, RESPONSE NÃO É + uma Promisse!!
 
 /*
 
@@ -37,7 +36,7 @@ Podemos, então, utilizar o 'THEN' para interagirmos com a resposta, que é um O
 //   .then((response) => {
 //     return response.text(); // valor do método 'text()' --> é o texto em doc.txt --> o resultado aqui é uma Promisse; então, posso usar .then() novamente
 //   })
-// .then((body) => console.log(body));
+//   .then((body) => console.log(body));
 
 // forma resumida:
 // const doc2 = doc.then((response) =>
@@ -52,16 +51,12 @@ Serve para se podermos 'trabalhar' com o retorno da 'then' anterior-->
 
 *Fiz a requisição assíncrona fetch - transformei em texto - e, com o body, estou recebendo esse texto e acessando o seu contéudo! */
 
-/* ex2:
-lembrando:
-const doc = fetch("./dados/doc.txt"); */
-
-const doc3 = doc.then((r) =>
-  r.text().then((body) => {
-    const div = document.querySelector(".conteudo");
+const doc3 = doc.then((response) =>
+  response.text().then((body) => {
+    const div = document.querySelector('.conteudo');
     div.innerText = body;
     // faço o que quiser com os nós do DOM
-  })
+  }),
 );
 
 /* 
@@ -77,16 +72,16 @@ json() - (JavaScript Object Notation)
 Um tipo de formato de dados muito utilizado com JavaScript é o JSON , pelo fato dele possuir basicamente a mesma sintaxe que a de um objeto JS.
 .json() transforma um corpo json ==> em um objeto JavaScript. */
 
-const cep = fetch("https://viacep.com.br/ws/90470450/json/"); //retorno em json
+const cep = fetch('https://viacep.com.br/ws/90470450/json/'); //retorno em json
 
 cep.then((r) =>
   r
     .json() // aqui, transformando em objeto JS
     .then((body) => {
-      // console.log(body); // cep é um objeto JS com as info do 'viacep'
-      const conteudo = document.querySelector(".cep");
+      console.log(body); // cep é um objeto JS com as info do 'viacep'
+      const conteudo = document.querySelector('.cep');
       conteudo.innerHTML = `<br>${body.cep}</br> ${body.logradouro} - ${body.bairro} - ${body.uf}</br> ${body.localidade}`;
-    })
+    }),
 );
 
 /*
@@ -97,12 +92,12 @@ text()
 Podemos utilizar o .text() para diferentes formatos como:
 txt, json, html, css, js e mais. */
 
-const style = fetch("./style.css")
+const style = fetch('./style.css')
   .then((r) => r.text())
   .then((body) => {
     // console.log(body);
-    const classLocal = document.querySelector(".style");
-    const cssCode = document.createElement("style");
+    const classLocal = document.querySelector('.style');
+    const cssCode = document.createElement('style');
     // console.log(cssCode);
     classLocal.innerText = body;
     // append o texto de style.css no html
@@ -119,17 +114,17 @@ HTML e .text()
 Podemos pegar um arquivo inteiro em HTML EXTERNO, transformar o corpo em texto e inserir em uma div com o innerHTML no meu projeto (no meu arquivo index.html)
 A partir dai, podemos manipular esses dados como um DOM qualquer. */
 
-const div = document.createElement("div");
+const div = document.createElement('div');
 
-const sobre = fetch("./dados/sobre.html")
+const sobre = fetch('./dados/sobre.html')
   .then((r) => r.text())
   .then((body) => {
     // console.log(body);
     div.innerHTML = body;
     // console.log(div); // div recebeu o próprio HTML
-    const titulo = div.querySelector("h1"); // como div é o nosso document, então selecionamos a h1 desse document em div
+    const titulo = div.querySelector('h1'); // como div é o nosso document, então selecionamos a h1 desse document em div
     // console.log(titulo);
-    const p = div.querySelector("p");
+    const p = div.querySelector('p');
     // console.log(p);
     document.body.appendChild(titulo);
     document.body.appendChild(p);
@@ -146,7 +141,7 @@ O blob gera um URL único. */
 
 // Fazendo uma requisição de uma imagem via Fecth (através do método Blob)
 
-const imagem = fetch("./dados/imagem04.jpg");
+const imagem = fetch('./dados/imagem04.jpg');
 imagem
   .then((r) => r.blob())
   .then((body) => {
@@ -154,8 +149,8 @@ imagem
     const blobUrl = URL.createObjectURL(body);
     // createObjectURL --> Método de URL == cria uma Url única para a imagem o corpo(body) contido na imagem do fetch
     // console.log(blobUrl);
-    const img = document.querySelector(".img");
-    img.alt = "img04";
+    const img = document.querySelector('.img');
+    img.alt = 'img04';
     img.src = blobUrl;
     // console.log(img);
   });
@@ -174,14 +169,14 @@ Por isso, existe o método clone, caso você necessite transformar uma resposta 
 //   response.text().then((body) => console.log(body))
 // );
 
-const viacep = fetch("https://viacep.com.br/ws/90470450/json/");
+const viacep = fetch('https://viacep.com.br/ws/90470450/json/');
 //   .then((r) => r.text())
 //   .then((body) => {
 //     console.log(body); // bodyUsed: true --> já tranformei a info do corpo(body) de viacep em text
 //   });
 
 // // ex2.: (mudança da posição das '{}' ):
-const viacep2 = fetch("https://viacep.com.br/ws/01001000/json/");
+const viacep2 = fetch('https://viacep.com.br/ws/01001000/json/');
 
 viacep2.then((r) => {
   const r2 = r.clone();

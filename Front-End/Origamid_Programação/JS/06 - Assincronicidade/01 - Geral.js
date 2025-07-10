@@ -41,6 +41,7 @@ O resto do algoritmo é excutado normalmente (é possível ir utilizando o site)
 Função ao término (funções CallBack)
 ----------------------
 Podemos ficar de olho no carregamento(Web API) e executar uma função (Callback) assim que ele terminar.
+Ex. Dados que são pré-carregados 'no fundo' e, só são renderizados(callback), qd totalmente carregados, sem interrupção de renderização do restante do site. (demais elementos do script)
 
 
 Requisições ao Servidor
