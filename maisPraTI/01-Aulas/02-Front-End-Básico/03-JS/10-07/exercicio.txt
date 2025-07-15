@@ -1,0 +1,4 @@
+Fazer uma calculadora simples
+(utilizar o método eval)
+netlify
+https://vercel.com

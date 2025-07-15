@@ -41,12 +41,19 @@ a {
 }
 
 .menu-container {
-  display: flex;
-  justify-content: space-around;
   background-color: hsla(181, 99%, 30%, 0.78);
   color: #ebebeb;
 }
 
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  margin: 0 auto;
+}
+
 .menu-itens {
+  display: flex;
   list-style-type: none;
 }
