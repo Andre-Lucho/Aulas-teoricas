@@ -49,19 +49,16 @@ c) Os flex-items ocupam:
 c.1) o máximo de espaço** vertical possível (comportamento grow) --> Obs. Para ajustar utilizar Align-items
 c.2) Ítens Internos == o máximo de espaço** possível ( MESMO que 'transborde' o Container)
 
-MPORTANTE:
+d) no-wrap
+
+IMPORTANTE:
 -------------------------
-** Ocupam o máximo de espaço --> desde que se defina esse espaço!!
+** Ocupam o máximo de espaço --> desde que se DEFINA esse espaço!!
 SEMPRE definir um tamanho (normal, mínimo ou máx) para que os Flex-items possam CRESCER dentro do container!
 Ou add --> Flex = 1
 
-
-d) no-wrap
-
-OBS.:
------------
-Display: block(padrão) --> os valores das tags ocupam todo o espaço horizontal disponível com quebra de linha
-
+1. Display: block(padrão) --> os valores das tags ocupam todo o espaço horizontal disponível com quebra de linha
+2. Imagens não se comportam bem com Flex-Container == colocar DENTRO de uma DIV
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -1,38 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="style.css" />
-    <title>Projeto FlexBox</title>
-  </head>
-  <body>
-    <div class="superinfo-container">
-      <ul class="superinfo-itens">
-        <li>Seg-Sex - 08 às 19h</li>
-        <a href="tel:+5551999999999">Contato: (51) 99999-9999</a>
-        <li>Av. Carlos Gomes, 2100 conj. 304</li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <title>Projeto FlexBox</title>
+</head>
+
+<body>
+  <div class="superinfo-container">
+    <ul class="superinfo-itens">
+      <li>Seg-Sex - 08 às 19h</li>
+      <a href="tel:+5551999999999">Contato: (51) 99999-9999</a>
+      <li>Av. Carlos Gomes, 2100 conj. 304</li>
+    </ul>
+  </div>
+  <header class="menu-container">
+    <div class="menu">
+      <div class="menu-logo"><a href="#">Marca</a></div>
+      <nav class="menu-nav">
+        <ul class="menu-itens">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#assinaturas">Assinaturas</a></li>
+          <li><a href="#preco">Preço</a></li>
+          <li><a href="#diferenciais">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <h1 class="introducao">Novos Valore e <br />Propriedades</h1>
+  <section class="sobre" id="sobre">
+    <div class="sobre-info">
+      <h1>Sobre</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. Ratione consectetur maiores beatae
+        voluptatibus earum, sit eos vel esse non voluptate nulla eius at nemo
+        omnis.
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. Ratione consectetur maiores beatae
+        voluptatibus earum, sit eos vel esse non voluptate nulla eius at nemo
+        omnis.
+      </p>
+    </div>
+    <div>
+      <img src="./Img/Sobre/1.jpg" alt="Gabinete de Computador Gamer com RGB's em azul" />
+    </div>
+    <div>
+      <img src="./Img/Sobre/2.jpg" alt="Imagem de processador futurista" />
+    </div>
+  </section>
+  <section class="assinaturas" id="assinaturas"></section>
+  <h1>Assinaturas</h1>
+  <ul class="produtos-container">
+    <li class="produtos-item black">
+      <h2>Black</h2>
+      <img src="./Img/produtos/foto-nvidia-rtx-3090.webp" alt="Placa de vídeo nvidea-3090 em close">
+    </li>
+    <li class="produtos-item purple">
+      <h2>Purple</h2>
+      <img src="./Img/produtos/monitor.webp" alt="Monitor Gamer em fundo roxo">
+    </li>
+    <li class="produtos-item gray">
+      <h2>Gray</h2>
+      <img src="./Img/produtos/ssd-m.2-nvme.jpg.webp" alt="Ssd's m2-nvme em close">
+    </li>
+  </ul>
+  </div>
+  <section class="precos" id="precos">
+    <h1>Preços</h1>
+    <div class="preco-item">
+      <h2>Cobre</h2>
+      <span><sup>R$</sup>19,90</span>
+      <ul>
+        <li>Acesso ilimitado</li>
+        <li>Conteúdo secreto</li>
+        <li>Discord exclusivo</li>
+        <li>Mentorias semanais</li>
       </ul>
     </div>
-    <header class="menu-container">
-      <div class="menu">
-        <div class="menu-logo">Marca</div>
-        <nav class="menu-nav">
-          <ul class="menu-itens">
-            <li><a href=""></a>Sobre</li>
-            <li><a href=""></a>Produtos</li>
-            <li><a href=""></a>Preço</li>
-            <li><a href=""></a>Contato</li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  </body>
+    <div class="preco-item">
+      <h2>Prata</h2>
+      <span><sup>R$</sup>39,90</span>
+      <ul>
+        <li>Acesso ilimitado</li>
+        <li>Conteúdo secreto</li>
+        <li>Discord exclusivo</li>
+        <li>Mentorias semanais</li>
+        <li>Suporte 24h</li>
+      </ul>
+    </div>
+    <div class="preco-item">
+      <h2>Prata</h2>
+      <span><sup>R$</sup>69,90</span>
+      <ul>
+        <li>Acesso ilimitado</li>
+        <li>Conteúdo secreto + Bônus</li>
+        <li>Discord exclusivo</li>
+        <li>Suporte 24h</li>
+        <li>Mentorias semanais</li>
+        <li>Download dos Vídeos</li>
+      </ul>
+      <a href="#">Comprar</a>
+    </div>
+  </section>
+  <section class="diferenciais" id="diferenciais">
+    <div class="deferenciais-item">
+      <h2>Inteligente</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. </p>
+    </div>
+    <div class="deferenciais-item">
+      <h2>Didático</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. Omnis incidunt harum nostrum soluta </p>
+    </div>
+    <div class="deferenciais-item">
+      <h2>Intuitivo</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. </p>
+    </div>
+    <div class="deferenciais-item">
+      <h2>Esclarecedor</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. </p>
+    </div>
+    <div class="deferenciais-item">
+      <h2>Aprofundado</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. Omnis incidunt harum nostrum soluta</p>
+    </div>
+    <div class="deferenciais-item">
+      <h2>Divertido</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+        incidunt harum nostrum soluta. </p>
+    </div>
+  </section>
+  <section class="newsletter">
+    <div class="newsletter-info">
+      <h1>Newsletter</h1>
+      <p>Assine e fique por dentro das novidades do Curso!!</p>
+    </div>
+    <form class="newsletter-form">
+      <input type="text" placeholder="Seu email">
+      <button type="submit">Assinar</button>
+    </form>
+  </section>
+  <footer class="footer">
+    <p>Open Source🐧 - Todos os direitos livres - 2025</p>
+  </footer>
+</body>
+
 </html>

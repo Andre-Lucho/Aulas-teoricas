@@ -1,0 +1,13 @@
+
+Width
+-----------------------------------
+
+a) Com um valor normal (ex. 100px) :
+Ele ocupa um espaço fixo -- nem aumenta, nem diminui;
+
+b) percentual puro (100%):
+Pertime expandir de forma ilimitada -- porém, perde qualidade.
+
+c) max-width
+Expande até o máximo determinado, sem perder qualidade 
+e também diminui proporcionalmente

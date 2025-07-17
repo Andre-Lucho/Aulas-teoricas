@@ -1,0 +1,89 @@
+
+Box-shadow
+-------------------------
+-------------------------
+
+A propriedade box-shadow no CSS é como um superpoder para adicionar sombras a elementos em sua página web. Pense nela como a capacidade de criar profundidade e destaque, fazendo com que um elemento pareça estar "flutuando" acima do resto do conteúdo, ou até mesmo criando efeitos de luz e sombra mais complexos.
+
+Como funciona?
+A sintaxe básica de box-shadow aceita alguns valores importantes:
+
+CSS:
+--------
+box-shadow: [offset-x] [offset-y] [blur-radius] [spread-radius] [color] [inset];
+
+a) offset-x (obrigatório): Define o deslocamento horizontal da sombra.
+
+Valores positivos movem a sombra para a direita.
+
+Valores negativos movem a sombra para a esquerda.
+
+b) offset-y (obrigatório): Define o deslocamento vertical da sombra.
+
+Valores positivos movem a sombra para baixo.
+
+Valores negativos movem a sombra para cima.
+
+c) blur-radius (opcional): O raio do desfoque da sombra. Quanto maior o valor, mais borrada e suave a sombra será. Se for 0, a sombra será nítida.
+
+d) spread-radius (opcional): O raio de propagação da sombra.
+
+Valores positivos expandem a sombra para fora.
+
+Valores negativos encolhem a sombra para dentro.
+
+e) color (opcional): A cor da sombra. Você pode usar qualquer formato de cor CSS (nome, HEX, RGB, RGBA, HSL, HSLA). Se omitido, a cor padrão geralmente é a cor do texto do elemento ou preto.
+
+f) inset (opcional): Se presente, a sombra será interna (como se estivesse "cortada" dentro do elemento), em vez de externa.
+
+Exemplos práticos
+---------------------------------------
+1. Sombra simples para baixo e para a direita:
+
+CSS
+------
+
+.card {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+A sombra se desloca 5px para a direita e 5px para baixo.
+Ela tem um desfoque de 10px.
+A cor é um preto semitransparente (rgba(0, 0, 0, 0.3)).
+
+2. Sombra interna (inset):
+---------------------------------------
+
+CSS
+------
+
+.input-field {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+Cria uma sombra interna, simulando um efeito de profundidade, ideal para campos de input.
+Não há deslocamento (0 0).
+O desfoque é de 5px.
+
+3. Múltiplas sombras:
+---------------------------------------
+Você pode aplicar várias sombras a um mesmo elemento, separando-as por vírgula. Isso permite criar efeitos mais elaborados.
+
+CSS
+------
+
+.button {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 5px rgba(0, 0, 0, 0.1) inset;
+}
+
+A primeira sombra é uma sombra externa padrão.
+A segunda sombra é uma sombra interna mais sutil.
+
+Por que usar box-shadow?
+---------------------------------------
+
+a) Profundidade e Hierarquia: Ajuda a destacar elementos importantes e a criar uma sensação de profundidade na interface.
+
+b) Design Moderno: Um toque de sombra pode tornar seu design mais polido e contemporâneo.
+
+c) Feedback Visual: Em botões ou elementos interativos, sombras podem mudar ao passar o mouse (:hover) ou clicar (:active), fornecendo feedback visual ao usuário.

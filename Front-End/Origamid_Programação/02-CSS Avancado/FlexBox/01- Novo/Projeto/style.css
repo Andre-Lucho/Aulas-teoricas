@@ -1,18 +1,36 @@
-* {
+body,
+h1,
+h2,
+p,
+ul,
+li,
+a {
   margin: 0;
   padding: 0;
+}
+
+* {
   box-sizing: border-box;
 }
 
 body {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
   background-color: #ebebeb;
   color: #0b0b0b;
-  font-family: 'Nunito', Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
   text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 .superinfo-container {
@@ -28,7 +46,6 @@ a {
   display: flex;
   justify-content: space-between;
   width: 80vw;
-  list-style-type: none;
   flex-wrap: wrap;
 }
 
@@ -55,5 +72,4 @@ a {
 
 .menu-itens {
   display: flex;
-  list-style-type: none;
 }
