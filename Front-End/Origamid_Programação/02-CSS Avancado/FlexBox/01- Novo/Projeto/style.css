@@ -33,32 +33,39 @@ img {
   max-width: 100%;
 }
 
+.superinfo-bg {
+  background-color: #006e70;
+  color: #ebebeb;
+}
+
 .superinfo-container {
   display: flex;
-  justify-content: center;
-  padding: 1.2rem;
-  background-color: hsl(181, 100%, 22%);
-  color: #ebebeb;
-  font-weight: bold;
-}
-
-.superinfo-itens {
-  display: flex;
   justify-content: space-between;
-  width: 80vw;
+  /* width: 80vw; */
+  max-width: 960px;
+  margin: 0 auto;
+  /* não preciso de um justify ou align-items */
   flex-wrap: wrap;
+  padding: 20px 0;
 }
 
-.superinfo-itens a {
+.superinfo-container a,
+.superinfo-container li {
+  padding: 0 20px;
+  /* Observar a consistência dos paddings - 20 top e bottom == bg | 20 right e left == container
+ Mantém o alinhamento, inclusive qd quebrar */
+}
+
+.superinfo-container a {
   color: #ebebeb;
 }
 
-.superinfo-itens a:hover {
+.superinfo-container a:hover {
   color: hsla(181, 100%, 49%, 0.475);
 }
 
-.menu-container {
-  background-color: hsla(181, 99%, 30%, 0.78);
+.menu-bg {
+  background-color: #019698c7;
   color: #ebebeb;
 }
 
@@ -66,10 +73,84 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80vw;
+  max-width: 960px;
   margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
 }
 
-.menu-itens {
+.menu a {
+  color: #ebebeb;
+}
+
+.menu-logo {
+  padding: 10px 0;
+  font-size: 2.25em;
+  font-weight: bold;
+}
+
+.menu-nav ul {
   display: flex;
+  flex-wrap: wrap;
+}
+
+/* Padrão para nav com elem em click */
+.menu-nav a {
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+  /* por padrão, <a> é display: inline --> vira bloco == cria uma área maior( bloco) 
+  e aumenta a area de click; o padding reforma mais*/
+  padding: 10px;
+}
+
+.menu-nav a:nth-last-of-type {
+  padding-right: 0;
+}
+/* ver o erro aqui - não pegou */
+
+.menu-nav a:hover {
+  color: #006e70;
+}
+
+.introducao {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  font-size: 2.3em;
+  line-height: 1;
+}
+
+.sobre {
+  border-top: 2px solid #006e70;
+  border-bottom: 2px solid #006e70;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sobre-info {
+  flex: 2 1 300px;
+  margin-right: 5px;
+}
+
+.sobre-info h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+.sobre-img {
+  flex: 1 1 200px;
+  margin-left: 10px;
+}
+/* distribuição do espaço horizontal dentro do container .sobre 
+2x texto | 2x img's (1x para cada) = distribuição harmônica dos elems (420px + 420 px)
+*/
+
+.sobre-info p {
+  font-size: 1em;
+  line-height: 1.4;
+  margin-bottom: 1em;
+  color: #676666;
 }

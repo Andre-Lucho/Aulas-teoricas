@@ -11,3 +11,11 @@ Pertime expandir de forma ilimitada -- porém, perde qualidade.
 c) max-width
 Expande até o máximo determinado, sem perder qualidade 
 e também diminui proporcionalmente
+
+
+Margin & Padding
+-------------------------
+
+Padding aumenta o tamanho do container, enquanto o margin não.
+Isso influencia se, por exemplo, temos um backgroud --> qd tenho padding(modif internamente) ele pinta;
+qd tenho margin(modifica externam), não 

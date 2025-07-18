@@ -79,7 +79,7 @@ b.1 )Column-reverse Ordem reversa dos Flex-Itens na coluna (os de baixa ficam em
 B) FLEX-WRAP => 'Quebra'
 ------------------------------------------
 Inibe o corpotamento-padão (no-wrap) de 'transbordar' o Container;
-quebra e passa p a baixo => formando coluna
+quebra e passa p a baixo => formando uma nova linha ou coluna
 
 OBS.:o valor contino na tag dos Flex-items também é quebrado (caso de + 1 palavra no elem)
 
