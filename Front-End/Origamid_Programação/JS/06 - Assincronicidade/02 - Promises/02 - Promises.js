@@ -6,7 +6,7 @@ new Promise()
 Promise é uma função construtora de promessas.
 Existem dois resultados possíveis de uma promessa, ela pode ser resolvida, com a execução do primeiro argumento, ou rejeitada se o segundo argumento for ativado.
 
---> resolve e reject são 2 argumentosda callback de New Promise()
+--> resolve e reject são 2 argumentos da callback de New Promise()
 Como qquer argumento, resolve e reject podem ser qquer nome
 
 */
@@ -30,9 +30,9 @@ const promessa1 = new Promise((resolve, reject) => {
   let condicaoTrue = true;
   let condicaoFalse = false;
   if (condicaoFalse) {
-    resolve('Estou pronto!');
+    // resolve('Estou pronto!');
   } else {
-    reject(Error('Um erro ocorreu.'));
+    // reject(Error('Um erro ocorreu.'));
   }
 });
 
@@ -96,10 +96,10 @@ O poder está na execução de código assíncrono que executará o resolve() ao
 const promessa03 = new Promise((resolve, reject) => {
   let condicao = true;
   let condicaoFalsa = false;
-  if (condicaoFalsa) {
+  if (condicao) {
     setTimeout(() => {
       resolve({ nome: 'André', idade: 43 });
-    }, 2000);
+    }, 1000);
   } else {
     reject(Error('Um erro ocorreu na Promise.'));
   }
@@ -115,19 +115,24 @@ O método then() retorna outra Promise.
 Podemos colocar then() após then() e fazer um ENCADEAMENTO de promises.
 O valor do primeiro argumento de cada then, será o valor do retorno anterior. */
 
-const retorno = promessa03.then((response) => {
-  // console.log(response); //  { nome: 'André', idade: 42 }
-  response.profissao = 'Programador';
-  return response;
-});
-// .then((response) => console.log(response)); // { nome: "André", idade: 42,  profissao: "Programador"}
-//como só tenho 1 retorno, posso ignorar a palavra 'return'
+const retorno = promessa03
+  .then((response) => {
+    // console.log(response); //  { nome: 'André', idade: 42 }
+    response.profissao = 'Programador';
+    return response;
+  })
+  .then((response) => {
+    return response;
+  })
 
-//   .then((response) => {
-//     response.profissao02 = 'Designer Digital';
-//     // return console.log(r); //  { nome: "André", idade: 42,  profissao: "Programador", profissao02 = "Designer Digital"}
-//     return response;
-//   });
+  // { nome: "André", idade: 42,  profissao: "Programador"}
+  //como só tenho 1 retorno, posso ignorar a palavra 'return'
+
+  .then((r) => {
+    r.profissao02 = 'Designer Digital';
+    // return console.log(r); //  { nome: "André", idade: 42,  profissao: "Programador", profissao02 = "Designer Digital"}
+    // return r;
+  });
 
 /*
 
@@ -203,8 +208,9 @@ const dados = new Promise((resolve) => {
 const tudoCarregado = Promise.all([login, dados]);
 // console.log(tudoCarregado); // retorna a Promisse e no seu PromiseResult tenho um Array contendo os dados dos 2 resolve()
 
-tudoCarregado.then((respostas) => {
-  console.log(respostas); // retorna uma Array com ambas respostas
+const a = tudoCarregado.then((respostas) => {
+  const resp = respostas.map((r, index) => r + ` posição${index}`);
+  console.log(resp); // retorna uma Array com ambas respostas
 });
 
 /* 
@@ -234,5 +240,5 @@ const dados01 = new Promise((resolve) => {
 
 const carregouPrimeiro = Promise.race([login01, dados01]);
 carregouPrimeiro.then((resposta) => {
-  console.log(resposta); // Login Efetuado
+  // console.log(resposta); // Login Efetuado
 });
