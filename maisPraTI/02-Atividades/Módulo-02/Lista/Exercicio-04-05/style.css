@@ -9,6 +9,7 @@ body {
   justify-content: center;
   color: #ececec;
   background-color: #222222;
+  font-family: 'Nunito', sans-serif;
   font-size: 18px;
 }
 
@@ -76,32 +77,37 @@ header {
   padding: 5px;
 }
 
-main {
+.main-container {
   width: 100%;
   height: 100%;
-  background-color: #627eb4;
   padding: 0 20px;
+  background-color: #627eb4;
 }
 
-main h1 {
+#importante {
+  border-top: 1px solid black;
+}
+
+.main-container h1 {
   text-align: center;
   margin-top: 1em;
+  font-size: 2.6rem;
 }
 
-main .main-div-container {
+.main-container .main-div-container {
   display: flex;
   align-items: center;
   height: 80%;
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   text-decoration: underline;
 }
 
 #produtos p {
   font-style: italic;
-  background-color: hsla(220, 93%, 68%, 0.202);
+  background-color: hsla(220, 44%, 36%, 0.461);
 }
 
 .div-container {

@@ -101,12 +101,12 @@ img {
   display: block;
   /* por padrão, <a> é display: inline --> vira bloco == cria uma área maior( bloco) 
   e aumenta a area de click; o padding reforma mais*/
-  padding: 10px;
+  padding: 10px 0px 10px 20px;
 }
 
-.menu-nav a:nth-last-of-type {
+/* .menu-nav a:nth-last-of-type {
   padding-right: 0;
-}
+} */
 /* ver o erro aqui - não pegou */
 
 .menu-nav a:hover {

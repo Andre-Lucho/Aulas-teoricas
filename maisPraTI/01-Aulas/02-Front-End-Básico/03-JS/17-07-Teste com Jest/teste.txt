@@ -1,0 +1,36 @@
+Testes Unitários
+------------------------
+
+Ferramenta de garantia da qualidade de um software:
+Garantir que, antes de chegar ao usuário final, o software esteja funcionando corretamente.
+
+Etapa feita antes de que o código suba para a 'produção';
+Porém, isso não significa que o produto final não apresente bugs - visa diminuir os bugs.
+
+Os scripts para teste geralmente são maiores que os scripts para as features do software em si!
+Geralmente os Devs que fazem os testes Unitários
+
+Obs.
+-------
+Nem todos os softwares passam por testes - independente do tamanho da empresa
+
+
+São divididos em 2 categorias:
+------------------------------------------
+
+1. Funcionais
+-------------------
+Referentes as Funcionalidades diretas do app - o que ele necessita fazer para funcionar corretamente para ser notado pelo usuário em termos de 'features'
+
+Subtipos:
+-------------
+a) Unitários --> parte específica do código(funcionalidade isolada)
+b) Integração --> interação entre módulos de um sistema
+c) de Sistema --> interação entre todo o conjunto de módulos de um sistema - fluxo completo do app
+
+
+2. Não-funcionais
+------------------------
+Não tem relação direta com as 'regras de negócio' do software --> 'features' utilizadas pelo usuário
+Ex.: Segurança, desempenho e performance do software, aceitação e usuabilidade, carga (comportamento com grande quantidade de usuários)
+

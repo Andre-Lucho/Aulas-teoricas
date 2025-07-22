@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
   color: #222222;
   /* preto um pouco + claro */
 }
@@ -334,7 +334,7 @@ dividido em 3 partes, 2x para o texto */
 
 .preco-item li::after {
   /* pseudo-elemento => será o Flex-item */
-  content: "";
+  content: '';
   display: block;
   /* o display do pseudo-elemento e inline */
   height: 6px;
@@ -406,7 +406,7 @@ antes do plano cobre, qd a tela ter - 576px => marketing
 }
 
 .qualidade-item h2::before {
-  content: "";
+  content: '';
   display: block;
   height: 30px;
   width: 8px;
@@ -511,7 +511,7 @@ antes do plano cobre, qd a tela ter - 576px => marketing
 .newsletter-form input {
   flex: 3 1 260px;
   /* basis original = 200px => 260 = Safari - nele, quebra */
-  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
   /* por padrao, o input esta puxando outra font-family */
   font-size: 1.15em;
   font-style: italic;
@@ -529,7 +529,7 @@ antes do plano cobre, qd a tela ter - 576px => marketing
 .newsletter-form button {
   flex: 1 1 260px;
   /* basis original = 200px => 260 = Safari = nele, quebra */
-  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
   font-size: 2.15em;
   font-weight: bold;
   text-transform: uppercase;
