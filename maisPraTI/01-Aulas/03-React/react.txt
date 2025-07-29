@@ -1,0 +1,3 @@
+React - Biblioteca
+A ideia geral é que ela recarregue elementos sem mudar de página (SPA) - Single page aplication
+Renderização de elementos
