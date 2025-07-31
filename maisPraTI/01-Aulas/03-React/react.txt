@@ -1,3 +1,21 @@
-React - Biblioteca
-A ideia geral é que ela recarregue elementos sem mudar de página (SPA) - Single page aplication
-Renderização de elementos
+React
+------------
+
+React é uma Biblioteca onde a ideia geral é que ela recarregue elementos novos (novos componentes) sem mudar de página (SPA)
+Single page aplication --> Conceito de renderização de elementos em 1 mesma página --> tenho 1 html que é dinâmico == Reativo; 
+Mantenho a mesma estrutura geral da página, alterando seus elementos ou componentes.
+
+ Componente
+ ----------------------
+ É uma 'Section' ou 'Div' que encapsula uma estrutura lógica de uma parte específica do código que
+ pode ser renderizada ou reaproveitada novamente em outro local da página ou de outras páginas.
+
+
+Angular, Vue e React trabalham com omesmo conceito de SPA + Componentes
+
+JS - É pensado de Maneira imperativa - o que deve ser feito
+React - É pensado de Maneira declarativa - como devo fazer
+
+Para se criar um aplicativo react, necessitamos de uma série de configurações, como:
+Enpacotamento, transpilação('transformação' ou garantia de legibilidade entre códigos), redirecionamento e organização de arquivos e pastas, de um servidor
+Builders --> automatizam esse processo

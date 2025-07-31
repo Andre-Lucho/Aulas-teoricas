@@ -26,7 +26,8 @@ const App2 = () => {
 /*
 Map
 --------------------------------------
-É comum usarmos o map direto na array como uma expressão, retornando um elemento para cada item novo da Array. */
+É comum usarmos o map direto na array como uma expressão, retornando um elemento para cada item novo da Array. 
+Posso passar o index de .map(); Porém existem casos opnde pode ocorrer erro*/
 
 const App3 = () => {
   const filmes = ['Before Sunrise', 'Before Sunset', 'Before Midnight'];

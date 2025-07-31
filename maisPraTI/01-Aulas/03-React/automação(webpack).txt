@@ -1,0 +1,39 @@
+1. Construir o package.json:
+---------------------------------------
+# npm init -y
+
+2. Baixar as bibliotecas react (react + react-dom):
+------------------------------------------------------------------------------
+# npm install react react-dom
+
+3. Baixar o enpacotador (webpack):
+------------------------------------------------------------------------------
+# npm i -D webpack webpack-cli webpack-dev-server
+
+-D: ( instalação do webpack como 'devDependencies')
+
+main: entry ponit --> target de entrada p o empacotador / transpilador
+
+4. Criação de Arquivo e Configuração do webpack
+------------------------------------------------------------------------------
+webpack.config.js
+
+4.1 Add o script webpack no package.json;
+"webpack": "webpack",
+
+5. Criar o arquivo ./src/App.jsx
+---------------------------------------
+
+6. Instalar o Transpilador (Babel)
+------------------------------------------------------------------------------
+Vai permitir que o Webpack possa entender e traduzir a linguaguem .jsx em .js:
+# npm i --save-dev @babel/core @babel/cli @babel/preset-env @babel/preset-react babel-loader
+
+6.1. Criação de Arquivo e Configuração do Babel
+------------------------------------------------------------------------------
+babel.config.json
+
+7. Instalar o plugin HTMLWebpackPlugin
+------------------------------------------------------------------------------
+# npm i -D html-webpack-plugin
+

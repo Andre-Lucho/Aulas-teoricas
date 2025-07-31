@@ -36,6 +36,23 @@
   "explorer.confirmDelete": false,
   "explorer.sortOrder": "default",
 
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+
+  "files.exclude": {
+    "node_modules": true,
+    // ".vscode": true,
+    ".gitignore": true,
+    // "package.json": true,
+    "package-lock.json": true
+    // ".eslintrc.json": true,
+    // "vite.config.js": true,
+    // "public": true,
+    // "index.html": true
+  },
+
   "git.confirmSync": true,
   "git.openRepositoryInParentFolders": "never",
   "git.suggestSmartCommit": true,
@@ -46,11 +63,6 @@
 
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
-
-  "files.autoSave": "onFocusChange",
-  "files.associations": {
-    "*.js": "javascriptreact"
-  },
 
   "security.workspace.trust.untrustedFiles": "open",
   "settingsSync.ignoredSettings": ["-window.zoomLevel"],

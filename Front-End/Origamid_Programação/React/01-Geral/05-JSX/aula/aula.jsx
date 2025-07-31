@@ -27,6 +27,13 @@ const App3 = () => {
     </a>
   );
 };
+// dentro de ( ) --> mai de 1 linha de retorno
+
+/*
+Identações do React
+------------------------------
++ de 1 elemento --> usar <div> </div> ou 
+<></> ( = React.fragment)  */
 
 /*
 Casos Especiais
@@ -91,12 +98,14 @@ const App10 = () => {
 /*
 JSX Expressões
 -----------------------------------
-Você pode executar qualquer expressão dentro das chaves {}. 
-Se o resultado da expressão for um número, string ou array de números/strings o resultado irá aparecer na tela. 
-Booleanos (true/false), undefined e null não irão resultar em nada na tela. 
-Funções não ativadas irão retornar um erro -->  Devemos passar o resultado da função(ativá-la) 
-Objetos irão retornar um erro --> Devemos passar a propriedade e/ou o método correspondente aquele objeto/classe
-*/
+Você pode executar qualquer expressão dentro das chaves {}:
+1) Se o resultado da expressão for um NÚMERO, STRING ou ARRAY de números/strings o resultado irá aparecer na tela;
+
+2) Booleanos (true/false), undefined e null NÃO irão resultar em nada na tela;
+
+3) FUNÇÕES não ativadas irão retornar um ERRO -->  Devemos passar o RESULTADO da função(ativá-la);
+
+4) OBJETOS irão retornar um erro --> Devemos passar a propriedade e/ou o método correspondente aquele objeto/classe. */
 
 const App11 = () => {
   function meuNome() {
@@ -146,8 +155,10 @@ const App12 = () => {
 
   return (
     <>
+      {/* pega todo o estilo - estou passando a variável*/}
       <h1 style={estiloH1}>Empresa</h1>
-      <p style={{ color: 'green' }}>Sempre aberta</p>
+      {/* adiciona um estilo qualquer específicol*/}
+      <p style={{ fontSize: '20px' }}>Sempre aberta</p>
     </>
   );
 };

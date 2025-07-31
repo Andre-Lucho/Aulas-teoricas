@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
 
 const App = () => {
-  return <>App React</>;
+  return <>Olá, Mundo!</>;
 };
 
 export default App;

@@ -25,6 +25,8 @@ function App() {
   const listProd = produtos.filter(
     ({ preco }) => +preco.replace('R$', ' ') > 1500,
   );
+  console.log(listProd);
+
   return (
     <section>
       {listProd.map(({ id, nome, preco, cores }) => (

@@ -45,7 +45,7 @@ Componentes
 -----------------------------------
 Permitem você dividir a sua interface em pequenos elementos. 
 São criados através de funções que retornam elementos React.
-Componentes são nomeados com letra maiúscula!
+Componentes são nomeados com letra maiúscula! --> P/ se diferenciar de elems. HTML(minúscula)
 Elementos html começam com letra minúscula
 
 // Function Component
@@ -55,7 +55,8 @@ const Button = () => {
 
 Composição
 -----------------------------------
-O principal motivo de criarmos componentes é para podermos compor a interface com diversos componentes que podem ser reutilizados (Componentes funcionais React).
+O principal motivo de criarmos componentes é para podermos compor a interface 
+com diversos componentes que podem ser reutilizados (Componentes funcionais React).
 
 const Button = () => {
   return <button>Comprar</button>;
@@ -149,5 +150,3 @@ const Compras = () => {
     </div>
   );
 };
-
-Vídeo : 10:00

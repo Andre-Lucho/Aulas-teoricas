@@ -1,0 +1,19 @@
+{
+  "name": "bundler-esbuild",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "esbuild --bundle src/main.jsx --outfile=main.js --servedir=./ --watch",
+    "build": "esbuild --bundle src/main.jsx --outfile=main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "esbuild": "^0.25.8",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}

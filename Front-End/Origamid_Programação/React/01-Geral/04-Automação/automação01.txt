@@ -1,12 +1,11 @@
 Bundler
 -----------------------------------
-Agrupa (bundle) o código do seu aplicativo == modules
+Agrupa (bundle) o código do seu aplicativo == similar ao 'modules' do JS.
 
-Permite definirmos os componentes em diferentes arquivos para melhor organização
-Facilita a importação de código externo instalado via NPM ou Yarm
+Permite definirmos os componentes em diferentes arquivos para melhor organização;
+Facilita a importação de código externo instalado via NPM ou Yarm;
 
 Bundlers: ESBuild, Rollup, Parcel, Turbopack, Webpack(+ lento)
-
 
 
 Transpiler
@@ -14,7 +13,7 @@ Transpiler
 Transforma JSX return <div></div> em funções de React React.createElement()
 Transforma JavaScript novo const em JavaScript antigo var
 
-Exs: Babel, SWC, ESBuild
+Exs: Babel, SWC(em Rust), ESBuild
 
 
 
