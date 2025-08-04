@@ -1,10 +1,12 @@
+import React from 'react';
+
 const Input = ({ id, label, ...props }) => {
+  console.log(props);
   return (
-    <div style={{ margin: '1rem 0' }}>
+    <>
       <label htmlFor={id}>{label}</label>
-      <input id={id} type="text" {...props} />
-      {/*type="teste" funciona como padrão- caso não passe nenhum como argumento*/}
-    </div>
+      <input id={id} type="text" {...props}></input>
+    </>
   );
 };
 

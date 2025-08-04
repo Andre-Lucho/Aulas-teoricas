@@ -1,21 +1,17 @@
-import Produtos from './Produtos';
+import React from 'react';
+
 const Produto = ({ nome, propriedades }) => {
   return (
-    <div
-      key={nome}
-      style={{
-        border: '2px solid white',
-        padding: '1rem',
-        margin: '1.2rem',
-      }}
-    >
-      <h3>{nome}</h3>
-      <ul>
-        {propriedades.map((spec) => (
-          <li>{spec}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="div-produtos">
+        <h2>{nome}</h2>
+        <ul>
+          {propriedades.map((prop) => (
+            <li key={prop}>{prop}</li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

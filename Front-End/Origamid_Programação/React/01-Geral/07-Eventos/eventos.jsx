@@ -1,7 +1,9 @@
 /*
 Eventos
 --------------------------------------
-Podemos atribuir eventos diretamente aos elementos JSX como um atributo. Os eventos são sintáticos, ou seja, são criados pelo próprio React (e não mais pelo Browser), porém seguindo as especificações da W3C (e funcionam igualmente nos diversos browsers que o React suporta). 
+Podemos atribuir eventos diretamente aos elementos JSX como um atributo. 
+Os eventos são sintáticos, ou seja, são criados pelo próprio React (e não mais pelo Browser), 
+porém seguindo as especificações da W3C (e funcionam igualmente nos diversos browsers que o React suporta). 
 https://react.dev/reference/react-dom/components/common#react-event-object
 */
 
@@ -44,7 +46,7 @@ const App3 = () => {
     console.log(event);
     // event = Object Event JS
   }
-  window.addEventListener('scroll', handleScroll); //OBS --> Evento normal de JS
+  window.addEventListener('scroll', handleScroll); // OBS --> Evento normal de JS
 
   return <div style={{ height: '200vw' }}>Div</div>;
 };

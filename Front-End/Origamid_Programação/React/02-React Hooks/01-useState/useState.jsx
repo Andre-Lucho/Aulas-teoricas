@@ -10,7 +10,9 @@ O estado de uma aplicação representa as características dela naquele momento.
 Por exemplo: os dados do usuário foram carregados, o botão está ativo, o usuário está na página de contato;
 Os dados do usuário foram carregados --> faça tal coisa... se não,outra;
 Se o botão está ativo, acontece tal coisa; se estiver inativo, outra e etc.;
-O usuário está na <section> Footer....
+O usuário está na <section> ou em Footer....
+
+Teacnologia React --> Lida com o gerenciamento de estados
 */
 
 const App = () => {
@@ -29,10 +31,10 @@ const App = () => {
 Hooks
 ------------------------------------
 
-Os Hooks são funções especiais do React que permitem CONTROLARMOS O ESTADO e o ciclo de vida de componentes funcionais.
+Os Hooks são funções especiais do React que permitem controlarmos o ESTADO e o CICLO DE VIDA de componentes funcionais.
 Isso antes só era possível com classes.
 
-Os Hooks permitem que o app renderize novamente apenas aquele estado específico de um componente 'X' , e não de toda a aplicação!
+Os Hooks permitem que o app renderize novamente apenas aquele estado específico de um componente 'X' (+ seus filhos), e não de toda a aplicação!
 */
 
 const App1 = () => {
@@ -49,10 +51,11 @@ const App1 = () => {
 React.useState
 ------------------------------------
 
-O useState é uma função que retorna uma Array com 2 valores. O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como: strings, arrays, números, boolean, null, undefined e objetos.
+O useState é uma função que retorna uma Array com 2 valores. 
+O primeiro valor guarda o dado do estado atual, pode ser qualquer tipo de dado como: strings, arrays, números, boolean, null, undefined e objetos.
 O segundo valor é uma função que pode ser utilizada para modificarmos o estado do primeiro valor.
 
-Quando a função de modificação do estado é ativada, todos os componentes que dependerem do estado, serão RENDERIZADOS NOVAMENTE e os seus filhos também.
+Quando a função de modificação do estado é ativada, TODOS os componentes que DEPENDEREM do estado, serão RENDERIZADOS NOVAMENTE e os seus filhos também.
 É isso que garante a reatividade de componentes funcionais no React.*/
 
 const App2 = () => {
@@ -69,11 +72,7 @@ const App2 = () => {
   );
 };
 
-// O uso de 'setNome' é uma convenção do React para a função de modificação do estado
-
-// Obs.:
-// import { useState } from 'react';
-// desestruturando o metodo useState do React --> posso evoca-lo diretamente
+// O uso de 'set<Nome>' é uma convenção do React para a função de modificação do estado
 
 /*
 Múltiplos Estados
@@ -84,13 +83,26 @@ Não existem limites para o uso do useState, podemos definir diversos no mesmo c
 const App3 = () => {
   const [contar, setContar] = React.useState(0);
   const [ativo, setAtivo] = React.useState(false);
-  const [dados, setDados] = React.useState({ nome: 'André', idade: '43' });
+  const [dados, setDados] = React.useState({
+    nome: 'André',
+    idade: '43',
+  });
 
   const { nome, idade } = dados;
+
+  function handleClick() {
+    setAtivo(!ativo);
+    setDados({ ...dados, faculdade: true });
+    // desestrut os dados anteriores --> 'puxando' eles
+  }
+
   return (
     <div>
       <p>{nome}</p>
       <p>{idade}</p>
+      <button onClick={handleClick}>
+        {ativo ? 'Botão Ativo' : 'Botão Inativo'}
+      </button>
     </div>
   );
 };

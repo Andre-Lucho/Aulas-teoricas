@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
-import Footer from './Footer.jsx';
 import Form from './Form/Form.jsx';
 import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 
 const Teste = () => {
   const active = false;

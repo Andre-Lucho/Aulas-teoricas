@@ -1,5 +1,7 @@
+import React from 'react';
+
 const Footer = () => {
-  return <footer>Todos os direitos Reservados</footer>;
+  return <div>Footer</div>;
 };
 
 export default Footer;

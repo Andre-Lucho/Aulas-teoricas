@@ -1,10 +1,12 @@
-const Header = ({ cl, href, tagName }) => {
+import React from 'react';
+
+const Header = ({ href, tagName }) => {
   return (
-    <>
-      <li className={cl}>
+    <header>
+      <li>
         <a href={href}>{tagName}</a>
       </li>
-    </>
+    </header>
   );
 };
 

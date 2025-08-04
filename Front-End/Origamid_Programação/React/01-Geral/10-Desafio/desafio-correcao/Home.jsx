@@ -1,12 +1,11 @@
-import React from 'react';
 import Titulo from './Titulo';
 
 const Home = () => {
   return (
-    <section>
-      <Titulo color="green" tagText="Home" />
+    <>
+      <Titulo cor="#4c8b64" tagName="Home" />
       <p>Essa é a Home do site</p>
-    </section>
+    </>
   );
 };
 

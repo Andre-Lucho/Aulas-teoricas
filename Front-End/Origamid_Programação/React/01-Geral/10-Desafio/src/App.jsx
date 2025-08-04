@@ -1,22 +1,22 @@
-import Home from './Home';
 import Header from './Header';
+import Home from './Home';
 import Produtos from './Produtos';
 import Titulo from './Titulo';
 
-function App() {
-  const { pathname } = window.location;
-  let Component;
-  pathname === '/produtos.html' ? (Component = Produtos) : (Component = Home);
+const { pathname } = window.location;
+let Component;
+pathname === '/Produtos' ? (Component = Produtos) : (Component = Home);
 
+const App = () => {
   return (
     <>
       <ul>
-        <Header cl="lista" href="http://localhost:5173/" tagName="Home" />
-        <Header cl="lista" href="./produtos.html" tagName="Produtos" />
+        <Header href="http://localhost:5173/" tagName="Home" />
+        <Header href="./Produtos" tagName="Produtos" />
       </ul>
       <Component />
     </>
   );
-}
+};
 
 export default App;

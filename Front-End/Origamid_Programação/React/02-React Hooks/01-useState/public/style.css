@@ -19,6 +19,7 @@ body {
   margin: 1.5rem;
   background-color: #171f2b;
   color: azure;
+  font-size: 1.1rem;
 }
 
 body,
@@ -47,13 +48,19 @@ ul {
   list-style: square;
 }
 
+a {
+  text-decoration: none;
+  color: #eee;
+}
+
 li {
   margin-bottom: 0.5rem;
 }
 
 label {
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 input,
@@ -62,6 +69,8 @@ textarea {
   border: 1px solid #ccc;
   width: 100%;
   padding: 0.8rem;
+  margin-bottom: 0.8rem;
+
   border-radius: var(--radius);
   background: #eee;
   transition: 0.2s;
@@ -104,4 +113,18 @@ button:disabled {
 hr {
   border: 2px solid black;
   margin: 2rem auto;
+}
+
+.div-produtos {
+  max-width: 500px;
+  border: 1px solid;
+  margin: 20px 0;
+}
+
+.div-produtos h2 {
+  margin-left: 1rem;
+}
+
+.div-produtos ul {
+  margin-left: 1rem;
 }

@@ -1,30 +1,28 @@
-import Form from './Form/Form';
-
 // 1.
 
-// function App() {
-//   return (
-//     <>
-//       <Form />
-//     </>
-//   );
-// }
+import Form from './Form/Form';
 
-// 2.
-
-import Titulo3 from './Título3';
-const App = () => {
+// aqui, com props desestruturado: props.backgroundColor, props.color, props.texto --> no return
+const Titulo = ({ backgroundColor, color, texto, children }) => {
   return (
-    <section>
-      <Titulo3 />
-      {/* nessa linha está renderizando normalmente o componente s/ Children*/}
-      <Titulo3>
-        <p>Título 2</p>
-        <p>Título 3</p>
-      </Titulo3>{' '}
-      {/* aqui temos o children executado*/}
-    </section>
+    <h1 style={{ backgroundColor: backgroundColor, color: color }}>
+      {texto}, {children}
+    </h1>
   );
 };
+
+function App() {
+  return (
+    <div>
+      <Titulo backgroundColor="red" color="purple" texto="meu título 1" />
+      <Titulo backgroundColor="blue" color="gray" texto="Novo título 1" />
+      <Titulo texto="outro título 2">
+        Esse é o Children
+        <p>Passando outros elems no Children</p>
+      </Titulo>
+      <Form />
+    </div>
+  );
+}
 
 export default App;

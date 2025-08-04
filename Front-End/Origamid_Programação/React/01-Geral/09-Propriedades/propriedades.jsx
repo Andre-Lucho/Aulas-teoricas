@@ -2,7 +2,7 @@
 Propriedades
 
 Assim como uma função pode receber argumentos, podemos também passar argumentos aos componentes. 
-Esses são conhecidos como propriedades ou props. 
+Esses são conhecidos como propriedades ou 'props'. 
 props = Objeto
 */
 
@@ -18,6 +18,9 @@ const App = () => {
     </section>
   );
 };
+
+// Estou criando um componente genérico(como uma função genérica) que poderá ir se modificando
+// a medida que eu reutilizo esse componente genérico passando outros valores em minha propriedade(props)
 
 /*
 Múltiplas Propriedades

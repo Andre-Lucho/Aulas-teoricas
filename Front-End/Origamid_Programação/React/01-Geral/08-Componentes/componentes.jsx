@@ -1,7 +1,7 @@
 /*
 Componentes
 --------------------------------------
-O ideal é dividir o aplicativo em pequenos componentes para facilitar a manutenção do mesmo. 
+O ideal é dividir o aplicativo em pequenos componentes para facilitar a manutenção/organização do mesmo. 
 Iremos trabalhar durante o curso com componentes funcionais. */
 
 import React from 'react';
@@ -142,8 +142,8 @@ const App = () => {
 
 /*
 OBS:
-Qd estamos importando os pacotes do React = import React from 'react', estamos importante um Objeto com as prop e métodos do React.
-Então, tembém posso desestruturar esse objeto e importar metodos e prop especificas dos para os componentes React == é o caso do Fragment == React.Fragment !! (ver './App.jsx')
+Qd estamos importando os pacotes do React = import React from 'react', estamos importando um Objeto com as prop e métodos do React.
+Então, também posso desestruturar esse objeto e importar metodos e prop especificas dos para os componentes React == é o caso do Fragment == React.Fragment !! (ver './App.jsx')
 
 
 */
