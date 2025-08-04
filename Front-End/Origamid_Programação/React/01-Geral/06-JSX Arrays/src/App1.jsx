@@ -1,5 +1,11 @@
 import React from 'react';
 
+/*
+Exercício
+
+Organize os produtos como mostrado no vídeo
+Mostre apenas produtos que forem mais caros que R$ 1500 */
+
 const produtos = [
   {
     id: 1,
@@ -27,7 +33,7 @@ const App1 = () => {
   );
 
   /* aqui, não estou limpando o objeto --> filter não modifica o objeto inicial..
-    replace, aqui, está transformando o número apenas para LEITURA E COMPARAÇÃO com o 2000 e devolcendo o objeto inalterado...
+    replace, aqui, está transformando o número apenas para LEITURA E COMPARAÇÃO com o 2000 e devolvendo o objeto inalterado...
     após isso, o filter seleciona as posições e retorna parte do objeto já filtrado, após essa comparação */
 
   return (

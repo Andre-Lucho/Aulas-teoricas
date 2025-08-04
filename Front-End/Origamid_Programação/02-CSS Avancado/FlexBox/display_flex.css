@@ -267,9 +267,11 @@ b)depende também do tamanho do conteudo => +conteudo, +espaço ocupado
 B) FLEX-BASIS (espaço antes/depois do conteúdo)
 --------------------------------------------------------------------
 
-Indica o tamanho inicial do flex-item antes da distribuição do espaço restante (flex-grow);
+Indica o tamanho inicial do flex-item antes da distribuição do espaço restante (flex-grow) e tamanho mín que mantém antes de quebrar*;
 Qd definimos flex-grow:1 e temos flex-basis:auto, o valor restante para ocupar no container 
 é distribuido ao redor (antes e depois) do conteúdo do flex-item;
+
+* (qd tenho +1 flex-item em linha): ou defino esse valor, ou defino um min-width
 
 OBS.: 
 ---------
@@ -286,11 +288,13 @@ Se o item não tiver tamanho especificado, o tamanho será de acordo com o conte
 
 a.1) Auto + width (definido)
 O width é aplicado metade para cada lado do Item + o grow
-Obs. --> os demais itens podem encolher proporcionalmente para compensar o tamanho específico do item em relação ao tamanho total do container
+Obs. --> os demais itens podem encolher proporcionalmente para compensar 
+o tamanho específico do item em relação ao tamanho total do container
 
 b) flex-basis: 0
 ---------------------
-Se o flex-grow for igual ou maior que 1, ele tentará manter TODOS os elementos com a MESMA LARGURA total*, independente do conteúdo (por isso o 0 é o valor mais comum do flex-basis). Caso contrário o item terá a largura do seu conteúdo.
+Se o flex-grow for igual ou maior que 1, ele tentará manter TODOS os elementos com a MESMA LARGURA total*, 
+independente do conteúdo (por isso o 0 é o valor mais comum do flex-basis). Caso contrário o item terá a largura do seu conteúdo.
 
 *Caso todos os elementos estiverem setados com a prorpiedade de Flex-base = 0!
 
