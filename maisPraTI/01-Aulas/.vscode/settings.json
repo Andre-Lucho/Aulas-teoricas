@@ -16,7 +16,7 @@
   "eslint.format.enable": true,
   "editor.formatOnSave": true,
   "editor.fontLigatures": false,
-  "editor.fontFamily": "'Arial', Liberation Mono, DejaVu Sans Mono, monospace",
+  "editor.fontFamily": "Adwaita Mono Bold",
   "editor.inlayHints.fontFamily": "'Arial'",
   "editor.linkedEditing": true,
   "editor.minimap.enabled": true,
