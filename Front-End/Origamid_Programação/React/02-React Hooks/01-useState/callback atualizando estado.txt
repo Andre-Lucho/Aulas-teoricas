@@ -1,14 +1,4 @@
-Hook Corrigido
-------------------------------------
-
-useEffect(() => {
-  if (inputData) {
-    setCounter((prev) => prev + Number(inputData));
-    setInputData('');
-  }
-}, [inputData]);
-
-Hook Antigo
+1) Hook Antigo
 ------------------------------------
 
 useEffect(() => {
@@ -18,25 +8,38 @@ useEffect(() => {
   }
 }, [inputData]);
 
+
+2) Hook Corrigido
+------------------------------------
+
+useEffect(() => {
+  if (inputData) {
+    setCounter((prev) => prev + Number(inputData));
+    setInputData('');
+  }
+}, [inputData]);
+
+
 Diferenças e Implicações
 ------------------------------------
 
-Hook Corrigido:
-------------------------------------
+
+Hook Corrigido: Uso de Função de Atualização: setCounter((prev) => prev + Number(inputData))
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Aqui, a função de atualização setCounter utiliza o valor anterior 'prev' para calcular o novo valor de 'counter'. 
+Isso é importante, pois garante que estamos trabalhando com o valor mais recente de counter, mesmo que múltiplas atualizações estejam acontecendo simultaneamente.
 
 
-Uso de Função de Atualização: setCounter((prev) => prev + Number(inputData))
 
-Aqui, a função de atualização setCounter utiliza o valor anterior prev para calcular o novo valor de counter. Isso é importante, pois garante que estamos trabalhando com o valor mais recente de counter, mesmo que múltiplas atualizações estejam acontecendo simultaneamente.
-
-Hook Antigo:
-------------------------------------
-
-
-Uso de Estado Atual: setCounter(counter + Number(inputData))
+Hook Antigo: Uso de Estado Atual: setCounter(counter + Number(inputData))
+----------------------------------------------------------------------------------------------------------------------------------------
 
 Neste caso, counter refere-se ao valor atual do estado no momento em que o hook é definido. 
-Porém, devido à natureza assíncrona da atualização do estado no React, counter pode não refletir imediatamente o valor mais recente, especialmente quando múltiplas atualizações estão ocorrendo.
+Porém, devido à natureza assíncrona da atualização do estado no React, counter pode não refletir imediatamente o valor mais recente, 
+especialmente quando múltiplas atualizações estão ocorrendo.
+
+
 
 Problema do Hook Antigo
 ------------------------------------
@@ -49,12 +52,14 @@ Por que o Hook Corrigido é Mais Seguro
 A abordagem do hook corrigido:
 
 setCounter((prev) => prev + Number(inputData));
-Garante que estamos sempre utilizando o valor mais recente de counter ao calcular o novo valor, independentemente de quantas atualizações de estado estejam ocorrendo. 
-Este é um padrão recomendado para atualizar estados que dependem de valores anteriores no React.
+Garante que estamos sempre utilizando o valor MAIS RECENTE de counter ao calcular o novo valor, independentemente de quantas atualizações de estado estejam ocorrendo. 
+Este é um PADRÃO recomendado para atualizar estados que DEPENDEM de VALORES ANTERIORES no React.
 
 Resumindo
+------------------
 Hook Corrigido: Usa uma função de atualização que garante a obtenção do valor mais recente de counter e evita problemas de sincronização.
 
-Novo Hook: Depende do valor atual de counter, que pode não estar atualizado devido à natureza assíncrona das atualizações de estado no React, levando a resultados inconsistentes.
+Hook antigo: Depende do valor atual de counter, que pode não estar atualizado devido à natureza assíncrona das atualizações de estado no React, levando a resultados inconsistentes.
 
-Portanto, a utilização do novo hook proposto não é correta quando queremos garantir a precisão e a consistência do valor de counter. A abordagem corrigida com a função de atualização é a mais segura e recomendada.
+Portanto, a utilização do hook antigo não é correta quando queremos garantir a precisão e a consistência do valor de counter. 
+A abordagem corrigida com a função de atualização é a mais segura e recomendada.

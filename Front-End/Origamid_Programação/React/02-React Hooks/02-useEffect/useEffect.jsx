@@ -1,11 +1,16 @@
 import React from 'react';
 /*
 React Hooks
+---------------------------------------
 useEffect
------------------------------------------------
+----------
 
 Todo componente possui um ciclo de vida. 
-Os principais momentos acontecem quando o componente é renderizado*, atualizado(renderizado novamente) ou destruído. 
+Os principais momentos acontecem quando o componente é:
+1. renderizado*; 
+2. atualizado(renderizado novamente) ou; 
+3. desmontado.
+
 Com o React.useEffect() podemos definir um callback que irá ser executado durante certos momentos do ciclo de vida do componente.
 
 
@@ -18,7 +23,14 @@ Com o React.useEffect() podemos definir um callback que irá ser executado duran
   no Hook useEffect --> é ativado somente após a execução de todo o código (incluindo o Return de App) ou após a renderização de um componente e qd ele tiver uma dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! 
   
   *** Em todos os casos, o useEffect SEMPRE é montado no PRIMEIRO carregamento do código e, caso tenha alguma dependência, SOMENTE será renderizado (tela) após contemplar a mudança da dependência!
-  CUIDADO ESPECIAL A CASOS DE ASSINCRONICIDADE!! ==> INICIALMENTE teremos null, pois o fetch não terá terminado
+  
+  
+  UseEffect x Assincronicidade:
+  ---------------------------------------
+  
+  1. Mto utilizado para controlar a quantidade de vezes que o script solicita dados do servidor
+  2. Ter um cuidado especial nos casos de assincronicidade! ==> INICIALMENTE teremos null, pois o fetch não terá dado o response! 
+  
   */
 
 const App = () => {
@@ -32,6 +44,7 @@ const App = () => {
 };
 
 /*
+
 Array de Dependências
 -----------------------------------------------
 No useEffect podemos definir dois argumentos, o primeiro é a função de callback que será executada, o segundo é uma array com uma lista de dependências. 
@@ -48,7 +61,7 @@ const App1 = () => {
   *mesmo que for um valor igual ao anteior
   
   Uma Array VAZIA indica que o efeito NÃO POSSUI NENHUMA dependência,
-  assim o mesmo só irá ocorrer quando o componente é renderizado inicialmente (montado). 
+  assim o mesmo só irá ocorrer quando o componente é renderizado inicialmente (montado) = 1x! 
   O efeito ocorre logo após a renderização do mesmo
   Ex. ** Busca de dados em um servidor - necessito APENAS 1X fazer essa busca!
   */
@@ -102,9 +115,12 @@ const App3 = () => {
       .then((json) => setDados(json));
   }, []);
 
+  // OBS. se tivesse 'dados' como dependência --> após concluir a requisição pelo fetch, 'setDados' atualizaria 'dados' pelo mesmo valor de antes(dados da API); porém, houve mudança de estado, mesmo que por um valor igual ao anteior --> haverá NOVA EXECUÇÃO do useEffect.
+  // Nesse caso, deve estar vazia para uma única requisição a API
+
   return (
     <div>
-      {dados && ( // verificando o valor de 'dados'; caso não tivesse, <h1> e <p> seriam null
+      {dados && (
         <div>
           <h1>{dados.nome}</h1>
           <p>R$ {dados.preco * contar}</p>
@@ -149,11 +165,11 @@ const App4 = () => {
 /*
 Antes de Desmontar
 -----------------------------------------------
-As vezes, precisamos executar um efeito sempre que um componente for desmontado --> Ex. Modal, remover os 'eventListeners'
+As vezes, precisamos executar um efeito sempre que um componente for desmontado --> Ex. Modal, remover os 'eventListeners'...
 Para isso utilizamos => 
-  ** uma callback no RETORNO da 'callback pai' do efeito de hook useEffect **
+  ** uma callback no RETORNO da 'callback pai' do efeito de hook useEffect (add um return ao useEffect)**
 
-OBS.--> No caso abaixo, notar que a condição p/ renderização do componente 'Produto' está atrelada ao estado 'ativo' (atualizaçao da const 'ativo') do botão....
+OBS.--> No caso abaixo, notar que a condição p/ renderização do componente 'Produto' está atrelada ao estado 'ativo'.
 Cada vez que clico no botão, esse hook useState é atualizado. Então, preciso limpar o evento Dom, para que ele não fique repetido na página, consumindo recursos desnecessários.
 
 */

@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Produto from './Produto';
 
-// const App = () => {
-//   const [contar, setContar] = React.useState(0);
+const App = () => {
+  const [contar, setContar] = useState(0);
 
-//   // const titulo = 'Clicou '; estático (não reativo)
+  // const titulo = 'Clicou '; estático (não reativo)
 
-//   React.useEffect(() => console.log('teste'), []);
+  useEffect(() => console.log('teste'), []);
 
-//   React.useEffect(() => {
-//     document.title = 'Clicou ' + contar;
-//   }, [contar]);
+  useEffect(() => {
+    document.title = 'Clicou ' + contar;
+  }, [contar]);
 
-//   return <button onClick={() => setContar(contar + 1)}>{contar}</button>;
-// };
+  return (
+    <button onClick={() => setContar((prev) => prev + 1)}>{contar}</button>
+  );
+};
 
 // ------------------------------------
 
@@ -68,17 +70,17 @@ import Produto from './Produto';
 
 // ------------------------------------
 
-const App = () => {
-  const [ativo, setAtivo] = React.useState(false);
+// const App = () => {
+//   const [ativo, setAtivo] = React.useState(false);
 
-  return (
-    <>
-      <p>Meu App</p>
-      <button onClick={() => setAtivo(!ativo)}>Abrir</button>
-      {ativo && <Produto />}
-    </>
-  );
-};
+//   return (
+//     <>
+//       <p>Meu App</p>
+//       <button onClick={() => setAtivo(!ativo)}>Abrir</button>
+//       {ativo && <Produto />}
+//     </>
+//   );
+// };
 
 // ------------------------------------
 

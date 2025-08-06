@@ -5,7 +5,9 @@ const Modal = ({ modal, setModal }) => {
     return (
       <>
         <p>Esse é o modal.</p>
-        <button onClick={() => setModal(false)}>Fechar</button>
+        <button style={{ marginRight: '1rem' }} onClick={() => setModal(false)}>
+          Fechar
+        </button>
       </>
     );
   }

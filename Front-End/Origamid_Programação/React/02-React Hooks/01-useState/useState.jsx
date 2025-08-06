@@ -118,7 +118,9 @@ Qd quiser que isso aconteça, faço outro useState em separado */
 
 Props
 ------------------------------------
-Podemos passar o estado e a função de modificação como propriedades para outros elementos. */
+Podemos passar o estado e a função de modificação como propriedades para outros elementos. 
+Estou passando uma variável, através de obj. 'props' --> ver 01 - Geral/09 - Props
+*/
 
 // import React from 'react';
 import Modal from './Modal';
@@ -166,14 +168,17 @@ Reatividade - IMPORTANTE
 
 Não modifique o estado diretamente.
 Utilize sempre a função de atualização do estado, pois ela que garante a reatividade dos componentes 
-(Nova Renderização - impacto na interface).*/
+(Nova Renderização - impacto na interface).
+Tenha cuidado especial a objetos e arrays
+
+*/
 
 const App5 = () => {
   const [items, setItems] = React.useState(['Item 1', 'Item 2']);
 
   function handleClick() {
     items.push('Novo Item');
-    // Errado. od valores de 'items' serão att, porém NÃO SERÃO renderizados
+    // Errado. od valores de 'items' serão att, porém NÃO SERÃO RENDERIZADOS!
     // Modifique o estado apenas com a função de atualização (setItems)
   }
 
@@ -193,13 +198,12 @@ const App5 = () => {
   );
 };
 
-// OBS.= Cuidado especial a objetos e arrays
-
 /*
 Callback
 ------------------------------------
 
-Podemos passar uma função de callback para atualizar o estado. A função de callback recebe um parâmetro que representa o valor anterior e irá modificar o estado para o valor que for retonado na função.*/
+Podemos passar uma função de callback para atualizar o estado. 
+A função de callback recebe um parâmetro que representa o valor anterior e irá modificar o estado para o valor que for retonado na função.*/
 
 const App6 = () => {
   const [ativo, setAtivo] = React.useState(true);
@@ -207,12 +211,14 @@ const App6 = () => {
   function handleClick() {
     // usando um callback
     setAtivo((anterior) => !anterior);
-    /* o valor 'anterior' é o mesmo valor de 'ativo', porém não estou mais dependendo de 'ativo' diretamente --> está sendo recebido indiretamente.
-    o retorno da função de callback será o NOVO valor de setAtivo
+    /* o valor 'anterior' é o mesmo valor de 'ativo', porém não estou mais dependendo de 'ativo' diretamente(não dependo do obj. 'props') 
+    --> está sendo recebido indiretamente.
+    O retorno da função de callback será o NOVO valor de setAtivo
 
     OBS:
     -------------------
-    A callback é especialmente útil qd eu NÃO estou recebendo o valor 'ativo' na minha props... como é um callback, ele vai ativar o que tivar na função setAtivo!!
+    A callback é especialmente útil qd eu NÃO estou recebendo o valor 'ativo' na minha props... 
+    como é um callback, ele vai ativar o que tivar na função setAtivo!!
     */
   }
 
@@ -233,11 +239,12 @@ const App7 = () => {
     const ativoLocal = localStorage.getItem('ativo');
     return ativoLocal;
   });
-  /* Callback no estado inicial, SOMENTE será executado na criação do componente (1x), buscando as informações do localStorage gravadas no browser do usuário ou outra qquer info externa de qquer da aplicação
+  /* Callback no estado inicial, SOMENTE será executado na criação do componente (1x), 
+  buscando as informações do localStorage gravadas no browser do usuário ou outra qquer info externa de qquer da aplicação
 
   OBS:
 
-  Dessa forma, meu valor inicial de "ativo" vai DEPENDER de um fator externo... no caso aqui, de um valor alocado no localStorage do usuário!
+  Dessa forma, meu valor inicial de "ativo" vai DEPENDER de um FATOR EXTERNO!... no caso aqui, de um valor alocado no localStorage do usuário!
 
   */
   function handleClick() {
@@ -255,7 +262,8 @@ const App7 = () => {
 React.StrictMode
 ------------------------------------
 O modo estrito invoca duas vezes a renderização do componente, quando o estado é atualizado. 
-Assim é possível identificarmos funções com efeitos colaterais (side effects) e eliminarmos as mesmas. => efeitos que modifiquem algo que esteja fora dela
+Assim é possível identificarmos funções com efeitos colaterais (side effects) e eliminarmos as mesmas. 
+=> efeitos que modifiquem algo que não esteja relacionada diretamente com ela
 
 Funções com efeitos colaterais são aquelas que modificam estados que estão fora das mesmas. */
 
@@ -271,18 +279,22 @@ const Contador = () => {
     });
   }
 
-  // function handleClick2() {
-  //   setContar((contar) => contar + 1);
-  //   setItems((items) => [...items, 'Item ' + (contar + 1)]);
-  //   // Tirar o efeito de dentro do setContar irá consertar o erro
-  // }
+  /* No caso acima, a mesma função que atualiza 'contar' (setContar) também está atualizando 'items'. 
+Ao usar o useState, devemos fazer com o seu comportamento(estado) seja independente, 
+sendo seu comportamento isolado e atualizado separadamente, para evitar os efeitos colaterais */
+
+  function handleClick2() {
+    setContar((contar) => contar + 1);
+    setItems((items) => [...items, 'Item ' + (contar + 1)]);
+    // Tirar o efeito de dentro do setContar irá consertar o erro
+  }
 
   // ou
 
-  function handleClick2() {
-    setContar(contar + 1);
-    setItems([...items, 'Item ' + (contar + 1)]);
-  }
+  // function handleClick2() {
+  //   setContar(contar + 1);
+  //   setItems([...items, 'Item ' + (contar + 1)]);
+  // }
 
   return (
     <>
