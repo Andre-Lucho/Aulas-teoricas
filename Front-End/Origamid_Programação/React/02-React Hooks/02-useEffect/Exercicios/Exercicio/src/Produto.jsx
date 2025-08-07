@@ -41,7 +41,7 @@ const Produto = ({ produto }) => {
   /* OBS:
   ----------------------------------------------- 
   Entender que o React só tem efeito após a sua renderização que é secundária ao return padrão!
-  Então, a desestruturação deve ser setada aqui e não dentro do Hook (após o fetch), pois o useEffect ainda não renderizou */
+  Então, a desestruturação deve ser setada aqui e não dentro do Hook (após o fetch), pois o useEffect ainda recebeu os dados da fetch(response) */
 
   return (
     <>
