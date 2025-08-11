@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import App from '../App';
 import Titulo from './Title';
+import axios from 'axios';
 
 const Produto = ({ produto }) => {
   const [data, setData] = useState(null);
   const [load, setLoad] = useState(true);
 
+  const apiClient = axios.create({
+    baseURL: 'https://ranekapi.origamid.dev/json/api/produto/',
+  });
+
   useEffect(() => {
     if (produto) {
       setData(null); //*
 
-      const handleData = async () => {
+      async function handleData() {
         setLoad(false);
-        const response = await fetch(
-          `https://ranekapi.origamid.dev/json/api/produto/${produto}`,
-        );
-        const dados = await response.json();
-        setData(dados);
-        setLoad(true);
-      };
+
+        try {
+          const response = await apiClient.get(produto);
+          setData(response.data);
+        } catch (error) {
+          console.error('Erro: ', error);
+        } finally {
+          setLoad(true);
+        }
+      }
       handleData(produto);
     }
   }, [produto]);

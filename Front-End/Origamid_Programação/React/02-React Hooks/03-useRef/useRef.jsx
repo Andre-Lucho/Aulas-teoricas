@@ -1,8 +1,9 @@
 /*
 useRef (mto utilizado para formulários)
 -----------------------------------------------
-Retorna um objeto com a propriedade current. 
-Esse objeto pode ser utilizado para guardarmos valores que irão PERSISTIR durante TODO O CICLO de vida do elemento (NÃO É REATIVO!)
+Retorna um Objeto com a propriedade current. 
+Esse objeto pode ser utilizado para GUARDARMOS VALORES que irão PERSISTIR durante TODO O CICLO de vida do elemento 
+(NÃO É REATIVO!)
 Geralmente usamos o mesmo para nos referirmos a um elemento do DOM, sem precisarmos utilizar o querySelector ou similar.*/
 
 // 1.
@@ -11,26 +12,25 @@ import React from 'react';
 const App = () => {
   const div = React.useRef();
 
+  // current = prorpiedade acessível de useRef
   console.log(div.current); // retorna undefined ==> como qquer hook, só é ativado após nova renderização
   React.useEffect(() => {
     console.log(div.current); // está apontando para a tag <div>
     console.log(div.current.className); //está apontando para a tag <div> e retornando sua classe
     console.log(div.current.innerText); // está apontando para a tag <div> e retornando seu texto
-    // div = nome da variável escolhida
-    // current = prorpiedade acessível de useRef
   }, []);
 
-  // utilizar o Hook useRef após uma callback ou dentro de um useEffect, pois ele precisa receber novo valor p ser ativado
+  // utilizar o Hook useRef após uma callback ou dentro de um useEffect, pois ele precisa ser renderizado.
 
   return (
+    // ref = atributo especial que faz referência ou useRef
     <div ref={div} className="nova-classe">
       Texto da Div
     </div>
   );
-  // ref = atributo especial que faz referência ou useRef
 };
 
-// 2. posso também dar novo valor a div.current:
+// 2. Posso modificar o valor da variável div:
 
 const App2 = () => {
   const div = React.useRef();
@@ -84,7 +84,8 @@ const App3 = () => {
 Referência
 -----------------------------------------------
 O seu uso não é restrito a elementos do Dom.
-Podemos utilizar também para guardarmos a referência de qualquer valor**, como de um setTimeout por exemplo. 
+Podemos utilizar também para guardarmos a referência de qualquer valor**, como de um setTimeout,  valores html.data,
+por exemplo.
 ** useRef NÃO é um hook reativo --> persiste durante todo o ciclo de vida do componente
 */
 

@@ -67,6 +67,12 @@ git reset --soft --> retorna o ultimo commit para a area de preparo
 git reset --mixed --> 
 git reset --hard --> exclui o arquivo que foi alterado
 
+Fazer com que Origin(Repo Remoto) fique no mesmo ponto de commits com a Repo Local:
+1. Fazer o reset e deixar no ponto onde eu quero
+2. git push --force-with-lease origin <nome da branch> - forçar um push desse ponto local - 
+(--force-with-lease) em vez de (--force): 
+é uma opção mais segura que evita sobrescrever o trabalho de outra pessoa caso ela tenha enviado alterações para o mesmo   branch.
+
 
 Branches
 ---------------------------------------

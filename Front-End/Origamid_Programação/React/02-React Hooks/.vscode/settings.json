@@ -1,4 +1,5 @@
 {
   "window.zoomLevel": 0.8,
-  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace"
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
+  "editor.fontSize": 17
 }

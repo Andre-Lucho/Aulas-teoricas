@@ -2,21 +2,26 @@ import { useState, useEffect } from 'react';
 import Titulo from './components/Title';
 import Button from './components/Buttons';
 import Produto from './components/Product';
+import axios from 'axios';
 
 const App = () => {
   const [data, setData] = useState(null);
   const [load, setLoad] = useState(true);
 
-  async function handleData(event) {
+  const apiClient = axios.create({
+    baseURL: 'https://ranekapi.origamid.dev/json/api/produto/',
+  });
+
+  async function handleData({ target }) {
     setLoad(false);
-
-    const response = await fetch(
-      `https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`,
-    );
-
-    const dados = await response.json();
-    setData(dados);
-    setLoad(true);
+    try {
+      const response = await apiClient.get(target.innerText);
+      setData(response.data);
+    } catch (error) {
+      console.error('Erro: ', error);
+    } finally {
+      setLoad(true);
+    }
   }
 
   // Notar que, sempre que o usuário da refresh, o fetch é realizado
