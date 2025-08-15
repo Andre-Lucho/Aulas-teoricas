@@ -14,24 +14,31 @@ Os principais momentos acontecem quando o componente é:
 Com o React.useEffect() podemos definir um callback que irá ser executado durante certos momentos do ciclo de vida do componente.
 
 
-/* IMPORTANTE:
+IMPORTANTE:
   ----------------------------------------------- 
-  Entender que a Reatividade do React só tem efeito após a renderização de seus componentes (alteração de estado)
-  Então:
-  -----------------------------------------------
-  no Hook useState--> após setAlgo ser atualizado com NOVO VALOR de 'algo' e se ser renderizado novamente e;
-  no Hook useEffect --> é ativado somente após a execução de todo o código (incluindo o Return de App) ou após a renderização de um componente e qd ele tiver uma dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! 
-  
-  *** Em todos os casos, o useEffect SEMPRE é montado no PRIMEIRO carregamento do código e, caso tenha alguma dependência, SOMENTE será renderizado (tela) após contemplar a mudança da dependência!
-  
-  
-  UseEffect x Assincronicidade:
-  ---------------------------------------
-  
-  1. Mto utilizado para controlar a quantidade de vezes que o script solicita dados do servidor
-  2. Ter um cuidado especial nos casos de assincronicidade! ==> INICIALMENTE teremos null, pois o fetch não terá dado o response! 
-  
-  */
+1. Entender que a Reatividade do React só tem efeito após a renderização de seus componentes (alteração de estado)
+Então:
+-----------------------------------------------
+no Hook useState--> após setAlgo ser atualizado com NOVO VALOR de 'algo' e se ser renderizado novamente e;
+no Hook useEffect --> é ativado somente após a execução de todo o código (incluindo o Return de App) ou após a renderização de um componente e 
+qd ele tiver uma dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! 
+
+*** Em todos os casos, o useEffect SEMPRE é montado no PRIMEIRO carregamento do código e, caso tenha alguma dependência, 
+SOMENTE será renderizado (tela) após contemplar a mudança da dependência!
+
+2. 
+-------------
+O useEffect NÃO retorna dados através de um return!!
+Usar um useState para atualizar estado e retornar algum dado!
+
+
+UseEffect x Assincronicidade:
+---------------------------------------
+
+1. Mto utilizado para controlar a quantidade de vezes que o script solicita dados do servidor
+2. Ter um cuidado especial nos casos de assincronicidade! ==> INICIALMENTE teremos null, pois o fetch não terá dado o response! 
+
+*/
 
 const App = () => {
   const [contar, setContar] = React.useState(0);

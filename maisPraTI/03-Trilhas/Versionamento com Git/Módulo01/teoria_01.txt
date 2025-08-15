@@ -123,6 +123,12 @@ git pull <nome do repositório*> <branch que quero puxar**> --> puxa as modifica
 * upstream = repo original
 ** geralmente = 'main'
 
+Branches Remotas
+----------------------------
+git push <nome remote> --delete <nome da branch remota> --> deleta uma branch remota
+git fetch --prune --> Remove as referência de branches locais apontando para as remotas excluídas que não existem mais no repositório remoto. 
+
+
 
 ------------------------------------------------------------------------------
 
