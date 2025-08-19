@@ -1,0 +1,31 @@
+Diferença entre Link e NavLink
+----------------------------------
+
+Link
+------------
+
+O componente Link é a forma mais básica e direta de criar um link de navegação. 
+Ele funciona como a tag <a> do HTML, mas é otimizado para Single Page Applications (SPAs).
+
+Finalidade: Criar um link simples de uma página para outra sem recarregar o navegador.
+
+Comportamento: Ele não tem conhecimento de qual rota está ativa no momento.
+
+Quando usar: Ideal para links que não precisam de um estilo visual diferente para indicar que estão na página atual. Pense em links de rodapé, botões de "Voltar" ou links para detalhes de um produto.
+
+
+NavLink
+--------------
+
+O componente NavLink é uma versão especial do Link que adiciona a funcionalidade de "saber" 
+se o link corresponde à URL atual.
+
+Finalidade: Criar links de navegação que precisam de um estilo visual para destacar a página atual.
+
+Comportamento: Ele adiciona automaticamente uma classe CSS, active, ao elemento <a> quando 
+a rota correspondente está ativa.
+
+Quando usar: É a escolha perfeita para menus de navegação, abas (tabs) ou barras laterais 
+onde é crucial mostrar ao usuário em qual seção ele está. 
+
+

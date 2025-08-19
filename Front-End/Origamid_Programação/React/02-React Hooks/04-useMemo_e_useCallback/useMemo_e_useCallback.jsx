@@ -5,17 +5,20 @@ useMemo;
 Memoriza um valor, evitando a recriação do mesmo todas as vezes em que um componente for atualizado. 
 Recebe um callback e uma array de dependências 
 ( dependência --> para casos especiais q necessite que ele renderize novamente a cada atualização da dependência). 
-Serve SOMENTE para casos em que você faz uma operação lenta da linguegem JavaScript* para retornar um valor.
-* Ex. Operações matemáticas mto complexas e longas */
+Serve para casos em que você faz uma operação lenta da linguegem JavaScript* para retornar um valor.
+* Ex. Operações matemáticas mto complexas e longas 
+OBS.: RETORNA o valor guardado na constante!
+
+*/
 
 const App = () => {
   const [contar, setContar] = React.useState(0);
   const valor = React.useMemo(() => {
     // operação que retorna um valor
     const localStorageItem = localStorage.getItem('produto');
-    console.log('useMemo foi executado'); // só será executado uma vez
+    console.log('useMemo foi executado');
     return localStorageItem;
-  }, []);
+  }, []); // só será executado uma vez - sem dependência
   console.log(valor);
 
   return <button onClick={() => setContar(contar + 1)}>{valor}</button>;
@@ -57,8 +60,9 @@ const App2 = () => {
 useCallback
 -----------------------------------------------
 Permite definirmos um callback e uma lista de dependências do callback. 
-Esse callback só será recriado se essa lista de dependências for modificada, caso contrário ele não irá recriar o callback. 
-Dificilmente você irá encontrar um cenário em que essa função seja útil, pois seu uso não modifica a performance do código.
+Esse callback só será recriado se essa lista de dependências for modificada, caso contrário ele não irá recriar o callback.
+(A callback é invocada apenas 1 vez, ou, caso tiver dependência, todas as vezes que a dependência for atualizada)
+Seu uso dificilmente modifica a performance do código.
 
 */
 

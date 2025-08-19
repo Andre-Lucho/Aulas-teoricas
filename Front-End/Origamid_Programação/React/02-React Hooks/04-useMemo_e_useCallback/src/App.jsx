@@ -1,45 +1,42 @@
-import React from 'react';
+import { useCallback, useState } from 'react';
 
-// 1.
+const set1 = new Set();
+const setCallback = new Set();
 
-// const App = () => {
-//   const [contar, setContar] = React.useState(0);
+const Produto = () => {
+  const func1 = () => {
+    console.log('Teste');
+  };
 
-//   React.useEffect(() => {
-//     const local = localStorage.setItem('produto', 'produto1');
-//   }, []);
-//   const valor = React.useMemo(() => {
-//     const localStorageItem = localStorage.getItem('produto');
-//     console.log('useMemo foi executado');
-//     return localStorageItem;
-//   }, []);
-//   console.log(valor);
+  const func2 = useCallback(() => {
+    console.log('Teste');
+  }, []);
 
-//   return <button onClick={() => setContar(contar + 1)}>Botão = {contar}</button>;
-// };
+  set1.add(func1);
+  setCallback.add(func2);
 
-// 2.
-function operacaoLenta() {
-  let c;
-  for (let i = 0; i < 100000000; i++) {
-    c = i + i / 10;
-  }
-  return c;
-}
+  console.log('Set1:', set1);
+  //  a cada nova renderização, uma nova 'função func1' é armazenada em set1();
+
+  console.log('SetCallback:', setCallback);
+  // só armazena a 'função func2' um única vez!
+  return (
+    <div>
+      <p onClick={func1}>Produto 1</p>
+      <p onClick={func2}>Produto 2</p>
+    </div>
+  );
+};
 
 const App = () => {
-  const [contar, setContar] = React.useState(0);
+  const [contar, setContar] = useState(0);
 
-  const tempo1 = performance.now();
-  console.log(tempo1);
-  const operação = React.useMemo(() => operacaoLenta(), []);
-  console.log(operação);
-  const tempo2 = performance.now();
-  console.log(tempo2 - tempo1);
-
-  return <button onClick={() => setContar(contar + 1)}></button>;
+  return (
+    <div>
+      <Produto />
+      <button onClick={() => setContar(contar + 1)}>{contar}</button>
+    </div>
+  );
 };
 
 export default App;
-
-//  Na primeira renderização, levou +100ms ; com o resultado da operação ARMAZENADO, levou -1 ms para trazer o resultado!
