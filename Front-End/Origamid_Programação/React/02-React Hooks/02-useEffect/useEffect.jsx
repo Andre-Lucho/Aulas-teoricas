@@ -19,7 +19,7 @@ IMPORTANTE:
 1. Entender que a Reatividade do React só tem efeito após a renderização de seus componentes (alteração de estado)
 Então:
 -----------------------------------------------
-no Hook useState--> após setAlgo ser atualizado com NOVO VALOR de 'algo' e se ser renderizado novamente e;
+no Hook useState--> após setAlgo ser atualizado com NOVO VALOR e se ser renderizado novamente e;
 no Hook useEffect --> é ativado somente após a execução de todo o código (incluindo o Return de App) ou após a renderização de um componente e 
 qd ele tiver uma dependência, que mtas vezes está atrelada ao estado ('valor') de useState!! 
 
@@ -30,6 +30,14 @@ SOMENTE será renderizado (tela) após contemplar a mudança da dependência!
 -------------
 O useEffect NÃO retorna dados através de um return!!
 Usar um useState para atualizar estado e retornar algum dado!
+
+3. 
+-------------
+Cuidar qual tipo de dependência irá controlar um estado(momento) do useEffect--> evitar loops infinitos
+Ex. Fetch, onde a dependência são os valores (dados) a serem atualizados, o CORRETO é a const que controla o FETCH:
+Caso deixe o valor dos 'dados', eles sempre sempre atualizados ao final do useEffect, invocando o seu callback novamente e de novo, infinitamente
+* Geralmente, o que vai no IF no inicio do useEffect vai na dependência!
+
 
 
 UseEffect x Assincronicidade:

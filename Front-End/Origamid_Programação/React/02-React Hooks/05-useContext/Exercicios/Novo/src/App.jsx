@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GlobalStorage } from './GlobalContext';
-import Produto from './components/Produto';
+import Form from './components/Form';
 
 const App = () => {
   return (
-    <GlobalStorage>
-      <Produto />
-    </GlobalStorage>
+    <div>
+      <GlobalStorage>{<Form />}</GlobalStorage>
+    </div>
   );
 };
 

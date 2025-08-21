@@ -1,0 +1,30 @@
+Método e.preventDefault():
+------------------------------
+
+No React, o método e.preventDefault() dentro da função handleForm(e) é fundamental para controlar o comportamento de um formulário. Ele age em um evento, nesse caso, o evento de "submit" do formulário.
+
+A sua importância e funcionamento se baseiam no seguinte:
+
+1. Prevenção do Comportamento Padrão
+---------------------------------------
+Comportamento padrão: 
+Por padrão, quando um formulário HTML é submetido, o navegador tenta enviar os dados para o servidor e recarrega a página. 
+Essa ação é o comportamento padrão do elemento <form>.
+
+O método e.preventDefault() interrompe essa ação padrão. Ele impede que a página seja recarregada, permitindo que você, como desenvolvedor, controle o que acontece a seguir com os dados do formulário usando JavaScript.
+
+2. Controle do Fluxo da Aplicação
+---------------------------------------
+Em uma aplicação React, você normalmente não quer que a página seja recarregada. 
+O OBJETIVO é criar uma Single Page Application (SPA), onde a navegação e as interações ocorrem de forma fluida, SEM a necessidade de RECARREGAR a página inteira.
+
+Ao usar e.preventDefault(), você garante que:
+
+a) A função que envia dados do formulário (onSubmit) seja executada: 
+A sua lógica para lidar com o envio do formulário, como chamar a função 'getData' do contexto para buscar os dados na API, é executada corretamente.
+
+b) O estado da aplicação seja preservado: O estado dos seus componentes (como o userInput e o data no seu GlobalContext) não é perdido. Se a página recarregasse, todos os estados seriam redefinidos para seus valores iniciais.
+
+c) A experiência do usuário seja fluida: 
+O usuário não percebe um "piscar" na tela ou um recarregamento lento. 
+A resposta à ação de "buscar" é instantânea, pois a requisição à API acontece em segundo plano, e a página é atualizada apenas com os novos dados.

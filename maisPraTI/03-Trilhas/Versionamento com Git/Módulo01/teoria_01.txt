@@ -63,6 +63,8 @@ Git Revert/ Git Reset
 ---------------------------------------
 git revert <hash do commit em que quero voltar> --> reverte para o commit especificado
 
+
+git reset - alteração do último commit:
 git reset --soft --> retorna o ultimo commit para a area de preparo
 git reset --mixed --> 
 git reset --hard --> exclui o arquivo que foi alterado

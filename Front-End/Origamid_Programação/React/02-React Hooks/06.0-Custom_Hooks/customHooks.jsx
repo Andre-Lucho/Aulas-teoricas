@@ -11,15 +11,17 @@ Ele é uma função que retorna algo que NÃO um componente Reack (com as tags H
 Podemos retornar o que quisermos do hook, seja um valor único, uma array ou um objeto.*/
 
 const useLocalStorage = (key, inicial) => {
-  const [state, setState] = React.useState(() => {
+  const [state, setState] = useState(() => {
     // *
-    const local = window.localStorage.getItem(key);
+    const local = localStorage.getItem(key);
     return local ? local : inicial;
   });
-  // * pq o valor inicial de state é definido por uma função (arrow funct dentro do argumento de React.useState) ?? Pois quero definir (ou verificar) o valor de state de forma reativa (a cada interação com o usuário). Se eu tivesse um valor fixo, seria sempre aquele valor (até q fosse alterado pelo setState) ==> aqui, fica mais dinâmico
+  /* (*) pq 'state' inicialmente é definido por uma arrow funct ?? 
+  Pois quero definir (ou verificar) o valor de 'state' de forma reativa (a cada interação com o usuário == qd tivermos um refresh na página). 
+  Se eu tivesse um valor fixo, seria sempre aquele valor (até q fosse alterado pelo setState == aqui, NÃO depende so setState) */
 
   React.useEffect(() => {
-    window.localStorage.setItem(key, state);
+    localStorage.setItem(key, state);
   }, [key, state]);
   // toda vez q meu 'state' alterar, ele sera setado no localStorage
   // Obs.:  key aqui será sempre o mesmo(não altera); porém, é obrigatório colocar nas dependências do useEffect

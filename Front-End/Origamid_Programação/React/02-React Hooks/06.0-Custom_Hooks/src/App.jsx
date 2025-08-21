@@ -1,24 +1,20 @@
 import React from 'react';
-import useLocalStorage from './useLocalStorage';
-import useFetch from './useFetch';
+import useLocalStorage from './Hooks/useLocalStorage';
+import useFetch from './Hooks/useFetch';
 
 const App = () => {
   const [produto, setProduto] = useLocalStorage('produto', '');
 
-  /* 
-  1. useLocalStorage
+  /* 1. useLocalStorage
   ------------------------------------
-  function handleClick({ target }) {
-    setProduto(target.innerText);
-  }
 
   return (
     <div>
       <p>Preferido: {produto}</p>
-      <button onClick={handleClick} style={{ marginRight: '.5rem' }}>
+      <button onClick={() => setProduto(target.innerText)} style={{ marginRight: '.5rem' }}>
         notebook
       </button>
-      <button onClick={handleClick}>smartphone</button>
+      <button onClick={() => setProduto(target.innerText}>smartphone</button>
     </div>
   ); 
   */
@@ -32,7 +28,7 @@ const App = () => {
   React.useEffect(() => {
     async function fetchData() {
       const { response, json } = await request(
-        'https://ranekapi.origamid.dev/json/api/produto/',
+        'https://ranekapi.origamid.dev/json/api/produtow/',
       );
       // console.log(response, json);
     }

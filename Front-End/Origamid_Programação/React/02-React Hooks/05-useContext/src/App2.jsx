@@ -13,3 +13,10 @@ const App2 = () => {
 };
 
 export default App2;
+
+/*
+Importante:
+O componente App não precisa acessar o contexto de GlobalContext diretamente, pois ele vai ser o "pai" dos componentes que o utilizarão.
+
+
+*/
