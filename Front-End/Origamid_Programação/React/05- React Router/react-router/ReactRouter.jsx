@@ -201,9 +201,10 @@ new URLSearchParams(location.search) */
 
 /*
 
-Nested Routes
+Nested Routes (Rotas aninhadas)
 -----------------------------------
-Utilizamos nested routes quando precisamos de rotas dentro de rotas. Como por exemplo: perfil/editar e perfil/certificados e etc. Utilize o \* para definir que existem outras rotas dentro. */
+Utilizamos nested routes quando precisamos de rotas dentro de rotas. 
+Como por exemplo: perfil/editar e perfil/certificados e etc. Utilize o \* para definir que existem outras rotas dentro. */
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
@@ -228,6 +229,12 @@ const App3 = () => {
   );
 };
 
+/*
+path="produto/:id/*" --> localização da página:
+a) produto --> página ou rota raiz;
+b) /id -->  Rota dinâmica(depende de uma variável);
+c) * --> todas as demais rotas estão ANINHADAS a rota principal */
+
 import { useParams, Route, Routes, NavLink } from 'react-router-dom';
 import ProdutoDescricao from './ProdutoDescricao';
 import ProdutoAvaliacao from './ProdutoAvaliacao';
@@ -245,7 +252,7 @@ const Produto2 = () => {
         <NavLink to="customizado">Customizado</NavLink>
       </nav>
       <Routes>
-        <Route path="/" element={<ProdutoDescricao />} />
+        <Route path="" element={<ProdutoDescricao />} />
         <Route path="avaliacao" element={<ProdutoAvaliacao />} />
         <Route path="customizado" element={<ProdutoCustomizado />} />
       </Routes>
@@ -253,11 +260,15 @@ const Produto2 = () => {
   );
 };
 
+// Utilizo o <Routes></Routes> para indicar que tenho + rotas a partir da minha rota raiz(Primária) que é Produto;
+// e <Route /> com cada rota aninhada(secundária) a partir da principal
+
 /*
 
 Outlet
 -----------------------------------
-Outra forma é definindo todos as rotas diretamente no App e utilizar o component Outlet para mostrarmos a rota.*/
+Outra forma de definirmos as rotas aninhadas é definindo todos as rotas diretamente no App 
+e utilizar o component 'Outlet' para mostrarmos a rota.*/
 
 const Produto4 = () => {
   const params = useParams();
@@ -295,7 +306,7 @@ const App4 = () => {
         <Route path="sobre" element={<Sobre />} />
         <Route path="login" element={<Login />} />
         <Route path="produto/:id/*" element={<Produto />}>
-          <Route path="/" element={<ProdutoDescricao />} />
+          <Route path="" element={<ProdutoDescricao />} />
           <Route path="avaliacao" element={<ProdutoAvaliacao />} />
           <Route path="customizado" element={<ProdutoCustomizado />} />
         </Route>
@@ -305,11 +316,14 @@ const App4 = () => {
   );
 };
 
+// Agora, envolvo <Route></Route> - Primaria para Produtos - as demais <Route></Route> - secundárias a Produto
+
 /*
 
 Head
 -----------------------------------
-No React não temos acesso direto as tags e informações do Head. Porém com o uso de rotas é essêncial realizar a mudança do título e descrição para cada rota. Podemos fazer isso através de um componente ou custom hook.*/
+No React não temos acesso direto as tags e informações do Head. 
+Porém com o uso de rotas é essêncial realizar a mudança do título e descrição para cada rota. Podemos fazer isso através de um componente ou custom hook.*/
 
 const Head = (props) => {
   React.useEffect(() => {
@@ -352,7 +366,7 @@ const Home = () => {
 
 Helmet
 -----------------------------------
-Uma extensão famosa é o react-helmet. Ela retonar com componente em que você pode definir tags do Head dentro do mesmo. */
+Uma extensão famosa é o react-helmet. Ela retorna com componente em que você pode definir tags do Head dentro do mesmo. */
 
 import { Helmet } from 'react-helmet';
 

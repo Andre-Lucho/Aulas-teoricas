@@ -9,10 +9,10 @@ Essa relação se dá 1/1 --> cada imagem está relacionada ao seu conteúdo, em
 */
 
 export default function initTabNavegation() {
-  const actived = "actived";
+  const actived = 'actived';
 
   const sections = Array.from(
-    document.querySelectorAll(".animalsDescription section")
+    document.querySelectorAll('.animalsDescription section'),
   );
   // console.log(sections);
 
@@ -20,8 +20,8 @@ export default function initTabNavegation() {
     const place = sections.length - i;
     // console.log(place);
     place % 2 == 0
-      ? (item.dataset.anime = "show-right")
-      : (item.dataset.anime = "show-down");
+      ? (item.dataset.anime = 'show-right')
+      : (item.dataset.anime = 'show-down');
   });
   // Estou add os dataset--> show-right e show-down as sections de .animalsDescription, de acordo com a posição da section --> par ou ímpar ao entrar no site
 
@@ -69,7 +69,7 @@ export default function initTabNavegation() {
     levando o index do click a function activeTab: */
 
     tabMenu.forEach((img, index) => {
-      img.addEventListener("click", () => activeTab(index));
+      img.addEventListener('click', () => activeTab(index));
       // add um evento a cada img
     });
   }
