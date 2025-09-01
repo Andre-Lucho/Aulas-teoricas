@@ -1,0 +1,11 @@
+@use 'variables.scss';
+
+.galery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.img-container {
+  list-style: none;
+}

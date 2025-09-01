@@ -125,8 +125,10 @@ const Login = () => {
 
 Rota Dinâmica
 -----------------------------------
-O uso de :nome irá definir uma rota dinâmica, onde o nome poderá ser utilizado como uma variável dentro do componente. 
-Serve para buscarmos rotas dinâmicas como produto/notebook ou produto/smartphone. */
+O uso de :'algumnome'* irá definir uma rota dinâmica, onde o nome poderá ser utilizado como uma variável dentro do componente. 
+Serve para buscarmos rotas dinâmicas como produto/notebook ou produto/smartphone. 
+
+*pode ser qualquer nome que será dado para a url da nova rota! */
 
 const App2 = () => {
   return (
@@ -323,7 +325,8 @@ const App4 = () => {
 Head
 -----------------------------------
 No React não temos acesso direto as tags e informações do Head. 
-Porém com o uso de rotas é essêncial realizar a mudança do título e descrição para cada rota. Podemos fazer isso através de um componente ou custom hook.*/
+Porém com o uso de rotas é essêncial realizar a mudança do título e descrição para cada rota. 
+Podemos fazer isso através de um componente ou custom hook.*/
 
 const Head = (props) => {
   React.useEffect(() => {

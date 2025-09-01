@@ -1,0 +1,9 @@
+Utilize a API abaixo para puxar a lista de produto
+https://ranekapi.origamid.dev/json/api/produto
+Cada produto possui o id, o mesmo pode ser passado na api para retornar os dados desse produto específico
+https://ranekapi.origamid.dev/json/api/produto/notebook
+
+Lógica para o Fetch:
+-----------------------------------
+Ao invés de estar um um evento, o Fetch será disparado quando mudo a Página, 
+pois, qd isso acontece, o componente é renderizado novamente --> faz o fetch = deve estar em uma função sem useEffet?

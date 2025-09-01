@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Produto = ({ produto }) => {
   const [data, setData] = useState(null);
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(false);
 
   const apiClient = axios.create({
     baseURL: 'https://ranekapi.origamid.dev/json/api/produto/',
@@ -16,7 +16,7 @@ const Produto = ({ produto }) => {
       setData(null); //*
 
       async function handleData() {
-        setLoad(false);
+        setLoad(true);
 
         try {
           const response = await apiClient.get(produto);
@@ -24,7 +24,7 @@ const Produto = ({ produto }) => {
         } catch (error) {
           console.error('Erro: ', error);
         } finally {
-          setLoad(true);
+          setLoad(false);
         }
       }
       handleData(produto);
@@ -43,7 +43,7 @@ const Produto = ({ produto }) => {
 
   return (
     <>
-      {!load && <p>Carregando...</p>}
+      {load && <p>Carregando...</p>}
       <Titulo tagName={nome} />
       <ul>
         <li>R$ {preco}</li>

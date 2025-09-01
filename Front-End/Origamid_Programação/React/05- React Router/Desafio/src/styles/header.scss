@@ -1,0 +1,35 @@
+@use 'variables.scss';
+
+.header-container {
+  margin-bottom: 2rem;
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.link-inativo,
+.link-ativo {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: variables.$font;
+  background-color: variables.$background-secundario;
+  padding: 0.5rem 1rem;
+  border-radius: variables.$radius;
+
+  &:hover,
+  .active {
+    background-color: #bcbcbc;
+  }
+}
+
+.link-ativo {
+  background-color: #bcbcbc;
+}
