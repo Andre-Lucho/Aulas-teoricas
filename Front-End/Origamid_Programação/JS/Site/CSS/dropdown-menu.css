@@ -37,7 +37,7 @@
 
 /* Estilo em forma de triângulo */
 .dropdown-menu::before {
-  content: "";
+  content: '';
   display: block;
   /* ::before aqui é acima, pois o display é block; se fosse flex, seria ao lado */
   position: absolute;
