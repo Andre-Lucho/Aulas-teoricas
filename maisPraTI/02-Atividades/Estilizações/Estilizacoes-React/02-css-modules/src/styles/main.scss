@@ -1,0 +1,61 @@
+@use 'variables.scss';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+section,
+h1,
+h2,
+div,
+p,
+a,
+li,
+ul,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: variables.$background-color;
+  color: variables.$color;
+  font-size: 1.3rem;
+  font-family: variables.$font;
+  display: grid;
+  grid-template:
+    'navbar' 1fr
+    'product-grid' 1fr
+    'footer' 1fr
+    /100%;
+
+  &.darkTheme {
+    background-color: variables.$background-darkTheme;
+    color: variables.$color-darkTheme;
+  }
+}
+
+h1,
+h2 {
+  font-family: variables.$font-title;
+}
+
+a {
+  text-decoration: none;
+  color: #eee;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-height: 300px;
+  max-width: 300px;
+}

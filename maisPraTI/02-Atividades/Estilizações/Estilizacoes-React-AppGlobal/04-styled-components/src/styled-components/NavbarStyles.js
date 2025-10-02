@@ -1,0 +1,39 @@
+import styled from 'styled-components';
+
+export const NavbarContainer = styled.div`
+  grid-area: 'navbar';
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  font-weight: bold;
+  margin: 0 auto;
+  background-color: #9b1010;
+  color: #d4d4d4;
+  margin-top: 1.5rem;
+  border-radius: 15px;
+`;
+
+export const NavContainer = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+
+  a {
+    padding: 10px;
+  }
+`;
+
+export const IconsContainer = styled.div`
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 25px;
+`;
+
+export const Icon = styled.div`
+  cursor: pointer;
+  padding: 10px;
+  font-size: 2.8rem;
+`;

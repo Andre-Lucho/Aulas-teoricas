@@ -1,0 +1,42 @@
+.btn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnSolid {
+  background-color: #9b1010;
+  color: white;
+}
+
+.btnOutline {
+  background-color: transparent;
+  color: #9b1010;
+  border: 2px solid #9b1010;
+}
+
+.btnGhost {
+  background-color: transparent;
+  color: #9b1010;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}

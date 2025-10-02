@@ -1,0 +1,23 @@
+@use './variables.scss';
+
+.footer {
+  grid-area: 'footer';
+  display: flex;
+  width: 95%;
+  margin: 0 auto 1rem auto;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+  color: #d4d4d4;
+  background-color: variables.$primary-color;
+  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+
+  &.dark-theme {
+    box-shadow: variables.$dark-shadow-navbar-footer;
+  }
+
+  p {
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+}

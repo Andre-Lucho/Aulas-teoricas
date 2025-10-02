@@ -1,0 +1,32 @@
+@use './variables.scss';
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    variables.$light-skeleton-from 25%,
+    variables.$light-skeleton-via 50%,
+    variables.$light-skeleton-to 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+
+.darkTheme {
+  background: linear-gradient(
+    90deg,
+    variables.$dark-skeleton-from 25%,
+    variables.$dark-skeleton-via 50%,
+    variables.$dark-skeleton-to 75%
+  );
+  background-size: 200% 100%;
+}
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

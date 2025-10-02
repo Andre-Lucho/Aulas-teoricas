@@ -1,0 +1,80 @@
+OBJETIVO GERAL
+
+Criar uma aplicação web interativa e responsiva, utilizando as tecnologias de front-end estudadas na formação (como React), com funcionalidades voltadas para autenticação, gerenciamento de perfis, navegação, interações ricas com o usuário e integração com APIs.
+
+REQUISITOS FUNCIONAIS (ORIENTAÇÕES)
+
+- Estes itens são sugestões e podem ser adaptados ou priorizados conforme o escopo e desafios de cada equipe. Há pontos que não serão aplicavéis em todos os projetos.  
+
+1. Autenticação de Usuário  
+   - Considerar a implementação de login seguro (ex: OAuth2, autenticação social como Google, Facebook, etc.).  
+   - Possibilidade de recuperação de senha e verificação de e-mail.  
+
+2. Gerenciamento de Perfis e Preferências  
+   - Permitir que o usuário gerencie informações básicas de perfil.  
+   - Opções para personalização (ex: tema claro/escuro, notificações, configurações individuais).  
+
+3. Navegação e Usabilidade  
+   - Garantir uma navegação fluida entre páginas, podendo incluir animações e breadcrumbs.  
+   - Estruturar menus e rotas de forma clara.  
+
+4. Listagem e Organização de Itens  
+   - Exibir dados em listas paginadas ou com carregamento contínuo (infinite scroll).  
+   - Possibilidade de reorganizar itens (ex: drag and drop).  
+
+5. Detalhes de Itens com Interatividade  
+   - Exibir informações detalhadas de itens.  
+   - Adicionar recursos de comentários, avaliações ou likes.  
+
+6. Pesquisa e Filtros Avançados  
+   - Implementar buscas com filtros (ex: categorias, faixa de preço, tags).  
+   - Considerar sugestões baseadas em histórico de uso.  
+
+
+REQUISITOS NÃO FUNCIONAIS (ORIENTAÇÕES)
+
+- Devem ser vistos como boas práticas, não como exigências obrigatórias.  
+
+1. Performance e Otimização  
+   - Adotar boas práticas de otimização (ex: lazy loading, caching, evitar re-renderizações desnecessárias).  
+   - Garantir carregamento rápido e resposta ágil.  
+
+2. Segurança  
+   - Prevenir ataques comuns (ex: XSS, CSRF).  
+   - Avaliar autenticação em duas etapas (2FA) ou medidas equivalentes.  
+
+3. Usabilidade e Acessibilidade  
+   - Oferecer feedback visual claro e em tempo real.  
+   - Garantir que a aplicação seja responsiva e acessível (ex: leitores de tela, navegação por teclado).  
+
+4. Escalabilidade e Manutenibilidade  
+   - Arquitetura modular e organizada, com possibilidade de evolução futura.  
+   - Code splitting e separação de responsabilidades.  
+   - CI/CD (ex: GitHub Actions, Jenkins) pode ser considerado para automação.  
+
+DOCUMENTAÇÃO DO PROJETO
+
+- README com descrição, instalação, uso e contribuições.  
+- Guia do Usuário (básico ou detalhado, dependendo do público).  
+- Comentários no Código explicando pontos importantes.  
+- Diagramas simples de arquitetura, fluxo e componentes quando necessário.  
+
+FERRAMENTAS E TECNOLOGIAS (SUGESTÕES)
+
+- Frameworks/bibliotecas de front-end: React com JS ou TS.  
+- Navegação: React Router  
+- Chamadas de API: Axios, Fetch API.  
+- Estilização: CSS Modules, Styled Components, Tailwind, Bootstrap.  
+- Estado Global: Redux, Context API.  
+- Testes: Jest, Testing Library.  
+- Gestão de código e tarefas: GitHub, Trello, Jira, Notion.  
+
+EXEMPLOS DE FUNCIONALIDADES POSSÍVEIS (NÃO OBRIGATÓRIAS)
+
+- Login social + recuperação de senha.  
+- Dashboard com listagem paginada ou carregamento infinito.  
+- Página de detalhes com comentários e avaliações.  
+- Pesquisa com filtros avançados.  
+- Perfil de usuário com preferências personalizadas.  
+
+IMPORTANTE: Cada equipe poderá escolher quais funcionalidades fazem sentido no contexto do seu projeto, adaptando a complexidade de acordo com o prazo, o nível de conhecimento da equipe e a proposta do produto.

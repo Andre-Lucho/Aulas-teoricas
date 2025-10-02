@@ -1,0 +1,61 @@
+@import './variables.css';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+section,
+h1,
+h2,
+div,
+p,
+a,
+li,
+ul,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--color);
+  font-size: 1.2rem;
+  font-family: var(--font);
+  display: grid;
+  grid-template:
+    'navbar' 100px
+    'product-grid' 1fr
+    'footer' 150px
+    / 100%;
+}
+
+body.dark-theme {
+  background-color: var(--background-darkTheme);
+  color: var(--color-darkTheme);
+}
+
+h1,
+h2 {
+  font-family: var(--font-title);
+}
+
+a {
+  text-decoration: none;
+  color: #eee;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-height: 300px;
+  max-width: 300px;
+}

@@ -117,15 +117,18 @@ git remote -v --> mostra quais  as ações dos repositórios remotos estão send
 
 #) Mudando repositórios remotos:
 ----------------------------------------------
-git remote add <nome que quero dar ao repositório original*> <link do repositório original> --> linka outro fetch (original) ao nosso repositório local
+1) git remote add <nome que quero dar ao repositório original*> <link do repositório original> --> linka outro fetch (original) ao nosso repositório local
 * geralmente = 'upstream'
 *Altera dos dois metodos = push e fetch
 
-git remote set-url --add --push origin <repo que quero add para push> - mudando APENAS o repositorio para push
+2) git remote set-url --add --push origin <repo que quero add para push> - mudando APENAS o repositorio para push
 ** sempre após o passo anterior
 
-git remote set-url origin <url do repositório que quero likar> --> Link ou troca o repositório remoto para onde quero fazer os uploads 
+3) git remote set-url origin <url do repositório que quero likar> --> Link ou troca o repositório remoto para onde quero fazer os uploads 
 
+4) git remote remove upstream --> remove o repo remoto upstream
+
+Ao final, teremos um endereço URL para o pull(repo que quero fazer o fetch) e outro endereço URL para push (meu repositório)
 
 Git Pull
 ---------------

@@ -1,0 +1,151 @@
+// Variáveis para cores e transições
+$card-bg-front: #ffffff;
+$card-bg-back: #f8f9fa;
+$shadow-color: rgba(0, 0, 0, 0.2);
+$primary-text-color: #333;
+$flip-transition: transform 0.6s;
+
+// Cores para as tags de dificuldade
+$difficulties: (
+  easy: #28a745,
+  medium: #ffc107,
+  hard: #dc3545,
+);
+
+// Estilo do Overlay (fundo escuro do modal)
+.flashcard-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  // Adiciona a perspectiva para o efeito 3D do filho
+  perspective: 1000px;
+}
+
+// Container principal do card, que faz a rotação
+.flashcard-container {
+  width: 350px;
+  height: 220px;
+  position: relative;
+  transition: $flip-transition;
+  transform-style: preserve-3d; // Essencial para o efeito 3D
+
+  // Aplica a rotação quando a classe .is-flipped é adicionada
+  &.is-flipped {
+    transform: rotateY(180deg);
+  }
+}
+
+// Estilos comuns para frente e verso do card
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; // Esconde o lado de trás do elemento
+  border-radius: 15px;
+  box-shadow: 0 4px 15px $shadow-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $primary-text-color;
+}
+
+// Estilos específicos da frente do card
+.flashcard-front {
+  background-color: $card-bg-front;
+  cursor: pointer;
+
+  .card-title {
+    font-size: 1.5rem;
+    margin: auto 0;
+    text-align: center;
+  }
+
+  .flip-hint {
+    font-size: 0.8rem;
+    color: #888;
+    align-self: center;
+  }
+}
+
+// Estilos específicos do verso do card
+.flashcard-back {
+  background-color: $card-bg-back;
+  transform: rotateY(180deg); // O verso começa virado
+
+  .card-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 0.95rem;
+  }
+
+  .card-actions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+  }
+
+  .flip-hint-back {
+    font-size: 0.8rem;
+    color: #888;
+    align-self: center;
+    cursor: pointer;
+    padding-top: 10px;
+  }
+}
+
+// Estilo dos botões de ação
+.action-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.access-btn {
+  background-color: #007bff;
+  color: white;
+}
+.edit-btn {
+  background-color: #ffc107;
+  color: #333;
+}
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+// Estilo da tag de dificuldade
+.difficulty-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+
+  // Gera classes de cor dinamicamente
+  @each $level, $color in $difficulties {
+    &.difficulty-#{$level} {
+      background-color: $color;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  /* Basic Reset (from main.scss) */
+  *,
+  section,
+  h1,
+  h2,
+  div,
+  p,
+  a,
+  li,
+  ul,
+  button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    @apply text-light-text font-sans text-[1.3rem];
+  }
+
+  #root {
+    display: grid;
+    grid-template:
+      "navbar" auto
+      "product-grid" 1fr
+      "footer" auto
+      / 100%;
+    min-height: 100vh;
+  }
+
+  /* Dark theme styles for body */
+  .dark body {
+    @apply bg-dark-background text-dark-text;
+  }
+
+  h1,
+  h2 {
+    @apply font-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: #eee;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  img {
+    max-height: 300px;
+    max-width: 300px;
+  }
+}
+
+/* Grid area classes used by components */
+.grid-area-navbar {
+  grid-area: navbar;
+}
+.grid-area-product-grid {
+  grid-area: product-grid;
+}
+.grid-area-footer {
+  grid-area: footer;
+}

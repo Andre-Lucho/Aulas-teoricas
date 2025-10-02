@@ -1,0 +1,26 @@
+Ilustração de um táxi animado no estilo toon, conversando com uma expressão facial alegre e amigável, cores predominantemente brancas, com detalhes vibrantes e marcantes, sobre um fundo minimalista que destaca o táxi como protagonista, o táxi tem um sorriso e olhos grandes e expressivos, com a boca aberta como se estivesse falando, a iluminação é suave e quente, realçando as cores e texturas do táxi, o táxi tem um design simplificado e estilizado, com linhas curvas e formas geométricas, os textos ou logotipos que podem aparecer na imagem são simples e de fácil leitura, com um estilo de fonte moderno e alegre.
+
+Aqui estão alguns prompts possíveis para criar uma imagem como essa:
+
+Prompt 1 (Detalhado):
+Um personagem fofo no estilo Pixar, de corpo inteiro, representando Albert Einstein. Ele tem um cabelo branco e esvoaçante, bigode e veste um jaleco de laboratório branco sobre uma camisa social azul com uma gravata azul. Ele segura um objeto pequeno com a mão. O fundo é uma lousa de quadro-negro com equações de física e fórmulas. A iluminação é brilhante e o estilo da imagem é 3D render.
+
+Prompt 2 (Mais Direto):
+Ilustração fofa e engraçada em 3D de Albert Einstein como um boneco bobblehead, com um bigode grande, cabelo bagunçado e um jaleco. Ele está em um laboratório na frente de uma lousa. Cenário em estilo de animação, luz difusa, cor vibrante.
+
+Prompt 3 (Estilo e Sentimento):
+Uma imagem em estilo de animação 3D de um cientista charmoso e sábio, com cabelo e bigode brancos proeminentes. Ele está na frente de uma lousa cheia de fórmulas. A imagem tem um toque alegre, é extremamente detalhada e em alta resolução.
+
+Prompt 4 (Foco na Composição):
+Um close-up de um boneco em estilo Pixar de um cientista em um jaleco de laboratório. O cientista tem cabelo e bigode brancos e proeminentes. Em segundo plano, uma lousa com fórmulas e experimentos de laboratório. Iluminação de estúdio, renderização fotorrealista.
+
+Prompt 5 (Minimalista):
+Personagem de desenho animado de Albert Einstein, 3D render, fofo, estilo Pixar.
+
+
+O prompt usado para gerar a última imagem de Isaac Newton, que se assemelha mais ao estilo "fofo" e "cartoonizado", foi:
+
+A cute Pixar-style full-body character representing Galileo Galilei. He has a beard and mustache and wears historical 17th-century clothes. He holds a small telescope in his hand. The background is an observatory with stars, planets, and a star map. The lighting is soft and the image style is 3D render."
+
+"A cute, Pixar-style 3D rendered character of Isaac Newton, wearing a white powdered wig and a historical 17th-century dark coat and a white ruffled collar. He is in a detailed study, surrounded by bookshelves and scientific instruments from his era. The lighting is soft and warm. The image style is a close-up, 3D render."
+
