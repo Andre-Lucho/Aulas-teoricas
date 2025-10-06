@@ -13,7 +13,7 @@ Anime a entrada de elementos utilizando a propriedade animation.
 
 @keyframes animeLeft {
   to {
-    opacity: initial;
+    opacity: 1;
     transform: initial;
   }
 }

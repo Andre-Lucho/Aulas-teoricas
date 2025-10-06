@@ -27,7 +27,8 @@ App.css
 Componentes
 ----------------------------------------------------------------------
 
-Ao importar um componentes, os estilos importados do mesmo são automaticamente adicionados ao CSS final da build. Independente de você utilizar o componente ou não.
+Ao importar um componentes, os estilos importados do mesmo são automaticamente adicionados ao CSS final da build. 
+** Independente de você utilizar o componente ou não.
 
 App.jsx
 ----------
@@ -62,7 +63,8 @@ Title.css
 /*
 Conflito
 ----------------------------------------------------------------------
-Todos os arquivos serão unidos em um CSS final e você é responsável por garantir que os seletores sejam específicos, para evitar conflito.
+Todos os arquivos serão unidos em um CSS final e você é responsável por garantir que os seletores sejam específicos, 
+para evitar conflito.
 
 import Title from './Components/Title';
 import Produto from './Components/Produto';

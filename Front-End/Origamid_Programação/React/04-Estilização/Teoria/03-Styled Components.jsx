@@ -102,7 +102,7 @@ Podemos passar propriedades como em um component de React.
 
 
 const Preco = styled.p`
-  background: ${(props) => props.cor};
+  background: ${(props) => props.cor}; **
   color: white;
   display: inline-block;
   border-radius: 5px;
@@ -125,9 +125,21 @@ const App = () => {
   );
 };
 
+Obs:
+-----
+-----
+
+1) Nos dá a possibilidade de reaproveitamento, variando nas propriedades que sejam necessárias;
+
+2) Podemos utilizar métodos JS: 
+background: ${ hsl(Math.random() * 360, 100%, 50%) }
+hsl - hue, saturação, luminozidade
+hue = cor --> trocando aleatoriamente com JS
+
 */
 
 /*
+
 Estado
 ----------------------------------------------------------------------
 Podemos passar o estado como uma propriedade e modificarmos certos estilos com base no mesmo.

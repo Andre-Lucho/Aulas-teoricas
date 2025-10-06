@@ -4,15 +4,18 @@ CSS Modules
 -----------------------------------
 Os modules garantem que as classes utilizada sejam sempre únicas, evitando o conflito. 
 O modo já vem configurando com o Vite, basta definirmos o nome do arquivo css com a palavra .module. 
-Ex: Produto.module.css. Devemos definir um nome para a importação (Ex.:  styles), e a mesma será transformada em um objeto que possui nomes únicos para as classes.
+Ex: Produto.module.css. Devemos definir um nome para a importação (Ex.:  styles), 
+e a mesma será transformada em um objeto que possui nomes únicos para as classes.
+
+** CSS Modules também é gerenciado através do builder
 
 Produto.jsx
 ----------------
 import styles from './Produto.module.css';
 console.log(styles) --> tenho um objeto com: 
 {
-propriedade:  titulo da classe 
-valor: _titulo da classe_ + uma string aleatoriamente gerada 
+propriedade:  <titulo da classe> 
+valor: Nome do arquivo_+_titulo da classe_+_uma string aleatoriamente gerada 
 }
 
 const Produto = () => {
@@ -40,7 +43,7 @@ Produto.module.css
   transform: rotate(90deg) translateY(-100px);
 }
 
-Ele gera nomes de classes apenas, então utilize o objeto direto no className e não no atributo style */
+Ele gera nomes de classes apenas, então utilize o objeto direto no className e não no atributo 'style' inline */
 
 /*
 camelCase
@@ -53,7 +56,8 @@ Não utilize hífens titulo-principal.
 /*
 Funcionalidades Extras
 -------------------------------------
-O CSS Modules disponibiliza algumas funcionalidades extras para o CSS, como a definição de variáveis, composição de elementos e definição de classes no contexto global. Não aconselho o uso, pois a sintaxe não é bem suportada pela IDE (VS Code) e pelo eslint.
+O CSS Modules disponibiliza algumas funcionalidades extras para o CSS, como a definição de variáveis, composição de elementos 
+e definição de classes no contexto global. Não aconselho o uso, pois a sintaxe não é bem suportada pela IDE (VS Code) e pelo eslint.
 
 @values cor: red;
 
