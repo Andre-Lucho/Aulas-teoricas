@@ -47,7 +47,7 @@ const Produto = () => {
 Slide
 -----------------------------------
 -----------------------------------
-Anime a entrada de elementos utilizando a propriedade animation.
+Anime a entrada de elementos utilizando a propriedade transform: translateX().
 
 Slide.module.css
 ------------------

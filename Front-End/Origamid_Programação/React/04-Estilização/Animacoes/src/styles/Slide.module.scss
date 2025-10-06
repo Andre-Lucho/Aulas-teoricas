@@ -1,0 +1,30 @@
+.container {
+  overflow: hidden;
+  margin-top: 10px;
+
+  .content {
+    display: flex;
+    transition: transform 0.3s ease;
+
+    .iten {
+      width: 80%;
+      flex-shrink: 0;
+      //não compacta os elementos - permite os 80% de ocupação
+      margin: 2rem 10% 10px 10%;
+      // 80% + 10% esq + 10% dir= 100%
+      padding: 10rem 0;
+      background-color: #eee;
+      color: black;
+      border-radius: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+}
