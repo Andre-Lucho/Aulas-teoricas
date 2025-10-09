@@ -3,7 +3,8 @@ Textarea
 ------------------------------------
 ------------------------------------
 
-No React o textarea é utilizado como um input, uma tag única sem abertura/fechamento e com o value para definir o seu valor interno. */
+No React o textarea é utilizado como um input, uma tag única sem abertura/fechamento 
+e com o value para definir o seu valor interno. */
 
 const App = () => {
   const [mensagem, setMensagem] = React.useState('');
@@ -28,7 +29,7 @@ Select
 
 O value e onChange são definidos no select. Para definir um valor inicial, coloque o mesmo no useState. */
 
-const App = () => {
+const App1 = () => {
   const [select, setSelect] = React.useState('smartphone');
 
   return (
@@ -49,7 +50,7 @@ Selecione
 
 Defina o primeiro valor como disabled e com uma string pura, assim o usuário terá que selecionar um valor. 
 */
-const App = () => {
+const App2 = () => {
   const [select, setSelect] = React.useState('');
 
   return (
@@ -73,15 +74,19 @@ Radio
 ------------------------------------
 
 No radio, comparamos o valor selecionado com o valor do input, dentro do atributo checked. O que retornar true irá marcar o botão. 
-Aqui, value não é reativo. 
+
+IMPORTANTE:
+-------------
+Aqui, value NÃO é reativo (é estático). 
 1. O que é reativo é o atributo 'checked' --> então devemos fazer uma checagem se radio === ao valor que tenho em 'value'
 2. 
-Também posso utilizar o atributo 'name' aqui, com o mesmo valor em todos os inputs de tipo 'radio' --> como ele definirá que somente 1 radio poderá estar selecionado, já temos a nossa verificação feita
+Posso utilizar o atributo 'name' no lugar de CHECKED, com o mesmo valor em todos os inputs de tipo 'radio' --> 
+como ele definirá que SOMENTE 1 RADIO poderá estar selecionado, JÁ temos a nossa verificação feita
 
 
 */
 
-const App = () => {
+const App3 = () => {
   const [radio, setRadio] = React.useState('');
 
   function handleChange({ target }) {
@@ -95,7 +100,7 @@ const App = () => {
           type="radio"
           value="notebook"
           checked={radio === 'notebook'}
-          // name="algo"
+          // name="produto"  // Se usar o NAME, não preciso do CHECKED
           onChange={handleChange}
         />
         Notebook
@@ -105,7 +110,7 @@ const App = () => {
           type="radio"
           value="smartphone"
           checked={radio === 'smartphone'}
-          // name="algo"
+          // name="produto"  // Se usar o NAME, não preciso do CHECKED
           onChange={handleChange}
         />
         Smartphone
@@ -115,7 +120,7 @@ const App = () => {
           type="radio"
           value="tablet"
           checked={radio === 'tablet'}
-          // name="algo"
+          // name="produto"  // Se usar o NAME, não preciso do CHECKED
           onChange={handleChange}
         />
         Tablet
@@ -130,7 +135,7 @@ Diferentes Grupos
 
 Defina um estado para cada grupo. */
 
-const App = () => {
+const App4 = () => {
   const [produto, setProduto] = React.useState('');
   const [cor, setCor] = React.useState('');
 
