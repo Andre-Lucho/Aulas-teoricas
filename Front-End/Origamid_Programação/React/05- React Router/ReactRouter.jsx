@@ -206,7 +206,8 @@ new URLSearchParams(location.search) */
 Nested Routes (Rotas aninhadas)
 -----------------------------------
 Utilizamos nested routes quando precisamos de rotas dentro de rotas. 
-Como por exemplo: perfil/editar e perfil/certificados e etc. Utilize o \* para definir que existem outras rotas dentro. */
+Como por exemplo: perfil/editar e perfil/certificados e etc. 
+Utilize o \* para definir que existem outras rotas dentro. */
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';

@@ -9,7 +9,7 @@ Reatividade
 Para criarmos campos de formulário reativos, devemos definir o estado para o value e a função atualizadora para o onChange. */
 
 const App = () => {
-  const [nome, setNome] = React.useState('');
+  const [nome, setNome] = useState('');
 
   return (
     <form>
@@ -61,7 +61,10 @@ const App = () => {
   );
 };
 
-// OBS. Quando usamos o <button> inserido dentro de um <form> NÃO é necessário passar um event em <button>, pois, agora, o evento pertence ao Form que está englobando <button>.
+/* OBS. 
+---------
+Quando usamos o <button> inserido dentro de um <form> NÃO é necessário passar um event em <button>, 
+pois, agora, o evento pertence ao Form que está englobando <button>. */
 
 /*
 Múltiplos Campos

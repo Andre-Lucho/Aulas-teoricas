@@ -1,49 +1,41 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
-// 2.
-
-const App = () => {
-  const [form, setForm] = React.useState({
+function App() {
+  const [form, setForm] = useState({
     nome: '',
     email: '',
-    password: '',
   });
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(form); //
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
-  function handleChange({ target }) {
+  const handleChange = ({ target }) => {
     const { id, value } = target;
     setForm({ ...form, [id]: value });
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="nome">Nome</label>
-      <input type="text" id="nome" value={form.nome} onChange={handleChange} />
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        value={form.nome}
+        onChange={handleChange}
+      />
       <label htmlFor="email">Email</label>
       <input
         type="email"
         id="email"
+        name="email"
         value={form.email}
         onChange={handleChange}
       />
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        value={form.password}
-        onChange={handleChange}
-      />
-
-      <button>Enviar</button>
-      <p>{form.nome}</p>
-      <p>{form.email}</p>
-      <p>{form.password}</p>
+      <button>Send</button>
     </form>
   );
-};
+}
 
 export default App;
