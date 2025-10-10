@@ -1,8 +1,0 @@
-{
-  "files.autoSave": "onFocusChange",
-  "editor.fontSize": 18,
-  "window.zoomLevel": 1,
-  "terminal.integrated.mouseWheelZoom": true,
-  "window.zoomPerWindow": false,
-  "editor.mouseWheelZoom": true
-}
