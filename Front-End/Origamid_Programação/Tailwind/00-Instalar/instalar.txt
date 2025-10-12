@@ -1,0 +1,50 @@
+1) Vanilla + Vite:
+-----------------------------------
+
+1. Instalar o Vite com o create vite@latest;
+2. Remover arqs desnecessários;
+3. Em index.html, configurar o link css:
+<link rel="stylesheet" href="./src/style.css" />;
+
+4. criar arq vite.config.js e configurar:
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+
+5. criar arq style.css e importar:
+@import 'tailwindcss';
+
+
+
+
+Tailwind v3 vs v4
+-----------------------------------
+-----------------------------------
+A maior mudança para a v4 está nas configurações do Tailwind. 
+Além disso o processo interno de geração do CSS final foi completamente refeito e está mais rápido.
+
+Tailwind v4
+-------------
+
+@import 'tailwindcss';
+
+@theme {
+  --color-origamid: #aa88ff;
+}
+
+Tailwind v3
+-------------
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        origamid: '#aa88ff',
+      },
+    },
+  },
+};

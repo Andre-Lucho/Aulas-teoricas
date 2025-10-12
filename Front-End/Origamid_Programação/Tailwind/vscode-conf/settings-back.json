@@ -1,0 +1,152 @@
+{
+  "color-highlight.languages": ["*"],
+  "color-highlight.markerType": "dot-before",
+
+  "diffEditor.maxComputationTime": 0,
+  "diffEditor.renderSideBySide": true,
+
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  "editor.fontSize": 17,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.linkedEditing": true,
+  "editor.mouseWheelZoom": true,
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.mouseWheelScrollSensitivity": 2,
+  "editor.minimap.enabled": false,
+  "editor.fontLigatures": false,
+  "editor.fontFamily": "'Droid Sans Mono', Ubuntu Mono, monospace",
+  "editor.inlayHints.fontFamily": "'Arial'",
+
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.sortOrder": "default",
+
+  "git.openRepositoryInParentFolders": "never",
+  "git.suggestSmartCommit": true,
+
+  "html.format.wrapAttributes": "auto",
+  "html.format.wrapLineLength": 0,
+
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+
+  "security.workspace.trust.untrustedFiles": "open",
+  // "settingsSync.ignoredSettings": ["-window.zoomLevel"],
+
+  "terminal.integrated.env.linux": {},
+  "terminal.integrated.mouseWheelZoom": true,
+  "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.gpuAcceleration": "on",
+  // "terminal.integrated.automationProfile.linux": {},
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorWidth": 2,
+  "terminal.integrated.customGlyphs": false,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.letterSpacing": 0.1,
+  "terminal.integrated.fastScrollSensitivity": 3,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.env.windows": {},
+
+  "window.menuBarVisibility": "toggle",
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+
+  "workbench.startupEditor": "none",
+  "workbench.list.mouseWheelScrollSensitivity": 3,
+  "workbench.iconTheme": "bearded-icons",
+  "workbench.settings.applyToAllProfiles": ["window.zoomLevel"],
+  "workbench.colorTheme": "Monospace Dark",
+  "workbench.statusBar.visible": true,
+
+  "eslint.quiet": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "fetch:menu"
+  ],
+  "git.confirmSync": false,
+  "files.exclude": {
+    "**/dist/*": true,
+    "**/vite.config.js": true
+  },
+  "editor.wordWrapColumn": 130,
+  "git.ignoreRebaseWarning": true,
+  "explorer.confirmPasteNative": false,
+  "workbench.preferredDarkColorTheme": "Monospace Dark",
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "continue.enableQuickActions": true,
+  "geminicodeassist.project": "",
+  "geminicodeassist.inlineSuggestions.enableAuto": false,
+  "debug.allowBreakpointsEverywhere": true,
+  "editor.wordWrap": "wordWrapColumn",
+  "chat.editor.wordWrap": "on",
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "fileHistory": true,
+    "repositories": true,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
+  "excalidraw.theme": "light",
+  "diffEditor.codeLens": true,
+  "window.zoomLevel": 0.6,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.letterSpacing": -0.3,
+  "java.configuration.runtimes": [],
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "sonarlint.automaticAnalysis": false,
+  "sonarlint.focusOnNewCode": true,
+  "workbench.editor.empty.hint": "hidden",
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
+}
