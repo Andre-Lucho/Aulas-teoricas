@@ -1,0 +1,3 @@
+Exercício
+Crie o layout abaixo utilizando apenas o que foi ensinado nessa aula. Não use margin (m-8 no body apenas), padding ou width.
+

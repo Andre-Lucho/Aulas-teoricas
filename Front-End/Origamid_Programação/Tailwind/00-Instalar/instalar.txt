@@ -2,11 +2,15 @@
 -----------------------------------
 
 1. Instalar o Vite com o create vite@latest;
+
 2. Remover arqs desnecessários;
+
 3. Em index.html, configurar o link css:
 <link rel="stylesheet" href="./src/style.css" />;
 
-4. criar arq vite.config.js e configurar:
+4. Instalar: npm install tailwindcss @tailwindcss/vite
+
+5. criar arq vite.config.js e configurar:
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -14,9 +18,8 @@ export default defineConfig({
   plugins: [tailwindcss()],
 });
 
-5. criar arq style.css e importar:
+6. criar arq style.css e importar:
 @import 'tailwindcss';
-
 
 
 
