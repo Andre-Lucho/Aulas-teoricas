@@ -18,11 +18,13 @@ console.log(user.nome); // Saída: João
 console.log(user.idade); // Saída: 30
 
 
-Neste exemplo, a propriedade nome do objeto user é definida dinamicamente usando o valor da variável propName. A expressão [propName] é avaliada e se torna o nome da propriedade no objeto.
+Neste exemplo, a propriedade nome do objeto user é definida dinamicamente usando o valor da variável propName. 
+A expressão [propName] é avaliada e se torna o nome da propriedade no objeto.
 
 Vantagens
 ------------------------------------
-Flexibilidade: Permite criar propriedades dinamicamente com base em variáveis ou expressões, o que pode ser muito útil em casos onde os nomes das propriedades são conhecidos apenas em tempo de execução.
+Flexibilidade: Permite criar propriedades dinamicamente com base em variáveis ou expressões, o que pode ser muito útil em casos 
+onde os nomes das propriedades são conhecidos apenas em tempo de execução.
 
 Redução de Código: Evita a necessidade de criar objetos adicionais ou funções intermediárias para configurar propriedades dinamicamente.
 
@@ -51,7 +53,8 @@ O spread operator (...form) copia todas as propriedades do estado atual do formu
 
 Adiciona ou atualiza a propriedade correspondente ao 'id' do campo de entrada com o novo valor em 'value';
 estamos criando dinamicamente uma nova propriedade no objeto com o nome igual ao valor de 'id'. 
-Em outras palavras, se o 'id' do campo de entrada for "nome", esta linha se tornará { nome: value }. Se o id for "email", será { email: value }.
+Em outras palavras, se o 'id' do campo de entrada for "nome", esta linha se tornará { nome: value }. 
+Se o id for "email", será { email: value }.
 
 Isso permite que a função handleChange seja genérica e capaz de lidar com múltiplos campos de entrada no formulário sem precisar criar funções separadas para cada campo.
 
