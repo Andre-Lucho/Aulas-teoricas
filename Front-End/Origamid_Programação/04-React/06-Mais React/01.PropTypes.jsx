@@ -14,7 +14,7 @@ https://reactjs.org/docs/typechecking-with-proptypes.html */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = (props) => {
+export const Button = (props) => {
   return (
     <button
       style={{
@@ -34,9 +34,6 @@ Button.propTypes = {
   width: PropTypes.number,
   disabled: PropTypes.bool,
 };
-
-export default Button;
-
 
 // App.js;
 
@@ -63,7 +60,7 @@ Isso faz parte do React. */
 
 import PropTypes from 'prop-types';
 
-const Button2 = (props) => {
+export const Button2 = (props) => {
   return (
     <button
       style={{
@@ -88,16 +85,3 @@ Button.propTypes = {
   width: PropTypes.number,
   disabled: PropTypes.bool,
 };
-
-export default Button2;
-
-
-/*
-
-
-*/
-
-/*
-
-
-*/

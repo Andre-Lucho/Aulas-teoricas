@@ -110,7 +110,7 @@ Depois, invoco com o React.useContext em qualquer componente!
 import { GlobalContext1 } from './GlobalContext';
 
 export const Produto3 = () => {
-  const global = React.useContext(GlobalContext);
+  const global = React.useContext(GlobalContext1);
 
   function handleClick() {
     global.setCarrinho((carrinho) => carrinho + 1);
