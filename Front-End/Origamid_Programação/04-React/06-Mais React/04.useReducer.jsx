@@ -3,8 +3,30 @@
 useReducer
 -----------------------------------
 
-React.useReducer
-O useReducer serve para lidarmos com estados que possuam funções fixas responsáveis por modificar o mesmo. */
+O useReducer serve para lidarmos com estados que possuam funções fixas responsáveis por modificar o mesmo. 
+Como se fosse uma função centralizadora para um estado, onde posso ter diversos comportamentos diferentes para aquele estado 
+
+
+const [state, dispatch] = React.useReducer(reducer, 0);
+
+useReducer:
+----------------
+O hook retorna: a const 'state' e uma função 'dispatch' 
+a função dispatch --> atualiza o 'state' conforme o comportamento definido no argumento 'reducer'(corresponde a função principal)
+
+valor 0 --> valor inicial para a const state
+OBS:
+dispatch pode receber qualquer valor --> string, objeto, array
+>
+
+
+a função principal 'reducer' recebe 2 argumentos:
+--------------------------------------------------
+a) o estado a ser atualizado(state);
+b) a ação a ser acionada p atualizar o state(action)
+
+
+*/
 
 function reducer(state, action) {
   switch (action) {
