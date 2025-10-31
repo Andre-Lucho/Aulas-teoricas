@@ -4,7 +4,8 @@ Classes
 
 extends React.Component
 -------------------------
-Antes dos hooks a única forma de criarmos componentes com estados reativos, era através da extensão da classe React.Component. O JSX que é renderizado pelo componente de classe deve estar dentro do retorno do método render(). 
+Antes dos hooks a única forma de criarmos componentes com estados reativos, era através da extensão da classe React.Component. 
+O JSX que é renderizado pelo componente de classe deve estar dentro do retorno do método render(). 
 
 */
 
@@ -12,7 +13,7 @@ Antes dos hooks a única forma de criarmos componentes com estados reativos, era
 
 import React from 'react';
 
-export class Produtos extends React.Component {
+export class Produto extends React.Component {
   render() {
     return (
       <div>
@@ -22,12 +23,10 @@ export class Produtos extends React.Component {
   }
 }
 
-import Produtos from './Produtos';
-
 const App = () => {
   return (
     <div>
-      <Produtos />
+      <Produto />
     </div>
   );
 };
@@ -176,6 +175,7 @@ class Produtos5 extends React.Component {
     console.log('Sempre que atualiza');
   }
 
+  // Mesmo efeito do retorno do callback do useEffect
   componentWillUnmount() {
     console.log('Sempre que é desmontado');
   }

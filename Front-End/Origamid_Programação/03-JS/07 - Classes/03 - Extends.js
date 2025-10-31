@@ -11,13 +11,13 @@ class Veiculo {
     this.rodas = rodas;
   }
   acelerar() {
-    console.log("Acelerou");
+    console.log('Acelerou');
   }
 }
 
 class Moto extends Veiculo {
   empinar() {
-    console.log("Empinou com " + this.rodas + " rodas");
+    console.log('Empinou com ' + this.rodas + ' rodas');
   }
 }
 const honda = new Moto(2);
@@ -44,18 +44,19 @@ class Veiculo2 {
     this.rodas = rodas;
   }
   acelerar() {
-    console.log("Acelerou");
+    console.log('Acelerou');
   }
 }
 class Moto2 extends Veiculo2 {
   acelerar() {
-    console.log("Acelerou BASTANTE");
+    console.log('Acelerou BASTANTE');
   }
 }
 
 const honda2 = new Moto2(2);
 // honda2.acelerar();
-// ainda temos no protótipo de Veiculo2 o método acelerar 'original'...porém, agora honda2 irá acessar PRIMEIRO o NOVO VALOR de acelarar de Moto2!
+// ainda temos no protótipo de Veiculo2 o método acelerar 'original'...porém, agora honda2 irá acessar PRIMEIRO
+// o NOVO VALOR de acelarar de Moto2!
 
 /*
 
@@ -71,18 +72,24 @@ class Veiculo3 {
     this.rodas = rodas;
   }
   acelerar() {
-    console.log("Acelerou");
+    console.log('Acelerou');
   }
 }
 class Moto3 extends Veiculo3 {
   acelerar() {
     super.acelerar();
-    console.log("Acelerou Muito");
+    console.log('Acelerou Muito');
   }
 }
 
 const honda3 = new Moto3(2);
 honda3.acelerar();
+
+// Acelerou
+// Acelerou Muito
+
+// Serve para continuarmos/utilizarmos os valores da classe origianl, acrescidos com valores da nova classe extendida
+// Também podemos acrescentar metodos/props no construtor:
 
 /*
 
@@ -107,4 +114,4 @@ class Moto4 extends Veiculo4 {
   }
 }
 
-const honda4 = new Moto4(4, "Gasolina", true);
+const honda4 = new Moto4(4, 'Gasolina', true);

@@ -6,7 +6,7 @@ Podemos definir comportamentos diferentes de get e set para um método.
 
 IMPORTANTE:
 -----------
-Os métodos GET e SET são acessados como se fossem propriedades!! */
+Os métodos GET e SET são acessados como se fossem PROPRIEDADES do objeto!! */
 
 const button = {
   get elemento() {
@@ -16,7 +16,7 @@ const button = {
     this._element = document.createElement(tipo);
   },
 };
-button.element = "button"; // set
+button.elemento = 'button'; // set
 // console.log(button.element); // get (<button></button>);
 
 // OBS.:
@@ -55,8 +55,8 @@ const frutas = {
   },
 };
 
-frutas.add = "Banana";
-frutas.add = "Morango";
+frutas.add = 'Banana';
+frutas.add = 'Morango';
 frutas.lista; // ['Banana', Morango];
 
 /*
@@ -73,16 +73,23 @@ class Button {
     this.color = color;
   }
   get element() {
-    const buttonElement = document.createElement("button");
+    const buttonElement = document.createElement('button');
     buttonElement.innerText = this.text;
     buttonElement.style.color = this.color;
     return buttonElement;
   }
 }
-const blueButton = new Button("Comprar", "blue");
+const blueButton = new Button('Comprar', 'blue');
 console.log(blueButton.element); // retorna o elemento
 
-// OBS → Como setamos APENAS o método GET para essa classe, a mesma fica INACESSÍVEL para modificações em seu método 'element()'!
+/* 
+IMPORTANTE 
+----------------------
+---------------------- 
+Como setamos APENAS o método GET para essa classe, a mesma fica INACESSÍVEL para modificações em seu método 'element()'! 
+
+Estamos 'imitando' a criação de UMA CLASSE PRIVADA!
+*/
 
 /*
 
@@ -97,7 +104,7 @@ class Button2 {
     this.text = text;
   }
   get element() {
-    const elementType = this._elementType || "button";
+    const elementType = this._elementType || 'button';
     const buttonElement = document.createElement(elementType);
     buttonElement.innerText = this.text;
     return buttonElement;
@@ -105,8 +112,9 @@ class Button2 {
   set element(type) {
     this._elementType = type;
     // Como estou setando um this aqui, ele fica acessível na Objeto(Classe) Button2
+    // Estamos 'imitando' a criação de UMA CLASSE PRIVADA, pois agora ele está acessível
   }
 }
 
-const blueButton2 = new Button2("Comprar");
+const blueButton2 = new Button2('Comprar');
 blueButton2.element; // retorna o elemento

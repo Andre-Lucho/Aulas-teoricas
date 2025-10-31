@@ -180,7 +180,8 @@ const blueButton4 = new Button3('Clique');
 -----------------------------------
 Obs:
 
-Quando temos uma CALLBACK  dentro de um método em Classes, o THIS pasará a fazer referência ao método ligado a ela e NÃO MAIS ao constructor dela!!: */
+Quando temos uma CALLBACK  dentro de um método em Classes, o THIS pasará a fazer referência ao método ligado a ela 
+e NÃO MAIS ao constructor dela!!: */
 class Classe1 {
   constructor(tag) {
     this.tag = document.querySelector(tag);
@@ -241,7 +242,7 @@ class Button5 {
   }
 }
 
-const novoButton4 = new Button4(blueButton2);
+const novoButton4 = new Button4(blueButton8);
 const novoButton5 = new Button4(redDiv);
 
 // posso passar o objeto como propriedade aqui ou dentro da classe
@@ -256,7 +257,7 @@ Static vs Prototype
 
 Por padrão, todos os métodos criados dentro da classe irão para o protótipo da mesma.
 Porém podemos criar métodos diretamente na classe utilizando a palavra chave 'static'.
-Assim como [].map() é um método de uma array e Array.from() é um método do construtor Array,
+Assim como [].map() é um método de uma array(protótipo) e Array.from() é um método do construtor Array,
 'static' cria métodos dentro da Função construtora(Classe) e não mais no protótipo */
 
 class Button6 {
@@ -316,11 +317,15 @@ class Button7 {
 
     return elementButton2;
   }
-  static createBlue(target, text, background) {
+  static createBlue(target, text, background = 'blue') {
+    return new Button7(target, text, background).element();
+  }
+  static createGreen(target, text, background = 'breen') {
     return new Button7(target, text, background).element();
   }
 }
 
-const blueButton6 = Button7.createBlue('body', 'Comprar', 'yellow');
+const blueButton7 = Button7.createBlue('body', 'Comprar');
+const blueButton9 = Button7.createBlue('body', 'Comprar');
 
 // invocando o método ligado a função construtora (diretamente - static) 'Button6.createBlue' que, por sua vez, retona a criação da Classe Button6 e invoca o método .element().
