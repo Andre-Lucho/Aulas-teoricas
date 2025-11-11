@@ -76,7 +76,7 @@ echo $produtos[1]; // Bermudas
 Print_r() e var_dump()
 ------------------------------------------------
 As funções print_r() e var_dump() mostram o resultado de array's e objetos na tela. 
-São utilizadas para entendermos o código. -->
+São utilizadas para entendermos o código - utilizado no debug -->
 
 <pre>
 <?php
@@ -88,6 +88,8 @@ print_r($produtos);
 var_dump($produtos);
 ?>
 </pre>
+
+<!-- A diferença entre eles é a quantidade de informações do array que retornam de cada função -->
 
 <!--
 
@@ -141,16 +143,21 @@ print_r($produto);
 </pre>
 
 <!--  
+
 Funções diversas
 ------------------------------------------------ -->
 
 <?php
 
-unset($produtos['preco']); // remove preco
+unset($produtos['preco']); // remove valor
 unset($produtos); // remove toda a array/variável
+
 count($produtos); // retorna o total de produtos
+// não retona echo por padrão
+
 array_keys($produtos); // retorna uma array com as chaves
 array_merge($produtos1, $produtos2); // combina arrays
 array_unique($produtos); // remove valores duplicados
+// retorna outra array -- utilizar dentro de variável e depois função 'print_r()';
 
 ?>
