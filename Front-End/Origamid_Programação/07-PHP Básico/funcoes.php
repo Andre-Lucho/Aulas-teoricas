@@ -26,22 +26,19 @@ Corpo da Função
 ------------------------------------------------
 Caso exista código html dentro do corpo da função, o mesmo será retornado toda vez que essa for ativada. -->
 
-<?php
-function formulario_contato() {
-?>
+<?php function formulario_contato() { ?>
   <form>
     <input type="text" placeholder="Buscar...">
     <input type="submit" value="Enviar"/>
   </form>
-<?php
-}
-?>
+<?php } ?>
 
 <?php formulario_contato(); ?>
 
-<?php
-function formulario_contato() {
-  return '<form>
+<?php 
+function formulario_contato2() {
+  return 
+  '<form>
     <input type="text" placeholder="Buscar...">
     <input type="submit" value="Enviar"/>
   </form>';
