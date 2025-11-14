@@ -17,7 +17,7 @@ Gradiente
 ----------
 Vai de 50(+ claro da paleta) até 950(+ escuro da paleta), além de white e black
 
-As cores podem ser aplicadas a diferentes elementos como background bg-, color text-, border border- e outros.
+As cores podem ser aplicadas a diferentes elementos como background: bg-, color: text-, border: border- e outros.
 
 *text - para cor de texto(=color:)
 

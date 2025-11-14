@@ -6,7 +6,7 @@ const ValoresArb = () => {
       <div class="w-[65%] h-[200px] m-[calc(10%-40px)] pt-10 bg-[#a8f] ">
         w-[45%] h-[200px] bg-[#a8f] m-[calc(10%-40px)] pt-10 bg-[#a8f]
       </div>
-      <div class="bg-amber-50 shadow-[0_2px_4px_2px_rgba(0,0,0,0.25)] p-4">
+      <div class="bg-amber-50 shadow-[0px_2px_4px_2px_rgba(0,0,0,0.25)] p-4">
         shadow-[0_2px_4px_2px_rgba(0,0,0,0.25)] p-4
       </div>
     </>
@@ -40,7 +40,10 @@ Podemos usar calc, variáveis de css e mais nos valores arbitrários.
 
 Espaços e Vírgulas
 --------------------
-A classe no Tailwind não pode ter espaços, então para lidar com eles o usamos o '_'(underline). 
+Existem prorpiedades do CSS que levam espaço:
+Ex. Box-shadow
+
+As classe que recebem os estilo no Tailwind não pode ter espaços. Então, para lidar com eles, o usamos o '_'(underline). 
 Você pode usar as vírgulas normalmente.
 
 

@@ -5,12 +5,17 @@
 # Quaisquer alterações nas diretivas entre esses marcadores serão sobrescritas.
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
+RewriteCond %{HTTP:Authorization} ^(.*)
 </IfModule>
 
 # END WordPress
+
+# RewriteRule ^index\.php$ - [L]
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+# RewriteRule . /index.php [L]

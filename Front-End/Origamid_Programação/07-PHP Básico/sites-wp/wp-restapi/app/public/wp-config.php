@@ -40,15 +40,15 @@ define( 'DB_COLLATE', '' );
 
 /**#@+
  * Authentication unique keys and salts.
- *
- * Change these to different unique phrases! You can generate these using
- * the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
- *
- * You can change these at any point in time to invalidate all existing cookies.
- * This will force all users to have to log in again.
- *
- * @since 2.6.0
- */
+*
+* Change these to different unique phrases! You can generate these using
+* the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
+*
+* You can change these at any point in time to invalidate all existing cookies.
+* This will force all users to have to log in again.
+*
+* @since 2.6.0
+*/
 define( 'AUTH_KEY',          'h`A5$7o+>la<+ivJU.PCukHCti#?rmmpX^O[tf~4bPTsW!a$ id^I<Ve!<Ib,ZuK' );
 define( 'SECURE_AUTH_KEY',   '$Sa8F5g1{SNoGMSh8 HW>f(<{=`];,r9Y7?yb*#q<4 /+Qc0<]/bKD*3:a}2qqo.' );
 define( 'LOGGED_IN_KEY',     '](3vmffQrMVx07FJ{r5U#u/)]dTa,a.ZwV30Y>kQiV~S&(:RB$V@<U!fNO1?HnL^' );
@@ -58,6 +58,8 @@ define( 'SECURE_AUTH_SALT',  '=|b5B`zE RcSXIi]US}3H+N3|o1b#x|r%in-bl6%BD_MR?eTn1
 define( 'LOGGED_IN_SALT',    'CYxj~w13);]x:CO*^s=*w%~U9L^hwCl-:,20cb:xhgx{tc:,6p[TCD4[U=JYvyc)' );
 define( 'NONCE_SALT',        'D&9L@4*zuGvljIrNYdw>E,F?E3bgL2%0ZfSVx:4]>EajZ*<x<R7DXVl?x|wV,mAC' );
 define( 'WP_CACHE_KEY_SALT', 'nJ*+H2c=f?!5i5G!7/c_NIG[6c5ZY3I|_51/}.g_xS6MdutPP^SjepOFtEG}3^_R' );
+define('JWT_AUTH_SECRET_KEY', 'p`wEA=LHG%sElbc$vi5(|{$R^I _X[m~iC@efU:lCCakl#}Afz(HZ5Wk^A4{BR8H' );
+define('JWT_AUTH_CORS_ENABLE', true);
 
 
 /**#@-*/

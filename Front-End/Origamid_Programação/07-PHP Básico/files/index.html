@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+      const axios = require('axios/dist/browser/axios.cjs'); // browser
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" multiple />
+    <button>Enviar</button>
+    <script>
+      const fileInput = document.querySelector('input');
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', () => {
+        const files = fileInput.files;
+
+        // mandando os dados através do método FormData() (ao invés de dados JSon)
+        const form = new FormData();
+
+        for (let i = 0; i < files.length; i++) {
+          form.append(files[i].name, files[i]);
+        }
+
+        const options = {
+          headers: {
+            Authorization:
+              'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vd3AtcmVzdGFwaS5sb2NhbCIsImlhdCI6MTc2MzA1NzAwOCwibmJmIjoxNzYzMDU3MDA4LCJleHAiOjE3NjMxMDAyMDgsImRhdGEiOnsidXNlciI6eyJpZCI6IjMifX19.UmVSAy18lq7YzdjnrNoFfqwKqNQLJIfaDZKcZzeGPto',
+          },
+        };
+
+        const post = axios.post(
+          'http://wp-restapi.local/wp-json/api/v1/produto',
+          form,
+          options,
+        );
+        console.log(post);
+      });
+    </script>
+  </body>
+</html>
