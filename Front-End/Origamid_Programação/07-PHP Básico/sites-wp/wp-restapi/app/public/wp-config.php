@@ -58,7 +58,7 @@ define( 'SECURE_AUTH_SALT',  '=|b5B`zE RcSXIi]US}3H+N3|o1b#x|r%in-bl6%BD_MR?eTn1
 define( 'LOGGED_IN_SALT',    'CYxj~w13);]x:CO*^s=*w%~U9L^hwCl-:,20cb:xhgx{tc:,6p[TCD4[U=JYvyc)' );
 define( 'NONCE_SALT',        'D&9L@4*zuGvljIrNYdw>E,F?E3bgL2%0ZfSVx:4]>EajZ*<x<R7DXVl?x|wV,mAC' );
 define( 'WP_CACHE_KEY_SALT', 'nJ*+H2c=f?!5i5G!7/c_NIG[6c5ZY3I|_51/}.g_xS6MdutPP^SjepOFtEG}3^_R' );
-define('JWT_AUTH_SECRET_KEY', 'p`wEA=LHG%sElbc$vi5(|{$R^I _X[m~iC@efU:lCCakl#}Afz(HZ5Wk^A4{BR8H' );
+define('JWT_AUTH_SECRET_KEY', '_D-9]FtbMee6EU]m2s8{+:(mi!,A[;sX{ _!s-|MhG%2Ur6Wy_)<[5rF]Mm2((F-' );
 define('JWT_AUTH_CORS_ENABLE', true);
 
 
