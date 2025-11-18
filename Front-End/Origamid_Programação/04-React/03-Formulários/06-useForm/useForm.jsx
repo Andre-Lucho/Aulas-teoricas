@@ -55,7 +55,7 @@ const useForm = (type) => {
 
 // export default useForm;
 
-//Input.js
+//Input.jsx
 
 import React from 'react';
 

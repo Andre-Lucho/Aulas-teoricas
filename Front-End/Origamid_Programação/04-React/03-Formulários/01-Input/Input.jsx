@@ -6,7 +6,8 @@ Formulários - Input
 Reatividade
 ------------------------------------
 
-Para criarmos campos de formulário reativos, devemos definir o estado para o value e a função atualizadora para o onChange. */
+Para criarmos campos de formulário reativos, 
+devemos definir o estado para o value e a função atualizadora para o onChange. */
 
 const App = () => {
   const [nome, setNome] = useState('');
@@ -123,7 +124,7 @@ const App = () => {
     const { id, value } = target;
     // (target) é desestruturado para obter as propriedades 'id' e 'value'.
     setForm({ ...form, [id]: value });
-    // "Crie uma cópia do estado atual do formulário e adicione/atualize a propriedade cujo novo nome será o novo valor de 'id'(key) e 'value' o novo valor(value) da propriedade."
+    // "Crie uma cópia do estado atual do formulário e adicione/atualize a propriedade cujo novo nome será o novo valor de 'id'(campo 'id' que corresponde a 'key' da const 'form') e 'value' o novo valor(value) da propriedade."
   }
   // Atenção : Estou usando a mesma função p/ att 'form' em todos os campos
 
