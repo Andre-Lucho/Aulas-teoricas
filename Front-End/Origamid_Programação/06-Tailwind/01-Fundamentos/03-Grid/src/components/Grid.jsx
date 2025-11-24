@@ -50,16 +50,13 @@ grid-rows- - cria linhas de 1fr
 gap-x-, gap-y- e gap- - define o gap
 (cada 1 unidade = 4px)
 
-Obs:
------
-*: Modificardor --> aplica em todos os elem-filhos
-
 
 
 Grid Arbitrário
 --------------------
 
-A divisão padrão do grid utliza 1fr apenas, mas geralmente precisamos de uma composição diferente. Use valores arbitrários grid-cols-[1fr_2fr].
+A divisão padrão do grid utliza 1fr apenas, mas geralmente precisamos de uma composição diferente. 
+Use valores arbitrários grid-cols-[1fr_2fr].
 
 <style>
   html {

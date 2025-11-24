@@ -65,4 +65,13 @@ Diferente do HTML padrão, o Tailwind define os elementos com box-sizing: border
 Sendo assim, os valores de border e padding são absorvidos pelo valor do height e não somados ao mesmo.
 
 Podemos mudar para o comportamento padrão com box-content
+
+
+
+OBS.:
+-------------
+*:  ==> Modificardor --> aplica em todos os elem-filhos
+
+
+
 */
