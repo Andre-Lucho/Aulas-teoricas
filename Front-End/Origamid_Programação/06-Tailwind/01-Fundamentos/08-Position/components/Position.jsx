@@ -27,7 +27,7 @@ const Position = () => {
       </div>
       <br />
       <div class="size-40">Conteúdo</div>
-      <div class="absolute inset-0 bg-black/50 z-50">Overlay</div>
+      <div class="fixed inset-0 bg-black/50 z-50 text-white">Overlay</div>
     </div>
   );
 };
@@ -46,7 +46,7 @@ top / right / bottom / left - valores positivos e negativos
 z-0 / 10 ... 50 - z-index
 
 
-inset
+inset(atalho para top+bottom+right+left)
 ----------------------
 inset / inset-x - define valores para top/right/bottom/left
 

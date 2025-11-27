@@ -34,7 +34,7 @@ Dessa forma o código do SVG inteiro é injetado direto no HTML, dando maior con
 
 1. No Vite é necessário um plugin para ativar essa funcionalidade.
 a) npm i vite-plugin-svgr
-b) import svgr from 'vite-plugin-svgr';
+b) import svgr from 'vite-plugin-svgr' (configurações do Vite)
 
 
 Basta importar o SVG (sem usar o as ReactComponent) e adicionar ?react no final do

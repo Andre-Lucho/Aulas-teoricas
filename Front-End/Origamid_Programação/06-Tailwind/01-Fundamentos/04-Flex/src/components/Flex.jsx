@@ -69,7 +69,7 @@ flex-col e flex-col-reverse coloca em coluna
 
 Flex Item
 --------------------
-flex: (grow) - cresce (shrink)- pode diminuir (basis)
+flex: (grow) - cresce | (shrink)- pode diminuir | (basis)
 
 flex-1 == flex: 1 1 0%; Ocupa o espaço vazio, mas ignora o valor do conteúdo (todos os elems crescem com o mesmo tamanho)
 
@@ -79,9 +79,11 @@ flex-auto: flex: 1 1 auto; Ocupa o espaço vazio, mas cresce de acordo com o tam
 
 Grow e Shrink
 --------------------
-grow | grow-0: flex-grow: 1 | 0
+grow | grow-0: 
+flex-grow: 1 | 0
 
-shrink | shrink-0: flex-shrink: 1 | 0
+shrink | shrink-0
+flex-shrink: 1 | 0
 
 
 Wrap

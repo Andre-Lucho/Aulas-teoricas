@@ -67,7 +67,12 @@ A escala possui, além dos valores de 4px em 4px, medidas predefinidas como sm /
 
 e screen-sm / screen-lg 
 
-
+Screen-(Breakpoints de tela):
+--------------------------------
+Smalls(sm)= 640px
+Medium(md) = 768px
+Large(lg) = 1024px
+Extra Large(xl) = 1280px
 
 
 */
