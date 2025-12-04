@@ -34,7 +34,6 @@ const Pseudo = () => {
 Pseudo Classes
 ------------------------------------------
 ------------------------------------------
-**Lista Completa : https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-class-reference
 
 
 Podemos utilizar pseudo classes como hover: e active: para adicionarmos classes condicionais.
@@ -57,12 +56,16 @@ hover:disabled: - campo/botão desabilitado e com hover
 Seletores
 ----------------------
 first: - first-child
-
 last: - last-child
-
 odd: - nth-child(odd)
-
 even: - nth-child(even)
+
+
+
+Asterisco
+----------------------
+*: Seleciona os filhos com > *
+
 
 OBS.:
 --------
@@ -81,11 +84,6 @@ Tailwind v4
 coloque o * na frente de odd/even/first/last
 class="*:odd:bg-gray-200"
 
-
-
-Asterisco
-----------------------
-*: Seleciona os filhos com > *
 
 */
 
