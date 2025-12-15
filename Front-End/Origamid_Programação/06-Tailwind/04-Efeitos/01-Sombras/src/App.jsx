@@ -1,9 +1,9 @@
-import Outros from './components/Outros';
+import Sombras from './components/Sombras';
 
 function App() {
   return (
     <div>
-      <Outros />
+      <Sombras />
     </div>
   );
 }

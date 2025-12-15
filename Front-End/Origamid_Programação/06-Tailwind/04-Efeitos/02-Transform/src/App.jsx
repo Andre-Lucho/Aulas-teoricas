@@ -1,9 +1,9 @@
-import Outros from './components/Outros';
+import Transform from './components/Transform';
 
 function App() {
   return (
     <div>
-      <Outros />
+      <Transform />
     </div>
   );
 }

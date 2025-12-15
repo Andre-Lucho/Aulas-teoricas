@@ -1,11 +1,5 @@
-import Corrigido from './components/Corrigido';
-
 function App() {
-  return (
-    <div>
-      <Corrigido />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;

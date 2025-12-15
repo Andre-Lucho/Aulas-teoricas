@@ -1,9 +1,11 @@
-import Responsividade from './components/Responsividade';
+import Exercicio from './components/Exercicio/Exercicio';
+// import Responsividade from './components/Responsividade';
 
 function App() {
   return (
     <div>
-      <Responsividade />
+      {/* <Responsividade /> */}
+      <Exercicio />
     </div>
   );
 }
