@@ -28,19 +28,18 @@ Anima as propriedades mais comuns como color / transform.
 
 Usa uma duração de 150ms e uma transição com cubic-bezier.
 
-transition / -all / -transform / -colors / -none
+transition / -all / -transform / -colors / ... /-none
 
 
-
+** O atributo 'transition' permite animar todas as animacões abaixo:
 
 .transition {
   transition-property: color, background-color, border-color,
     text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
     backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); efeitos de tempo na animacão
   transition-duration: 150ms;
 }
-
 
 
 
@@ -49,18 +48,18 @@ Propriedades
 duration-300 / 150 / 500 - transition-duration:
 
 ease-linear / in / out / in-out - transition-timing-function:
+in- comeca lenta e acelera
+out - comeca rápida e desacelera
+in-out - come e termina rápida | meio da animacão é lento
 
 delay-0 / 300 / 1000 - transition-delay:
 
 
-motion-reduce
+motion-reduce(Sistema)
 ----------------
 Para usuário que preferem utilizar aplicativos sem animações/movimentos.
 
 motion-reduce
-
-
-
 
 */
 

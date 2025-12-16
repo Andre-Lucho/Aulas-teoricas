@@ -1,9 +1,9 @@
-import Transform from './components/Transform';
+import Sombras from './components/1-Config';
 
 function App() {
   return (
     <div>
-      <Transform />
+      <Gradiente />
     </div>
   );
 }

@@ -1,0 +1,178 @@
+/*
+
+Tailwind Config (v4)
+------------------------
+Na versão 4 do Tailwind as modificações podem ser feitas através de variáveis de CSS dentro de @theme {}. */
+
+@import 'tailwindcss';
+
+@theme {
+  /* --*: initial;  */
+
+  /* cria cores novas */
+  --color-verde-200: #acef75;
+  --color-verde-300: #91ee77;
+  --color-verde-900: #16281f;
+  --color-verde-950: #0f1c15;
+
+
+
+  /* escreve por cima de cores que existem
+   ------------------------------------------------ */
+  
+  /* não utilizando outra variavel */
+  --color-lime-200: blue; 
+
+  /* utilizando variáveis já existentes */
+  --color-lime-300: var(--color-pink-300);
+  --color-lime-900: var(--color-pink-900);
+  --color-lime-950: var(--color-pink-950);
+
+  /* remove o padrão - agora, não terei nenhuma classe utilitária '--color-blue' disponível*/
+  --color-blue-*: initial;
+
+/* remove todos os padrões de cores do Tailwind*/
+  --color-*: initial; 
+
+
+
+  --text-2xs: 0.5rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5rem;
+
+
+
+  /* cria um novo media querie */
+  --breakpoint-xs: 380px;
+
+
+
+  /* modifica o espaçamento padrão */
+  --spacing: 6px;
+  --spacing-22: 5.5rem;
+
+
+  /* 
+  Nova Animacão
+  ----------------
+  adiciona uma animação */
+  --animate-slideIn: slideIn 0.3s ease-in-out forwards;
+
+  /* adiciona um keyframe */
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+
+/*
+Var (v4)
+------------------------
+Dentro do CSS podemos utilizar qualquer variável gerada pelo Tailwind. */
+
+.btn-azul {
+  background-color: var(--color-blue-600);
+}
+
+
+
+
+/*
+Tailwind Config (v3)
+------------------------
+Podemos alterar ou adicionar novas classes através das configurações.
+
+tailwind.config.js
+
+https://github.com/tailwindlabs/tailwindcss/blob/main/stubs/config.full.js */
+
+/*
+
+theme.extend (v3)
+------------------------
+As propriedades definidas dentro de extend serão adicionadas às classes já existentes. 
+Além disso, é possível sobrescrever valores caso eles já estejam definidos. */
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{html,js}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"DM Sans"', 'system-ui'],
+        serif: ['"DM Serif Text"', 'Georgia'],
+      },
+      colors: {
+        verde: {
+          200: '#acef75',
+          300: '#91EE77',
+          900: '#16281F',
+          950: '#0F1C15',
+        },
+        green: {
+          300: '#91EE77',
+        },
+      },
+      spacing: {
+        22: '22rem',
+      },
+      fontSize: {
+        xl: ['1.25rem', { lineHeight: '1.5rem' }],
+        '2xs': '.5rem',
+      },
+      gridTemplateColumns: {
+        '1/2': '1fr 2fr',
+      },
+      screens: {
+        xs: '380px',
+      },
+      keyframes: {
+        slideIn: {
+          '0%': { opacity: 0, transform: 'translateX(-20px)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        slideIn: 'slideIn .4s ease-in-out forwards',
+      },
+    },
+  },
+};
+
+
+/*
+theme (v3)
+------------------------
+Caso configure fora do extend, a configuração inicial da propriedade será removida. 
+No exemplo, apenas a cor verde passará a existir no Tailwind. */
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{html,js}'],
+  theme: {
+    colors: {
+      verde: {
+        200: '#acef75',
+        300: '#91EE77',
+        900: '#16281F',
+        950: '#0F1C15',
+      },
+      white: 'white',
+    },
+  },
+};
+
+
+/*
+Funções (v3)
+------------------------
+Você pode retornar uma função para utilizar valores internos do Tailwind.
+
+*/

@@ -29,20 +29,6 @@ Ring é uma sombra utilizada para simular uma borda nos elementos.
 Com ela podemos criar efeitos de bordas duplas, geralmente utilizados em botões e campos de input.
 
 
-Peer
-----------------
-
-Obs.: 
-------------------
-------------------
-Para qualquer elemento após o elemento pai, e que estejam 1 nivel abaixo
-
-
-
-
-Has(condicional)
-----------------
-
 
 
 */
