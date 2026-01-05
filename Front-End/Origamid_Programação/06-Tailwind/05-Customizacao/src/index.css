@@ -1,1 +1,23 @@
 @import 'tailwindcss';
+
+/* Regras CSS  */
+@theme {
+  /* apagando cores iniciais */
+  /* --color-*: initial;
+  --color-lime-*: initial; */
+
+  /* add novos padrões */
+  --color-origamid-100: #a8f;
+  --color-origamid-900: #190058ff;
+
+  /* substituir padrões de cores do Tailwind já existentes por novos (lime)*/
+  --color-verde-200: #acef75;
+  --color-verde-300: #91ee77;
+  --color-verde-900: #16281f;
+  --color-verde-950: #0f1c15;
+
+  /* subtituindo um padrão por outro */
+  /* --color-lime-300: var(--color-cyan-600); */
+
+  /* --spacing: 8px; */
+}

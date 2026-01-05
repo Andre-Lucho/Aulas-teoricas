@@ -1,9 +1,9 @@
-import Sombras from './components/1-Config';
+import Corrigido from './components/Corrigido';
 
 function App() {
   return (
-    <div>
-      <Gradiente />
+    <div className="">
+      <Corrigido />
     </div>
   );
 }
