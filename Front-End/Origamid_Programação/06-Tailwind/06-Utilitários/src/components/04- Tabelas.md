@@ -1,0 +1,40 @@
+# Tabelas
+
+### border-separate / collapse --> separa/colpsa as bordas dos itens da tabela
+
+### border-spacing- --> adiciona um espaço entre as bordas
+
+### table-auto / fixed --> tamanho proporcional ao conteúdo ou fixo
+
+```
+<table class="border-separate border-spacing-1 w-full table-auto">
+  <thead>
+    <tr class="text-left *:p-2 *:border-2 *:border-gray-200 *:uppercase">
+      <th>id</th>
+      <th>cliente</th>
+      <th>final cartão</th>
+      <th>data</th>
+    </tr>
+  </thead>
+  <tbody class="*:*:p-2 *:*:border-2 *:*:border-gray-200">
+    <tr>
+      <td>321</td>
+      <td>Maria Santos</td>
+      <td>2233</td>
+      <td>13/12</td>
+    </tr>
+    <tr>
+      <td>322</td>
+      <td>Marta Mendes</td>
+      <td>3322</td>
+      <td>10/12</td>
+    </tr>
+    <tr>
+      <td>323</td>
+      <td>João Moreira</td>
+      <td>2232</td>
+      <td>22/11</td>
+    </tr>
+  </tbody>
+</table>
+```

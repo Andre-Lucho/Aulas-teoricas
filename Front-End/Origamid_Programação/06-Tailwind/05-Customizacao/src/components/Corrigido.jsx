@@ -46,6 +46,7 @@ const Corrigido = () => {
                 </button>
               </div>
             </div>
+            <button className="btn">botao</button>
           </div>
         </div>
       </div>

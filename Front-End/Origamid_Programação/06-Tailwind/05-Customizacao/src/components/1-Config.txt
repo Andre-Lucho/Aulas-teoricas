@@ -1,10 +1,13 @@
 # Tailwind Config (v4)
+--------------------------
+--------------------------
 
 Na versão 4 do Tailwind as modificações podem ser feitas através de variáveis de CSS dentro de @theme {}.
 
-**index.css
-----------------------------
-----------------------------
+**É adicionado ao arquivo index.css
+
+index.css
+---------
 
 @import 'tailwindcss';
 
@@ -99,17 +102,19 @@ Tailwind Config (v3)
 
 Podemos alterar ou adicionar novas classes através das configurações.
 
-**tailwind.config.js
---------------------------
+**Adicionado ao arquivo tailwind.config.js
+
 
 https://github.com/tailwindlabs/tailwindcss/blob/main/stubs/config.full.js
 **confirmar novo caminho no repositório ou dentro do node_modules
 
 
+tailwind.config.js
+-------------------
 
 /** @type {import('tailwindcss').Config} --> informa ao editor o tipo
 exports default {
-  content: ['./src/**/*.{html,js}'], --> qual conteúdo tailwind deve analisar, para gerar o .css
+  content: ['./src/**/*.{html,jsx}'], --> qual conteúdo tailwind deve analisar, para gerar o .css
   
   // configurações do tema
   theme: { 
@@ -118,6 +123,10 @@ exports default {
   },
   plugins: [], --> adiciona plugin
 };
+
+**OBS.:
+------
+Configuracoes definidas em 'colors' resetam todas as classes Tailwind e permanecem apenas as que forem definidas!!
 
 
 
@@ -193,19 +202,19 @@ No exemplo, apenas a cor verde passará a existir no Tailwind. \*/
 
 /** @type {import('tailwindcss').Config} \*/
 module.exports = {
-content: ['./src/**/\*.{html,js}'],
-theme: {
-colors: {
-verde: {
-200: '#acef75',
-300: '#91EE77',
-900: '#16281F',
-950: '#0F1C15',
-},
-white: 'white',
-},
-},
-};
+  content: ['./src/**/\*.{html,js}'],
+  theme: {
+      colors: {
+        verde: {
+          200: '#acef75',
+          300: '#91EE77',
+          900: '#16281F',
+          950: '#0F1C15',
+        },
+        white: 'white',
+      },
+    },
+  };
 
 
 

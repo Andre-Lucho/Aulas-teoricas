@@ -1,0 +1,23 @@
+@apply - V4
+------------------------
+O @apply permite a adição de classes do Tailwind diretamente a seletores de CSS.
+Encapsula um conjunto de estilos para sua reutilização posterior
+(semelhante ao 'mixins' do SASS)
+
+IMPORTANTE:
+---------------
+
+** É adicionado ao arquivo 'index.css'
+** Mesma sintaxe para V3 e V4
+
+
+@layer components {
+  .btn {
+    @apply bg-lime-200 border-2 border-lime-400 text-lime-900 py-2 px-4 rounded-full hover:bg-lime-400 hover:text-lime-950;
+  }
+}
+
+codigo
+-------
+
+<button class="btn">Comprar Produto</button>
