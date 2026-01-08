@@ -1,6 +1,11 @@
 # Space
 
-### Adiciona uma margem padrão entre os elementos. Usa margin da mesma forma que o grid/flex usam o gap.
+### Adiciona uma margem padrão entre os elementos.
+
+OBS.: Usa margin da mesma forma que o grid/flex usam o 'gap'.
+
+Aceita valores negativos
+Ex. redes sociais --> curtidas com as fotos de perfil (+: border-2 border-white)
 
 ### space-y- --> margin-top/bottom
 
@@ -40,5 +45,27 @@
   </p>
 </footer>
 
+
+```
+
+# Divide
+
+### Adiciona bordas que dividem itens (sem adicionar ao início/final).
+
+Atenção, se quiser um espaço padrão entre as bordas/itens utilize junto com o padding e NÃO space/gap/margin.
+
+### divide-y- --> border-top/bottom
+
+### divide-x- --> border-right/left
+
+```
+<div class="text-stone-800">
+  <h4 class="font-serif text-xl text-stone-500 mb-4">Contato</h4>
+  <ul class="divide-y-2 divide-stone-200">
+    <li class="py-2">21 9999-9999</li>
+    <li class="py-2">contato@example.com</li>
+    <li class="py-2">Rua Ali Perto</li>
+  </ul>
+</div>
 
 ```

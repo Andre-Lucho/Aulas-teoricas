@@ -2,7 +2,15 @@
 
 /* Regras CSS  */
 @theme {
+  --breakpoint-xs: 30rem;
 }
 
-@layer components {
+@utility container {
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  display: grid;
+
+  @media (width < 30rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

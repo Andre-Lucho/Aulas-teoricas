@@ -4,6 +4,9 @@
 
 Você pode adicionar qualquer estilo que não existe com o @utility
 
+OBS.:
+-------
+Quando adicionamos novas prorpiedades a uma classe já existente, o @utility não sobreescreve sobre classes Tailwind já existentes
 
 index.css
 ----------

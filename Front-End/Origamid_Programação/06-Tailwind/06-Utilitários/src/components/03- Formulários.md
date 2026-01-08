@@ -2,7 +2,7 @@
 
 ## focus
 
-### Remover o outline e estilizar com border/ring tornará o estilo mais consistente entre os navegadores.
+### Remover o outline padrão do navegador (focus:outline-none) e estilizar com border/ring tornará o estilo mais consistente entre os navegadores.
 
 ```
 <div class="grid gap-1 mb-4">
@@ -13,6 +13,8 @@
     type="text"
     class="border-2 border-gray-300 rounded-md block p-2 focus:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-100" />
 </div>
+
+** focus:ring --> sobra ao focar
 
 ```
 
@@ -46,7 +48,7 @@
 
 ```
 <select
-  class="mb-4 border-2 rounded-md p-2 border-gray-300 focus:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-100 appearance-none pr-8 bg-[url('./img/seta.svg')] bg-no-repeat bg-[center_right_0.5rem]"
+  class="mb-4 border-2 rounded-md p-2 border-gray-300 focus:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-100 appearance-none pr-8 bg-[url('./img/seta.svg')] bg-no-repeat bg-position[center_right_0.5rem]"
   name=""
   id="">
   <option value="">Rio de Janeiro</option>

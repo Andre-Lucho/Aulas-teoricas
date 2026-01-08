@@ -84,6 +84,7 @@ Tailwind v4
 coloque o * na frente de odd/even/first/last
 class="*:odd:bg-gray-200"
 
+*:*: --> filhos dos filhos onde está sendo aplicado a propriedade
 
 */
 

@@ -82,7 +82,7 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '.5rem',
+        DEFAULT: '.5rem', (** abaixo do 'sm')
         sm: '1rem',
       },
     },

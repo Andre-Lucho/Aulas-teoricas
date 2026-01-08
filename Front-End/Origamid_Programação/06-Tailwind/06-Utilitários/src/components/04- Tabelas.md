@@ -2,9 +2,11 @@
 
 ### border-separate / collapse --> separa/colpsa as bordas dos itens da tabela
 
-### border-spacing- --> adiciona um espaço entre as bordas
+### border-spacing- --> adiciona um espaço entre as bordas;
 
 ### table-auto / fixed --> tamanho proporcional ao conteúdo ou fixo
+
+#### Por padrão o Tailwind aplica: border-collapse, table-auto
 
 ```
 <table class="border-separate border-spacing-1 w-full table-auto">
