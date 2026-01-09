@@ -22,6 +22,61 @@ export default defineConfig({
 @import 'tailwindcss';
 
 
+2) Vanilla SEM Vite
+
+v3
+---
+---
+
+1) 
+
+npm install -D tailwindcss@3
+npx tailwindcss init
+
+
+2) 
+
+tailwind.config.js
+------------------
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{html,js}'], **
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+** Tailwind irá observar todos os arqs nesses locais
+
+3) importar as biblios dentro de 'input.css'
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+4)
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+
+-i --> arquivo de entrada (onde entro com as config do Tailwind)
+-o --> arquivo de saída
+--watch --> observando modificações
+
+5) 
+
+index.html
+---------------
+<html>
+<head>
+  ...
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body></body>
+</html>
+
+
+
 
 Tailwind v3 vs v4
 -----------------------------------
