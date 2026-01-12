@@ -34,6 +34,7 @@ console.log(operacao, strings, numbers);
 
 OBS.: A partir daqui, ver os exemplos no arq = typescript-teste.js --> @ts-check detecta a duplicidade de variáveis no projeto
 
+
 @ts-check
 ---------------------------
 O VS Code já vem com o TypeScript (TS) instalado. Enquanto escrevemos JavaScript, serviços do TS rodam na sua máquina e já te oferecem funcionalidades como a sugestão de métodos/propriedades do tipo.
@@ -52,13 +53,20 @@ Type Annotations
 No momento o JavaScript não possui uma forma de indicarmos qual será o tipo de dado. 
 Não é possível prever o argumento que será passado no parâmetro de funções, para isso são necessárias as anotações de tipos.*/
 
-/* Proposta - Existe em proposta a ideia de incluir uma sintaxe parecida com a do TypeScript direto no JavaScript:
+/* 
+
+Proposta - Existe em proposta a ideia de incluir uma sintaxe parecida com a do TypeScript direto no JavaScript:
 https://github.com/tc39/proposal-type-annotations
 
 
 ** ver typescript-teste.js
 
 /*
+
+Instalaçao
+---------------------------
+---------------------------
+
 
 Script.ts e tsc
 ---------------------------

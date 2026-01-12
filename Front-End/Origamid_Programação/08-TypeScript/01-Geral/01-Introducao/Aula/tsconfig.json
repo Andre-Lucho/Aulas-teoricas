@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // tipo de Versão do JS (EcmaScript)
+    "strict": true
+  }
+}
