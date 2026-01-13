@@ -16,13 +16,15 @@ total = '300';
 
 ```
 function isNumber(value: string | number) {
-  if (typeof value === 'number') {
+  (typeof value === 'number') {
     return true;
   } else {
-    return 'Não é número';
+    return 'Não é número'; *
   }
 }
 ```
+
+#### \* Obs.: não é a melhor forma de escrever a condicional, pois no 'else' tenho também retorno 'true' (em string), perdendo a condição
 
 ## DOM
 
