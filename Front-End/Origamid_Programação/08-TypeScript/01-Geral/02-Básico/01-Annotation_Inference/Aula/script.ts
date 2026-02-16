@@ -25,10 +25,9 @@ let barato = preco < 200 ? true : 'produto caro';
 // ou
 
 let barato1: boolean | string = preco < 200 ? true : 'produto caro';
-// (fazendo a Annotation )
+// (fazendo a Annotation após barato1: ...)
 
-// OBS.: observar que a const 'barato' tem 2 opções (true | 'produto caro')
-// pois ele fez a leitura, mas não a execução
+// OBS.: observar que a const 'barato' tem 2 opções (true | 'produto caro') pois ele fez a leitura, mas não a execução
 
 /* 
 
