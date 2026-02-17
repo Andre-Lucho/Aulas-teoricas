@@ -9,6 +9,10 @@ const config = localStorage.getItem('config'); **2
 **1: Lint: button: HTMLButtonElement | null
 **2: Lint: config: string | null
 
+
+*** SEMPRE que um retorno de um objeto JS pode ser null, temos que verificar a EXISTÊNCIA dele com IF()! ***
+
+
 if (button !== null) {
   button.click(); **3
   }
@@ -32,14 +36,14 @@ se button retornar null ou undefined, o método não é executado
 
 
 
-console.log(typeof null);
+console.log(typeof null); // object
 --------------------------
-BUG do JS ---> Null é um tipo PRIMITIVO e não um objeto
+BUG do JS ---> Null é um tipo PRIMITIVO e NÃO um objeto
 
 
 ```
 
-### Importante: Sempre que um retorno de um objeto JS pode ser null, temos que verificar a existência dele IF()! (olhar acima)
+## Importante: Sempre que um retorno de um objeto JS pode ser null, temos que verificar a existência dele com IF()! (olhar acima)
 
 <br>
 
@@ -62,7 +66,7 @@ console.log(data.nome);
 
 ### Podemos definir propriedades opcionais utilizando opcional?: string.<br> Quando opcional, elas poderão sempre retornar como o valor definido ou undefined.
 
-Importante em Objetos
+### \*\* Importante em Objetos
 
 ```
 interface Product {

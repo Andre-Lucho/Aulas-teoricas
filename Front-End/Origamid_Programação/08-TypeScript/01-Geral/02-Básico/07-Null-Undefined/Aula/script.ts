@@ -32,16 +32,13 @@ const jogo: Product = {
 
 const livro: Product = {};
 
-jogo.nome.toLocaleLowerCase;
-// sinaliza o erro -- aqui pode ser undefined, por causa da interface, mas não tranca o app
+jogo.nome.toLowerCase(); // apenas SINALIZA o erro -- aqui pode ser undefined, por causa da interface, mas não tranca o app
+jogo.nome?.toLowerCase(); // correto
 
-// livro.nome.charAt;
-// // dá erro - aqui é realmente undefined; Não tenho nada dentro do objeto 'livro'
-
-// correto
-livro.nome?.charAt;
+// livro.nome.charAt; // DÁ ERRO! no runtime - aqui é realmente undefined; Não tenho nada dentro do objeto 'livro'
+livro.nome?.charAt; // correto
 
 // posso fazer uma checagem também
 
-// console.log(jogo.nome);
-// console.log(livro.nome);
+console.log(jogo.nome);
+console.log(livro.nome);

@@ -28,7 +28,7 @@ ts.config.json:
   "compilerOptions": {
     "target": "ESNext",
     "strict": true,
-    "noImplicitAny": true // já é padrão --> retornar erro em qquer any
+    "noImplicitAny": true // já é padrão no modo "strict" --> retorna erro em qquer any
   }
 }
 ```
@@ -89,7 +89,7 @@ function mostrarCursos(cursos: Curso[]) {
 
 const dados: any = 'o any gera problemas';
 
-mostrarCursos(dados);
+mostrarCursos(dados); --> estou passando uma string e a função espera uma array!
 
 
 ```
