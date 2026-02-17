@@ -1,31 +1,27 @@
 // Type
 
+// Ex. 1.
+
 type NumberOrString = string | number;
 
 let preco: NumberOrString = 200;
 preco = '200';
 
-type TypeProduto = {
+// 2. criando um type para Objetos
+type Produto = {
   nome: string;
   preco: number;
   teclado: boolean;
 };
 
-// usando interface (para objetos):
-interface InterfaceProduto {
-  nome: string;
-  preco: number;
-  teclado: boolean;
-}
-
-// criando uma variável tipo Objeto com o type 'Produto':
-const pc: TypeProduto = {
+// 3. criando uma variável do tipo Objeto com o type 'Produto':
+const pc: Produto = {
   nome: 'PC',
   preco: 5000,
   teclado: true,
 };
 
-// Object
+// 1. Object
 function preencherDados(dados: {
   nome: string;
   preco: number;
@@ -41,20 +37,8 @@ function preencherDados(dados: {
   `;
 }
 
-// Função com argumento tipo Type
-function preencherDados2(dados: TypeProduto) {
-  document.body.innerHTML += `
-  <div style="color: #58afbc; font-size: 1.4rem">
-      <h2>${dados.nome}</h2>
-      <p>R$ ${dados.preco}</p>
-      <p>Inclui teclado: ${dados.teclado ? 'Sim' : 'Não'}</p>
-  </div>
-
-  `;
-}
-
-// Função com argumento tipo Interface
-function preencherDados3(dados: InterfaceProduto) {
+// 2. Função com argumento tipo Type
+function preencherDados2(dados: Produto) {
   document.body.innerHTML += `
   <div style="color: #58afbc; font-size: 1.4rem">
       <h2>${dados.nome}</h2>
@@ -71,7 +55,10 @@ preencherDados({
   teclado: false,
 });
 
+// 3. com a variavel 'pc' --> type 'Produto'
 preencherDados2(pc);
+
+// ------
 
 type Categorias = 'design' | 'codigo' | 'descod';
 
@@ -80,3 +67,26 @@ function tipoCategoria(categoria: Categorias) {
 }
 
 tipoCategoria('codigo');
+
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+
+// 4. usando interface (para objetos):
+
+interface InterfaceProduto {
+  nome: string;
+  preco: number;
+  teclado: boolean;
+}
+
+// Função com argumento tipo Interface
+function preencherDados3(dados: InterfaceProduto) {
+  document.body.innerHTML += `
+  <div style="color: #58afbc; font-size: 1.4rem">
+      <h2>${dados.nome}</h2>
+      <p>R$ ${dados.preco}</p>
+      <p>Inclui teclado: ${dados.teclado ? 'Sim' : 'Não'}</p>
+  </div>
+
+  `;
+}

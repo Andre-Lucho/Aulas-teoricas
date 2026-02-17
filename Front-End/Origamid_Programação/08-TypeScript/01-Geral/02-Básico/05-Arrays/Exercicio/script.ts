@@ -17,7 +17,7 @@ const fetchApi = async () => {
     const data: Curso[] = await response.json();
     if (data) {
       // const apiCursos = await handleData(data);
-      showDoom(data);
+      showData(data);
     }
   } catch (error) {
     console.error('Erro ao carregar dados:', error);
@@ -31,15 +31,14 @@ const fetchApi = async () => {
 //   return cursos;
 // };
 
-const showDoom = (cursos: Curso[]) => {
+const showData = (cursos: Curso[]) => {
   const section: HTMLElement = document.createElement('section');
 
-  section.innerHTML = cursos
-    .map((curso) => {
-      let color: string;
-      curso.nivel === 'iniciante' ? (color = '#4689bf') : (color = 'red');
+  section.innerHTML += cursos.map((curso) => {
+    let color: string;
+    curso.nivel === 'iniciante' ? (color = '#4689bf') : (color = 'red');
 
-      return `
+    return `
     <div style="color: #f6f6f6">
       <h2>Curso: ${curso.nome}</h2>
       <p>Quantidade de hrs: ${curso.horas}</p>
@@ -48,8 +47,7 @@ const showDoom = (cursos: Curso[]) => {
       <p style="color:${color}">Nível: ${curso.nivel}</p>
     </div>
   `;
-    })
-    .join('');
+  });
 
   document.body.appendChild(section);
 };

@@ -16,7 +16,7 @@ total = '300';
 
 ```
 function isNumber(value: string | number) {
-  (typeof value === 'number') {
+  if(typeof value === 'number') {
     return true;
   } else {
     return 'Não é número'; *
@@ -31,11 +31,11 @@ function isNumber(value: string | number) {
 ### Funções que selecionam elementos do DOM geralmente retornam null como uma possibilidade de tipo, pois o TypeScript não tem acesso prévio ao DOM para saber se o elemento existe ou não.
 
 ```
-// Retorna HTMLButtonElement | null
-const button = document.querySelector('button');
+const button = document.querySelector('button'); // Retorna HTMLButtonElement | null
+
 // Optional chaining
-// Executa click() se button for diferente de null/undefined
-button?.click();
+
+button?.click(); // Executa click() se button for diferente de null/undefined
 ```
 
 ### Exercício

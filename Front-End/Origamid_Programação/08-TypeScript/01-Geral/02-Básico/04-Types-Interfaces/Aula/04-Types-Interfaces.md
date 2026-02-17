@@ -95,6 +95,9 @@ type TypeProduto = {
   teclado: boolean;
 };
 
+** A diferença está no uso do sinal de '='
+
+
 function preencherDados(dados: InterfaceProduto) {
   document.body.innerHTML += `
   <div>

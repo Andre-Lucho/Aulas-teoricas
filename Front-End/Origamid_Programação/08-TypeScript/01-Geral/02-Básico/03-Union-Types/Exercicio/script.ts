@@ -17,8 +17,4 @@ function toNumber(value: string | number) {
   }
 }
 
-function andar() {
-  return true;
-}
-
 // console.log(toNumber(true));

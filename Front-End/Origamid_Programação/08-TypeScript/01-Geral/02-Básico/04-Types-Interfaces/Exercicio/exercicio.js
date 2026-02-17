@@ -3,12 +3,12 @@ const apiUrl = 'https://api.origamid.dev/json/notebook.json';
 const apiFetch = async () => {
     const response = await fetch(apiUrl);
     const data = await response.json();
-    showDoom(data);
+    showData(data);
 };
 apiFetch();
-const showDoom = (data) => {
+const showData = (data) => {
     document.body.innerHTML += `
-  <section style="color: #f6f6f6">
+  <section>
 
     <h2>${data.nome}</h2>
     <p>Preço: ${data.preco}</p>

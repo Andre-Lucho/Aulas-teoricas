@@ -16,6 +16,8 @@ const condi: boolean = preco > 100; *
 
 ### typeof é um operador de JavaScript que retorna uma 'string' indicando o tipo do dado.
 
+(Funciona bem para tipos primitivos)
+
 #### Os possíveis valores retornados por typeof são: string, number, boolean, function, object, undefined, bigint e symbol.
 
 ```
@@ -39,6 +41,12 @@ if (typeof condi === 'boolean') {
 ### O typeof funciona como um type guard:
 
 #### Garante o funcionamento do código apenas se uma condição é atendida
+
+```
+if (typeof frase === 'string') {
+  frase.toLowerCase(); // só funciona se frse for realmente uma 'string'
+}
+```
 
 <br>
 

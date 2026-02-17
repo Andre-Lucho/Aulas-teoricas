@@ -6,7 +6,7 @@ const fetchApi = async () => {
         const data = await response.json();
         if (data) {
             // const apiCursos = await handleData(data);
-            showDoom(data);
+            showData(data);
         }
     }
     catch (error) {
@@ -19,10 +19,9 @@ const fetchApi = async () => {
 //   console.log(cursos);
 //   return cursos;
 // };
-const showDoom = (cursos) => {
+const showData = (cursos) => {
     const section = document.createElement('section');
-    section.innerHTML = cursos
-        .map((curso) => {
+    section.innerHTML += cursos.map((curso) => {
         let color;
         curso.nivel === 'iniciante' ? (color = '#4689bf') : (color = 'red');
         return `
@@ -34,8 +33,7 @@ const showDoom = (cursos) => {
       <p style="color:${color}">Nível: ${curso.nivel}</p>
     </div>
   `;
-    })
-        .join('');
+    });
     document.body.appendChild(section);
 };
 fetchApi();
