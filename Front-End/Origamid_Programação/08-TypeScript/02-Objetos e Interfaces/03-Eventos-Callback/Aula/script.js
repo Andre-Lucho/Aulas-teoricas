@@ -1,29 +1,43 @@
 "use strict";
-const buttons = document.querySelectorAll('.button');
-// posso passar como parâmetro as possíveis opções:  MouseEvent | KeyboardEvent
-// porém, estou restringindo - Event é a instância mais genérico == serve para todos
-// function ativar(event: Event) {
-//   if (event instanceof MouseEvent) {
-//     // console.log(event.target);
-//   }
-//   if (event instanceof KeyboardEvent) {
-//     // console.log(event.touches[0].pageX);
-//   }
-// }
-// Como é um evento de click(restrito), estou passando PointerEvent
-// This: apenas demostrando onde está a ação do botão
-function handleClick(event) {
-    const elem = event.currentTarget; // elem = EventTarget | null
-    if (elem instanceof HTMLElement)
-        console.log(elem.innerText);
+// 1
+const button01 = document.querySelector('.button01');
+// button --> Element | null --> inespecífico, não possui o evento de pointerdown'
+// recebo um lint no 'addEventListener'
+function ativar(event) {
+    // console.log(event.pageX); // não existe em Event
+    if (event instanceof PointerEvent) {
+        // console.log(event.pageX);
+    }
+    // posso usar o instanceof para verificar a instância do evento
+    // e acessar as propriedades e métodos específicos da instância
 }
-// pq HTMLButtonElement não dá erro?
-// pois as 2 instâncias possuem a prop. '.innerText'
-// document.addEventListener('mousedown', ativar);
-// document.addEventListener('keydown', ativar);
-buttons.forEach((button) => {
-    if (button instanceof HTMLButtonElement)
-        button.addEventListener('click', handleClick);
-});
-// button01?.addEventListener('click', handleClick);
-// button02?.addEventListener('click', handleClick);
+// -------------------------------------------------------------
+// 2
+// function ativarEvento(event: Event) {
+//   if (event instanceof MouseEvent) console.log(event.target);
+//   if (event instanceof KeyboardEvent) console.log(event.key);
+//   if (event instanceof TouchEvent) console.log(event.touches[0].pageX);
+// }
+// Eventos:
+// --------
+// 1
+// button01?.addEventListener('pointerdown', ativar);
+// 2
+// button01?.addEventListener('mousedown', ativarEvento);
+// window.addEventListener('touchstart', ativarEvento);
+// document.documentElement.addEventListener('keydown', ativarEvento);
+// 3 - This
+const button02 = document.querySelector('.button02');
+function handleClick(event) {
+    console.log(this);
+}
+button02?.addEventListener('click', handleClick);
+// 4 - target e currentTarget
+const button03 = document.querySelector('.button03');
+function handleClick03(event) {
+    const currentTarget = event.currentTarget;
+    if (currentTarget instanceof HTMLElement) {
+        console.log(currentTarget.innerText);
+    }
+}
+button03?.addEventListener('click', handleClick03);

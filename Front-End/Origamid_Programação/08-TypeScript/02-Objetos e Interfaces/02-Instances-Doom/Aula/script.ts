@@ -29,3 +29,13 @@ links.forEach((link) => {
     ? console.log(link.href)
     : console.log('Esse node não é um "HTMLAnchorElement"');
 });
+
+const arrayLinks = Array.from(links); // arrayLink --> Element[]: interface Array de Elements
+const anchorLinks = arrayLinks.filter(
+  (link) => link instanceof HTMLAnchorElement,
+);
+
+console.log(arrayLinks);
+console.log(anchorLinks);
+// em versões mais antigas, o TypeScript não teria como saber que 'anchorLinks' é do tipo HTMLAnchorElement[], pois ele não executa o 'filter()'
+// *** por isso, é SEMPRE devemos VERIFICAR a instância dos elementos do DOM

@@ -1,32 +1,57 @@
-const buttons = document.querySelectorAll('.button');
+// 1
 
-// posso passar como parâmetro as possíveis opções:  MouseEvent | KeyboardEvent
-// porém, estou restringindo - Event é a instância mais genérico == serve para todos
-// function ativar(event: Event) {
-//   if (event instanceof MouseEvent) {
-//     // console.log(event.target);
-//   }
-//   if (event instanceof KeyboardEvent) {
-//     // console.log(event.touches[0].pageX);
-//   }
+const button01 = document.querySelector('.button01');
+// button --> Element | null --> inespecífico, não possui o evento de pointerdown'
+// recebo um lint no 'addEventListener'
+
+function ativar(event: Event) {
+  // console.log(event.pageX); // não existe em Event
+  if (event instanceof PointerEvent) {
+    // console.log(event.pageX);
+  }
+  // posso usar o instanceof para verificar a instância do evento
+  // e acessar as propriedades e métodos específicos da instância
+}
+
+// -------------------------------------------------------------
+
+// 2
+
+// function ativarEvento(event: Event) {
+//   if (event instanceof MouseEvent) console.log(event.target);
+//   if (event instanceof KeyboardEvent) console.log(event.key);
+//   if (event instanceof TouchEvent) console.log(event.touches[0].pageX);
 // }
 
-// Como é um evento de click(restrito), estou passando PointerEvent
-// This: apenas demostrando onde está a ação do botão
-function handleClick(this: HTMLButtonElement, event: PointerEvent) {
-  const elem = event.currentTarget; // elem = EventTarget | null
-  if (elem instanceof HTMLElement) console.log(elem.innerText);
+// Eventos:
+// --------
+// 1
+// button01?.addEventListener('pointerdown', ativar);
+
+// 2
+// button01?.addEventListener('mousedown', ativarEvento);
+// window.addEventListener('touchstart', ativarEvento);
+// document.documentElement.addEventListener('keydown', ativarEvento);
+
+// 3 - This
+
+const button02 = document.querySelector('.button02');
+
+function handleClick(this: HTMLButtonElement, event: Event) {
+  console.log(this);
 }
-// pq HTMLButtonElement não dá erro?
-// pois as 2 instâncias possuem a prop. '.innerText'
 
-// document.addEventListener('mousedown', ativar);
-// document.addEventListener('keydown', ativar);
+button02?.addEventListener('click', handleClick);
 
-buttons.forEach((button) => {
-  if (button instanceof HTMLButtonElement)
-    button.addEventListener('click', handleClick);
-});
+// 4 - target e currentTarget
 
-// button01?.addEventListener('click', handleClick);
-// button02?.addEventListener('click', handleClick);
+const button03 = document.querySelector('.button03');
+
+function handleClick03(event: MouseEvent) {
+  const currentTarget = event.currentTarget;
+  if (currentTarget instanceof HTMLElement) {
+    console.log(currentTarget.innerText);
+  }
+}
+
+button03?.addEventListener('click', handleClick03);
