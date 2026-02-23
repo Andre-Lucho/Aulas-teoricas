@@ -18,15 +18,18 @@ function handleEvent(event: Callback) {
   console.log(event);
 }
 
+
 // 2. Void
 // -----------
 
-function pintarTela(cor: string): void {
+function pintarTela(cor: string) {
   document.body.style.background = cor;
 }
 // não possue retorno --> void
 
 pintarTela('black');
+
+
 
 if (pintarTela('black')) {
   console.log('Pintou a tela'); // Retorna undefined --> void não pode ser verificado, pois a function NÃO está retornando nada!!
@@ -39,6 +42,8 @@ if (btn && btn.click()) {
 }
 
 // Se a função tiver qualquer tipo de retorno, ela não terá mais o void como uma opção e sim o undefined
+
+
 function isString(value: any) {
   if (typeof value === 'string') {
     return true;
@@ -70,7 +75,7 @@ interface Quadrado {
 }
 
 function calcular(forma: Quadrado) {}
-*/
+
 
 // 5. Overload
 
@@ -100,4 +105,4 @@ function $(seletor: string): Element | null {
 
 $('a')?.href;
 $('video')?.volume;
-$('.classe')?.innerHTML;
+$('.classe')?.innerHTML; */

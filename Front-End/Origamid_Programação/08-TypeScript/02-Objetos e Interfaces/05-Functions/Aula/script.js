@@ -19,15 +19,18 @@ function handleEvent(event: Callback) {
   console.log(event);
 }
 
+
 // 2. Void
 // -----------
 
-function pintarTela(cor: string): void {
+function pintarTela(cor: string) {
   document.body.style.background = cor;
 }
 // não possue retorno --> void
 
 pintarTela('black');
+
+
 
 if (pintarTela('black')) {
   console.log('Pintou a tela'); // Retorna undefined --> void não pode ser verificado, pois a function NÃO está retornando nada!!
@@ -40,6 +43,8 @@ if (btn && btn.click()) {
 }
 
 // Se a função tiver qualquer tipo de retorno, ela não terá mais o void como uma opção e sim o undefined
+
+
 function isString(value: any) {
   if (typeof value === 'string') {
     return true;
@@ -71,21 +76,34 @@ interface Quadrado {
 }
 
 function calcular(forma: Quadrado) {}
-*/
-function normalizar(valor) {
-    if (typeof valor == 'string') {
-        return valor.trim().toLowerCase();
-    }
-    else {
-        return valor.map((item) => item.trim().toLowerCase());
-    }
+
+
+// 5. Overload
+
+function normalizar(valor: string[]): string[];
+function normalizar(valor: string): string;
+function normalizar(valor: string | string[]): string | string[] {
+  if (typeof valor == 'string') {
+    return valor.trim().toLowerCase();
+  } else {
+    return valor.map((item) => item.trim().toLowerCase());
+  }
 }
+
 console.log(normalizar(' Produto '));
 console.log(normalizar([]));
 console.log(normalizar(['Banana ', ' UVA     ']));
-function $(seletor) {
-    return document.querySelector(seletor);
+
+// // Exemplo 2
+
+function $(seletor: number): number;
+function $(seletor: 'video'): HTMLVideoElement | null;
+function $(seletor: 'a'): HTMLAnchorElement | null;
+function $(seletor: string): Element | null;
+function $(seletor: string): Element | null {
+  return document.querySelector(seletor);
 }
+
 $('a')?.href;
 $('video')?.volume;
-$('.classe')?.innerHTML;
+$('.classe')?.innerHTML; */
