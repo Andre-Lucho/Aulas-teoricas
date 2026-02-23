@@ -1,4 +1,4 @@
-const btnMbile = document.querySelector<HTMLElement>('#btn-mobile');
+const btnMbile = document.getElementById('btn-mobile');
 
 function menuMobile(event: PointerEvent) {
   const element = event.currentTarget;
@@ -24,7 +24,7 @@ querySelector --> posso buscar por: tags, classes ou id's;
 
 getElementById herda a interface de 'HTMLElement'
 
-por 'querySelector' ser + genérico, o TypeScript enbtende que a const 'btnMobile' herda o tipo mais básico: Element. 
+por 'querySelector' ser + genérico, o TypeScript entende que a const 'btnMobile' herda o tipo mais básico: Element. 
 Element não tem tem todos os métodos de interface que um 'HTMLElement' tem.
 
 */

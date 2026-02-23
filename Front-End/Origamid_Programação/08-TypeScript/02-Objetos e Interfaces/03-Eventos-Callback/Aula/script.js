@@ -11,21 +11,24 @@ function ativar(event) {
     // posso usar o instanceof para verificar a instância do evento
     // e acessar as propriedades e métodos específicos da instância
 }
-// -------------------------------------------------------------
 // 2
-// function ativarEvento(event: Event) {
-//   if (event instanceof MouseEvent) console.log(event.target);
-//   if (event instanceof KeyboardEvent) console.log(event.key);
-//   if (event instanceof TouchEvent) console.log(event.touches[0].pageX);
-// }
+function ativarEvento(event) {
+    if (event instanceof MouseEvent)
+        console.log(event.target);
+    if (event instanceof KeyboardEvent)
+        console.log(event.key);
+    if (event instanceof TouchEvent)
+        console.log(event.touches[0].pageX);
+}
 // Eventos:
 // --------
 // 1
-// button01?.addEventListener('pointerdown', ativar);
+button01?.addEventListener('pointerdown', ativar);
 // 2
-// button01?.addEventListener('mousedown', ativarEvento);
-// window.addEventListener('touchstart', ativarEvento);
-// document.documentElement.addEventListener('keydown', ativarEvento);
+button01?.addEventListener('mousedown', ativarEvento);
+window.addEventListener('touchstart', ativarEvento);
+document.documentElement.addEventListener('keydown', ativarEvento);
+// -------------------------------------------------------------
 // 3 - This
 const button02 = document.querySelector('.button02');
 function handleClick(event) {

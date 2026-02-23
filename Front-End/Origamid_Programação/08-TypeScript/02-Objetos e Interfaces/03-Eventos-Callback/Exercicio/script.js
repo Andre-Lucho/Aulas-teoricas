@@ -1,5 +1,5 @@
 "use strict";
-const btnMbile = document.querySelector('#btn-mobile');
+const btnMbile = document.getElementById('btn-mobile');
 function menuMobile(event) {
     const element = event.currentTarget;
     const nav = document.getElementById('nav');
@@ -16,3 +16,14 @@ function menuMobile(event) {
     }
 }
 btnMbile?.addEventListener('pointerdown', menuMobile);
+/* pq 'querySelector' não funciona e 'getElementById' funciona sem o Generics <HTMLElement>?
+
+getElementById --> estou buscando de forma específica por um ID;
+querySelector --> posso buscar por: tags, classes ou id's;
+
+getElementById herda a interface de 'HTMLElement'
+
+por 'querySelector' ser + genérico, o TypeScript entende que a const 'btnMobile' herda o tipo mais básico: Element.
+Element não tem tem todos os métodos de interface que um 'HTMLElement' tem.
+
+*/

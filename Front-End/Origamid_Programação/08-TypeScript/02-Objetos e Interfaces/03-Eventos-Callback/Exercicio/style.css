@@ -48,18 +48,18 @@ a:hover {
   #menu {
     display: block;
     position: absolute;
-    width: 100%;
+    width: 50%;
     top: 70px;
     right: 0px;
     background: #e7e7e7;
     transition: 0.6s;
-    z-index: 1000;
+    z-index: 2;
     height: 0px;
     visibility: hidden;
     overflow-y: hidden;
   }
   #nav.active #menu {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 200px);
     visibility: visible;
     overflow-y: auto;
   }

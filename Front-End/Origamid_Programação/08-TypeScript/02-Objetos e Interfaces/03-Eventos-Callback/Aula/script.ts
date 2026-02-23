@@ -13,25 +13,25 @@ function ativar(event: Event) {
   // e acessar as propriedades e métodos específicos da instância
 }
 
-// -------------------------------------------------------------
-
 // 2
 
-// function ativarEvento(event: Event) {
-//   if (event instanceof MouseEvent) console.log(event.target);
-//   if (event instanceof KeyboardEvent) console.log(event.key);
-//   if (event instanceof TouchEvent) console.log(event.touches[0].pageX);
-// }
+function ativarEvento(event: Event) {
+  if (event instanceof MouseEvent) console.log(event.target);
+  if (event instanceof KeyboardEvent) console.log(event.key);
+  if (event instanceof TouchEvent) console.log(event.touches[0].pageX);
+}
 
 // Eventos:
 // --------
 // 1
-// button01?.addEventListener('pointerdown', ativar);
+button01?.addEventListener('pointerdown', ativar);
 
 // 2
-// button01?.addEventListener('mousedown', ativarEvento);
-// window.addEventListener('touchstart', ativarEvento);
-// document.documentElement.addEventListener('keydown', ativarEvento);
+button01?.addEventListener('mousedown', ativarEvento);
+window.addEventListener('touchstart', ativarEvento);
+document.documentElement.addEventListener('keydown', ativarEvento);
+
+// -------------------------------------------------------------
 
 // 3 - This
 
@@ -47,7 +47,7 @@ button02?.addEventListener('click', handleClick);
 
 const button03 = document.querySelector('.button03');
 
-function handleClick03(event: MouseEvent) {
+function handleClick03(event: Event) {
   const currentTarget = event.currentTarget;
   if (currentTarget instanceof HTMLElement) {
     console.log(currentTarget.innerText);
