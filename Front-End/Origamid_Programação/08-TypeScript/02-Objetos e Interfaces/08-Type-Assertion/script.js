@@ -1,43 +1,27 @@
 "use strict";
-// const obj = {
-//   nome: 'Origamid',
-// };
-// if ('nome' in obj) {
-//   // console.log('Sim');
-// }
-// interface Produto {
-//   nome: string;
-//   preco: number;
-// }
-// const fetchProd = async (): Promise<void> => {
-//   const response = await fetch('https://api.origamid.dev/json/notebook.json');
-//   const data = await response.json();
-//   handleProduto(data);
-// };
-// const handleProduto = (data: Produto) => {
-//   if ('preco' in data) {
-//     document.body.innerHTML += `
-//       <p>Nome: ${data.nome}</p>
-//       <p>Preço: R$ ${data.preco}</p>
-//     `;
-//   }
-// };
-// fetchProd();
-// ----------------------------------------------
-function typeGuard(value) {
-    if (typeof value === 'string') {
-        return value.toLowerCase();
-    }
-    if (typeof value === 'number') {
-        return value.toFixed();
-    }
-    if (value instanceof HTMLElement) {
-        return value.innerText;
-    }
+// 1.
+async function fetchProduto() {
+    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    return response.json(); // posso indicar aqui o tipo de retorno com == 'as Promise<Produto>'
 }
-console.log(typeGuard('Origamid'));
-console.log(typeGuard(200));
-const a = document.getElementById('a');
-if (a) {
-    console.log(typeGuard(a.__proto__));
+async function handleProduto1() {
+    const produto = (await fetchProduto()); // ou posso indicar aqui produto 'as Produto'
+    console.log(produto.preco);
 }
+async function handleProduto2() {
+    const produto = await fetchProduto();
+    produto.nome; // ou posso indicar assim == não recomendado
+}
+handleProduto1();
+// 3.
+document.querySelector('a').href = 'https://www.origamid.com';
+// estou afirmando que 'document.querySelector('a')' nunca será null --> qd for, dará erro de runtime!! Cuidado
+// 4.
+const video1 = document.querySelector('.player');
+const video2 = document.querySelector('.player');
+const video3 = document.querySelector('.player'); // Há a possibilidade de ser null
+const video4 = document.querySelector('.player'); // Há a possibilidade de ser null
+video1.volume;
+video2.volume;
+video3?.volume; // somente irá executar o método se NÃO for null
+video4.volume; // tiro a possibilidade do null, pois estou afirmando o que ele é

@@ -1,51 +1,65 @@
-// const obj = {
-//   nome: 'Origamid',
-// };
+// 1.
 
-// if ('nome' in obj) {
-//   // console.log('Sim');
-// }
+/*
+const video = document.querySelector('.player') as HTMLVideoElement;
 
-// interface Produto {
-//   nome: string;
-//   preco: number;
-// }
+const video2 = document.querySelector('.player')!;
 
-// const fetchProd = async (): Promise<void> => {
-//   const response = await fetch('https://api.origamid.dev/json/notebook.json');
-//   const data = await response.json();
-//   handleProduto(data);
-// };
+video.volume *;
+video2.volume ***; 
 
-// const handleProduto = (data: Produto) => {
-//   if ('preco' in data) {
-//     document.body.innerHTML += `
-//       <p>Nome: ${data.nome}</p>
-//       <p>Preço: R$ ${data.preco}</p>
-//     `;
-//   }
-// };
+----------------------------------------
 
-// fetchProd();
+* Não tenho esse elemento no meu HTML:
+não dá erro de Lint TypeScript**, porém:
+Dá erro no runtime
+** pois estou afirmanto que video é uma instância tipo HTMLVideoElement
 
-// ----------------------------------------------
 
-function typeGuard(value: unknown) {
-  if (typeof value === 'string') {
-    return value.toLowerCase();
-  }
-  if (typeof value === 'number') {
-    return value.toFixed();
-  }
-  if (value instanceof HTMLElement) {
-    return value.innerText;
-  }
+*** estou afirmando que não é null, então será do tipo Element(nesse caso)... acima, estou afirmando o tipo específico que ele deve ser
+
+
+as --> afirma o tipo ou a instância do Elemento
+! ---> afirma que o elemento NÃO será null
+
+*/
+
+// 2.
+interface Produto {
+  nome: string;
+  preco: number;
 }
 
-console.log(typeGuard('Origamid'));
-console.log(typeGuard(200));
-
-const a = document.getElementById('a');
-if (a) {
-  console.log(typeGuard(a.__proto__));
+async function fetchProduto() {
+  const response = await fetch('https://api.origamid.dev/json/notebook.json');
+  return response.json() as Promise<Produto>; // posso indicar aqui o tipo de retorno com == 'as Promise<Produto>'
 }
+
+async function handleProduto1() {
+  const produto = (await fetchProduto()) as Produto; // ou posso indicar aqui produto 'as Produto'
+  console.log(produto.preco);
+}
+
+async function handleProduto2() {
+  const produto = await fetchProduto();
+  (produto as Produto).nome; // ou posso indicar assim == não recomendado
+}
+
+handleProduto1();
+
+// 3.
+
+document.querySelector('a')!.href = 'https://www.origamid.com';
+
+// estou afirmando que 'document.querySelector('a')' nunca será null --> qd for, dará erro de runtime!! Cuidado
+
+// 4.
+const video1 = document.querySelector('.player') as HTMLVideoElement;
+const video2 = <HTMLVideoElement>document.querySelector('.player');
+const video3 = document.querySelector<HTMLVideoElement>('.player'); // Há a possibilidade de ser null
+const video4 = document.querySelector('.player'); // Há a possibilidade de ser null
+
+video1.volume;
+video2.volume;
+video3?.volume; // somente irá executar o método se NÃO for null
+(video4 as HTMLVideoElement).volume; // tiro a possibilidade do null, pois estou afirmando o que ele é

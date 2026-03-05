@@ -82,6 +82,14 @@ pintarCategoria('codigo');
 
 A diferença será explorada em aulas mais avançadas. Por agora, vamos utilizar Type para tipos primitivos e Interface para objetos.
 
+#### IMPORTANTE:
+
+---
+
+#### A interface não é um objeto físico (um valor na memória), mas sim uma definição de forma (shape) para um objeto: É como um "contrato" - Ela diz quais propriedades um objeto deve ter e de quais tipos elas são.<br> Elas descrevem como será ou é o objeto: "objeto que estou criando deve seguir estas regras"
+
+<br>
+
 ```
 interface InterfaceProduto {
   nome: string;

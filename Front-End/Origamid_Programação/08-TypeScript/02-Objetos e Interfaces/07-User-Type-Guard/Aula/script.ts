@@ -91,7 +91,7 @@ const isCurso = (value: unknown): value is Curso => {
 
 OBS: no if() acima:
 --------------------
-1. Verifica se 'value' é true --> não é null, undefined ... mas pode ser tipo primitivo, então verifico:
+1. Verifica se 'value' é true --> certifia-se que não é null, undefined ... mas pode ser tipo primitivo, então verifico:
 2. 'typeof value === 'object'' --> verifica se o tipo de value é objeto
 3. 'nome' in value --> verifica se o objeto possui a propriedade 'nome' **
 ** aqui o TS já está considerando o value como um objeto, então posso usar o 'in'
