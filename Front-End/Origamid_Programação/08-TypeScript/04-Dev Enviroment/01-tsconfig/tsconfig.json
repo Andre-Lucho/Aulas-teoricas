@@ -1,0 +1,26 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "sourceMap": true,
+    "allowJs": true,
+    "removeComments": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist"
+  }
+  // "include": ["src"],
+  // "exclude": ["node_modules"],
+}
+
+// Modo strict:
+// "noImplicitAny": true,
+// "alwaysStrict": true,
+// "strictNullChecks": true,
+// "noImplicitThis": true,
+
+// "noEmit": false,
