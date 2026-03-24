@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@types/jquery": "^4.0.0"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.17.24"
+  }
+}

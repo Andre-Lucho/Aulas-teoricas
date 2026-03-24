@@ -1,0 +1,15 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": true,
+    "target": "ESNext",
+    "sourceMap": true,
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "outDir": "dist",
+    "isolatedModules": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}

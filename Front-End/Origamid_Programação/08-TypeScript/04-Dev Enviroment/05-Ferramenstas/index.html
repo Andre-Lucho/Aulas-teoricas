@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module</title>
+    <title>Ferramentas-externas</title>
     <style>
       body {
         background-color: #242424;
@@ -12,6 +12,9 @@
     </style>
   </head>
   <body>
-    <script type="module" src="./dist/script.js"></script>
+    <div id="app"></div>
+    <button data-clipboard-target="#texto">Copie!</button>
+    <p id="texto">Copiar esse texto aqui!</p>
+    <script type="module" src="./src/main.ts"></script>
   </body>
 </html>
