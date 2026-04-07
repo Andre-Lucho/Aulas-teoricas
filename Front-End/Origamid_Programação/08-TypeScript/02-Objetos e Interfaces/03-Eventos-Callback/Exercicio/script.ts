@@ -3,8 +3,8 @@ const btnMbile = document.getElementById('btn-mobile');
 function menuMobile(event: PointerEvent) {
   const element = event.currentTarget;
   const nav = document.getElementById('nav');
-  if (element instanceof HTMLElement && nav) {
-    const active = nav.classList.toggle('active');
+  if (element instanceof HTMLElement) {
+    const active = nav?.classList.toggle('active');
     if (active) {
       element.setAttribute('aria-expanded', 'true');
       element.setAttribute('aria-label', 'Fechar Menu');

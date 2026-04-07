@@ -43,7 +43,8 @@ links.forEach((item) => {
     ativarElemento(item);
   }
 }); */
-// refatorado:
+// Se eu quissesse o mesmo estilo, seria necessário, apenas, a instancia HTMLElement, já que HTMLAnchorElement e HTMLButtonElement herdam dela
+// Refatorado (com Utility Type - Partial):
 const links = document.querySelectorAll('.link');
 const buttonStyles = {
     padding: '.8rem 1.2rem',

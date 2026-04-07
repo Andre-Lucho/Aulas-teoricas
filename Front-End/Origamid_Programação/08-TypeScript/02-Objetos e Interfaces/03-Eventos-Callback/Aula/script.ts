@@ -1,7 +1,7 @@
 // 1
 
 const button01 = document.querySelector('.button01');
-// button --> Element | null --> inespecífico, não possui o evento de pointerdown'
+// button01 --> Element | null --> inespecífico, não possui o evento de pointerdown'
 // recebo um lint no 'addEventListener'
 
 function ativar(event: Event) {
@@ -17,8 +17,8 @@ function ativar(event: Event) {
 
 function ativarEvento(event: Event) {
   if (event instanceof MouseEvent) console.log(event.target);
-  if (event instanceof KeyboardEvent) console.log(event.key);
   if (event instanceof TouchEvent) console.log(event.touches[0].pageX);
+  if (event instanceof KeyboardEvent) console.log(event.key);
 }
 
 // Eventos:

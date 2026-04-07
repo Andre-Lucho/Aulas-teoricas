@@ -10,13 +10,12 @@ const video2 = document.querySelector('#mainVideo'); // Element
 // console.log(video2);
 // Forma + segura de se fazer referencia a elemetos do DOM com TypeScript
 // é sempre verificar sua instância:
-if (video2 instanceof HTMLVideoElement)
-    video2.after;
+// if (video2 instanceof HTMLVideoElement) video2.after;
 // -------------------------------------------
 const links = document.querySelectorAll('.link');
-console.log(links);
+// console.log(links);
 //links é uma interface de NodeListOf | do tipo Element
-console.log(links instanceof NodeList); // instância da classe NodeList === true
+// console.log(links instanceof NodeList); // instância da classe NodeList === true
 links.forEach((link) => {
     link instanceof HTMLAnchorElement
         ? console.log(link.href)
