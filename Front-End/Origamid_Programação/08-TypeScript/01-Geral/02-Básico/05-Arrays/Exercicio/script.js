@@ -1,28 +1,28 @@
 "use strict";
-const apiUrl = ' https://api.origamid.dev/json/cursos.json';
+const apiUrl = 'https://api.origamid.dev/json/cursos.json';
 const fetchApi = async () => {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
         if (data) {
-            // const apiCursos = await handleData(data);
+            // console.log(await handleData(data));
             showData(data);
         }
     }
     catch (error) {
-        console.error('Erro ao carregar dados:', error);
+        console.error('Erro ao carregar dados: ', error);
     }
 };
 // iterar sobre os cursos
-// const handleData = async (data: Curso[]) => {
-//   const cursos = data.map((curso) => curso);
-//   console.log(cursos);
-//   return cursos;
-// };
+const handleData = async (data) => {
+    const cursos = data.map((curso) => curso.tags);
+    // console.log(cursos);
+    return cursos;
+};
 const showData = (cursos) => {
     const section = document.createElement('section');
+    let color;
     section.innerHTML += cursos.map((curso) => {
-        let color;
         curso.nivel === 'iniciante' ? (color = '#4689bf') : (color = 'red');
         return `
     <div style="color: #f6f6f6">

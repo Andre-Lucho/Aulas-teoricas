@@ -1,6 +1,6 @@
-let produto: string = 'Livro';
+let produto = 'Livro';
 
-let preco: number = 200;
+let preco = 200;
 
 let novoPreco = 500;
 

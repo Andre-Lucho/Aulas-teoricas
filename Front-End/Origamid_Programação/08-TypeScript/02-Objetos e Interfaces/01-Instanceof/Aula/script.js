@@ -44,9 +44,11 @@ function buscarAutomovel(busca) {
 // automovel pode ser Carro, Onibus ou null == não foi executado
 const auto = buscarAutomovel('carro');
 // auto?.tipo
-// erro --> mesmo com o optional chaining == como auto pode ser Carro E/OU Onibus --> na class Onibus não temos a propriedade 'tipo'
+// erro --> mesmo com o optional chaining == como 'auto' pode ser Carro | Onibus | null --> na class Onibus não temos a propriedade 'tipo'
 // Devo usar o instanceof para confirmar a herança:
-//if (auto instanceof Carro) console.log(auto.tipo); // única possibilidade !!
+if (auto instanceof Carro)
+    console.log(auto.tipo); // única possibilidade !!
+// if (auto instanceof Onibus) console.log(auto.marca);
 // --------------------------------------------------------
 class Automovel2 {
     tipo;

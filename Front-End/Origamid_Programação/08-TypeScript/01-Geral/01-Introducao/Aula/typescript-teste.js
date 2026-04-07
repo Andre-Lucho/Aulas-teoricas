@@ -5,25 +5,25 @@ const empresas1 = ['Apple', 'Microsoft'];
 const body = document.body;
 const button1 = document.querySelector('button');
 
-frase.toLowerCase();
-frase.toFixed();
+frase1.toLowerCase();
+frase1.toFixed();
 
-total.toFixed();
-total.toLowerCase();
+total1.toFixed();
+total1.toLowerCase();
 
-empresas.map((empresa) => empresa.toUpperCase());
-empresas.toLowerCase();
+empresas1.map((empresa) => empresa.toUpperCase());
+empresas1.toLowerCase();
 
-body.style.backgrounds = '#000';
+body.style.background = '#000';
 body.map((item) => item);
 
-console.log(button);
-button.click();
+console.log(button1);
+button1.click();
 
 const operacao = true + 'teste' - (4 * {}) / [];
 const strings1 = 'Front ' + 'End';
 const numbers1 = 100 + 200;
-console.log(strings, numbers);
+console.log(strings1, numbers1);
 
 const produtos = [
   {

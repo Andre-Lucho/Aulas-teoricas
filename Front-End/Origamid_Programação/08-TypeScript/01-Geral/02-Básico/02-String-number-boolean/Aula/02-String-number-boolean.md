@@ -1,6 +1,6 @@
 # String, number e boolean
 
-### String, number e boolean são tipos básicos do TypeScript (primitivos).
+### String, number e boolean são tipos básicos do JS(primitivos); No TS, eles não são types propriamente ditos, pois apenas apontam o tipo de dado da constante --> são chamados superset's do TypeScript .
 
 #### Com o TypeScript podemos indicar qual será o tipo de dado de uma variável através de anotações (: string).
 

@@ -1,4 +1,4 @@
-const apiUrl: string = ' https://api.origamid.dev/json/cursos.json';
+const apiUrl: string = 'https://api.origamid.dev/json/cursos.json';
 
 interface Curso {
   nome: string;
@@ -16,26 +16,26 @@ const fetchApi = async () => {
     const response = await fetch(apiUrl);
     const data: Curso[] = await response.json();
     if (data) {
-      // const apiCursos = await handleData(data);
+      // console.log(await handleData(data));
       showData(data);
     }
   } catch (error) {
-    console.error('Erro ao carregar dados:', error);
+    console.error('Erro ao carregar dados: ', error);
   }
 };
 
 // iterar sobre os cursos
-// const handleData = async (data: Curso[]) => {
-//   const cursos = data.map((curso) => curso);
-//   console.log(cursos);
-//   return cursos;
-// };
+const handleData = async (data: Curso[]) => {
+  const cursos = data.map((curso) => curso.tags);
+  // console.log(cursos);
+  return cursos;
+};
 
 const showData = (cursos: Curso[]) => {
-  const section: HTMLElement = document.createElement('section');
+  const section = document.createElement('section');
 
+  let color: string;
   section.innerHTML += cursos.map((curso) => {
-    let color: string;
     curso.nivel === 'iniciante' ? (color = '#4689bf') : (color = 'red');
 
     return `

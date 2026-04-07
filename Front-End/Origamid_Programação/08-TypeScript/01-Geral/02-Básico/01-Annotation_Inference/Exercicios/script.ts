@@ -43,7 +43,7 @@ const total = localStorage.getItem('total');
 
 if (input && total) {
   input.value = total;
-  calcularGanho(Number(total));
+  calcularGanho(Number(input.value));
 }
 // faço a verificação pois 'input' e 'total' podem ser null --> quebrariam o site
 

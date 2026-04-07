@@ -10,7 +10,7 @@ const config = localStorage.getItem('config'); **2
 **2: Lint: config: string | null
 
 
-*** SEMPRE que um retorno de um objeto JS pode ser null, temos que verificar a EXISTÊNCIA dele com IF()! ***
+*** SEMPRE que um retorno de um objeto JS PUDER SER 'null', TEMOS que verificar a EXISTÊNCIA dele com IF()! ***
 
 
 if (button !== null) {
@@ -40,10 +40,9 @@ console.log(typeof null); // object
 --------------------------
 BUG do JS ---> Null é um tipo PRIMITIVO e NÃO um objeto
 
-
 ```
 
-## Importante: Sempre que um retorno de um objeto JS pode ser null, temos que verificar a existência dele com IF()! (olhar acima)
+## Importante: Sempre que um retorno de um objeto JS PUDER SER null, TEMOS que verificar a existência dele com IF()! (olhar acima)
 
 <br>
 
