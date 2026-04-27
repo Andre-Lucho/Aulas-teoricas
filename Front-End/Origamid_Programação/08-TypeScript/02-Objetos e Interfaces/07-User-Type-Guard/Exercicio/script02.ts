@@ -22,7 +22,7 @@ const fetchApi02 = async () => {
   handleCursos(data);
 };
 
-function isCurso(curso: unknown): curso is Curso {
+function isCurso02(curso: unknown): curso is Curso {
   if (
     curso &&
     typeof curso === 'object' &&
@@ -36,9 +36,9 @@ function isCurso(curso: unknown): curso is Curso {
   }
 }
 
-function handleCursos(data: unknown) {
+function handleCursos02(data: unknown) {
   if (div02 && Array.isArray(data)) {
-    data.filter(isCurso).forEach((item) => {
+    data.filter(isCurso02).forEach((item) => {
       div02.innerHTML += `
       <h2>${item.nome}</h2>
       <p>Aulas: ${item.aulas}</p>

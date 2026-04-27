@@ -16,34 +16,41 @@ interface Curso {
   idAulas: number[];
 }
 
-const fetchApi01 = async () => {
-  const response = await fetch(url);
-  const data: Array<Curso> = await response.json();
-  if (div && handleType(data)) {
-    div.innerHTML = data
+function handleCurso(data: unknown) {
+  if (div && Array.isArray(data)) {
+    data
+      .filter((curso) => handleType(curso))
       .map(
         (curso) =>
-          `
-      <h2>${curso.nome}</h2>
-      <p>Aulas: ${curso.aulas}</p>
-      <p>Horas: ${curso.horas}</p>
-      <p>Nível: ${curso.nivel}</p>
-      <p>Tags: ${curso.tags.join(', ')}</p>
-      <p>ID Aulas: ${curso.idAulas.join(', ')}</p>
-      `,
-      )
-      .join('');
+          (div.innerHTML += `<h2>${curso.nome}</h2>
+            <p>Aulas: ${curso.aulas}</p>
+            <p>Horas: ${curso.horas}</p>
+            <p>Nível: ${curso.nivel}</p>
+            <p>Tags: ${curso.tags.join(', ')}</p>
+            <p>ID Aulas: ${curso.idAulas.join(', ')}</p>`),
+      );
   }
+}
+
+const fetchApi01 = async () => {
+  const response = await fetch(url);
+  const data: Curso[] = await response.json();
+  // console.log(data);
+  handleCurso(data);
 };
 
 const handleType = (data: unknown): data is Curso => {
-  return (
-    Array.isArray(data) &&
-    data.length > 0 &&
-    'nome' in data[0] &&
-    'horas' in data[0] &&
-    'tags' in data[0]
-  );
+  if (
+    data &&
+    typeof data === 'object' &&
+    'nome' in data &&
+    'horas' in data &&
+    'tags' in data
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* 

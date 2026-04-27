@@ -11,7 +11,7 @@ const fetchApi02 = async () => {
     const data = await response.json();
     handleCursos(data);
 };
-function isCurso(curso) {
+function isCurso02(curso) {
     if (curso &&
         typeof curso === 'object' &&
         'nome' in curso &&
@@ -23,9 +23,9 @@ function isCurso(curso) {
         return false;
     }
 }
-function handleCursos(data) {
+function handleCursos02(data) {
     if (div02 && Array.isArray(data)) {
-        data.filter(isCurso).forEach((item) => {
+        data.filter(isCurso02).forEach((item) => {
             div02.innerHTML += `
       <h2>${item.nome}</h2>
       <p>Aulas: ${item.aulas}</p>

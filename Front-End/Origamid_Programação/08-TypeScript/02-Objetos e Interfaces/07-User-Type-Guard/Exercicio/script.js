@@ -6,28 +6,35 @@
 // 5 - Preencha os dados da API na tela.
 const url = 'https://api.origamid.dev/json/cursos.json';
 const div = document.querySelector('.div');
+function handleCurso(data) {
+    if (div && Array.isArray(data)) {
+        data
+            .filter((curso) => handleType(curso))
+            .map((curso) => (div.innerHTML += `<h2>${curso.nome}</h2>
+            <p>Aulas: ${curso.aulas}</p>
+            <p>Horas: ${curso.horas}</p>
+            <p>Nível: ${curso.nivel}</p>
+            <p>Tags: ${curso.tags.join(', ')}</p>
+            <p>ID Aulas: ${curso.idAulas.join(', ')}</p>`));
+    }
+}
 const fetchApi01 = async () => {
     const response = await fetch(url);
     const data = await response.json();
-    if (div && handleType(data)) {
-        div.innerHTML = data
-            .map((curso) => `
-      <h2>${curso.nome}</h2>
-      <p>Aulas: ${curso.aulas}</p>
-      <p>Horas: ${curso.horas}</p>
-      <p>Nível: ${curso.nivel}</p>
-      <p>Tags: ${curso.tags.join(', ')}</p>
-      <p>ID Aulas: ${curso.idAulas.join(', ')}</p>
-      `)
-            .join('');
-    }
+    // console.log(data);
+    handleCurso(data);
 };
 const handleType = (data) => {
-    return (Array.isArray(data) &&
-        data.length > 0 &&
-        'nome' in data[0] &&
-        'horas' in data[0] &&
-        'tags' in data[0]);
+    if (data &&
+        typeof data === 'object' &&
+        'nome' in data &&
+        'horas' in data &&
+        'tags' in data) {
+        return true;
+    }
+    else {
+        return false;
+    }
 };
 /*
 1. Aqui, handleType retorna 'true' se Curso for encontrado. Caso contrário, retorna 'false'.

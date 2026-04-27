@@ -37,9 +37,9 @@ if (pintarTela('black')) {
 
 const btn = document.querySelector('button');
 
-// Erro, void não pode ser verificado --> não há retorno na função 'click' apenas um evento do DOM aplicado diretamente ao elemento.
 if (btn && btn.click()) {
-}
+  }
+  // Erro, void não pode ser verificado --> não há retorno na função 'click' apenas um evento do DOM aplicado diretamente ao elemento.
 
 // Se a função tiver qualquer tipo de retorno, ela não terá mais o void como uma opção e sim o undefined
 
