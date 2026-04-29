@@ -15,7 +15,6 @@ interface UserData {
   email?: string;
   cpf?: string;
 }
-//*
 
 interface Window {
   // UserData: UserData;
@@ -60,7 +59,7 @@ const handleLocalStorage = () => {
       });
     }
   }
-}; // **
+};
 
 handleLocalStorage();
 

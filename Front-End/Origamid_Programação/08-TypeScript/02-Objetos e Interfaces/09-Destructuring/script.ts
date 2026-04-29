@@ -70,8 +70,8 @@ REST
 -------------------- */
 
 function comparar(tipo: 'menor' | 'maior', ...numeros: number[]) {
-  //console.log(numeros); retorna uma array com os dados do 'rest'
-  if (tipo === 'menor') return Math.min(...numeros);
+  //console.log(numeros); retorna uma array com os dados dos demais argumentos recebidos por comparar() = rest
+  if (tipo === 'menor') return Math.min(...numeros); // = spread - espalhando os dados de 'rest'
   if (tipo === 'maior') return Math.max(...numeros);
 }
 

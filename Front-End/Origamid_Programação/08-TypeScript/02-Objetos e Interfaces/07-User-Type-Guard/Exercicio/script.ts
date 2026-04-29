@@ -34,6 +34,7 @@ function handleCurso(data: unknown) {
 
 const fetchApi01 = async () => {
   const response = await fetch(url);
+  // const data = await response.json() as Curso;
   const data: Curso[] = await response.json();
   // console.log(data);
   handleCurso(data);
