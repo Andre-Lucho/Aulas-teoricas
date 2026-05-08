@@ -1,20 +1,20 @@
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "sourceMap": true,
-    "allowJs": true,
-    "removeComments": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "dist"
-  }
-  // "include": ["src"],
-  // "exclude": ["node_modules"],
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "sourceMap": true,
+        "allowJs": true,
+        "removeComments": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "dist"
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
 }
 
 // Modo strict:
@@ -24,3 +24,7 @@
 // "noImplicitThis": true,
 
 // "noEmit": false,
+
+// noEmitOnError --> Não gere arquivos de saída do compilador, como código-fonte JavaScript, mapas de origem ou declarações, caso algum erro tenha sido relatado.
+// Por padrão false, isso facilita o trabalho com TypeScript em um ambiente de observação, onde você pode querer ver os resultados das alterações no seu código em outro ambiente antes de garantir que todos os erros sejam resolvidos.
+// Semelhante ao comportamento do Java --> sem erros p ser compilado

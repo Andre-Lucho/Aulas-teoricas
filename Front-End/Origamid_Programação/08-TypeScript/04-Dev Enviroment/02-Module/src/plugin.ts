@@ -1,4 +1,4 @@
-import { URL_BASE } from './global';
+import { URL_BASE } from './global.js';
 
 function plugin(seletor: string) {
   console.log(`Criar slide ${seletor}`);
@@ -7,3 +7,4 @@ function plugin(seletor: string) {
 export default plugin;
 
 console.log(URL_BASE);
+
