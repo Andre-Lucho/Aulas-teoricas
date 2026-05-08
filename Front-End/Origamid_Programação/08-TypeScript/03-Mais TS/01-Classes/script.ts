@@ -10,6 +10,7 @@ class Produto {
 }
 
 const livro = new Produto('O Senhor dos Anéis');
+console.log(document.constructor);
 
 /*
 

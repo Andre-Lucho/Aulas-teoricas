@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 class Produto {
     //*
     tipo = 'produto';
@@ -10,6 +10,8 @@ class Produto {
     }
 }
 const livro = new Produto('O Senhor dos Anéis');
+console.log(document.constructor);
+
 /*
 
 1.*) TS - no corpo da classe, definimos o tipo de cada propriedade

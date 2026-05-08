@@ -32,7 +32,7 @@ preco.toFixed();
 
 4.
 
-as const 
+as const --> usado em retorno de funções
 ----------
 
 */
@@ -67,7 +67,7 @@ b)  usando as const:
 
 */
 
-function getText2(selector: string) {
+function getText2(selector: string) { // retira o retorno
   const elem = document.querySelector<HTMLElement>(selector);
   return elem ? ([elem, elem.innerText] as const) : null;
 }

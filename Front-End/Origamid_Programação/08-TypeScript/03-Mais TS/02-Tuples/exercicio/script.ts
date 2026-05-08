@@ -2,14 +2,15 @@
 // 2 - Defina o tipo/interface de cada venda (tuple)
 // 3 - Some o total das vendas e mostre na tela
 
-type Modelo = {
+interface Modelo {
   marca: string;
   cor: string;
 };
 
 type Venda = [string, number, string, Modelo];
 
-const totalVendas = (data: Venda[]) => {
+const totalVendas = (data: Venda[]) => {// pq Venda[] -- Venda j é um array? --> api retorna array de arrays === [[]]!
+  // data[0][1]--> 'number'....
   const div = document.querySelector('.div');
   const total = data.reduce((acc, venda) => acc + venda[1], 0);
   // lembrar que o reduce esta percorrendo 'data' ===> [Venda] ---> na posição 1 está o preço

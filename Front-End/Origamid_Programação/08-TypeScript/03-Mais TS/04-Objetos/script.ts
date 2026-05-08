@@ -1,28 +1,28 @@
-// 1 - Duck Typing
-interface Produto {
-  nome: string;
-  quantidade: number;
-}
+// // 1 - Duck Typing
+// interface Produto {
+//   nome: string;
+//   quantidade: number;
+// }
 
-const produto1 = {
-  nome: 'Notebook',
-  quantidade: 10,
-  cor: 'azul',
-};
+// const produto1 = {
+//   nome: 'Notebook',
+//   quantidade: 10,
+//   cor: 'azul',
+// };
 
-const produto2 = {
-  nome: 'Geladeira',
-  quantidade: 4,
-  freezer: true,
-};
+// const produto2 = {
+//   nome: 'Geladeira',
+//   quantidade: 4,
+//   freezer: true,
+// };
 
-const servico1 = {
-  nome: 'Instalação',
-};
+// const servico1 = {
+//   nome: 'Instalação',
+// };
 
-function mostrarQuantidade(produto: Produto) {
-  console.log(produto);
-}
+// function mostrarQuantidade(produto: Produto) {
+//   console.log(produto);
+// }
 
 // mostrarQuantidade(servico1);
 
@@ -49,9 +49,14 @@ const artigo: Post = {
 
 // artigo.autor --> unknown ---> TS não sabe que existe essa propriedade, por isso não aparece no autocomplete
 
-/* Problema:
----------
-artigo.vendas --> Essa prop não existe e o TS não aponta erro --> aponta como unknown - fazer Type Guard*/
+//Problema:
+//---------
+
+// artigo.autor
+if (artigo.autor === "string") {
+  console.log(artigo.autor.toLocaleLowerCase());
+}
+//-> Essa prop não existe e o TS não aponta erro --> aponta como unknown - fazer Type Guard
 
 // 3- Record
 
@@ -76,3 +81,4 @@ function mostrarTitulo(obj: ObjetoLiteral2) {
 mostrarTitulo({
   titulo: 'André',
 });
+

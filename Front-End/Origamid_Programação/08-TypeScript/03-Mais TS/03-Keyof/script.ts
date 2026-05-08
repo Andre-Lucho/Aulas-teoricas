@@ -1,18 +1,32 @@
+/* 01.a) keyof
+---------------------*/
+
 interface Produto {
   nome: string;
   preco: number;
   novo: boolean;
 }
 
-let chave1: 'nome' | 'preco' | 'novo'; // possíveis valores recebidos por 'chave'
+// let chave1: 'nome' | 'preco' | 'novo'; // possíveis valores recebidos por 'chave'
 
-let chave: keyof Produto; // chaves da interface 'Produto' --> são strings
+let chave: keyof Produto;
+// chaves da interface 'Produto' -- pode receber 'nome'ou 'preco' ou 'novo'
+// so não preciso estar passando todas as propriedades possíveis... apenas digito keyof
+
+
+
+/* 01. b) typeof do TypeScript:
+-------------------------------- */
+
 
 function coordenadas(x: number, y: number) {
   return { x, y };
 }
 
 let coord: typeof coordenadas;
+
+// coord = 'alguma coisa' // erro --> pois deve ter o mesmo typeof da func coordenadas
+
 coord = (x: number, y: number) => {
   return { x, y };
 };
@@ -21,8 +35,11 @@ coord = (x: number, y: number) => {
 
 /*
 
-02. querySelector
--------------------- */
+02. keyof ---> DOM : querySelector
+-------------------- 
+a)
+
+*/
 
 interface Elementos {
   a: HTMLAnchorElement;
@@ -37,6 +54,7 @@ interface Elementos {
 // let chaves: keyof Elementos;
 
 // chaves = '';
+// pode ser apenas(especificamente) as propriedade da interface Elementos
 
 function selection(selector: 'a'): Elementos['a'] | null {
   return document.querySelector(selector);
@@ -48,7 +66,7 @@ selection('a')?.href; // retornando tipo = HTMLAnchorElement | null
 
 /*
 
-02. a) Criando um type Generic
+02. B) Criando um type Generic -- exatamente o funcionamento (por baixo dos panos) do TS - relação tipos e interfaces(querySelector)
 ------------------------------- */
 
 function selection1<Chave extends keyof Elementos>(
@@ -64,6 +82,8 @@ selection1('input')?.name;
 03. checkInterface 
 ------------------------------- */
 
+
+// Atenção - fetch para Interfaces diferentes
 interface Jogo {
   nome: string;
   ano: number;
@@ -97,13 +117,13 @@ async function fetchData<T>(url: string): Promise<T> {
 }
 
 async function handleData() {
-  // const jogo = await fetchData<Jogo></Jogo>('/jogo.json');
+  // const jogo = await fetchData<Jogo>('/jogo.json');
   const jogo1 = await fetchData('/jogo.json');
-  // const livro = await fetchData<Livro>('/livro.json');
-  const livro1 = await fetchData('/livro.json');
   if (checkInterface<Jogo>(jogo1, 'desenvolvedora')) {
     console.log(jogo1.desenvolvedora.toLowerCase());
   }
+  // const livro = await fetchData<Livro>('/livro.json');
+  const livro1 = await fetchData('/livro.json');
   if (checkInterface<Livro>(livro1, 'paginas')) {
     console.log(livro1.paginas.toFixed());
   }
