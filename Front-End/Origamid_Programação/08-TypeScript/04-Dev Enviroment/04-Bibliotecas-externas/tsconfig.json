@@ -1,16 +1,22 @@
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "strict": true,
-    "allowJs": true,
-    "target": "ESNext",
-    "sourceMap": true,
-    "removeComments": true,
-    "noImplicitReturns": true,
-    "outDir": "dist",
-    // "esModuleInterop": true,
-    "isolatedModules": true
-  },
-  "exclude": ["node_modules"],
-  "include": ["src"]
+    "compileOnSave": true,
+    "compilerOptions": {
+        "types": ["jquery", "lodash"], // incluindo os types de jQuery e Lodash
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "sourceMap": true,
+        "allowJs": true,
+        "removeComments": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "dist",
+        "rootDir": "src",
+        "isolatedModules": true
+        // "esModuleInterop": true,
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
 }

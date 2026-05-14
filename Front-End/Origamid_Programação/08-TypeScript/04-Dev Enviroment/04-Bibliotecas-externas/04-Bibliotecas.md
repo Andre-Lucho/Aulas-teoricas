@@ -4,7 +4,7 @@
 
 #### Para isso, milhares de projetos fornecem para instalação os seus arquivos .d.ts, com isso o TS passa a reconhecer a interface da mesma.
 
-```
+```html
 <!-- index.html -->
 <iframe id="vimeo" src="https://player.vimeo.com/video/76979871?h=8272103f6e" width="640" height="360" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
 
@@ -12,7 +12,13 @@
 <script src="./plugins/jquery-3.6.1.min.js"></script>
 <script src="./plugins/lodash.min.js"></script>
 <script type="module" src="./dist/script.js"></script>
+
+
+
+
 ```
+
+IMPORTANTE: Carregar os scripts para os plugins **ANTES** do script.js
 
 ```
 // terminal
@@ -20,7 +26,22 @@ npm install --save-dev @types/jquery
 npm install --save-dev @types/lodash
 ```
 
+### Importante: 
+
+#### Definir a opção "types" no tsconfig.json, incluindo os types intalados, para que o TS possa localizar as interfaces e tipos dessas bibliotecas
+
+```json
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "types": ["jquery", "lodash"], // incluindo os types de jQuery e Lodash
+        ...
+}
+
+
 ```
+
+```typescript
 // script.ts
 const body = $('body');
 body.addClass('ativo');

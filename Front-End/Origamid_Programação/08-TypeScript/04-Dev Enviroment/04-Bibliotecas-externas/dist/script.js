@@ -1,6 +1,6 @@
 "use strict";
 const body = $('body');
-console.log(body.addClass('teste'));
+console.log(body.addClass('active'));
 console.log(_.difference([1, 2, 3], [2, 3]));
 const iframe = document.getElementById('vimeo');
 const player = new Vimeo.Player(iframe);
